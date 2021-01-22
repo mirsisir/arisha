@@ -70,24 +70,24 @@
                             <li>
                                 <i class="fa fa-map-marker"></i>
                                 <p>
-                                    {{ __('13005 Greenvile Avenue') }}
+                                    {{ __('Pastor-Niemöller-Platz') }}
 
 
-                                    <span> California, TX 70240</span>
+                                    <span>  2 / HH, 13156 Berlin.</span>
                                 </p>
                             </li>
                             <li>
                                 <i class="fa fa-phone"></i>
                                 <p>
                                     Call Us
-                                    <span> +56 (0) 012 345 6789</span>
+                                    <span> +49 160 92 36 16 37</span>
                                 </p>
                             </li>
                             <li>
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                 <p>
                                     Mail Us
-                                    <span> <a href="mailto:info@gmail.com">info@gmail.com</a> </span>
+                                    <span> <a href="mailto:info@gmail.com">arishaservice@gmail.com</a> </span>
                                 </p>
                             </li>
                         </ul>
@@ -110,15 +110,16 @@
                             <a class="m-0 p-1" href="{{route('page.homepage',app()->getLocale())}}">{{__('Erste Seite')}}</a>
                         </li>
 
-                        <li>
-                            <a href="{{route('contact_us',app()->getLocale())}}">{{__('Contact')}}</a>
-                        </li>
 
                         <li>
-                            <a href="/contact_us">Contact</a>
+                            <a href="{{route('partner_registration',app()->getLocale())}}">Partner Registration</a>
                         </li>
                         <li>
                             <a href="{{route('services_request',app()->getLocale())}}">{{__('Service-Anfrage')}}</a>
+                        </li>
+
+                        <li>
+                            <a href="{{route('contact_us',app()->getLocale())}}">{{__('Login')}}</a>
                         </li>
 
 {{--                        <ul class="nav navbar-nav mobile-menu  float-right">--}}
@@ -163,8 +164,9 @@
 </header>
 
 <!-- END HEADER -->
-@yield('content')
-{{ $slot ?? '' }}
+            @yield('content')
+
+            {{ $slot ?? '' }}
 
 <!-- Blog_End -->
 <footer class="footer pt-50">
@@ -207,10 +209,10 @@
                         <a href="#">Project</a>
                     </li>
                     <li>
-                        <a href="/terms_of_services">Terms of Services</a>
+                        <a href="{{route('page.terms', app()->getLocale())}}">Terms of Services</a>
                     </li>
                     <li>
-                        <a href="#">Contact us</a>
+                        <a href="{{route('partner_registration',app()->getLocale())}}">Partner Registration</a>
                     </li>
                 </ul>
             </div>

@@ -35,7 +35,8 @@
                     <label>Search:</label>
                     <input wire:model.debounce.1000ms="search" class="border px-2 py-1 border-primary mb-1">
                 </div> --}}
-                <table id="table" class="table table-bordered">
+                <table id="table" class="table table-bordered table-responsive " style="width:100%">
+
                     <thead style="background-color: indigo; color: white;">
                         <tr>
                             <th> # </th>
@@ -56,8 +57,8 @@
                                     {{ $employee->fname }} {{ $employee->lname }}
                                 </td>
                                 <td>{{ $employee->emp_id }}</td>
-                                <td>{{ $employee->department->department }} </td>
-                                <td>{{ $employee->designation->name }} </td>
+                                <td>{{ $employee->department->department?? "" }} </td>
+                                <td>{{ $employee->designation->name ?? ""}} </td>
                                 <td>{{ $employee->mobile }} </td>
                                 <td class="text-center">
                                     <a href="/employees/{{ $employee->id }}" class="btn btn-primary btn-sm">

@@ -15,7 +15,7 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('client_id')->nullable();
 
             // Personal Details
@@ -56,6 +56,8 @@ class CreateEmployeesTable extends Migration
             $table->string('contact_paper')->nullable();
             $table->string('id_proff')->nullable();
             $table->string('other')->nullable();
+
+            $table->boolean('active_employee')->default('0');
 
 
 //            $table->timestamps();

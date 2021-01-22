@@ -21,16 +21,15 @@ class Index extends Component
         $this->resetPage();
     }
     public function mount(){
-        $this->all_department = Department::all()->where('client_id', auth()->user()->client_id);
+        $this->all_department = Department::all();
 
-        $this->employees = Employee::where('client_id', auth()->user()->client_id)->get();
+        $this->employees = Employee::where('active_employee',1)->get();
 
     }
 
      function updated(){
 
-         $this->employees = Employee::all()->where('client_id', auth()->user()->client_id)
-                                            ->where('department_id',$this->department);
+         $this->employees = Employee::all()->where('department_id',$this->department);
 
      }
 

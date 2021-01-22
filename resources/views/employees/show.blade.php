@@ -1,4 +1,4 @@
-@extends('layouts.app-hrm')
+@extends('layouts.admin.base')
 
 @section('title', 'Employee Details')
 

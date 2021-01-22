@@ -419,120 +419,120 @@
         <nav class="sidebar sidebar-offcanvas dynamic-active-class-disabled" id="sidebar">
             <ul class="nav">
                 <li class="nav-item nav-category">Main Features</li>
-                <li class="nav-item ">
-                    <a class="nav-link" data-toggle="collapse" href="#client" aria-expanded="false"
-                       aria-controls="client">
-                        <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
-                        <span class="menu-title">Client</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="collapse " id="client">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="{{ route('client.settings') }}">Client List</a>
-                            </li>
+{{--                <li class="nav-item ">--}}
+{{--                    <a class="nav-link" data-toggle="collapse" href="#client" aria-expanded="false"--}}
+{{--                       aria-controls="client">--}}
+{{--                        <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>--}}
+{{--                        <span class="menu-title">Client</span>--}}
+{{--                        <i class="menu-arrow"></i>--}}
+{{--                    </a>--}}
+{{--                    <div class="collapse " id="client">--}}
+{{--                        <ul class="nav flex-column sub-menu">--}}
+{{--                            <li class="nav-item ">--}}
+{{--                                <a class="nav-link" href="{{ route('client.settings') }}">Client List</a>--}}
+{{--                            </li>--}}
 
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" data-toggle="collapse" href="#employee" aria-expanded="false"
-                       aria-controls="employee">
-                        <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
-                        <span class="menu-title">Allocations</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="collapse " id="employee">
-                        <ul class="nav flex-column sub-menu">
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item ">--}}
+{{--                    <a class="nav-link" data-toggle="collapse" href="#employee" aria-expanded="false"--}}
+{{--                       aria-controls="employee">--}}
+{{--                        <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>--}}
+{{--                        <span class="menu-title">Allocations</span>--}}
+{{--                        <i class="menu-arrow"></i>--}}
+{{--                    </a>--}}
+{{--                    <div class="collapse " id="employee">--}}
+{{--                        <ul class="nav flex-column sub-menu">--}}
 {{--                            <li class="nav-item ">--}}
 {{--                                <a class="nav-link" href="{{ route('designation') }}">Designation List</a>--}}
 {{--                            </li>--}}
 {{--                            <li class="nav-item ">--}}
 {{--                                <a class="nav-link" href="{{ route('employee.settings') }}">Employee List</a>--}}
 {{--                            </li>--}}
-                            <li class="nav-item ">
-                                <a class="nav-link" href="{{ route('employee.allotments') }}">Employee
-                                    Allocations</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="{{ route('product.allotments') }}">Product Allocation</a>
-                            </li>
+{{--                            <li class="nav-item ">--}}
+{{--                                <a class="nav-link" href="{{ route('employee.allotments') }}">Employee--}}
+{{--                                    Allocations</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item ">--}}
+{{--                                <a class="nav-link" href="{{ route('product.allotments') }}">Product Allocation</a>--}}
+{{--                            </li>--}}
 
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" data-toggle="collapse" href="#supplier" aria-expanded="false"
-                       aria-controls="supplier">
-                        <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
-                        <span class="menu-title">Supplier</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="collapse " id="supplier">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="{{ route('supplier.settings') }}">Supplier List</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" data-toggle="collapse" href="#product" aria-expanded="false"
-                       aria-controls="uniform">
-                        <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
-                        <span class="menu-title">Product</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="collapse " id="product">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="{{ route('brand') }}">Brand List</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="{{ route('product.settings') }}">Product List</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="{{ route('product.allotments') }}">Product Allocation</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="{{ route('product.return') }}">Product Return</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="{{ route('product_return_report_date') }}">Product Return Report</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="{{ route('product.destroy') }}">Product Destroy</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="{{ route('product_destroy_report_date') }}">Product Destroy Report</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" data-toggle="collapse" href="#purchase" aria-expanded="false"
-                       aria-controls="purchase">
-                        <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
-                        <span class="menu-title">Purchase</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="collapse " id="purchase">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="{{ route('purchase') }}">Purchase Product</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="{{ route('purchase_report_date') }}">Purchase Report</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="{{ route('purchase.return') }}">Purchase Return</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="{{ route('purchase_return_report_date') }}">Purchase Return Report</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item ">--}}
+{{--                    <a class="nav-link" data-toggle="collapse" href="#supplier" aria-expanded="false"--}}
+{{--                       aria-controls="supplier">--}}
+{{--                        <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>--}}
+{{--                        <span class="menu-title">Supplier</span>--}}
+{{--                        <i class="menu-arrow"></i>--}}
+{{--                    </a>--}}
+{{--                    <div class="collapse " id="supplier">--}}
+{{--                        <ul class="nav flex-column sub-menu">--}}
+{{--                            <li class="nav-item ">--}}
+{{--                                <a class="nav-link" href="{{ route('supplier.settings') }}">Supplier List</a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item ">--}}
+{{--                    <a class="nav-link" data-toggle="collapse" href="#product" aria-expanded="false"--}}
+{{--                       aria-controls="uniform">--}}
+{{--                        <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>--}}
+{{--                        <span class="menu-title">Product</span>--}}
+{{--                        <i class="menu-arrow"></i>--}}
+{{--                    </a>--}}
+{{--                    <div class="collapse " id="product">--}}
+{{--                        <ul class="nav flex-column sub-menu">--}}
+{{--                            <li class="nav-item ">--}}
+{{--                                <a class="nav-link" href="{{ route('brand') }}">Brand List</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item ">--}}
+{{--                                <a class="nav-link" href="{{ route('product.settings') }}">Product List</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item ">--}}
+{{--                                <a class="nav-link" href="{{ route('product.allotments') }}">Product Allocation</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item ">--}}
+{{--                                <a class="nav-link" href="{{ route('product.return') }}">Product Return</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item ">--}}
+{{--                                <a class="nav-link" href="{{ route('product_return_report_date') }}">Product Return Report</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item ">--}}
+{{--                                <a class="nav-link" href="{{ route('product.destroy') }}">Product Destroy</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item ">--}}
+{{--                                <a class="nav-link" href="{{ route('product_destroy_report_date') }}">Product Destroy Report</a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item ">--}}
+{{--                    <a class="nav-link" data-toggle="collapse" href="#purchase" aria-expanded="false"--}}
+{{--                       aria-controls="purchase">--}}
+{{--                        <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>--}}
+{{--                        <span class="menu-title">Purchase</span>--}}
+{{--                        <i class="menu-arrow"></i>--}}
+{{--                    </a>--}}
+{{--                    <div class="collapse " id="purchase">--}}
+{{--                        <ul class="nav flex-column sub-menu">--}}
+{{--                            <li class="nav-item ">--}}
+{{--                                <a class="nav-link" href="{{ route('purchase') }}">Purchase Product</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item ">--}}
+{{--                                <a class="nav-link" href="{{ route('purchase_report_date') }}">Purchase Report</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item ">--}}
+{{--                                <a class="nav-link" href="{{ route('purchase.return') }}">Purchase Return</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item ">--}}
+{{--                                <a class="nav-link" href="{{ route('purchase_return_report_date') }}">Purchase Return Report</a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </li>--}}
                 <li class="nav-item ">
                     <a class="nav-link" data-toggle="collapse" href="#uniform" aria-expanded="false"
                        aria-controls="uniform">
@@ -614,6 +614,7 @@
                             <li class="nav-item ">
                                 <a class="nav-link" href="{{ route('employee_create') }}">Add Employee</a>
                             </li>
+
                         </ul>
                     </div>
                 </li>
@@ -621,14 +622,21 @@
 
 
 
+                <li class="nav-item active">
+                    <a class="nav-link"
+                       href="{{route('partner_request')}}">
+                        <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                        <span class="menu-title">Partner Request</span>
+                    </a>
+                </li>
 
-{{--                <li class="nav-item active">--}}
-{{--                    <a class="nav-link"--}}
-{{--                       href="/payroll">--}}
-{{--                        <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>--}}
-{{--                        <span class="menu-title">Payroll</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
+                <li class="nav-item active">
+                    <a class="nav-link"
+                       href="{{route('department')}}">
+                        <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                        <span class="menu-title">Department</span>
+                    </a>
+                </li>
 
                 <li class="nav-item sidebar-user-actions">
                     <div class="user-details">
@@ -665,7 +673,7 @@
                 </li>
             </ul>
         </nav>
-        <div class="main-panel">
+        <div class="main-panel p-5">
             @yield('content')
             {{ $slot ?? '' }}
         </div>

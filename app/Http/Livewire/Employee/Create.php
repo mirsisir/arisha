@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Employee;
 
+use App\Models\Employee;
 use Livewire\Component;
 use App\Models\Department;
 use App\Models\Designation;
@@ -10,7 +11,7 @@ use Livewire\WithFileUploads;
 class Create extends Component
 {
     use WithFileUploads;
-    
+
     public $fname;
     public $lname;
     public $dob;
@@ -53,10 +54,10 @@ class Create extends Component
     public function store()
     {
         $data = $this->validate([
-            'fname' => 'required', 
-            'lname' => 'required', 
-            'dob' => 'required', 
-            'gender' => 'required', 
+            'fname' => 'required',
+            'lname' => 'required',
+            'dob' => 'required',
+            'gender' => 'required',
             'status' => 'required',
             'father' => 'required',
             'nation' => 'required',
@@ -116,7 +117,7 @@ class Create extends Component
             $otherArray = ['other' => $otherPath];
         }
 
-        auth()->user()->employees()->create(array_merge(
+        Employee::create(array_merge(
             $data,
             $photoArray ?? [],
             $resumeArray ?? [],
@@ -129,13 +130,13 @@ class Create extends Component
         session()->flash('success', 'Employee successfully Inserted.');
         return redirect('/employees');
     }
-    
+
     public function render()
     {
         $client_id = auth()->user()->client_id;
         $departments = Department::where('client_id', $client_id)->get();
         $designations = [];
-        
+
         if($this->department_id)
         {
             $dept = Department::find($this->department_id);

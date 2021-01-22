@@ -35,65 +35,65 @@ class ClientIdProvider extends ServiceProvider
      */
     public function boot()
     {
-        Attendance::creating(function ($model){
-            $model->user_id = auth()->user()->id;
-            $model->client_id = auth()->user()->client_id;
-        });
-
-
-        Department::creating(function($model){
-           $model->client_id = auth()->user()->client_id;
-           $model->user_id = auth()->user()->id;
-        });
-        Designation::creating(function($model){
-           $model->client_id = auth()->user()->client_id;
-           $model->user_id = auth()->user()->id;
-        });
-
-        WorkingDay::creating(function ($model){
-            $model->user_id = auth()->user()->id;
-            $model->client_id = auth()->user()->client_id;
-        });
-
-        Holiday::creating(function ($model){
-            $model->user_id = auth()->user()->id;
-            $model->client_id = auth()->user()->client_id;
-        });
-
-        LeaveCategory::creating(function ($model){
-            $model->user_id = auth()->user()->id;
-            $model->client_id = auth()->user()->client_id;
-        });
-
-        Employee::creating(function ($model){
-            $model->user_id = auth()->user()->id;
-            $model->client_id = auth()->user()->client_id;
-        });
-
-        SalaryInfo::creating(function ($model){
-            $model->user_id = auth()->user()->id;
-            $model->client_id = auth()->user()->client_id;
-        });
-
-        SalarySheet::creating(function ($model){
-            $model->user_id = auth()->user()->id;
-            $model->client_id = auth()->user()->client_id;
-        });
-
-        Application::creating(function ($model){
-            $model->user_id = auth()->user()->id;
-            $model->client_id = auth()->user()->client_id;
-        });
-
-        Loan::creating(function ($model){
-            $model->user_id = auth()->user()->id;
-            $model->client_id = auth()->user()->client_id;
-        });
-
-//        Service::creating(function ($model){
+//        Attendance::creating(function ($model){
 //            $model->user_id = auth()->user()->id;
 //            $model->client_id = auth()->user()->client_id;
 //        });
+//
+//
+//        Department::creating(function($model){
+//           $model->client_id = auth()->user()->client_id;
+//           $model->user_id = auth()->user()->id;
+//        });
+//        Designation::creating(function($model){
+//           $model->client_id = auth()->user()->client_id;
+//           $model->user_id = auth()->user()->id;
+//        });
+//
+//        WorkingDay::creating(function ($model){
+//            $model->user_id = auth()->user()->id;
+//            $model->client_id = auth()->user()->client_id;
+//        });
+//
+//        Holiday::creating(function ($model){
+//            $model->user_id = auth()->user()->id;
+//            $model->client_id = auth()->user()->client_id;
+//        });
+//
+//        LeaveCategory::creating(function ($model){
+//            $model->user_id = auth()->user()->id;
+//            $model->client_id = auth()->user()->client_id;
+//        });
+//
+//        Employee::creating(function ($model){
+//            $model->user_id = auth()->user()->id;
+//            $model->client_id = auth()->user()->client_id;
+//        });
+//
+//        SalaryInfo::creating(function ($model){
+//            $model->user_id = auth()->user()->id;
+//            $model->client_id = auth()->user()->client_id;
+//        });
+//
+//        SalarySheet::creating(function ($model){
+//            $model->user_id = auth()->user()->id;
+//            $model->client_id = auth()->user()->client_id;
+//        });
+//
+//        Application::creating(function ($model){
+//            $model->user_id = auth()->user()->id;
+//            $model->client_id = auth()->user()->client_id;
+//        });
+//
+//        Loan::creating(function ($model){
+//            $model->user_id = auth()->user()->id;
+//            $model->client_id = auth()->user()->client_id;
+//        });
+//
+////        Service::creating(function ($model){
+////            $model->user_id = auth()->user()->id;
+////            $model->client_id = auth()->user()->client_id;
+////        });
 
 
     }

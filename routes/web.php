@@ -21,6 +21,7 @@ use App\Http\Livewire\DesignationSettingComponent;
 use App\Http\Livewire\Employee\Edit;
 use App\Http\Livewire\EmployeeAllotmentComponent;
 use App\Http\Livewire\EmployeeSettingComponent;
+use App\Http\Livewire\PartnerRegistration;
 use App\Http\Livewire\ProductSettingComponent;
 use App\Http\Livewire\PurchaseSettingComponent;
 use App\Http\Livewire\Salary\MakePaymentsComponent;
@@ -45,6 +46,9 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::redirect('/', '/de/homepage');
+
+
 Route::get('/mail', function () {
     return new RequestConfirmation;
 
@@ -54,10 +58,10 @@ Route::get('/service_request_mail', function () {
 
 });
 
-Route::get('/', function () {
-    return view('index');
-
-})->middleware('auth');
+//Route::get('/', function () {
+//    return view('index');
+//
+//})->middleware('auth');
 
 Auth::routes();
 
@@ -171,7 +175,12 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
     Route::get('/Today"s_Service_Request', [ServiceControlle::class, 'today_request'])->name('today_Request');
 
     Route::get('/service_details/{id}', [ServiceControlle::class, 'service_details'])->name('service_details');
+
     Route::post('/service_details/{id}', [ServiceControlle::class, 'service_details_update'])->name('service_details_update');
+
+
+    Route::get('/partner_request', [EmployeeController::class, 'partner_request'])->name('partner_request');
+    Route::get('/partner_request_accept/{id}', [EmployeeController::class, 'partner_request_accept'])->name('partner_request_accept');
 
 
 });
@@ -184,7 +193,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     Route::get('/department', function () {
         return view('livewire.department.index');
-    });
+    })->name('department');
 
 
 
@@ -203,12 +212,14 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 Route::redirect('/', '/de/homepage');
 
 
-//website ------------------------
-Route::group(['middleware' => ['auth', 'customer'], 'prefix' => '{language}'], function () {
+//website -------------------------------------------------------------------------------------
+
+Route::group([ 'prefix' => '{language}'], function () {
 
 
     Route::get('/homepage', function () {
-        return view('website.homepage');
+        $all_service = \App\Models\Service::all();
+        return view('website.homepage',compact('all_service'));
     })->name('page.homepage');
 
     Route::get('/contact_us', function () {
@@ -222,15 +233,10 @@ Route::group(['middleware' => ['auth', 'customer'], 'prefix' => '{language}'], f
 
     Route::get('/all_services', [ServiceControlle::class, 'all_services'])->name('all_services');
 
+    Route::get('/partner_registration',PartnerRegistration::class )->name('partner_registration');
 
 });
 
-
-//Route::group(['prefix'=>'{language}'],function() {
-//
-//
-//
-//});
 
 Route::group(['prefix' => '{language}', 'middleware' => ['auth']], function () {
 
@@ -249,10 +255,25 @@ Route::get('/calculate', function () {
 })->name('calculate');
 
 
+
+
+// Employeee Dashboard --------------------------------------------------------------------
+
 Route::group(['middleware' => ['auth', 'employee'], 'prefix' => 'employee'], function () {
 
+
     Route::get('/employee_dashboard', function () {
-        return view('employee_dashboard');
+        return view('employee_dashboard.employee_dashboard');
     })->name('employee_dashboard');
 
+    Route::get('/services_request_list',[EmployeeController::class,'services_request_list'])->name('services_request_list');
+    Route::get('/accept_service_request/{id}',[EmployeeController::class,'accept_service_request'])->name('accept_service_request');
+    Route::get('/today_service_list',[EmployeeController::class,'today_service_list'])->name('today_service_list');
+
+    Route::get('/service_details_emp/{id}', [EmployeeController::class, 'service_details'])->name('service_details_emp');
+    Route::get('/employee_calender', [EmployeeController::class, 'employee_calender'])->name('employee_calender');
+
+
 });
+
+
