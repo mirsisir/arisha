@@ -33,7 +33,7 @@ class EmployeeController extends Controller
     public function partner_request_accept($id){
             $employee = Employee::find($id);
             $employee->active_employee = 1;
-//            $employee->save();
+            $employee->save();
 
         $password = Str::random(10);
          User::create([

@@ -203,7 +203,7 @@
                         <a href="#">About us</a>
                     </li>
                     <li>
-                        <a href="#">Service</a>
+                        <a href="{{route('all_services',app()->getLocale())}}">Service</a>
                     </li>
                     <li>
                         <a href="#">Project</a>

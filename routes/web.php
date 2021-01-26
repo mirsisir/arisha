@@ -182,6 +182,9 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
     Route::get('/partner_request', [EmployeeController::class, 'partner_request'])->name('partner_request');
     Route::get('/partner_request_accept/{id}', [EmployeeController::class, 'partner_request_accept'])->name('partner_request_accept');
 
+    Route::post('/partner_allocate', [ServiceControlle::class, 'partner_allocate'])->name('partner_allocate');
+    Route::post('/partner_allocate_list', [ServiceControlle::class, 'partner_allocate_list'])->name('partner_allocate_list');
+
 
 });
 Route::get('/calender', function () {

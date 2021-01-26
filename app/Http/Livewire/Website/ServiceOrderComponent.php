@@ -19,22 +19,36 @@ use phpDocumentor\Reflection\Types\This;
 
 class ServiceOrderComponent extends Component
 {
-    public $category ,$selected_category,$foo;
-    public $service ,$selected_service;
-    public $employee ,$selected_employee;
-    public $duration=1,$time,$start_time,$notes,$payments,$date;
-    public $customer_name,$phone,$email,$address;
-    public $record,$customer;
-    public $total_start_time=[],$total_duration;
-    public $postcode,$city,$house_number,$street,$date_time;
-    public $square_meter=50;
+    public $category, $selected_category, $foo;
+    public $service, $selected_service;
+    public $employee, $selected_employee;
+    public $duration = 1, $time, $start_time, $notes, $payments, $date;
+    public $customer_name, $phone, $email, $address;
+    public $record, $customer;
+    public $total_start_time = [], $total_duration;
+    public $postcode, $city, $house_number, $street, $date_time;
+    public $square_meter = 50;
 
-    public $receiver_name,$receiver_phone,$receiver_email,$receiver_street,$receiver_house,$receiver_postcode,$receiver_city,$receiver_notes;
+    public $receiver_name, $receiver_phone, $receiver_email, $receiver_street, $receiver_house, $receiver_postcode, $receiver_city, $receiver_notes;
 
-    public $service_name,$total_charge,$net_sum,$vat,$distance_price,$base_price,$distance;
+    public $service_name, $total_charge, $net_sum, $vat, $distance_price, $base_price, $distance;
+
+    public $dates = [];
+    public $weekly_day = [];
+    public $weekly = false;
+    public $week_count;
+    public $start_date_time;
+    public $end_date_time;
+    public $weekly_time;
+    public $daily_time=[];
 
 
-    public function mount(){
+    public function mount()
+    {
+
+
+        $this->dates = [''];
+        $this->daily_time = [''];
         $this->category = Category::all();
         $this->employee = Employee::all();
         $customer = auth()->user();
@@ -49,75 +63,73 @@ class ServiceOrderComponent extends Component
         $this->notes = $customer->notes;
 
 
-//
-//        $to = \Carbon\Carbon::createFromFormat('H:s', '21:30');
-//        $from = \Carbon\Carbon::createFromFormat('H:s', '3:30');
-//
-//ser
-//        $diff_in_minutes = $to->diffInHours($from);
-//        dd($diff_in_minutes);
+    }
+
+    public function updatedSelectedCategory()
+    {
+        $this->service = Service::where('category', $this->selected_category)->get();
+
 
     }
 
-    public function updatedSelectedCategory(){
-        $this->service= Service::where('category',$this->selected_category)->get();
-//        dd($this->service);
+    public function updated()
+    {
+        if ($this->selected_employee && $this->date) {
+            $record = \App\Models\ServiceRequest::where('date', $this->date)
+                ->where('employee_id', $this->selected_employee)->get();
 
-    }
-
-    public function updated(){
-        if($this->selected_employee && $this->date ){
-            $record = \App\Models\ServiceRequest::where('date',$this->date)
-                    ->where('employee_id',$this->selected_employee)->get();
-
-            if(count($record)>0){
-                foreach($record as $r){
+            if (count($record) > 0) {
+                foreach ($record as $r) {
                     $this->total_start_time[] = $r->start_time;
 //                    $this->total_duration[] = $r->duration ;
 
                     for ($i = 1; $i < $r->duration; $i++) {
 
-                        $dateString = $r->start_time.':00:00';
-                        $date = new DateTime( $dateString );
+                        $dateString = $r->start_time . ':00:00';
+                        $date = new DateTime($dateString);
 
-                        $this->total_start_time[] = (intval($date->format('H'))+$i) % 24;
+                        $this->total_start_time[] = (intval($date->format('H')) + $i) % 24;
                     }
 
                 }
-            }
-            else{
+            } else {
                 $this->total_start_time = [];
             }
 
         }
 
 
-//        $dateString = '23:00:00';
-//
-//        $date = new DateTime( $dateString );
-//
-//        $nextHour = (intval($date->format('H'))+2) % 24;
-
-
-
     }
 
-    public function request(){
+    public function request()
+    {
+
+
+
+
         $validatedData = $this->validate([
             'selected_category' => 'required',
-            'selected_service'=>'required',
+            'selected_service' => 'required',
 //            'selected_employee'=>'required',
 
+//            'date_time'=>'required',
+            'dates.*' => 'required_if:weekly,false|min:2',
+            'daily_time.*' => 'required_if:weekly,false|min:2',
 
-            'date_time'=>'required',
-            'notes'=>'required',
-            'payments'=>'required',
+            'weekly_time' => 'required_if:weekly,true|min:2',
+            'start_date_time' => 'required_if:weekly,true|min:2',
+            'end_date_time' => 'required_if:weekly,true|min:2',
+            'weekly_day' => 'required_if:weekly,true|min:2',
 
-            'customer_name'=>'required',
-            'phone'=>'required',
-            'email'=>'required',
 
-            'square_meter' =>'required_if:selected_category,Construction|numeric|min:50'
+            'notes' => 'required',
+            'payments' => 'required',
+
+            'customer_name' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+
+            'square_meter' => 'required_if:selected_category,Construction|numeric|min:50'
 
 //            'square_meter'=>'required_if:category,Construction',
 
@@ -128,84 +140,108 @@ class ServiceOrderComponent extends Component
 
         //        public $receiver_name,$receiver_phone,$receiver_email,$receiver_street,$receiver_house,$receiver_postcode,$receiver_city,$receiver_notes;
 
+    if ($this->weekly){
+        $this->dates = [];
 
-        if($this->selected_category=="Transport"){
+        foreach ($this->weekly_day as $day) {
+            $dateTo = Carbon::parse($this->end_date_time);
+            $day = Carbon::parse($this->start_date_time . ' next' . " " . $day);
 
-            $pickoff =  new PickoffAddress;
-            $pickoff->name = $this->receiver_name;
-            $pickoff->phone = $this->receiver_phone;
-            $pickoff->email = $this->receiver_email;
-            $pickoff->street = $this->receiver_street;
-            $pickoff->house_number = $this->receiver_house;
-            $pickoff->post_code = $this->receiver_postcode;
-            $pickoff->city = $this->receiver_city;
-            $pickoff->notes = $this->receiver_notes;
-            $pickoff->save();
-
+            while ($day->lt($dateTo)) {
+                $this->dates[] = $day->toDateString();
+                $day->addWeek();
+            }
         }
+    }
 
 
+        foreach ($this->dates as $index=>$date) {
+
+            if ($this->selected_category == "Transport") {
+
+                $pickoff = new PickoffAddress;
+                $pickoff->name = $this->receiver_name;
+                $pickoff->phone = $this->receiver_phone;
+                $pickoff->email = $this->receiver_email;
+                $pickoff->street = $this->receiver_street;
+                $pickoff->house_number = $this->receiver_house;
+                $pickoff->post_code = $this->receiver_postcode;
+                $pickoff->city = $this->receiver_city;
+                $pickoff->notes = $this->receiver_notes;
+                $pickoff->save();
+
+            }
+
+            $new_request = new ServiceRequest;
+
+            $new_request->customer_id = auth()->user()->id;
+            $new_request->customer_phone = $this->phone;
+
+            $new_request->service_id = $this->selected_service;
+            $new_request->categorie = $this->selected_category;
+
+            $new_request->duration = $this->duration;
+
+            if ($this->weekly){
+                $new_request->start_time = $this->weekly_time;
+
+            }else{
+                $new_request->start_time = $this->daily_time[$index];
+
+            }
 
 
-        $new_request =  new ServiceRequest;
+            $new_request->date = $date;
 
-        $new_request->customer_id = auth()->user()->id;
-        $new_request->customer_phone = $this->phone;
+            $new_request->notes = $this->notes;
+            $new_request->payments = $this->payments;
 
-        $new_request->service_id = $this->selected_service;
-        $new_request->categorie = $this->selected_category;
-
-        $new_request->duration = $this->duration;
-
-        $new_request->start_time = (explode("T",$this->date_time)[1]);
-
-        $new_request->date = (explode("T",$this->date_time)[0]);
-
-        $new_request->notes = $this->notes;
-        $new_request->payments = $this->payments;
-
-        $new_request->street = $this->street;
-        $new_request->house_number = $this->house_number;
-        $new_request->post_code = $this->postcode;
-        $new_request->city = $this->city;
+            $new_request->street = $this->street;
+            $new_request->house_number = $this->house_number;
+            $new_request->post_code = $this->postcode;
+            $new_request->city = $this->city;
 
 //        construction  service
 
-        $new_request->SPM = $this->square_meter;
+            $new_request->SPM = $this->square_meter;
 //        moving service
-        if($this->selected_category == "Transport" ){
-            $new_request->pickoff_addresses_id = $pickoff->id;
+            if ($this->selected_category == "Transport") {
+                $new_request->pickoff_addresses_id = $pickoff->id;
+
+            }
+
+            $new_request->total_charge = $this->total_charge;
+
+
+            $new_request->save();
+
+
+            $customer = User::find(auth()->user()->id);
+            $customer->street = $this->street;
+            $customer->house_number = $this->house_number;;
+            $customer->post_code = $this->postcode;
+            $customer->city = $this->city;
+
+            $customer->save();
+
+
+            SendEmail::dispatch($customer)->delay(Carbon::now()->addSecond(5));
 
         }
-
-        $new_request->total_charge = $this->total_charge;
-
-
-
-        $new_request->save();
-
-
-        $customer = User::find(auth()->user()->id);
-        $customer->street = $this->street;
-        $customer->house_number = $this->house_number;;
-        $customer->post_code = $this->postcode;
-        $customer->city = $this->city;
-
-        $customer->save();
-
-
-
-
-        SendEmail::dispatch()
-            ->delay(Carbon::now()->addSecond(5));
 
 //        Mail::to($this->email)->send( new RequestConfirmation());
 //
 //        Mail::to($this->email)->send(new \App\Mail\ServiceRequest($new_request ,$customer));
 
-       return redirect('en/services_request_confirm');
+
+        return redirect('en/services_request_confirm');
 
 
+    }
+
+    public function addDates()
+    {
+        $this->dates[] = [''];
     }
 
 
@@ -213,26 +249,22 @@ class ServiceOrderComponent extends Component
     {
         $this->service_name = \App\Models\Service::find($this->selected_service);
         $service = \App\Models\Service::find($this->selected_service);
-        $service_charge =  $service->charge?? 0;
+        $service_charge = $service->charge ?? 0;
 
-        if($this->selected_category == "Cleaning" ) {
+        if ($this->selected_category == "Cleaning") {
             $this->net_sum = $service_charge * $this->duration;
-        }
-        elseif($this->selected_category == "Construction"){
-            $this->net_sum =($service->SPM?? 0) * $this->square_meter;
-        }
-
-        elseif($this->selected_category == "Transport"){
-            $this->distance =10;
-            if($service->hourly?? 0 ==1){
-                $this->net_sum =($service->charge?? 0) * $this->distance;
-            }
-            else{
-                $this->net_sum = ($service->basic_price ?? 0)+(($service->km_price??0) *$this->distance);
+        } elseif ($this->selected_category == "Construction") {
+            $this->net_sum = ($service->SPM ?? 0) * $this->square_meter;
+        } elseif ($this->selected_category == "Transport") {
+            $this->distance = 10;
+            if ($service->hourly ?? 0 == 1) {
+                $this->net_sum = ($service->charge ?? 0) * $this->distance;
+            } else {
+                $this->net_sum = ($service->basic_price ?? 0) + (($service->km_price ?? 0) * $this->distance);
             }
         }
 
-        $this->vat =($this->net_sum * 19)/100 ;
+        $this->vat = ($this->net_sum * 19) / 100;
 
         $this->total_charge = $this->net_sum + $this->vat;
 

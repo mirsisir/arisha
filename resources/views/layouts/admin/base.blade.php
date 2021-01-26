@@ -609,10 +609,29 @@
                     <div class="collapse " id="employee1">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item ">
-                                <a class="nav-link" href="{{ route('employee_list') }}">Employee List</a>
+                                <a class="nav-link" href="{{ route('employee_list') }}">Partner List</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="{{ route('employee_create') }}">Add Employee</a>
+                                <a class="nav-link" href="{{ route('employee_create') }}">Add Partner</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" data-toggle="collapse" href="#partner_allocate" aria-expanded="false"
+                       aria-controls="partner_allocate">
+                        <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
+                        <span class="menu-title">Partner Allocate</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse " id="partner_allocate">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{{ route('partner_allocate') }}">Partner Allocate</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{{ route('partner_allocate_list') }}">Partner Allocate list</a>
                             </li>
 
                         </ul>

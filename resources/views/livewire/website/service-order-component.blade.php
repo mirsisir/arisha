@@ -38,7 +38,7 @@
             <div class="">
                 <div class=" ">
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-lg-3 col-sm-12 ">
                             <label for="selected_category">{{__('Category')}}</label>
                             <select name="selected_category" wire:model="selected_category" id=""
                                     class="form-control @error('selected_category') is-invalid @enderror ">
@@ -49,7 +49,7 @@
                             </select>
                         </div>
 
-                        <div class="col-3">
+                        <div class="col-lg-3 col-sm-12">
                             <label for="">{{__('Service')}}</label>
                             <select name="" id="" wire:model="selected_service"
                                     class="form-control @error('selected_service') is-invalid @enderror">
@@ -70,14 +70,88 @@
                         {{--                    </select>--}}
 
                         {{--                </div>--}}
-                        <div class="col-3">
-                            <label for="date">{{__('Date & time')}}</label>
-                            <input type="datetime-local" class="form-control" wire:model="date_time">
+
+                        <div class="col-lg-1 col-sm-12">
+                            <label for="weekly">{{__('Weekly Service')}}</label>
+                            <input type="checkbox" class="form-control @error('weekly') is-invalid @enderror p-0"
+                                   wire:model="weekly" style="zoom:1.5;">
                         </div>
+                        @if($weekly)
+
+                            <div class="col-lg-2 col-sm-12">
+                                <label for="weekly">{{__('Weekly Service')}}</label>
+                                <select multiple name="weekday" style="height: 60px; padding: 0;"
+                                        data-bs-toggle="tooltip"
+                                        data-bs-placement="right" wire:model="weekly_day"
+                                        title="Hold down the Ctrl button to select multiple options."
+                                        class="form-control @error('weekly_day') is-invalid @enderror ">
+                                    <option value="Monday">Monday</option>
+                                    <option value="Tuesday">Tuesday</option>
+                                    <option value="Wednesday">Wednesday</option>
+                                    <option value="Thursday">Thursday</option>
+                                    <option value="Friday">Friday</option>
+                                    <option value="Saturday">Saturday</option>
+                                    <option value="Sunday">Sunday</option>
+                                </select>
+                            </div>
+
+                            {{--                            <div class="col-lg-2 col-sm-12">--}}
+                            {{--                                <label for="weekly">{{__('Week Count')}}</label>--}}
+                            {{--                                <input type="number" min="1" max="10"--}}
+                            {{--                                       class="form-control @error('weekly') is-invalid @enderror"--}}
+                            {{--                                       wire:model="week_count">--}}
+                            {{--                            </div>--}}
+
+                            <div class="col-lg-2 col-sm-12">
+                                <label for="date">{{__('Start Date')}}</label>
+                                <input type="date"
+                                       class="form-control @error('start_date_time') is-invalid @enderror"
+                                       wire:model="start_date_time">
+                            </div>
+                            <div class="col-lg-2 col-sm-12">
+                                <label for="date">{{__('End Date')}}</label>
+                                <input type="date"
+                                       class="form-control @error('end_date_time') is-invalid @enderror"
+                                       wire:model="end_date_time">
+                            </div>
+                            <div class="col-lg-2 col-sm-12">
+                                <label for="date">{{__('Time')}}</label>
+                                <input type="time"
+                                       class="form-control @error('weekly_time') is-invalid @enderror"
+                                       wire:model="weekly_time" step="3600">
+                            </div>
+
+                        @else
+                            @foreach($dates as $index=> $date)
+                                <div class="col-lg-4 row">
+                                    <div class="col-lg-6 col-sm-12">
+                                        <label for="date">{{__('Date')}}</label>
+                                        <input type="date"
+                                               class="form-control @error('dates.'.$index) is-invalid @enderror"
+
+                                               wire:model="dates.{{ $index }}">
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                        <label for="time">{{__('Time')}}</label>
+                                        <input type="time"
+                                               class="form-control @error('daily_time.'.$index) is-invalid @enderror"
+                                               wire:model="daily_time.{{ $index }}" step="3600">
+                                    </div>
+                                </div>
+                            @endforeach
+
+                            <div class="text-center">
+                                <button wire:click.prevent="addDates" class="btn-success mt-4">+</button>
+                            </div>
+                        @endif
+
+
+
+
 
 
                         @if($selected_category == "Cleaning")
-                            <div class="col-3">
+                            <div class="col-lg-2 col-sm-12">
                                 <label for="">{{__('Duration')}}</label>
                                 <select name="" id="" wire:model="duration"
                                         class="form-control @error('duration') is-invalid @enderror ">
@@ -90,7 +164,7 @@
 
                         @elseif($selected_category == "Construction")
 
-                            <div class="col-3">
+                            <div class="col-lg-3 col-sm-12">
                                 <label for="">{{__('Square meter')}}</label>
                                 <input class="form-control" type="number" min="50" max="999" wire:model="square_meter"/>
                                 @error('square_meter') <span class="text-danger error">{{ $message }}</span>@enderror
@@ -146,7 +220,7 @@
 
                     <br><br>
                     <div class="row">
-                        <div class=" col-9 border p-4">
+                        <div class=" col-lg-9 col-sm-12 border p-4">
 
                             @if($selected_category == "Transport")
 
@@ -158,7 +232,7 @@
                                 <hr>
                             @endif
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-lg-4 col-sm-12">
 
                                     <label for="">{{__('Surname *')}}</label>
                                     <input type="text" wire:model="customer_name" class="form-control">
@@ -166,14 +240,14 @@
                                         class="text-danger error">{{ $message }}</span>@enderror
 
                                 </div>
-                                <div class="col-4">
+                                <div class="col-lg-4 col-sm-12">
                                     <label for="">{{__('Telefon *')}}</label>
                                     <input type="tel" wire:model="phone" class="form-control">
                                     @error('phone') <span class="text-danger error">{{ $message }}</span>@enderror
 
 
                                 </div>
-                                <div class="col-4">
+                                <div class="col-lg-4 col-sm-12">
                                     <label for="">{{__('Email')}}</label>
                                     <input type="email" wire:model="email" class="form-control">
                                     @error('email') <span class="text-danger error">{{ $message }}</span>@enderror
@@ -190,23 +264,23 @@
                                 {{--                    Click on a time slot to proceed with booking.</p>--}}
                             </div>
                             <div class="row">
-                                <div class="col-3">
+                                <div class="col-lg-3 col-sm-12">
                                     <label for="">{{__('Straße *')}}</label>
                                     <input type="text" class="form-control" name="street" wire:model="street">
 
                                 </div>
-                                <div class="col-3">
+                                <div class="col-lg-3 col-sm-12">
                                     <label for="">{{__('Hausnummer *')}}</label>
                                     <input type="text" class="form-control" name="house_number"
                                            wire:model="house_number">
 
                                 </div>
-                                <div class="col-3">
+                                <div class="col-lg-3 col-sm-12">
                                     <label for="">{{__('PLZ *')}}</label>
                                     <input type="text" class="form-control" name="postcode " wire:model="postcode">
 
                                 </div>
-                                <div class="col-3">
+                                <div class="col-lg-3 col-sm-12">
                                     <label for="">{{__('Stadt *')}}</label>
                                     <input type="text" class="form-control" name="city" wire:model="city">
 
@@ -228,7 +302,7 @@
                                 <h2 class="text-center btn-info p-1"> Pickoff Address </h2>
                                 <hr>
                                 <div class="row">
-                                    <div class="col-4">
+                                    <div class="col-lg-4 col-sm-12">
 
                                         <label for="">{{__('Surname *')}}</label>
                                         <input type="text" wire:model="receiver_name" class="form-control">
@@ -236,7 +310,7 @@
                                             class="text-danger error">{{ $message }}</span>@enderror
 
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-lg-3 col-sm-12">
                                         <label for="">{{__('Telefon *')}}</label>
                                         <input type="tel" wire:model="receiver_phone" class="form-control">
                                         @error('receiver_phone') <span
@@ -244,7 +318,7 @@
 
 
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-lg-3 col-sm-12">
                                         <label for="">{{__('Email')}}</label>
                                         <input type="email" wire:model="receiver_email" class="form-control">
                                         @error('receiver_email') <span
@@ -262,25 +336,25 @@
                                     {{--                    Click on a time slot to proceed with booking.</p>--}}
                                 </div>
                                 <div class="row">
-                                    <div class="col-3">
+                                    <div class="col-lg-3 col-sm-12">
                                         <label for="">{{__('Straße *')}}</label>
                                         <input type="text" class="form-control" name="receiver_street"
                                                wire:model="receiver_street">
 
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col-lg-3 col-sm-12">
                                         <label for="">{{__('Hausnummer *')}}</label>
                                         <input type="text" class="form-control" name="receiver_house"
                                                wire:model="receiver_house">
 
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col-lg-3 col-sm-12">
                                         <label for="">{{__('PLZ *')}}</label>
                                         <input type="text" class="form-control" name="receiver_postcode"
                                                wire:model="receiver_postcode">
 
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col-lg-3 col-sm-12">
                                         <label for="">{{__('Stadt *')}}</label>
                                         <input type="text" class="form-control" name="city" wire:model="receiver_city">
 
@@ -315,7 +389,7 @@
                         <br><br>
                         {{--                        TODO Bill--}}
 
-                        <div class="col-3 border ">
+                        <div class="col-lg-3 col-sm-12 border ">
                             <div class=" p-4">
                                 <h3 class="text-center btn-info p-1 ">Your Bill</h3>
                                 <hr>
@@ -325,29 +399,35 @@
                             <div style="overflow-x:auto;" class="p-0">
                                 <table>
                                     <tr>
-                                        <td><strong>Service Name</strong></td><td> {{$service_name->name?? "N/A"}}</td>
+                                        <td><strong>Service Name</strong></td>
+                                        <td> {{$service_name->name?? "N/A"}}</td>
                                     </tr>
 
                                     @if($selected_category == "Construction")
 
                                         <tr>
-                                            <td><strong>Square metre</strong></td> <td class="float-right"> {{$service_name->SPM ?? "0"}}</td>
+                                            <td><strong>Square metre</strong></td>
+                                            <td class="float-right"> {{$service_name->SPM ?? "0"}}</td>
                                         </tr>
                                     @elseif($selected_category == "Transport")
 
                                         @if($service_name->hourly??0)
                                             <tr>
-                                                <td><strong>Per Hour</strong></td> <td class="float-right"> {{$service_name->charge ?? "0"}}</td>
+                                                <td><strong>Per Hour</strong></td>
+                                                <td class="float-right"> {{$service_name->charge ?? "0"}}</td>
                                             </tr>
                                         @else
                                             <tr>
-                                                <td><strong>Base Price</strong></td>  <td class="float-right"> {{$service_name->basic_price ?? "0"}}</td>
+                                                <td><strong>Base Price</strong></td>
+                                                <td class="float-right"> {{$service_name->basic_price ?? "0"}}</td>
                                             </tr>
                                             <tr>
-                                                <td><strong>Each KM Charge</strong></td>  <td class="float-right"> {{$service_name->km_price ?? "0"}}</td>
+                                                <td><strong>Each KM Charge</strong></td>
+                                                <td class="float-right"> {{$service_name->km_price ?? "0"}}</td>
                                             </tr>
                                             <tr>
-                                                <td><strong>Distance</strong></td>  <td class="float-right"> {{$distance ?? "0"}}</td>
+                                                <td><strong>Distance</strong></td>
+                                                <td class="float-right"> {{$distance ?? "0"}}</td>
                                             </tr>
                                         @endif
 
@@ -388,7 +468,6 @@
 
         </div>
     </div>
-
 
 </div>
 

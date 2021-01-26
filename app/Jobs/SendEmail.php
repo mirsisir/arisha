@@ -20,9 +20,11 @@ class SendEmail implements ShouldQueue
      *
      * @return void
      */
-    public function __construct()
+
+    protected $customer;
+    public function __construct($customer)
     {
-        //
+        $this->customer = $customer;
     }
 
     /**
@@ -32,6 +34,7 @@ class SendEmail implements ShouldQueue
      */
     public function handle()
     {
+        dd($this->customer);
         Mail::to('mirsisir@gmail.com')->send( new RequestConfirmation());
 
 //        Mail::to($this->email)->send(new \App\Mail\ServiceRequest($new_request ,$customer));
