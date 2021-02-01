@@ -36,9 +36,11 @@ class EmployeeController extends Controller
             $employee->save();
 
         $password = Str::random(10);
+
          User::create([
             'name' => $employee->fname . " ". $employee->lname,
             'phone' => $employee->mobile,
+            'employee_id' => $employee->id,
             'email' => $employee->email,
             'password' => Hash::make($password),
             'role' => "employee",
@@ -81,6 +83,7 @@ class EmployeeController extends Controller
 
     public function service_details($id)
     {
+
         $service_request = ServiceRequest::find($id);
 
         return view('employee_dashboard.service_details', compact('service_request'));
@@ -94,6 +97,10 @@ class EmployeeController extends Controller
         return view('employee_dashboard.employee_calender', compact('service_request'));
     }
 
+    public function employee_bill(){
+
+        return view('employee_dashboard.employee_bill');
+    }
 
 
 

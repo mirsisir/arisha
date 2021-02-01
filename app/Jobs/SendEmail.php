@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Mail\RequestConfirmation;
+use App\Mail\ServiceRequest;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -22,9 +23,12 @@ class SendEmail implements ShouldQueue
      */
 
     protected $customer;
-    public function __construct($customer)
+    protected $new_request;
+
+    public function __construct($customer, $new_request)
     {
         $this->customer = $customer;
+        $this->new_request = $new_request;
     }
 
     /**
@@ -34,9 +38,10 @@ class SendEmail implements ShouldQueue
      */
     public function handle()
     {
-        dd($this->customer);
-        Mail::to('mirsisir@gmail.com')->send( new RequestConfirmation());
+        $data = $this->new_request;
 
-//        Mail::to($this->email)->send(new \App\Mail\ServiceRequest($new_request ,$customer));
+        Mail::to($this->customer->email)->send(new RequestConfirmation());
+//
+        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ServiceRequest($data,$this->customer));
     }
 }

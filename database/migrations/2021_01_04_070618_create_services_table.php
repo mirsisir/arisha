@@ -18,7 +18,9 @@ class CreateServicesTable extends Migration
             $table->string('name');
             $table->string('charge')->nullable();
             $table->string('category')->nullable();
+
             $table->json('employee')->nullable();
+            $table->string('employee_charge')->nullable();
 
             $table->string('hourly')->nullable();
 

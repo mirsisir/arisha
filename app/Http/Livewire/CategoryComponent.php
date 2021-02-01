@@ -71,11 +71,20 @@ class CategoryComponent extends Component
 
 
                 'details' => $this->details,
-                'hourly' => $this->hourly,
 
 
             ]
         );
+
+        if ($this->category=="Construction"){
+            $user->hourly = 0;
+            $user->save();
+        }
+        else{
+            $user->hourly = $this->hourly;
+            $user->save();
+
+        };
 
         Session::flash('message','This is a message!');
 

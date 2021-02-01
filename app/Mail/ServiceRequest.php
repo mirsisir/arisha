@@ -34,8 +34,9 @@ class ServiceRequest extends Mailable
      */
     public function build()
     {
+
         return $this->markdown('mail.ServiceRequest')
-                        ->with([
+            ->with([
                 'data' => $this->data,
                 'customer' => $this->customer,
 
@@ -49,3 +50,4 @@ class ServiceRequest extends Mailable
 
 //    }
 }
+

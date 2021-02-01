@@ -603,7 +603,7 @@
                     <a class="nav-link" data-toggle="collapse" href="#employee1" aria-expanded="false"
                        aria-controls="employee1">
                         <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
-                        <span class="menu-title">Employee</span>
+                        <span class="menu-title">Partner</span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="collapse " id="employee1">
@@ -633,6 +633,9 @@
                             <li class="nav-item ">
                                 <a class="nav-link" href="{{ route('partner_allocate_list') }}">Partner Allocate list</a>
                             </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{{ route('partner_bill') }}">Partner Bill</a>
+                            </li>
 
                         </ul>
                     </div>
@@ -644,7 +647,7 @@
                 <li class="nav-item active">
                     <a class="nav-link"
                        href="{{route('partner_request')}}">
-                        <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                        <span class="icon-bg"><i class="mdi mdi mdi-account-multiple-plus menu-icon"></i></span>
                         <span class="menu-title">Partner Request</span>
                     </a>
                 </li>
@@ -654,6 +657,13 @@
                        href="{{route('department')}}">
                         <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
                         <span class="menu-title">Department</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link"
+                       href="{{route('general_settings')}}">
+                        <span class="icon-bg"><i class="mdi mdi mdi-settings menu-icon"></i></span>
+                        <span class="menu-title">General Settings</span>
                     </a>
                 </li>
 

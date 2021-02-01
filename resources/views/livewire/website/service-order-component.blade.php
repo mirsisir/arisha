@@ -236,8 +236,7 @@
 
                                     <label for="">{{__('Surname *')}}</label>
                                     <input type="text" wire:model="customer_name" class="form-control">
-                                    @error('customer_name') <span
-                                        class="text-danger error">{{ $message }}</span>@enderror
+                                    @error('customer_name') <span class="text-danger error">{{ $message }}</span>@enderror
 
                                 </div>
                                 <div class="col-lg-4 col-sm-12">

@@ -33,6 +33,8 @@ class CreateUsersTable extends Migration
 
             $table->string('state')->nullable();
 
+            $table->string('employee_id')->nullable();
+
             $table->enum('role', ['customer','admin','employee'])->default('customer');
 
             $table->rememberToken();

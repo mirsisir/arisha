@@ -10,7 +10,7 @@ use Livewire\WithFileUploads;
 class Edit extends Component
 {
     use WithFileUploads;
-    
+
     public $fname;
     public $lname;
     public $dob;
@@ -45,7 +45,7 @@ class Edit extends Component
     public $contact_paper;
     public $id_proff;
     public $other;
-    
+
     public $updateResume;
     public $updateOffer_let;
     public $updateJoin_let;
@@ -96,10 +96,10 @@ class Edit extends Component
     public function update()
     {
         $data = $this->validate([
-            'fname' => 'required', 
-            'lname' => 'required', 
-            'dob' => 'required', 
-            'gender' => 'required', 
+            'fname' => 'required',
+            'lname' => 'required',
+            'dob' => 'required',
+            'gender' => 'required',
             'status' => 'required',
             'father' => 'required',
             'nation' => 'required',
@@ -118,10 +118,10 @@ class Edit extends Component
             'acc_name' => '',
             'acc_number' => '',
 
-            'emp_id' => 'required',
-            'department_id' => 'required',
-            'designation_id' => 'required',
-            'join_date' => 'required',
+//            'emp_id' => 'required',
+//            'department_id' => 'required',
+//            'designation_id' => 'required',
+//            'join_date' => 'required',
 
             'resume' => '',
             'offer_let' => '',
@@ -190,7 +190,7 @@ class Edit extends Component
             $id_proffPath = $this->updateId_proff->store('files', 'public');
             $id_proffArray = ['id_proff' => $id_proffPath];
         }
-        
+
         if($this->updateOther){
             if($this->other)
             {
@@ -216,13 +216,13 @@ class Edit extends Component
         session()->flash('success', 'Employee successfully Updated.');
         return redirect('/employees');
     }
-    
+
     public function render()
     {
         $client_id = auth()->user()->client_id;
         $departments = Department::where('client_id', $client_id)->get();
         $designations = [];
-        
+
         if($this->department_id)
         {
             $dept = Department::find($this->department_id);

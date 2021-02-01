@@ -20,7 +20,7 @@ class ServiceRequest extends Model
     }
     public function employee()
     {
-        return $this->belongsTo(Employee::class);
+        return $this->hasOne(Employee::class,'id','employes_id' );
     }
 
 }

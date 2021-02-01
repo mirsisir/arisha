@@ -1,7 +1,7 @@
 <div>
     {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
 
-    <div class=" m-5 border mt-3 p-2">
+    <div class="  border mt-3 p-2">
 
 
         @if(count($all_service_request) == 0)
@@ -11,7 +11,7 @@
                 Available</h4>
             <br>
         @else
-            <table class="table table-responsive">
+            <table class="table">
                 <thead class="btn-info">
                 <tr>
                     <th> Customer</th>
@@ -30,9 +30,9 @@
                         </td>
                         <td>{{$request->service->name}}</td>
                         <td>
-                            {{$request->house_number}}
+                            {{$request->house_number}} <br>
                             {{$request->street}}<br>
-                            {{$request->city}}
+                            {{$request->city}} <br>
                             {{$request->post_code}}
 
                         </td>

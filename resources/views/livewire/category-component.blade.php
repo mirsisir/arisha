@@ -90,8 +90,7 @@
 
                         <label for="charge">Service Details </label>
 
-                        <textarea id="details" name="details" class="form-control" rows="4" wire:model="details" cols="50">
-                        At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+                        <textarea id="details" name="details" class="form-control" rows="4" wire:model="details" cols="50">sad
                         </textarea>
                         @error('details') <span class="text-danger error">{{ $message }}</span>@enderror <br>
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminPanelController;
 use App\Http\Controllers\AssignProductController;
 use App\Http\Controllers\EmployeeAllocationController;
 use App\Http\Controllers\EmployeeController;
@@ -54,6 +55,7 @@ Route::get('/mail', function () {
 
 });
 Route::get('/service_request_mail', function () {
+
     return new \App\Mail\ServiceRequest();
 
 });
@@ -178,13 +180,36 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
 
     Route::post('/service_details/{id}', [ServiceControlle::class, 'service_details_update'])->name('service_details_update');
 
+//    partner
 
     Route::get('/partner_request', [EmployeeController::class, 'partner_request'])->name('partner_request');
     Route::get('/partner_request_accept/{id}', [EmployeeController::class, 'partner_request_accept'])->name('partner_request_accept');
 
-    Route::post('/partner_allocate', [ServiceControlle::class, 'partner_allocate'])->name('partner_allocate');
-    Route::post('/partner_allocate_list', [ServiceControlle::class, 'partner_allocate_list'])->name('partner_allocate_list');
+    Route::get('/partner_allocate', [ServiceControlle::class, 'partner_allocate'])->name('partner_allocate');
+    Route::post('/partner_allocate_save', [ServiceControlle::class, 'partner_allocate_save'])->name('partner_allocate_save');
 
+    Route::get('/partner_allocate_remove/{service}/{emp}', [ServiceControlle::class, 'partner_allocate_remove'])->name('partner_allocate_remove');
+
+    Route::get('/partner_allocate_list', [ServiceControlle::class, 'partner_allocate_list'])->name('partner_allocate_list');
+
+    Route::get('/remove_partner', [ServiceControlle::class, 'remove_partner'])->name('remove_partner');
+
+//    partner_bill
+    Route::get('/partner_bill', [ServiceControlle::class, 'partner_bill'])->name('partner_bill');
+
+
+
+//    service report
+    Route::get('/service_report/{id}',[ServiceControlle::class,"service_done_report"])->name('services_request_done');
+
+
+
+
+
+//\App\Models\GeneralSettings::
+
+    Route::get('/general_settings',[AdminPanelController::class,"general_settings"])->name('general_settings');
+    Route::post('/general_settings_save',[AdminPanelController::class,"general_settings_save"])->name('general_settings_save');
 
 });
 Route::get('/calender', function () {
@@ -202,7 +227,9 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     Route::view('/employees', 'employees.index')->name("employee_list");
     Route::view('/employees/create', 'employees.create')->name('employee_create');
+
     Route::get('/employees/{employee}/edit', Edit::class);
+
     Route::get('/employees/{employee}', [EmployeeController::class, 'show']);
     Route::get('/print_user/{employee}', [EmployeeController::class, 'print_user'])->name('print_user');
 
@@ -248,6 +275,7 @@ Route::group(['prefix' => '{language}', 'middleware' => ['auth']], function () {
 
     Route::get('/services_request_confirm', function () {
         return view('website.request_confirmation');
+
     })->name('services_request_confirm');
 
 
@@ -260,7 +288,7 @@ Route::get('/calculate', function () {
 
 
 
-// Employeee Dashboard --------------------------------------------------------------------
+// Employee Dashboard --------------------------------------------------------------------
 
 Route::group(['middleware' => ['auth', 'employee'], 'prefix' => 'employee'], function () {
 
@@ -274,7 +302,11 @@ Route::group(['middleware' => ['auth', 'employee'], 'prefix' => 'employee'], fun
     Route::get('/today_service_list',[EmployeeController::class,'today_service_list'])->name('today_service_list');
 
     Route::get('/service_details_emp/{id}', [EmployeeController::class, 'service_details'])->name('service_details_emp');
+
+    Route::post('/service_details_emp/{id}', [ServiceControlle::class, 'service_details_update_emp'])->name('service_details_update_emp');
+
     Route::get('/employee_calender', [EmployeeController::class, 'employee_calender'])->name('employee_calender');
+    Route::get('/employee_bill', [EmployeeController::class, 'employee_bill'])->name('employee_bill');
 
 
 });

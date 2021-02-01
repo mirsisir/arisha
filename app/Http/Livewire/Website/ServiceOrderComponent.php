@@ -12,6 +12,7 @@ use App\Models\ServiceRequest;
 use App\Models\User;
 use Carbon\Carbon;
 use DateTime;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
@@ -116,10 +117,10 @@ class ServiceOrderComponent extends Component
             'dates.*' => 'required_if:weekly,false|min:2',
             'daily_time.*' => 'required_if:weekly,false|min:2',
 
-            'weekly_time' => 'required_if:weekly,true|min:2',
-            'start_date_time' => 'required_if:weekly,true|min:2',
-            'end_date_time' => 'required_if:weekly,true|min:2',
-            'weekly_day' => 'required_if:weekly,true|min:2',
+            'weekly_time' => 'required_if:weekly,true',
+            'start_date_time' => 'required_if:weekly,true',
+            'end_date_time' => 'required_if:weekly,true',
+            'weekly_day' => 'required_if:weekly,true',
 
 
             'notes' => 'required',
@@ -211,6 +212,7 @@ class ServiceOrderComponent extends Component
             }
 
             $new_request->total_charge = $this->total_charge;
+            $new_request->net_charge = $this->net_sum;
 
 
             $new_request->save();
@@ -225,7 +227,7 @@ class ServiceOrderComponent extends Component
             $customer->save();
 
 
-            SendEmail::dispatch($customer)->delay(Carbon::now()->addSecond(5));
+            SendEmail::dispatch($customer,$new_request)->delay(Carbon::now()->addSecond(3));
 
         }
 

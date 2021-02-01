@@ -15,7 +15,7 @@
     <div class="card  w-75  mt-4 ml-auto mr-auto" id="printableTable">
 
         <h3 class="text-center mt-2">Service Request Info </h3>
-        <form action="{{route('service_details_update',$service_request->id)}}" method="POST">
+        <form action="{{route('service_details_emp',$service_request->id)}}" method="POST">
             @csrf
             <div class="card-body">
                 <table class="table border p-2" id="service_request">
@@ -100,37 +100,29 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr class="table-primary">
-                        <td>Employee Name</td>
-                        <td>{{$service_request->employee->fname?? "N/A" }}  {{$service_request->employee->lname ?? "N/A"}}</td>
-                    </tr>
+{{--                    <tr class="table-primary">--}}
+{{--                        <td>Employee Name</td>--}}
+{{--                        <td>{{$service_request->employee->fname ?? "N/A"}}  {{$service_request->employee->name ?? "N/A"}}</td>--}}
+{{--                    </tr>--}}
 
-                    <tr class="table-warning">
-                        <td>Employee Phone</td>
-                        <td>{{$service_request->employee->phone ?? "N/A"}} </td>
-                    </tr>
+{{--                    <tr class="table-warning">--}}
+{{--                        <td>Employee Phone</td>--}}
+{{--                        <td>{{$service_request->employee->mobile ?? "N/A"}} </td>--}}
+{{--                    </tr>--}}
 
 
                     </tbody>
                 </table>
             </div>
             <div class="m-auto text-center">
-                <button class="btn btn-info mb-5 " type="submit">update</button>
+                <button class="btn btn-info mb-5 " type="submit">Update</button>
             </div>
         </form>
+        <a href="" class="btn btn-success">Service Complete</a>
     </div> <br><br>
 
-    <div class="m-auto">
-        <button class="Button Button--outline" onclick="printDiv()">Print</button>
-    </div>
-    <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
-    <br>
-    <script>
-        function printDiv() {
-            window.frames["print_frame"].document.body.innerHTML = document.getElementById("printableTable").innerHTML;
-            window.frames["print_frame"].window.focus();
-            window.frames["print_frame"].window.print();
-        }
-    </script>
+
+
+
 
 @endsection

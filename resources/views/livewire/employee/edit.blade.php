@@ -1,6 +1,15 @@
 <div>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form wire:submit.prevent="update" class="forms-sample text-dark">
-    
+
         <div class="d-flex justify-content-between mb-4" >
             <div class="card col-md mr-3">
                 <div class="card-body">
@@ -18,7 +27,7 @@
                             @enderror
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="lname" class="">Last Name <span class="text-danger">*</span></label>
                         <div class="">
@@ -32,7 +41,7 @@
                             @enderror
                         </div>
                     </div>
-    
+
                     <div class="form-group">
                         <label for="dob" class="">Date of Birth <span class="text-danger">*</span></label>
                         <div class="">
@@ -45,7 +54,7 @@
                             @enderror
                         </div>
                     </div>
-                    
+
                     <div class="form-group" >
                         <label for="gender">Gender <span class="text-danger">*</span></label>
                         <select class="form-control @error('gender') is-invalid @enderror" id="gender"
@@ -60,7 +69,7 @@
                             </span>
                         @enderror
                     </div>
-    
+
                     <div class="form-group">
                         <label for="status">Maritial Status <span class="text-danger">*</span></label>
                         <select class="form-control @error('status') is-invalid @enderror" id="status"
@@ -75,7 +84,7 @@
                             </span>
                         @enderror
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="father" class="">Father's Name <span class="text-danger">*</span></label>
                         <div class="">
@@ -274,7 +283,7 @@
                             @enderror
                         </div>
                     </div>
-    
+
                 </div>
             </div>
             <div class="card col-md">
@@ -308,7 +317,7 @@
                             </span>
                         @enderror
                     </div>
-    
+
                     <div class="form-group">
                         <label for="designation">Designation <span class="text-danger">*</span></label>
                         <select class="form-control @error('designation') is-invalid @enderror" id="designation"
@@ -324,7 +333,7 @@
                             </span>
                         @enderror
                     </div>
-        
+
                     <div class="form-group">
                         <label for="join_date" class="">Joining Date <span class="text-danger">*</span></label>
                         <div class="">
@@ -426,12 +435,12 @@
                     </div>
                 </div>
             </div>
-    
+
         </div>
         <div class="col-sm-8 offset-sm-2 mb-5">
             <button type="submit" class="btn btn-info btn-block">UPDATE</button>
         </div>
     </form>
-    
+
     </div>
-    
+

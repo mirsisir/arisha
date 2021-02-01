@@ -133,7 +133,7 @@
 
                 <li class="nav-item active">
                     <a class="nav-link"
-                       href="{{route('partner_request')}}">
+                       href="{{route('employee_bill')}}">
                         <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
                         <span class="menu-title">My Bill</span>
                     </a>

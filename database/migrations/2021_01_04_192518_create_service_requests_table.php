@@ -45,6 +45,7 @@ class CreateServiceRequestsTable extends Migration
 
             $table->string('employes_id')->nullable();
 
+            $table->string('paid')->default(0);
 
             $table->set('status', ['hold','pending','confirm','complete'])->default('pending');
 

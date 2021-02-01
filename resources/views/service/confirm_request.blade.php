@@ -1,7 +1,7 @@
 @extends('layouts.admin.base')
 @section('content')
 
-    <div class=" m-5 border mt-3 p-2">
+    <div class="border mt-3 p-2">
 
 
         @if(count($all_service_request) == 0)
@@ -29,9 +29,9 @@
                             {{$request->customer->phone}}
                         </td>
                         <td>
-                            {{$request->house_number}}
+                            {{$request->house_number}}<br>
                             {{$request->street}}<br>
-                            {{$request->city}}
+                            {{$request->city}}<br>
                             {{$request->post_code}}
 
                         </td>
@@ -52,9 +52,52 @@
                         <td>
                             <a href="{{route('service_details',$request->id)}}" class="btn btn-info"> Details </a>
 
-                            <button class="btn btn-success"> Complete </button>
 
-                            <button type="button" class="btn btn-danger" data-toggle="modal"
+                            <button type="button" class="btn btn-success" data-toggle="modal"
+                                    data-target="#ModalComplete{{$request->id}}">Complete
+                            </button>
+                            <div class="modal fade" id="ModalComplete{{$request->id}}" tabindex="-1" role="dialog"
+                                 aria-labelledby="ModalComplete" aria-hidden="true">
+
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <button type="button" class="close float-right" data-dismiss="modal"
+                                                aria-label="Close">
+                                            <span aria-hidden="true">&times;</span></button>
+
+                                        <div class="modal-body pb-1">
+                                            <H3 class="text-center">Service Done</H3>
+                                            <br>
+                                        </div>
+
+                                        <a class="btn btn-success" href="{{route('services_request_done',$request->id)}}">Confirm </a>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="modal fade" id="exampleModal{{$request->id}}" tabindex="-1" role="dialog"
+                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <button type="button" class="close float-right" data-dismiss="modal"
+                                                aria-label="Close">
+                                            <span aria-hidden="true">&times;</span></button>
+
+                                        <div class="modal-body pb-1">
+                                            <H3 class="text-center">Are you sure you want to reject ? </H3>
+                                            <br>
+                                        </div>
+
+                                        <a class="btn btn-success" href="{{route('reject_request',$request->id)}}">Confirm </a>
+
+                                    </div>
+                                </div>
+                            </div>                            <button type="button" class="btn btn-danger" data-toggle="modal"
                                     data-target="#exampleModal{{$request->id}}">Reject
                             </button>
                             <div class="modal fade" id="exampleModal{{$request->id}}" tabindex="-1" role="dialog"

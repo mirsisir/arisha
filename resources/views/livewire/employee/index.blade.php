@@ -16,6 +16,7 @@
         </div>
     @endif
 
+
 {{--        <div class="card row">--}}
 {{--            <div class=" col-8 card-body m-auto">--}}
 {{--                <select name="dep" wire:model="department" id="" class="form-control width-100%">--}}
@@ -41,9 +42,9 @@
                         <tr>
                             <th> # </th>
                             <th> Name </th>
-                            <th> EMP ID </th>
-                            <th> Department </th>
-                            <th> Designation </th>
+                            <th> EMP Email</th>
+                            <th> EMP NID</th>
+
                             <th> Mobile </th>
                             <th> Option </th>
                         </tr>
@@ -56,9 +57,9 @@
                                     <img src="/storage/{{ $employee->photo }}" width="30" height="30" class="mr-1">
                                     {{ $employee->fname }} {{ $employee->lname }}
                                 </td>
-                                <td>{{ $employee->emp_id }}</td>
-                                <td>{{ $employee->department->department?? "" }} </td>
-                                <td>{{ $employee->designation->name ?? ""}} </td>
+                                <td>{{ $employee->email }}</td>
+                                <td>{{ $employee->nid }}</td>
+
                                 <td>{{ $employee->mobile }} </td>
                                 <td class="text-center">
                                     <a href="/employees/{{ $employee->id }}" class="btn btn-primary btn-sm">
