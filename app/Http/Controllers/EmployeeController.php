@@ -97,12 +97,18 @@ class EmployeeController extends Controller
         return view('employee_dashboard.employee_calender', compact('service_request'));
     }
 
-    public function employee_bill(){
 
-        return view('employee_dashboard.employee_bill');
+
+    public function employee_bill($id){
+
+        $service_request = ServiceRequest::find($id);
+
+//        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ServiceRequest($data,$this->customer));
+//        $service_request->status = "complete";
+//        $service_request->save();
+
+        return view('employees.employee_bill',compact('service_request'));
     }
-
-
 
 
 

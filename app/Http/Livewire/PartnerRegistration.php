@@ -22,7 +22,11 @@ class PartnerRegistration extends Component
     public $photo;
 
     public $address;
+    public $street;
     public $city;
+
+    public $multi = [];
+
     public $country = 'Bangladesh';
     public $mobile;
     public $phone;
@@ -31,7 +35,8 @@ class PartnerRegistration extends Component
     public $bank;
     public $branch;
     public $acc_name;
-    public $acc_number;
+
+    public $bank_account;
 
     public $emp_id;
     public $department_id;
@@ -44,6 +49,8 @@ class PartnerRegistration extends Component
     public $contact_paper;
     public $id_proff;
     public $other;
+    public $nid_card;
+    public $house_clearence;
 
     public function mount ()
     {
@@ -58,7 +65,6 @@ class PartnerRegistration extends Component
             'dob' => 'required',
             'gender' => 'required',
             'status' => 'required',
-            'father' => 'required',
             'nation' => '',
             'nid' => 'required',
             'photo' => 'required|image|max:1024',

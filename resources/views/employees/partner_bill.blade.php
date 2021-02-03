@@ -4,7 +4,6 @@
     <div class="card mb-3">
 
         <div class="card-body">
-            <h2 class="text-center bold btn-info p-2">df</h2>
             <table id="table_id" class="display table-sm">
                 <thead>
                 <tr>
@@ -27,11 +26,32 @@
                         <td>DE-{{$s->id}}</td>
                         <td>{{$s->service->name}}</td>
                         <td>{{$s->date}}</td>
-                        <td>{{$s->duration}}</td>
-                        <td>{{$s->employee->fname?? ""}}</td>
-                        <td>{{$s->net_charge}}<i class="mdi mdi-currency-eur"></i> </td>
-                        <td>{{$s->service->employee_charge*$s->duration}}<i class="mdi mdi-currency-eur"></i></td>
-                        <td><a href="" class="btn btn-info btn-sm">PAY</a> </td>
+                        @if($s->categorie=='Construction')
+                            <td>{{$s->SPM}} Sq m</td>
+                        @elseif($s->categorie=='Transport')
+                            @if($s->hourly=='1')
+                                <td>{{$s->duration}}-H</td>
+                            @else
+                                <td>...</td>
+                            @endif
+                        @else
+                            <td>{{$s->duration}}-H</td>
+                        @endif
+                        <td>{{$s->employee->name?? ""}}</td>
+                        <td>{{$s->net_charge}}<i class="mdi mdi-currency-eur"></i></td>
+
+                        @if($s->categorie=='Construction')
+                            <td>{{$s->service->employee_charge*$s->SPM}}<i class="mdi mdi-currency-eur"></i></td>
+                        @elseif($s->categorie=='Transport')
+                            @if($s->hourly=='1')
+                                <td>{{$s->service->employee_charge*$s->duration}}<i class="mdi mdi-currency-eur"></i></td>
+                            @else
+                                <td>...</td>
+                            @endif
+                        @else
+                            <td>{{$s->service->employee_charge*$s->duration}}<i class="mdi mdi-currency-eur"></i></td>
+                        @endif
+                        <td><a href="{{route('employee_bill',$s->id)}}" class="btn btn-info btn-sm">PAY</a></td>
                     </tr>
                 @endforeach
 
@@ -44,8 +64,8 @@
 
 
     <script>
-        $(document).ready( function () {
+        $(document).ready(function () {
             $('#table_id').DataTable();
-        } );
+        });
     </script>
 @endsection

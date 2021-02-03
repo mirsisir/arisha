@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 use phpDocumentor\Reflection\Types\This;
+use function Symfony\Component\String\s;
 
 class ServiceOrderComponent extends Component
 {
@@ -42,6 +43,7 @@ class ServiceOrderComponent extends Component
     public $end_date_time;
     public $weekly_time;
     public $daily_time=[];
+    public $hourly;
 
 
     public function mount()
@@ -70,7 +72,7 @@ class ServiceOrderComponent extends Component
     {
         $this->service = Service::where('category', $this->selected_category)->get();
 
-
+        $this->hourly=Service::firstwhere('category', $this->selected_category)->hourly;
     }
 
     public function updated()
@@ -180,6 +182,8 @@ class ServiceOrderComponent extends Component
 
             $new_request->service_id = $this->selected_service;
             $new_request->categorie = $this->selected_category;
+
+            $new_request->hourly = $this->hourly;
 
             $new_request->duration = $this->duration;
 

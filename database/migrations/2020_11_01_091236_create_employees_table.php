@@ -15,12 +15,14 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
+
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('client_id')->nullable();
 
             // Personal Details
             $table->string('fname');
             $table->string('lname');
+
             $table->string('dob')->nullable();
             $table->string('gender')->nullable();
             $table->string('status')->nullable();
@@ -31,16 +33,22 @@ class CreateEmployeesTable extends Migration
 
             // Contact Details
             $table->string('address')->nullable();
+            $table->string('street')->nullable();
             $table->string('city')->nullable();
+            $table->string('post_code')->nullable();
             $table->string('country')->nullable();
-            $table->string('mobile');
+            $table->string('mobile')->nullable();;
             $table->string('phone')->nullable();
+
+
+
             $table->string('email');
 
             // Bank Information
             $table->string('bank')->nullable();
             $table->string('branch')->nullable();
             $table->string('acc_name')->nullable();
+
             $table->string('acc_number')->nullable();
 
             // Official Status
@@ -54,11 +62,15 @@ class CreateEmployeesTable extends Migration
             $table->string('offer_let')->nullable();
             $table->string('join_let')->nullable();
             $table->string('contact_paper')->nullable();
+
             $table->string('id_proff')->nullable();
+
             $table->string('other')->nullable();
+            $table->string('business_licence')->nullable();
 
             $table->boolean('active_employee')->default('0');
 
+            $table->json('service')->nullable();
 
 //            $table->timestamps();
         });

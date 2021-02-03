@@ -13,6 +13,7 @@ use App\Http\Controllers\ServiceControlle;
 use App\Http\Controllers\UniformAllocationController;
 use App\Http\Controllers\UniformCollectionController;
 use App\Http\Controllers\UniformDestroyController;
+use App\Http\Controllers\WebsiteConroller;
 use App\Http\Controllers\WorkingDaysController;
 use App\Http\Livewire\Attendance\AttendanceComponent;
 use App\Http\Livewire\BrandSettingComponent;
@@ -200,8 +201,9 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
 
 
 //    service report
-    Route::get('/service_report/{id}',[ServiceControlle::class,"service_done_report"])->name('services_request_done');
 
+    Route::get('/employee_bill/{id}',[EmployeeController::class,"employee_bill"])->name('employee_bill');
+    Route::get('/service_done_report/{id}',[ServiceControlle::class,"service_done_report"])->name('services_request_done');
 
 
 
@@ -263,7 +265,10 @@ Route::group([ 'prefix' => '{language}'], function () {
 
     Route::get('/all_services', [ServiceControlle::class, 'all_services'])->name('all_services');
 
-    Route::get('/partner_registration',PartnerRegistration::class )->name('partner_registration');
+//    Route::get('/partner_registration',PartnerRegistration::class )->name('partner_registration');
+
+    Route::get('/partner_registration',[WebsiteConroller::class,'partner_registration'] )->name('partner_registration');
+    Route::post('/partner_registration_save',[WebsiteConroller::class,'partner_registration_save'] )->name('partner_registration_save');
 
 });
 
@@ -306,7 +311,6 @@ Route::group(['middleware' => ['auth', 'employee'], 'prefix' => 'employee'], fun
     Route::post('/service_details_emp/{id}', [ServiceControlle::class, 'service_details_update_emp'])->name('service_details_update_emp');
 
     Route::get('/employee_calender', [EmployeeController::class, 'employee_calender'])->name('employee_calender');
-    Route::get('/employee_bill', [EmployeeController::class, 'employee_bill'])->name('employee_bill');
 
 
 });

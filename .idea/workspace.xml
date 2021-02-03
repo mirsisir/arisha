@@ -5,37 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f07d837-d124-472e-ae1d-79432793df38" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/employee_dashboard/employee_bill.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/employees/partner_allocate.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/employees/partner_allocate_list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/employees/partner_bill.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/general_settings.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/mail/RequestReject.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/mail/confirm_service_request.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/voucher/service_done_voucher.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/employees/employee_bill.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/website/partner-registration.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/service.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiceControlle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiceControlle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CategoryComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CategoryComponent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Employee/Edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Employee/Edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ServiceRequestComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ServiceRequestComponent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/PartnerRegistration.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/PartnerRegistration.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Website/ServiceOrderComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Website/ServiceOrderComponent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Jobs/SendEmail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/SendEmail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/ServiceRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/ServiceRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Employee.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/ServiceRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ServiceRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_04_070618_create_services_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_04_070618_create_services_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_04_192518_create_service_requests_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_04_192518_create_service_requests_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee_dashboard/service_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee_dashboard/service_details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_01_091236_create_employees_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_01_091236_create_employees_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/de.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employees/partner_bill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employees/partner_bill.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin/base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin/base.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/employee/employee_base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/employee/employee_base.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/category-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/category-component.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/employee/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/employee/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/employee/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/employee/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/service-request-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/service-request-component.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/website/service-order-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/website/service-order-component.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mail/ServiceRequest.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mail/ServiceRequest.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/service/confirm_request.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/service/confirm_request.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/web/web_base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/web/web_base.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partner-registration.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partner-registration.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/website/homepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/homepage.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,7 +172,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/layouts/employee" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../kinetix_starter_kit" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -191,12 +180,15 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\PHP\laravel\enam\service\resources\views\website" />
       <recent name="F:\PHP\laravel\enam\service\resources\views\layouts\employee" />
       <recent name="F:\PHP\laravel\enam\service\public\assets" />
       <recent name="F:\PHP\laravel\enam\service\public\assets\js" />
       <recent name="F:\PHP\laravel\enam\service\resources\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\PHP\laravel\enam\service\resources\views\livewire" />
+      <recent name="F:\PHP\laravel\enam\service\resources\views\website" />
       <recent name="F:\PHP\laravel\enam\service\resources\views" />
       <recent name="F:\PHP\laravel\enam\service\resources\views\employee_dashboard" />
       <recent name="F:\PHP\laravel\enam\service\resources\views\livewire\website" />
@@ -288,7 +280,13 @@
       <workItem from="1612075279160" duration="8379000" />
       <workItem from="1612114589821" duration="1260000" />
       <workItem from="1612160521649" duration="11764000" />
-      <workItem from="1612198516599" duration="1068000" />
+      <workItem from="1612198516599" duration="4610000" />
+      <workItem from="1612248275339" duration="16110000" />
+      <workItem from="1612323605157" duration="6932000" />
+      <workItem from="1612341169028" duration="1225000" />
+      <workItem from="1612344537398" duration="692000" />
+      <workItem from="1612346103687" duration="4108000" />
+      <workItem from="1612369513700" duration="8053000" />
     </task>
     <servers />
   </component>

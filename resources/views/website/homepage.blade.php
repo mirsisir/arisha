@@ -146,9 +146,7 @@
                     <div class="content">
                         <img src="{{asset('assets/images/cleaning-lady.svg')}}" alt="" height="50" width="50" />
                         <h3>Expert</h3>
-                        <p>
-                            Lorem Ipsum is simply text the printing and typesetting standard industry.
-                        </p>
+
                     </div>
                 </div>
             </div>
@@ -157,9 +155,9 @@
                     <div class="content">
                         <img src="{{asset('assets/images/cleaner.svg')}}" alt="" height="50" width="50" />
                         <h3>Secure Services</h3>
-                        <p>
-                            Lorem Ipsum is simply text the printing and typesetting standard industry.
-                        </p>
+{{--                        <p>--}}
+{{--                            Lorem Ipsum is simply text the printing and typesetting standard industry.--}}
+{{--                        </p>--}}
                     </div>
                 </div>
             </div>
@@ -168,9 +166,9 @@
                     <div class="content">
                         <img src="{{asset('assets/images/clean.svg')}}" alt="" height="50" width="50" />
                         <h3>Low Costing</h3>
-                        <p>
-                            Lorem Ipsum is simply text the printing and typesetting standard industry.
-                        </p>
+{{--                        <p>--}}
+{{--                            Lorem Ipsum is simply text the printing and typesetting standard industry.--}}
+{{--                        </p>--}}
                     </div>
                 </div>
             </div>
@@ -179,9 +177,9 @@
                     <div class="content">
                         <img src="{{asset('assets/images/clean-1.svg')}}" alt="" height="50" width="50" />
                         <h3>On Time</h3>
-                        <p>
-                            Lorem Ipsum is simply text the printing and typesetting standard industry.
-                        </p>
+{{--                        <p>--}}
+{{--                            Lorem Ipsum is simply text the printing and typesetting standard industry.--}}
+{{--                        </p>--}}
                     </div>
                 </div>
             </div>
@@ -195,12 +193,12 @@
 <section class="padding ptb-xs-40 gray-bg service_sec">
     <div class="container">
         <div class="row text-center mb-xs-30">
-            <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+            <div class="col-md-12  col-lg-12 ">
                 <div class="section-title_home">
                     <h2>Quality Services</h2>
                     <span class="b-line"></span>
                     <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 's standard dummy text.
+                        <strong class="text-success">Arisha Service</strong> {{__('is a growing start-up company offering professional services in Berlin, Germany. We offer a wide range of services in courier and transportation to help make your life easier. Whether it’s Sending a letter urgently in an hour, transporting goods from your warehouse to the store, sending goods to your clients, transport your furniture from store to home or move to the new home we have experienced people waiting to discuss your requirements.')}}
                     </p>
                 </div>
             </div>
@@ -217,9 +215,9 @@
                             <img src="{{asset('assets/images/service/img_1.jpg')}}" alt="" />
                         </figure>
                         <h3><a href="#">{{$service->name}}</a></h3>
-                        <h5><a class="text-danger" href="#">Service Charge: {{$service->charge}}</a></h5>
+                        <h5><a class="text-danger" href="#">Service Charge: {{$service->charge}} &euro;</a></h5>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam quos aperiam ipsam modi dolor suscipit asperiores perspiciatis.
+                            {{$service->details}}
                         </p>
                     </div>
                     @endforeach
@@ -268,168 +266,229 @@
         </div>
     </div>
 </section>
-<!-- Section_End -->
 
-<!-- Team -->
-<section class="padding ptb-xs-40">
+
+
+<section class="padding ptb-xs-40 ">
     <div class="container">
-        <div class="row text-center mb-40 mb-xs-30">
+        <div class="row text-center light-color mb-40 mb-xs-30">
             <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-                <div class="section-title_home">
-                    <h2>Our Team</h2>
+                <div class="section-title_home" >
+                    <h2 style="color:black" >Our Testimonial</h2>
                     <span class="b-line"></span>
-                    <p>
+                    <p  style="color:black">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 's standard dummy text.
                     </p>
                 </div>
             </div>
         </div>
+        <div class="home_testimonial p-5">
 
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="team_box img-scale">
-                    <div class="team_picher">
-                        <figure>
-                            <img src="{{asset('assets/images/team/team1.jpg')}}" alt="">
-                        </figure>
+            <div class="testimonial_blog">
+
+                <div class="author_detail">
+                    <div class="author_pic">
+                        <img src="https://www.clipartmax.com/png/full/255-2556971_computer-icons-user-management-clip-art-default-profile-picture-green.png" alt="" />
                     </div>
-                    <div class="team_detail">
-                        <h3>Josh Philippe</h3>
-                        <span>Senior Developer</span>
-                    </div>
-                    <div class="team_text">
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        </p>
-                    </div>
-                    <div class="social_team">
-                        <ul>
-                            <li>
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-youtube"></i></a>
-                            </li>
-                        </ul>
-                    </div>
+                    <h3>Andrew Flintoff</h3>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type.
+                    </p>
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 mt-xs-30">
-                <div class="team_box img-scale">
-                    <div class="team_picher">
-                        <figure>
-                            <img src="{{asset('assets/images/team/team2.jpg')}}" alt="">
-                        </figure>
+            <div class="testimonial_blog">
+
+                <div class="author_detail">
+                    <div class="author_pic">
+                        <img src="https://www.clipartmax.com/png/full/255-2556971_computer-icons-user-management-clip-art-default-profile-picture-green.png" alt="" />
                     </div>
-                    <div class="team_detail">
-                        <h3>Marcus Stoinis</h3>
-                        <span>Senior Developer</span>
-                    </div>
-                    <div class="team_text">
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        </p>
-                    </div>
-                    <div class="social_team">
-                        <ul>
-                            <li>
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-youtube"></i></a>
-                            </li>
-                        </ul>
-                    </div>
+                    <h3>Andrew Flintoff</h3>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type.
+                    </p>
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 mt-sm-30 mt-xs-30">
-                <div class="team_box img-scale">
-                    <div class="team_picher">
-                        <figure>
-                            <img src="{{asset('assets/images/team/team3.jpg')}}" alt="">
-                        </figure>
-                    </div>
-                    <div class="team_detail">
-                        <h3>Jackson Coleman</h3>
-                        <span>Senior Developer</span>
-                    </div>
-                    <div class="team_text">
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        </p>
-                    </div>
-                    <div class="social_team">
-                        <ul>
-                            <li>
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-youtube"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <div class="testimonial_blog">
 
-            <div class="col-lg-3 col-md-6 mt-sm-30 mt-xs-30">
-                <div class="team_box img-scale">
-                    <div class="team_picher">
-                        <figure>
-                            <img src="{{asset('assets/images/team/team4.jpg')}}" alt="">
-                        </figure>
+                <div class="author_detail">
+                    <div class="author_pic">
+                        <img src="https://www.clipartmax.com/png/full/255-2556971_computer-icons-user-management-clip-art-default-profile-picture-green.png" alt="" />
                     </div>
-                    <div class="team_detail">
-                        <h3>Mackenzie Harvey</h3>
-                        <span>Senior Developer</span>
-                    </div>
-                    <div class="team_text">
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        </p>
-                    </div>
-                    <div class="social_team">
-                        <ul>
-                            <li>
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-youtube"></i></a>
-                            </li>
-                        </ul>
-                    </div>
+                    <h3>Andrew Flintoff</h3>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type.
+                    </p>
                 </div>
             </div>
 
         </div>
-
     </div>
 </section>
+
+<!-- Section_End -->
+
+<!-- Team -->
+{{--<section class="padding ptb-xs-40">--}}
+{{--    <div class="container">--}}
+{{--        <div class="row text-center mb-40 mb-xs-30">--}}
+{{--            <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">--}}
+{{--                <div class="section-title_home">--}}
+{{--                    <h2>Our Team</h2>--}}
+{{--                    <span class="b-line"></span>--}}
+{{--                    <p>--}}
+{{--                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 's standard dummy text.--}}
+{{--                    </p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+{{--        <div class="row">--}}
+{{--            <div class="col-lg-3 col-md-6">--}}
+{{--                <div class="team_box img-scale">--}}
+{{--                    <div class="team_picher">--}}
+{{--                        <figure>--}}
+{{--                            <img src="{{asset('assets/images/team/team1.jpg')}}" alt="">--}}
+{{--                        </figure>--}}
+{{--                    </div>--}}
+{{--                    <div class="team_detail">--}}
+{{--                        <h3>Josh Philippe</h3>--}}
+{{--                        <span>Senior Developer</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="team_text">--}}
+{{--                        <p>--}}
+{{--                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                    <div class="social_team">--}}
+{{--                        <ul>--}}
+{{--                            <li>--}}
+{{--                                <a href="#"><i class="fa fa-facebook"></i></a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="#"><i class="fa fa-twitter"></i></a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="#"><i class="fa fa-linkedin"></i></a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="#"><i class="fa fa-youtube"></i></a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
+{{--            <div class="col-lg-3 col-md-6 mt-xs-30">--}}
+{{--                <div class="team_box img-scale">--}}
+{{--                    <div class="team_picher">--}}
+{{--                        <figure>--}}
+{{--                            <img src="{{asset('assets/images/team/team2.jpg')}}" alt="">--}}
+{{--                        </figure>--}}
+{{--                    </div>--}}
+{{--                    <div class="team_detail">--}}
+{{--                        <h3>Marcus Stoinis</h3>--}}
+{{--                        <span>Senior Developer</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="team_text">--}}
+{{--                        <p>--}}
+{{--                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                    <div class="social_team">--}}
+{{--                        <ul>--}}
+{{--                            <li>--}}
+{{--                                <a href="#"><i class="fa fa-facebook"></i></a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="#"><i class="fa fa-twitter"></i></a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="#"><i class="fa fa-linkedin"></i></a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="#"><i class="fa fa-youtube"></i></a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
+{{--            <div class="col-lg-3 col-md-6 mt-sm-30 mt-xs-30">--}}
+{{--                <div class="team_box img-scale">--}}
+{{--                    <div class="team_picher">--}}
+{{--                        <figure>--}}
+{{--                            <img src="{{asset('assets/images/team/team3.jpg')}}" alt="">--}}
+{{--                        </figure>--}}
+{{--                    </div>--}}
+{{--                    <div class="team_detail">--}}
+{{--                        <h3>Jackson Coleman</h3>--}}
+{{--                        <span>Senior Developer</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="team_text">--}}
+{{--                        <p>--}}
+{{--                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                    <div class="social_team">--}}
+{{--                        <ul>--}}
+{{--                            <li>--}}
+{{--                                <a href="#"><i class="fa fa-facebook"></i></a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="#"><i class="fa fa-twitter"></i></a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="#"><i class="fa fa-linkedin"></i></a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="#"><i class="fa fa-youtube"></i></a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
+{{--            <div class="col-lg-3 col-md-6 mt-sm-30 mt-xs-30">--}}
+{{--                <div class="team_box img-scale">--}}
+{{--                    <div class="team_picher">--}}
+{{--                        <figure>--}}
+{{--                            <img src="{{asset('assets/images/team/team4.jpg')}}" alt="">--}}
+{{--                        </figure>--}}
+{{--                    </div>--}}
+{{--                    <div class="team_detail">--}}
+{{--                        <h3>Mackenzie Harvey</h3>--}}
+{{--                        <span>Senior Developer</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="team_text">--}}
+{{--                        <p>--}}
+{{--                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                    <div class="social_team">--}}
+{{--                        <ul>--}}
+{{--                            <li>--}}
+{{--                                <a href="#"><i class="fa fa-facebook"></i></a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="#"><i class="fa fa-twitter"></i></a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="#"><i class="fa fa-linkedin"></i></a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="#"><i class="fa fa-youtube"></i></a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
+{{--        </div>--}}
+
+{{--    </div>--}}
+{{--</section>--}}
 <!-- Team_End -->
 
 

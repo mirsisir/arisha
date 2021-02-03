@@ -17,6 +17,7 @@
     <link media="all" type="text/css" rel="stylesheet"
         href="https://www.bootstrapdash.com/demo/connect-plus/laravel/template/demo_1/assets/plugins/@mdi/font/css/materialdesignicons.min.css">
     --}}
+
     <link media="all" type="text/css" rel="stylesheet" href="{{ asset('css/materialicons.css') }}">
 
     <link media="all" type="text/css" rel="stylesheet"
@@ -133,7 +134,7 @@
 
                 <li class="nav-item active">
                     <a class="nav-link"
-                       href="{{route('employee_bill')}}">
+                       href="#">
                         <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
                         <span class="menu-title">My Bill</span>
                     </a>

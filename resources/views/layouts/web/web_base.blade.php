@@ -25,9 +25,11 @@
     <link href="{{asset('assets/css/footer.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/css/index.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/css/theme-color/default.css')}}" rel="stylesheet" type="text/css" id="theme-color" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     @livewireStyles
 </head>
 <body>
+@php($settings = \App\Models\GeneralSettings::take(-1)->first())
 <!--loader-->
 <div id="preloader">
     <div class="sk-circle">
@@ -73,21 +75,22 @@
                                     {{ __('Pastor-Niemöller-Platz') }}
 
 
-                                    <span>  2 / HH, 13156 Berlin.</span>
+                                    <span>  {{$settings->street ?? " "}}{{$settings->house_number ?? " "}} </br {{$settings->city ?? " "}}{{$settings->post_code ?? " "}} </span>
                                 </p>
+
                             </li>
                             <li>
                                 <i class="fa fa-phone"></i>
                                 <p>
                                     Call Us
-                                    <span> +49 160 92 36 16 37</span>
+                                    <span> {{$settings->phone?? " "}}</span>
                                 </p>
                             </li>
                             <li>
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                 <p>
                                     Mail Us
-                                    <span> <a href="mailto:info@gmail.com">arishaservice@gmail.com</a> </span>
+                                    <span> <a href="mailto:info@gmail.com">{{$settings->email ?? " "}}</a> </span>
                                 </p>
                             </li>
                         </ul>
@@ -118,9 +121,8 @@
                             <a href="{{route('services_request',app()->getLocale())}}">{{__('Service-Anfrage')}}</a>
                         </li>
 
-                        <li>
-                            <a href="{{route('contact_us',app()->getLocale())}}">{{__('Login')}}</a>
-                        </li>
+
+
 
 {{--                        <ul class="nav navbar-nav mobile-menu  float-right">--}}
                         <div class="float-right mt-2">
@@ -129,8 +131,22 @@
                                 <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'en')}}">EN</a>
 
                             </div>
-                            <div class=" m-1 btn btn-info float-left  " >
+                            <div class=" m-1 btn btn-info   mr-2" >
                                 <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'de')}}">De</a>
+                            </div>
+
+
+                            <div class=" ml-4 m-1 btn btn-info float-right  " >
+
+                                                      @if (Auth::check())
+
+                                        <a href="{{route('login',app()->getLocale())}}">{{__('Logout')}}</a>
+
+                                @else
+
+                                        <a href="{{route('login',app()->getLocale())}}">{{__('Login')}}</a>
+
+                                @endif
                             </div>
 
                         </div>
@@ -196,7 +212,7 @@
                 </ul>
             </div>
 
-            <div class="col-md-6 col-lg-2 mt-xs-30 link_footer">
+            <div class="col-md-6 col-lg-3 mt-xs-30 link_footer">
                 <h4>Information</h4>
                 <ul>
                     <li>
@@ -217,22 +233,11 @@
                 </ul>
             </div>
 
-            <div class="col-md-6 col-lg-3 mt-sm-30 mt-xs-30 footer-latest-news">
-                <h4>Latest News</h4>
-                <div class="single-news">
-                    <h5><a href="#">How can be successfull in market place..</a></h5>
-                    <span>13 Nov, 2018  /  Business</span>
-                </div>
-                <div class="single-news">
-                    <h5><a href="#">How can be successfull in market place..</a></h5>
-                    <span>13 Nov, 2018  /  Business</span>
-                </div>
-            </div>
 
-            <div class="col-md-6 col-lg-4 mt-sm-30 mt-xs-30 footer-subscribe">
+            <div class="col-md-6 col-lg-6 mt-sm-30 mt-xs-30 footer-subscribe">
                 <h4>Subscribe Us</h4>
                 <p>
-                    Lorem ipsum dolor amet natum latine copiosa at quo, suas labore saperet has there any quote.
+                    If you have any special requirements for your Booking, as well as any query related to our services, then do not hesitate to give us a call on {{$settings->phone?? " "}} . We are happy to serve you.
                 </p>
                 <form action="#">
                     <input type="text" placeholder="Enter your e-mail">
@@ -277,7 +282,7 @@
 <script src="{{asset('assets/js/masonry.pkgd.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/js/jquery.appear.js')}}" type="text/javascript"></script>
 <!-- Mail Function Js -->
-<script src="{{asset('assets/js/mail.js' )}}" type="text/javascript></script>
+<script src="{{asset('assets/js/mail.js' )}}"></script>
 
 <!-- revolution Js -->
 <script type="text/javascript" src="{{asset('assets/js/jquery.themepunch.tools.min.js')}}"></script>
@@ -290,6 +295,15 @@
 <!-- custom Js -->
 <script src="{{asset('assets/js/custom.js')}}" type="text/javascript"></script>
 
+{{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--}}
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+@yield('js')
 @livewireScripts
 
 </body>

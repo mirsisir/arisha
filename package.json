@@ -27,6 +27,7 @@
         "@fullcalendar/core": "^5.5.0",
         "@fullcalendar/daygrid": "^5.5.0",
         "fullcalendar": "^5.5.0",
+        "select2": "^4.1.0-rc.0",
         "sweetalert2": "^10.10.2"
     }
 }

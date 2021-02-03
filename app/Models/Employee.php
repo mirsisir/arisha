@@ -52,4 +52,10 @@ class Employee extends Model
     {
         return $this->hasMany(SalarySheet::class);
     }
+
+
+    protected $casts = [
+        'service' => 'array',
+
+    ];
 }
