@@ -68,4 +68,5 @@
             $('#table_id').DataTable();
         });
     </script>
+
 @endsection

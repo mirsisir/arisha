@@ -72,7 +72,7 @@ class ServiceOrderComponent extends Component
     {
         $this->service = Service::where('category', $this->selected_category)->get();
 
-        $this->hourly=Service::firstwhere('category', $this->selected_category)->hourly;
+        $this->hourly=Service::firstwhere('category', $this->selected_category)->hourly ?? 0;
     }
 
     public function updated()

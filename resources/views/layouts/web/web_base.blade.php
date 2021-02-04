@@ -9,7 +9,7 @@
     <title>Chillclean - Cleaning Services HTML5 Bootstrap4 Responsive Template</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
-    <link href="{{asset('assets/css/bootstrap.min.css')}}"  rel="stylesheet" type="text/css">
+    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/css/font-awesome.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/css/ionicons.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/css/jquery.fancybox.css')}}" rel="stylesheet" type="text/css">
@@ -21,11 +21,28 @@
 
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
 
-    <link href="{{asset('assets/css/header.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/css/footer.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/css/index.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/css/theme-color/default.css')}}" rel="stylesheet" type="text/css" id="theme-color" />
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="{{asset('assets/css/header.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('assets/css/footer.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('assets/css/index.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('assets/css/theme-color/default.css')}}" rel="stylesheet" type="text/css" id="theme-color"/>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+    <link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/searchpanes/1.2.1/css/searchPanes.dataTables.min.css" rel="stylesheet" />
+    <link href="    https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css" rel="stylesheet" />
+
+
+
     @livewireStyles
 </head>
 <body>
@@ -60,7 +77,8 @@
                     <a href="index-2.html"> <img src="{{asset('assets/images/logo.png')}}" alt="Logo"> </a>
 
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle hidden-lg-up" data-toggle="collapse" data-target="#navbar-menu">
+                        <button type="button" class="navbar-toggle hidden-lg-up" data-toggle="collapse"
+                                data-target="#navbar-menu">
                             <i class="fa fa-bars"></i>
                         </button>
 
@@ -110,63 +128,81 @@
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav mobile-menu  float-right">
                         <li>
-                            <a class="m-0 p-1" href="{{route('page.homepage',app()->getLocale())}}">{{__('Erste Seite')}}</a>
+                            <a class="m-0 p-1"
+                               href="{{route('page.homepage',app()->getLocale())}}">{{__('Erste Seite')}}</a>
                         </li>
 
 
                         <li>
                             <a href="{{route('partner_registration',app()->getLocale())}}">Partner Registration</a>
                         </li>
+
+
                         <li>
-                            <a href="{{route('services_request',app()->getLocale())}}">{{__('Service-Anfrage')}}</a>
+                            <a href="#!">Service</a>
+                            <span class="submenu-button"></span>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{route('services_request',app()->getLocale())}}">{{__('Service-Anfrage')}}</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('all_services',app()->getLocale())}}">Our Service</a>
+                                </li>
+
+                            </ul>
                         </li>
 
+                        @if (Auth::check())
+                            <li>
+                                <a href="{{route('customer_dashboard',app()->getLocale())}}">Dashboard</a>
+                            </li>
+
+                        @endif
+
+                            {{--                        <ul class="nav navbar-nav mobile-menu  float-right">--}}
+                            <div class="float-right mt-2">
+
+                                <div class="m-1 btn btn-info">
+                                    <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'en')}}">EN</a>
+
+                                </div>
+                                <div class=" m-1 btn btn-info   mr-2">
+                                    <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'de')}}">De</a>
+                                </div>
 
 
+                                <div class=" ml-4 m-1 btn btn-info float-right  ">
 
-{{--                        <ul class="nav navbar-nav mobile-menu  float-right">--}}
-                        <div class="float-right mt-2">
-
-                            <div class="m-1 btn btn-info"  >
-                                <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'en')}}">EN</a>
-
-                            </div>
-                            <div class=" m-1 btn btn-info   mr-2" >
-                                <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'de')}}">De</a>
-                            </div>
-
-
-                            <div class=" ml-4 m-1 btn btn-info float-right  " >
-
-                                                      @if (Auth::check())
+                                    @if (Auth::check())
 
                                         <a href="{{route('login',app()->getLocale())}}">{{__('Logout')}}</a>
 
-                                @else
+                                    @else
 
                                         <a href="{{route('login',app()->getLocale())}}">{{__('Login')}}</a>
 
-                                @endif
+                                    @endif
+                                </div>
+
+
                             </div>
 
-                        </div>
 
+                            {{--                            <li class="float-right">--}}
+                            {{--                                <a href="#!">language</a>--}}
+                            {{--                                <span class="submenu-button"></span>--}}
+                            {{--                                <ul class="dropdown-menu">--}}
+                            {{--                                    <li>--}}
+                            {{--                                        <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'en')}}">English(EN)</a>--}}
+                            {{--                                    </li>--}}
 
-                        {{--                            <li class="float-right">--}}
-{{--                                <a href="#!">language</a>--}}
-{{--                                <span class="submenu-button"></span>--}}
-{{--                                <ul class="dropdown-menu">--}}
-{{--                                    <li>--}}
-{{--                                        <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'en')}}">English(EN)</a>--}}
-{{--                                    </li>--}}
+                            {{--                                    <li>--}}
+                            {{--                                        <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'de')}}">German(de)</a>--}}
+                            {{--                                    </li>--}}
 
-{{--                                    <li>--}}
-{{--                                        <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'de')}}">German(de)</a>--}}
-{{--                                    </li>--}}
-
-{{--                                </ul>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
+                            {{--                                </ul>--}}
+                            {{--                            </li>--}}
+                            {{--                        </ul>--}}
 
 
                     </ul>
@@ -180,9 +216,9 @@
 </header>
 
 <!-- END HEADER -->
-            @yield('content')
+@yield('content')
 
-            {{ $slot ?? '' }}
+{{ $slot ?? '' }}
 
 <!-- Blog_End -->
 <footer class="footer pt-50">
@@ -191,7 +227,8 @@
             <div class="col-md-6 col-lg-3 footer_logo">
                 <a href="index-2.html"><img src="{{asset('assets/images/footer_logo.png')}}" alt=""></a>
                 <p>
-                    Lorem ipsum dolor amet natum latine copiosa at quo, suas labore saperet has there any quote for write lorem percit latineu suas dummy.
+                    Lorem ipsum dolor amet natum latine copiosa at quo, suas labore saperet has there any quote for
+                    write lorem percit latineu suas dummy.
                 </p>
                 <ul>
                     <li>
@@ -237,7 +274,8 @@
             <div class="col-md-6 col-lg-6 mt-sm-30 mt-xs-30 footer-subscribe">
                 <h4>Subscribe Us</h4>
                 <p>
-                    If you have any special requirements for your Booking, as well as any query related to our services, then do not hesitate to give us a call on {{$settings->phone?? " "}} . We are happy to serve you.
+                    If you have any special requirements for your Booking, as well as any query related to our services,
+                    then do not hesitate to give us a call on {{$settings->phone?? " "}} . We are happy to serve you.
                 </p>
                 <form action="#">
                     <input type="text" placeholder="Enter your e-mail">
@@ -266,7 +304,7 @@
 <script type="text/javascript" src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/tether.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/bootstrap.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('assets/js/jquery.easing.js')}}" ></script>
+<script type="text/javascript" src="{{asset('assets/js/jquery.easing.js')}}"></script>
 
 <!-- fancybox Js -->
 <script src="{{asset('assets/js/jquery.mousewheel-3.0.6.pack.js')}}" type="text/javascript"></script>
@@ -303,6 +341,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
+</script>
+
+<script src="https://cdn.datatables.net/searchpanes/1.2.1/js/dataTables.searchPanes.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+
 @yield('js')
 @livewireScripts
 

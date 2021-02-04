@@ -273,7 +273,7 @@ Route::group([ 'prefix' => '{language}'], function () {
 });
 
 
-Route::group(['prefix' => '{language}', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => '{language}', 'middleware' => ['auth','customer']], function () {
 
 
     Route::get('/services_request', \App\Http\Livewire\Website\ServiceOrderComponent::class)->name('services_request');
@@ -282,6 +282,8 @@ Route::group(['prefix' => '{language}', 'middleware' => ['auth']], function () {
         return view('website.request_confirmation');
 
     })->name('services_request_confirm');
+
+    Route::get('/customer_dashboard', [ WebsiteConroller::class,'customer_dashboard'])->name('customer_dashboard');
 
 
 });

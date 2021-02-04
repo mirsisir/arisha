@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use App\Models\Service;
+use App\Models\ServiceRequest;
 use Illuminate\Http\Request;
 
 class WebsiteConroller extends Controller
@@ -84,4 +85,24 @@ class WebsiteConroller extends Controller
 
         return redirect(route('partner_registration',app()->getLocale()));
     }
+
+
+    public function customer_dashboard(){
+
+        $pending_service = ServiceRequest::where('customer_id',auth()->user()->id)
+                                        ->where('status','pending')->get();
+
+        $hold_service = ServiceRequest::where('customer_id',auth()->user()->id)
+                                        ->where('status','hold')->get();
+
+        $confirm_service = ServiceRequest::where('customer_id',auth()->user()->id)
+                                        ->where('status','confirm')->get();
+
+        $complete_service = ServiceRequest::where('customer_id',auth()->user()->id)
+                                        ->where('status','complete')->get();
+
+        return view('website.customer_dashboard',compact('pending_service','hold_service','confirm_service','complete_service'));
+    }
+
+
 }
