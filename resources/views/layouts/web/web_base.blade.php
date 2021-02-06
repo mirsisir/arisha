@@ -25,6 +25,7 @@
     <link href="{{asset('assets/css/footer.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('assets/css/index.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('assets/css/theme-color/default.css')}}" rel="stylesheet" type="text/css" id="theme-color"/>
+
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     <link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />
 
@@ -90,17 +91,18 @@
                             <li>
                                 <i class="fa fa-map-marker"></i>
                                 <p>
-                                    {{ __('Pastor-Niemöller-Platz') }}
 
 
-                                    <span>  {{$settings->street ?? " "}}{{$settings->house_number ?? " "}} </br {{$settings->city ?? " "}}{{$settings->post_code ?? " "}} </span>
+                                    <span>  {{$settings->street ?? " "}}{{$settings->house_number ?? " "}} </br
+                                        {{$settings->city ?? " "}}{{$settings->post_code ?? " "}} <br>
+                                        {{$settings->hrb ?? " "}} </span>
                                 </p>
 
                             </li>
                             <li>
                                 <i class="fa fa-phone"></i>
                                 <p>
-                                    Call Us
+                                    {{__('Call Us')}}
                                     <span> {{$settings->phone?? " "}}</span>
                                 </p>
                             </li>
@@ -134,23 +136,24 @@
 
 
                         <li>
-                            <a href="{{route('partner_registration',app()->getLocale())}}">Partner Registration</a>
+                            <a href="{{route('partner_registration',app()->getLocale())}}">{{__('Ein Partner Werden')}}</a>
                         </li>
 
 
                         <li>
-                            <a href="#!">Service</a>
-                            <span class="submenu-button"></span>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="{{route('services_request',app()->getLocale())}}">{{__('Service-Anfrage')}}</a>
-                                </li>
-                                <li>
-                                    <a href="{{route('all_services',app()->getLocale())}}">Our Service</a>
-                                </li>
-
-                            </ul>
+                            <a href="{{route('all_services',app()->getLocale())}}">{{__('Pricing')}}</a>
                         </li>
+{{--                        <li>--}}
+{{--                            <a href="#!">Service</a>--}}
+{{--                            <span class="submenu-button"></span>--}}
+{{--                            <ul class="dropdown-menu">--}}
+{{--                                <li>--}}
+{{--                                    <a href="{{route('services_request',app()->getLocale())}}">{{__('Service-Anfrage')}}</a>--}}
+{{--                                </li>--}}
+{{--                  --}}
+
+{{--                            </ul>--}}
+{{--                        </li>--}}
 
                         @if (Auth::check())
                             <li>

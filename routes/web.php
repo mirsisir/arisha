@@ -270,13 +270,19 @@ Route::group([ 'prefix' => '{language}'], function () {
     Route::get('/partner_registration',[WebsiteConroller::class,'partner_registration'] )->name('partner_registration');
     Route::post('/partner_registration_save',[WebsiteConroller::class,'partner_registration_save'] )->name('partner_registration_save');
 
+//   blog
+    Route::view('/office_cleaning','website.office_cleaning')->name('office_cleaning');
+    Route::view('/home_cleaning','website.home_cleaning' )->name('home_cleaning');
+    Route::view('/craftsman_services','website.craftsman_services' )->name('craftsman_services');
+
+//    Route::view('/office_cleaning', 'dir.page');
 });
 
 
 Route::group(['prefix' => '{language}', 'middleware' => ['auth','customer']], function () {
 
 
-    Route::get('/services_request', \App\Http\Livewire\Website\ServiceOrderComponent::class)->name('services_request');
+    Route::get('/services_request/{id}', \App\Http\Livewire\Website\ServiceOrderComponent::class)->name('services_request');
 
     Route::get('/services_request_confirm', function () {
         return view('website.request_confirmation');

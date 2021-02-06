@@ -189,6 +189,76 @@
 </section>
 <!-- About -->
 
+<section class="latest__block padding ptb-xs-40">
+
+    <div class="container">    <hr>
+
+        <div class="row text-center mb-40 mb-xs-30">
+            <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+                <div class="section-title_home">
+{{--                    <h2>Our Blog</h2>--}}
+                    <span class="b-line"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 border p-1" style="border-color: green;">
+                <div class="img-scale">
+                    <figure>
+                        <img src="{{asset('assets/images/blog/home_blog_1.jpg')}}" alt="">
+                    </figure>
+                    <div class="latest__block-post gray-bg">
+                        <div class="meta-post h-3">
+                             <h3 class="text-success">{{__('Handwerker Services')}}</h3>
+                        </div>
+                        <p class="text-justify"><a href="{{route('craftsman_services',app()->getLocale())}}">{{__('Bitte wenden Sie sich an uns, um weitere Informationen zu erhalten. Unsere professionellen ARISHA SERVICE-Partner können Ihnen dabei helfen, ein konkurrenzfähiges Angebot für Ihre privaten und gewerblichen Hand Arbite  zu erhalten.')}}</a></p>
+
+                        <div class="flat-link flat-arrow sm  ">
+                            <a href="{{route('craftsman_services',app()->getLocale())}}" class="more_btn__block">More <i class="fa fa-angle-right"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mt-sm-30 mt-xs-30 border p-1" style="border-color: green;">
+                <div class="img-scale">
+                    <figure>
+                        <img src="{{asset('assets/images/blog/home_blog_2.jpg')}}" alt="">
+                    </figure>
+                    <div class="latest__block-post gray-bg">
+                        <div class="meta-post">
+                            <h3 class="text-success">{{__('Büro Reinigung')}}</h3>
+                        </div>
+                        <p class="text-justify"><a href="{{route('office_cleaning',app()->getLocale())}}">{{__('Beginnen Sie Ihren Arbeitstag mit einem sauberen und betriebsbereiten Büroplatz. Gerne kommen wir auch außerhalb Ihrer Bürozeiten, damit Ihre Arbeitsabläufe ungestört bleiben.')}}</a></p>
+
+                        <div class="flat-link flat-arrow sm  ">
+                            <br>
+                            <a href="{{route('office_cleaning',app()->getLocale())}}" class="more_btn__block">More <i class="fa fa-angle-right"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mt-sm-30 mt-xs-30 border p-1" style="border-color: green;">
+                <div class="img-scale">
+                    <figure>
+                        <img src="{{asset('assets/images/blog/home_blog_3.jpg')}}" alt="">
+                    </figure>
+                    <div class="latest__block-post gray-bg">
+                        <div class="meta-post">
+                            <h3 class="text-success">{{__('Haupt Reinigung')}}</h3>
+
+                        </div>
+                        <p class="text-justify"><a href="{{route('home_cleaning',app()->getLocale())}}">{{__('wir bieten Ihnen vielfältige Reinigungsdienstleistungen und gehen gerne auf Ihre individuellen Erwartungen ein. Bei einem ersten Treffen können wir gemeinsam besprechen was Ihnen bei der Reinigung besonders wichtig ist.')}}</a></p>
+
+                        <div class="flat-link flat-arrow sm  ">
+                            <a href="{{route('home_cleaning',app()->getLocale())}}" class="more_btn__block">More <i class="fa fa-angle-right"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Service_Section -->
 <section class="padding ptb-xs-40 gray-bg service_sec">
     <div class="container">

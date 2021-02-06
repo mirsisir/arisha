@@ -44,11 +44,13 @@ class ServiceOrderComponent extends Component
     public $weekly_time;
     public $daily_time=[];
     public $hourly;
+    public $service_id ;
 
 
-    public function mount()
+
+    public function mount($id)
     {
-
+        $this->service_id = $id;
 
         $this->dates = [''];
         $this->daily_time = [''];
