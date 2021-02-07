@@ -50,11 +50,22 @@ class ServiceOrderComponent extends Component
 
     public function mount($id)
     {
+        $this->category = Category::all();
+
+
+        $this->service = Service::all();
+
+        //dd(Service::find($id)->name);
+
+        $this->selected_service = $id;
+
         $this->service_id = $id;
+
+        $this->selected_category = Service::find($id)->category;
+
 
         $this->dates = [''];
         $this->daily_time = [''];
-        $this->category = Category::all();
         $this->employee = Employee::all();
         $customer = auth()->user();
         $this->customer_name = $customer->name;
@@ -72,13 +83,26 @@ class ServiceOrderComponent extends Component
 
     public function updatedSelectedCategory()
     {
+
         $this->service = Service::where('category', $this->selected_category)->get();
 
         $this->hourly=Service::firstwhere('category', $this->selected_category)->hourly ?? 0;
     }
 
+    public function updatedSelectedService(){
+
+        $this->selected_category = Service::find($this->selected_service)->category;
+    }
+
+
+
+
+
     public function updated()
     {
+
+
+
         if ($this->selected_employee && $this->date) {
             $record = \App\Models\ServiceRequest::where('date', $this->date)
                 ->where('employee_id', $this->selected_employee)->get();
@@ -249,12 +273,15 @@ class ServiceOrderComponent extends Component
 
     public function addDates()
     {
+
         $this->dates[] = [''];
     }
 
 
     public function render()
     {
+
+
         $this->service_name = \App\Models\Service::find($this->selected_service);
         $service = \App\Models\Service::find($this->selected_service);
         $service_charge = $service->charge ?? 0;

@@ -33,6 +33,7 @@ use App\Http\Livewire\SupplierSettingComponent;
 use App\Http\Livewire\TestComponent;
 use App\Http\Livewire\UniformAllotmentComponent;
 use App\Http\Livewire\UniformSettingComponent;
+use App\Http\Livewire\Website\ServiceOrderComponent;
 use App\Mail\RequestConfirmation;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -242,6 +243,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 });
 
 Route::redirect('/', '/de/homepage');
+Route::redirect('/home', '/de/all_services');
 
 
 //website -------------------------------------------------------------------------------------
@@ -282,7 +284,7 @@ Route::group([ 'prefix' => '{language}'], function () {
 Route::group(['prefix' => '{language}', 'middleware' => ['auth','customer']], function () {
 
 
-    Route::get('/services_request/{id}', \App\Http\Livewire\Website\ServiceOrderComponent::class)->name('services_request');
+    Route::get('/services_request/{id?}', ServiceOrderComponent::class)->name('services_request');
 
     Route::get('/services_request_confirm', function () {
         return view('website.request_confirmation');
@@ -290,6 +292,9 @@ Route::group(['prefix' => '{language}', 'middleware' => ['auth','customer']], fu
     })->name('services_request_confirm');
 
     Route::get('/customer_dashboard', [ WebsiteConroller::class,'customer_dashboard'])->name('customer_dashboard');
+
+    Route::get('/customer_profile', [ WebsiteConroller::class,'customer_profile'])->name('customer_profile');
+    Route::post('/customer_profile_update', [ WebsiteConroller::class,'customer_profile_update'])->name('customer_profile_update');
 
 
 });

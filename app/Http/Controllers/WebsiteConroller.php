@@ -104,6 +104,29 @@ class WebsiteConroller extends Controller
         return view('website.customer_dashboard',compact('pending_service','hold_service','confirm_service','complete_service'));
     }
 
+    public function customer_profile(){
+
+        $user = auth()->user();
+
+        return view('website.customer_profile',compact('user'));
+    }
+    public function customer_profile_update(){
+
+        $user = auth()->user();
+        $user->name = \request('name');
+        $user->email = \request('email');
+//        $user->phone = \request('phone');
+        $user->street = \request('street');
+        $user->house_number = \request('house_number');
+        $user->post_code = \request('post_code');
+        $user->city = \request('city');
+        $user->save();
+
+        session()->flash('message', 'Profile Updated!');
+
+        return redirect(route('customer_profile',app()->getLocale()));
+    }
+
 
 
 

@@ -9,6 +9,7 @@ use App\Models\ServiceRequest;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
@@ -158,7 +159,7 @@ class ServiceControlle extends Controller
     public function all_services()
     {
 
-        $all_service = Service::all();
+        $all_service = DB::table('services')->orderBy('category')->get();
 
         return view('website\all_service', compact('all_service'));
     }

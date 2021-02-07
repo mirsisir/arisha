@@ -11,7 +11,7 @@
                 Available</h4>
             <br>
         @else
-            <table class="table">
+            <table class="table table-responsive">
                 <thead class="btn-info">
                 <tr>
                     <th> Customer</th>
@@ -43,26 +43,36 @@
                         </td>
                         <td>
                             @if($request->categorie == "Construction")
-                                {{$request->SPM}} Square meter
+                                {{$request->SPM}} Sq m
                             @elseif($request->categorie == "Cleaning")
                                 {{$request->duration}}
-                            @else
+                            @elseif($request->categorie == "Transport")
+                                @if($request->service->hourly)
+                                    {{$request->duration}}
+                                @else
+                                    {{$request->distance}} km
+                                @endif
+
                             @endif
 
                         </td>
                         <td>
-                            <a href="{{route('service_details',$request->id)}}" class="btn btn-info"> Details </a>
+                            <a href="{{route('service_details',$request->id)}}" class="btn btn-info btn-sm"> <i
+                                    class="mdi mdi-eye"></i> </a>
 
-                            <div wire:click="confirm({{$request->id}})" class="btn btn-success">Confirm</div>
-                             <div wire:click="hold({{$request->id}})" class="btn btn-warning">Hold</div>
+                            <div wire:click="confirm({{$request->id}})" class="btn btn-success btn-sm"><i
+                                    class="mdi mdi-checkbox-marked-circle-outline"></i></div>
+                            <div wire:click="hold({{$request->id}})" class="btn btn-warning btn-sm"><i
+                                    class="mdi mdi-pause"></i></div>
 
 
-                            <button type="button" class="btn btn-danger" data-toggle="modal"
-                                    data-target="#exampleModal{{$request->id}}">Reject
+                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                                    data-target="#exampleModal{{$request->id}}"><i class="mdi mdi-close"></i>
                             </button>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal{{$request->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="exampleModal{{$request->id}}" tabindex="-1" role="dialog"
+                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
 
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -78,7 +88,9 @@
                                         </div>
 
                                         <div>
-                                            <div wire:click="reject({{$request->id}})" class="btn btn-danger float-right m-3" data-dismiss="modal">Reject Confirm
+                                            <div wire:click="reject({{$request->id}})"
+                                                 class="btn btn-danger float-right m-3" data-dismiss="modal">Reject
+                                                Confirm
                                             </div>
                                         </div>
 

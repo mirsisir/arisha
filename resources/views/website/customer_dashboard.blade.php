@@ -45,9 +45,12 @@
     </style>
 
 <div class="card ml-5 mr-5"><br>
+    <div class="container">
+        <h2 class="d-inline" ><a href="{{route('customer_dashboard',app()->getLocale())}}">Dashboard</a></h2>
+        <p class="float-right lead text-success btn"> <a class="btn btn-success" href="{{route('customer_profile',app()->getLocale())}}">Profile</a></p>
+    </div>
     <div class="card-body ml-5 mr-5">
-        <h2>Dashboard</h2>
-{{--        <p>Click on the buttons inside the tabbed menu:</p>--}}
+
 
         <div class="tab mt-1">
             <button class="tablinks active" onclick="openCity(event, 'London')">All Pending</button>
@@ -231,6 +234,8 @@
         </div>
 
     </div>
+    <br>
+    <br>
 </div>
 
 

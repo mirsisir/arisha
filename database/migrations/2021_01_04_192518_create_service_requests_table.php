@@ -25,10 +25,12 @@ class CreateServiceRequestsTable extends Migration
             $table->string('duration');
             $table->string('date');
             $table->string('start_time');
-            $table->string('notes');
+            $table->string('notes')->nullable();
             $table->string('payments');
 
             $table->string('SPM')->nullable();
+
+            $table->string('distance')->nullable();
 
 
             $table->string('street');

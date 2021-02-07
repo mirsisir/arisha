@@ -276,24 +276,22 @@
 
         <div class="row">
 
-            <div class="col-md-12">
-                <div class="service_slider_home next_btn_style">
+{{--            <div class="col-md-12">--}}
+{{--                <div class="service_slider_home next_btn_style">--}}
 
-                    @foreach($all_service as $service)
-                    <div class="service_box">
-                        <figure>
-                            <img src="{{asset('assets/images/service/img_1.jpg')}}" alt="" />
-                        </figure>
-                        <h3><a href="#">{{$service->name}}</a></h3>
-                        <h5><a class="text-danger" href="#">Service Charge: {{$service->charge}} &euro;</a></h5>
-                        <p>
-                            {{$service->details}}
-                        </p>
-                    </div>
-                    @endforeach
+{{--                    @foreach($all_service as $service)--}}
+{{--                    <div class="service_box">--}}
+{{--                --}}
+{{--                        <h3><a href="#">{{$service->name}}</a></h3>--}}
+{{--                        <h5><a class="text-danger" href="#">Service Charge: {{$service->charge}} &euro;</a></h5>--}}
+{{--                        <p>--}}
+{{--                            {{$service->details}}--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                    @endforeach--}}
 
-                </div>
-            </div>
+{{--                </div>--}}
+{{--            </div>--}}
 
         </div>
 

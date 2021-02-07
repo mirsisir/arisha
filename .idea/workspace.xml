@@ -5,18 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f07d837-d124-472e-ae1d-79432793df38" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/website/craftsman_services.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/website/home_cleaning.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/website/office_cleaning.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/website/customer_profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiceControlle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiceControlle.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WebsiteConroller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WebsiteConroller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Website/ServiceOrderComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Website/ServiceOrderComponent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/de.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/de.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_04_192518_create_service_requests_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_04_192518_create_service_requests_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/web/web_base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/web/web_base.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/website/service-order-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/website/service-order-component.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/service-request-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/service-request-component.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/service_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/service_details.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/website/all_service.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/all_service.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/website/customer_dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/customer_dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/website/homepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/homepage.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -288,7 +289,9 @@
       <workItem from="1612540439302" duration="9250000" />
       <workItem from="1612583166396" duration="4940000" />
       <workItem from="1612594419356" duration="336000" />
-      <workItem from="1612594906657" duration="939000" />
+      <workItem from="1612594906657" duration="17817000" />
+      <workItem from="1612633795175" duration="7590000" />
+      <workItem from="1612676546843" duration="5116000" />
     </task>
     <servers />
   </component>
