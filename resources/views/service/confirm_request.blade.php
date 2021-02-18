@@ -7,18 +7,19 @@
         @if(count($all_service_request) == 0)
             <br>
             <br>
-            <h4 class=" text-center btn-danger p-3" style="border-radius: 25px; color:black;">No Service Request Available for Today</h4>
+            <h4 class=" text-center btn-danger p-3" style="border-radius: 25px; color:black;">No Service Request
+                Available for Today</h4>
             <br>
         @else
             <table class="table ">
                 <thead class="btn-success">
                 <tr>
                     <th> Customer</th>
-                    <th> Address </th>
-                    <th> Employee </th>
-                    <th> Date </th>
-                    <th> Duration </th>
-                    <th> Action </th>
+                    <th> Address</th>
+                    <th> Employee</th>
+                    <th> Date</th>
+                    <th> Duration</th>
+                    <th> Action</th>
 
                 </tr>
                 </thead>
@@ -35,7 +36,7 @@
                             {{$request->post_code}}
 
                         </td>
-                        <td>{{$request->employee->fname ?? "N/A"}}</td>
+                        <td>{{$request->employee->name ?? "N/A"}} <br>{{$request->employee->phone ?? "N/A"}} </td>
                         <td>
                             {{$request->date}} <br>
                             Time : : {{$request->start_time}}
@@ -71,7 +72,8 @@
                                             <br>
                                         </div>
 
-                                        <a class="btn btn-success" href="{{route('services_request_done',$request->id)}}">Confirm </a>
+                                        <a class="btn btn-success"
+                                           href="{{route('services_request_done',$request->id)}}">Confirm </a>
 
                                     </div>
                                 </div>
@@ -97,7 +99,8 @@
 
                                     </div>
                                 </div>
-                            </div>                            <button type="button" class="btn btn-danger" data-toggle="modal"
+                            </div>
+                            <button type="button" class="btn btn-danger" data-toggle="modal"
                                     data-target="#exampleModal{{$request->id}}">Reject
                             </button>
                             <div class="modal fade" id="exampleModal{{$request->id}}" tabindex="-1" role="dialog"
@@ -122,7 +125,6 @@
                             </div>
 
                         </td>
-
 
 
                     </tr>

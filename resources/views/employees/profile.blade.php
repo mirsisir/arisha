@@ -37,12 +37,12 @@
                 <div class="d-flex justify-content-between">
                     <div><h3>{{$emp->fname}} {{ $emp->lname}}</h3>
 
-                        <div class="d-flex align-items-center">
-                            <h5 class="mb-0 mr-2 text-muted">{{$emp->department->department}}</h5>
-                            <div class="br-wrapper br-theme-css-stars">
-                                {{$emp->designation->name}}
-                            </div>
-                        </div>
+{{--                        <div class="d-flex align-items-center">--}}
+{{--                            <h5 class="mb-0 mr-2 text-muted">{{$emp->department->department}}</h5>--}}
+{{--                            <div class="br-wrapper br-theme-css-stars">--}}
+{{--                                {{$emp->designation->name}}--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
 
                 </div>

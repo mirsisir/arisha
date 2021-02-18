@@ -29,9 +29,9 @@
                             {{$request->customer->phone}}
                         </td>
                         <td>
-                            {{$request->house_number}}
+                            {{$request->house_number}}<br>
                             {{$request->street}}<br>
-                            {{$request->city}}
+                            {{$request->city}}<br>
                             {{$request->post_code}}
 
                         </td>
@@ -50,12 +50,36 @@
 
                         </td>
                         <td>
-                            <a href="{{route('service_details',$request->id)}}" class="btn btn-info"> Details </a>
+                            <a href="{{route('service_details',$request->id)}}" class="btn btn-info"> <i class="mdi mdi-eye"></i> </a>
 
-                            <button class="btn btn-success"> Done </button>
+                            <button type="button" class="btn btn-success" data-toggle="modal"
+                                    data-target="#ModalComplete{{$request->id}}">Complete
+                            </button>
+                            <div class="modal fade" id="ModalComplete{{$request->id}}" tabindex="-1" role="dialog"
+                                 aria-labelledby="ModalComplete" aria-hidden="true">
+
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <button type="button" class="close float-right" data-dismiss="modal"
+                                                aria-label="Close">
+                                            <span aria-hidden="true">&times;</span></button>
+
+                                        <div class="modal-body pb-1">
+                                            <H3 class="text-center">Service Done</H3>
+                                            <br>
+                                        </div>
+
+                                        <a class="btn btn-success"
+                                           href="{{route('services_request_done',$request->id)}}">Confirm </a>
+
+                                    </div>
+                                </div>
+                            </div>
+
 
                             <button type="button" class="btn btn-danger" data-toggle="modal"
-                                    data-target="#exampleModal{{$request->id}}">Reject
+                                    data-target="#exampleModal{{$request->id}}"><i class="mdi mdi-close"></i>
                             </button>
 
                             <!-- Modal -->

@@ -9,11 +9,11 @@
 
         <div class="d-flex">
             <div class="card text-center mr-4" style="width: 18rem;">
-                <img class="card-img-top" height="300px" src="/storage/{{$employee->photo}}" alt="Card image cap">
+                <img class="card-img-top" height="250px" src="/storage/{{$employee->photo}}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">{{$employee->fname}} {{ $employee->lname}}</h5>
                     <h6 class="card-subtitle mb-2">{{ $employee->employee_id}}</h6>
-                <p class="card-text">{{ $employee->department->department ?? " N/A" }} - {{ $employee->designation->name ?? " N/A"}}</p>
+{{--                <p class="card-text">{{ $employee->department->department ?? " N/A" }} - {{ $employee->designation->name ?? " N/A"}}</p>--}}
                 </div>
             </div>
 
@@ -27,22 +27,22 @@
                             <th>Name</th>
                             <td>{{$employee->fname}}{{ $employee->lname}}</td>
                         </tr>
-                        <tr>
-                            <th>Father's Name</th>
-                            <td>{{$employee->father}}</td>
-                        </tr>
-                        <tr>
-                            <th>Date of Birth</th>
-                            <td>{{$employee->dob}}</td>
-                        </tr>
+{{--                        <tr>--}}
+{{--                            <th>Father's Name</th>--}}
+{{--                            <td>{{$employee->father}}</td>--}}
+{{--                        </tr>--}}
+{{--                        <tr>--}}
+{{--                            <th>Date of Birth</th>--}}
+{{--                            <td>{{$employee->dob}}</td>--}}
+{{--                        </tr>--}}
                         <tr>
                             <th>Gender</th>
                             <td>{{$employee->gender}}</td>
                         </tr>
-                        <tr>
-                            <th>Mobile</th>
-                            <td>{{$employee->mobile}}</td>
-                        </tr>
+{{--                        <tr>--}}
+{{--                            <th>Mobile</th>--}}
+{{--                            <td>{{$employee->mobile}}</td>--}}
+{{--                        </tr>--}}
                         <tr>
                             <th>Phone</th>
                             <td>{{$employee->phone}}</td>

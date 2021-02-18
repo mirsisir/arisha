@@ -1,7 +1,7 @@
 <div>
     {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
 
-    <div class="  border mt-3 p-2">
+    <div class="  border  p-2">
 
 
         @if(count($all_service_request) == 0)
@@ -11,7 +11,7 @@
                 Available</h4>
             <br>
         @else
-            <table class="table table-responsive">
+            <table class="table" >
                 <thead class="btn-info">
                 <tr>
                     <th> Customer</th>
@@ -57,11 +57,11 @@
 
                         </td>
                         <td>
-                            <a href="{{route('service_details',$request->id)}}" class="btn btn-info btn-sm"> <i
-                                    class="mdi mdi-eye"></i> </a>
+                            <a href="{{route('service_details',$request->id)}}" class="btn btn-info btn-sm">
+                                <i class="mdi mdi-eye"></i> </a>
 
-                            <div wire:click="confirm({{$request->id}})" class="btn btn-success btn-sm"><i
-                                    class="mdi mdi-checkbox-marked-circle-outline"></i></div>
+                            <div wire:click="confirm({{$request->id}})" class="btn btn-success btn-sm">
+                                <i class="mdi mdi-checkbox-marked-circle-outline"></i></div>
                             <div wire:click="hold({{$request->id}})" class="btn btn-warning btn-sm"><i
                                     class="mdi mdi-pause"></i></div>
 

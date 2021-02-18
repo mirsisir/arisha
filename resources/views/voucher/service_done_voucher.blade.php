@@ -7,8 +7,8 @@
             <img
                 src="https://arisha-service.de/wp-content/uploads/2019/01/49459787_362148794601522_3127704234166845440_n.png"
                 alt="" style="width: 150px">
-            <h5>{{$settings->name}}</h5>
-            <p> <i class="mdi mdi-cellphone-iphone"> </i> {{$settings->phone}}<br>  <i class="mdi mdi-email"></i> {{$settings->email}}</p>
+            <h5>{{$settings->name ?? "N/A"}}</h5>
+            <p> <i class="mdi mdi-cellphone-iphone"> </i> {{$settings->phone ?? "N/A"}}<br>  <i class="mdi mdi-email"></i> {{$settings->email ?? "N/A"}}</p>
 
 
         </div>
@@ -27,12 +27,12 @@
                         <td class="bold">Phone :</td>
                         <td>{{auth()->user()->phone}}</td>
                     </tr>
-                    <tr>
-                        <td class="bold">Address :</td>
-                        <td>{{auth()->user()->street}} {{auth()->user()->house_number}}<br>
-                            {{auth()->user()->post_code}} {{auth()->user()->city}}
-                        </td>
-                    </tr>
+{{--                    <tr>--}}
+{{--                        <td class="bold">Address :</td>--}}
+{{--                        <td>{{auth()->user()->street}} {{auth()->user()->house_number}}<br>--}}
+{{--                            {{auth()->user()->post_code}} {{auth()->user()->city}}--}}
+{{--                        </td>--}}
+{{--                    </tr>--}}
                     <tr>
                         <td class="bold">Email :</td>
                         <td>{{auth()->user()->email}}</td>
@@ -52,12 +52,12 @@
                         <td class="bold">Phone</td>
                         <td>{{$service_request->customer->phone}}</td>
                     </tr>
-                    <tr>
-                        <td class="bold">Address</td>
-                        <td>{{$service_request->customer->street}} {{$service_request->customer->house_number}}<br>
-                            {{$service_request->customer->post_code}} {{$service_request->customer->city}}
-                        </td>
-                    </tr>
+{{--                    <tr>--}}
+{{--                        <td class="bold">Address</td>--}}
+{{--                        <td>{{$service_request->customer->street}} {{$service_request->customer->house_number}}<br>--}}
+{{--                            {{$service_request->customer->post_code}} {{$service_request->customer->city}}--}}
+{{--                        </td>--}}
+{{--                    </tr>--}}
                     <tr>
                         <td class="bold">Email</td>
                         <td>{{$service_request->customer->email}}</td>
@@ -90,6 +90,8 @@
                     <td>Service Charge</td>
                     <td>{{$service_request->net_charge}}</td>
                 </tr>
+                @php( $employee =\App\Models\User::find($service_request->employes_id))
+                @if($employee->role=='admin')
                 <tr>
                     <td>Service vat(19%)</td>
                     <td>{{$service_request->total_charge - $service_request->net_charge}}</td>
@@ -98,7 +100,7 @@
                     <td>Total Charge</td>
                     <td>{{$service_request->total_charge}}</td>
                 </tr>
-
+                @endif
 
             </table>
 

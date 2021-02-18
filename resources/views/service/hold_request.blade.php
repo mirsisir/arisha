@@ -30,9 +30,9 @@
                             {{$request->customer->phone}}
                         </td>
                         <td>
-                            {{$request->house_number}}
+                            {{$request->house_number}}<br>
                             {{$request->street}}<br>
-                            {{$request->city}}
+                            {{$request->city}} <br>
                             {{$request->post_code}}
 
                         </td>
@@ -51,12 +51,12 @@
 
                         </td>
                         <td>
-                            <a href="{{route('service_details',$request->id)}}" class="btn btn-info"> Details </a>
+                            <a href="{{route('service_details',$request->id)}}" class="btn btn-info"> <i class="mdi mdi-eye"></i> </a>
 
-                            <a class="btn btn-success" href="{{route('confirm_hold_request',$request->id)}}">Confirm </a>
+                            <a class="btn btn-success" href="{{route('confirm_hold_request',$request->id)}}"><i class="mdi mdi-checkbox-marked-circle-outline"></i> </a>
 
                             <button type="button" class="btn btn-danger" data-toggle="modal"
-                                    data-target="#exampleModal{{$request->id}}">Reject
+                                    data-target="#exampleModal{{$request->id}}"> <i class="mdi mdi-close"></i>
                             </button>
                             <div class="modal fade" id="exampleModal{{$request->id}}" tabindex="-1" role="dialog"
                                  aria-labelledby="exampleModalLabel" aria-hidden="true">

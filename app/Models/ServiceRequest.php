@@ -20,7 +20,13 @@ class ServiceRequest extends Model
     }
     public function employee()
     {
-        return $this->hasOne(User::class,'id','employes_id' );
+        return $this->belongsTo(user::class,'employes_id','id' );
     }
+
+    public function pickoff()
+    {
+        return $this->belongsTo( PickoffAddress::class,'pickoff_addresses_id','id');
+    }
+
 
 }

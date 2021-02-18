@@ -68,7 +68,6 @@ class WebsiteConroller extends Controller
         }
         if(!empty(\request()->house_clearence)){
         $employee->other = \request()->house_clearence->store('images', 'public');
-
         }
         if(!empty(\request()->nid_card)){
         $employee->id_proff = \request()->nid_card->store('images', 'public');

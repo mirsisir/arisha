@@ -151,7 +151,7 @@ class ServiceOrderComponent extends Component
             'weekly_day' => 'required_if:weekly,true',
 
 
-            'notes' => 'required',
+//            'notes' => 'required',
             'payments' => 'required',
 
             'customer_name' => 'required',
@@ -211,7 +211,8 @@ class ServiceOrderComponent extends Component
 
             $new_request->hourly = $this->hourly;
 
-            $new_request->duration = $this->duration;
+//            $new_request->duration = $this->duration;
+            $new_request->duration = "0".$this->duration.":00";
 
             if ($this->weekly){
                 $new_request->start_time = $this->weekly_time;

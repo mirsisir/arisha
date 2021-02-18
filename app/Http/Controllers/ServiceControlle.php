@@ -79,8 +79,13 @@ class ServiceControlle extends Controller
 
     public function service_details($id)
     {
+        view::share('title','Service Details');
         $service_request = ServiceRequest::find($id);
-        return view('service_details', compact('service_request'));
+        $all_employee = User::all()->where('role','employee');
+        $all_admin = User::all()->where('role','admin');
+
+        $all_employee =$all_employee->merge($all_admin);
+        return view('service_details', compact('service_request','all_employee','all_admin'));
     }
 
     public function service_details_update($id)
@@ -90,13 +95,25 @@ class ServiceControlle extends Controller
 
         if ($service_request->categorie == "Cleaning") {
 
-            $service_request->net_charge = $service_request->service->charge * \request('duration');
+
+            $up_price = $service_request->service->charge * (explode(":",\request('duration'))[0])  ;
+            $up_price_min = ($service_request->service->charge/60) * (explode(":",\request('duration'))[1])  ;
+
+            $up_price_min = round($up_price_min, 1);
+
+
+            $service_request->net_charge = $up_price + $up_price_min;
             $service_request->duration = \request('duration');
+            if(!empty( \request('employee'))){
+                $service_request->employes_id = \request('employee');
+
+            }
 
         } elseif ($service_request->categorie == "Construction") {
 
             $service_request->SPM = \request('square_meter');
-            $service_request->net_charge = ($service_request->SPM ?? 0) * \request('square_meter');
+
+            $service_request->net_charge = ($service_request->service->SPM ?? 0) * \request('square_meter');
 
         }
 //        elseif ($service_request->categorie == "Transport") {
@@ -116,7 +133,7 @@ class ServiceControlle extends Controller
 
         $service_request->save();
 
-        return view('service_details', compact('service_request'));
+        return redirect(route('service_details',$id));
     }
 
     public function service_details_update_emp($id)

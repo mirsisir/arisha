@@ -12,6 +12,7 @@
         }
     </style>
 
+
     <div class="card  w-75  mt-4 ml-auto mr-auto" id="printableTable">
 
         <h3 class="text-center mt-2">Service Request Info </h3>
@@ -29,19 +30,58 @@
                         <td>{{$service_request->customer->phone}}</td>
                     </tr>
 
+                    @if($service_request->categorie=="Transport")
+                        <tr>
+                            <td>PickOff Address</td>
+                        </tr>
+
                     <tr class="table-warning">
                         <td>Customer Address</td>
                         <td>
-                            {{$service_request->house_number}}
-                            {{$service_request->street}}<br>
-                            {{$service_request->city}}
-                            {{$service_request->post_code}}
+                            {{$service_request->pickoff->house_number}}
+                            {{$service_request->pickoff->street}}<br>
+                            {{$service_request->pickoff->city}}
+                            {{$service_request->pickoff->post_code}}
                         </td>
                     </tr>
                     <tr class="table-warning">
                         <td>Notes</td>
-                        <td>{{$service_request->notes}}</td>
+                        <td>{{$service_request->pickoff->notes}}</td>
                     </tr>
+                    @endif
+                    @if($service_request->categorie=="Transport")
+                        <tr>
+                            <td>PickUp Address</td>
+                        </tr>
+                        <tr class="table-warning">
+                            <td>Customer Address</td>
+                            <td>
+                                {{$service_request->house_number}}
+                                {{$service_request->street}}<br>
+                                {{$service_request->city}}
+                                {{$service_request->post_code}}
+                            </td>
+                        </tr>
+                        <tr class="table-warning">
+                            <td>Notes</td>
+                            <td>{{$service_request->notes}}</td>
+                        </tr>
+                        @else
+                        <tr class="table-warning">
+                            <td>Customer Address</td>
+                            <td>
+                                {{$service_request->house_number}}
+                                {{$service_request->street}}<br>
+                                {{$service_request->city}}
+                                {{$service_request->post_code}}
+                            </td>
+                        </tr>
+                        <tr class="table-warning">
+                            <td>Notes</td>
+                            <td>{{$service_request->notes}}</td>
+                        </tr>
+                    @endif
+
 
                     <tr>
                         <td></td>
@@ -64,8 +104,11 @@
                     @if($service_request->categorie=="Cleaning")
                         <tr class="table-info">
                             <td>Service Duration</td>
-                            <td><input type="number" min="1" max="12" name="duration"
-                                       value="{{$service_request->duration}}" style="width:50px"> Hours
+                            <td>
+
+                                <input  class="html-duration-picker" data-hide-seconds  name="duration"
+                                       value="{{$service_request->duration}}"  step="5" style="width:100px"> Hours
+
                             </td>
                         </tr>
                     @elseif($service_request->categorie=="Construction")
@@ -78,8 +121,10 @@
                         @if($service_request->pickoff_addresses_id)
                             <tr class="table-info">
                                 <td>Service Duration</td>
-                                <td><input type="number" min="1" max="12" name="duration"
-                                           value="{{$service_request->duration}}" style="width:50px"> Hours
+                                <td>
+                                    <input  class="html-duration-picker" data-hide-seconds  name="duration"
+                                            value="{{$service_request->duration}}"  step="5" style="width:100px"> Hours
+
                                 </td>
                             </tr>
                         @endif
@@ -100,9 +145,21 @@
                         <td></td>
                         <td></td>
                     </tr>
+
+                    <tr class="table-primary">
+                        <td>Select Employee</td>
+                        <td>
+                            <select name="employee"  class="form-control select2" id="employee">
+                                <option value="">Select Employee</option>
+                            @foreach($all_employee as $employee)
+                                    <option value="{{$employee->id}}">{{$employee->name}}</option>
+                                @endforeach
+                            </select>
+                        </td>
+                    </tr>
                     <tr class="table-primary">
                         <td>Employee Name</td>
-                        <td>{{$service_request->employee->fname?? "N/A" }}  {{$service_request->employee->lname ?? "N/A"}}</td>
+                        <td>{{$service_request->employee->name ?? "N/A" }}</td>
                     </tr>
 
                     <tr class="table-warning">
@@ -114,23 +171,39 @@
                     </tbody>
                 </table>
             </div>
+
             <div class="m-auto text-center">
                 <button class="btn btn-info mb-5 " type="submit">update</button>
             </div>
         </form>
     </div> <br><br>
 
-    <div class="m-auto">
-        <button class="Button Button--outline" onclick="printDiv()">Print</button>
-    </div>
+
+
+{{--    <div class="m-auto">--}}
+{{--        <button class="Button Button--outline" onclick="printDiv()">Print</button>--}}
+{{--    </div>--}}
     <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
     <br>
+{{--    <script>--}}
+
+{{--        function printDiv() {--}}
+{{--            window.frames["print_frame"].document.body.innerHTML = document.getElementById("printableTable").innerHTML;--}}
+{{--            window.frames["print_frame"].window.focus();--}}
+{{--            window.frames["print_frame"].window.print();--}}
+{{--        }--}}
+{{--    </script>--}}
+
+@endsection
+@section('js')
     <script>
-        function printDiv() {
-            window.frames["print_frame"].document.body.innerHTML = document.getElementById("printableTable").innerHTML;
-            window.frames["print_frame"].window.focus();
-            window.frames["print_frame"].window.print();
-        }
+
+
+        // In your Javascript (external .js resource or <script> tag)
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
     </script>
+
 
 @endsection

@@ -78,9 +78,9 @@
                         <div class="form-group">
                             <label for="nid" class="">Bank Account <span class="text-danger">*</span></label>
                             <div class="">
-                                <input type="text" name="nid"
+                                <input type="text" name="bank_account"
                                        class="form-control @error('bank_account') is-invalid @enderror" id="nid"
-                                       placeholder="bank_account">
+                                       placeholder="bank_account" >
                                 @error('bank_account')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -211,7 +211,7 @@
                         <label for="photo" class="">House Clearence <span class="text-danger">*</span></label>
                         <div class="">
 
-                            <input type="file" name="nid_card"
+                            <input type="file" name="house_clearence"
                                    class="form-control @error('house_clearence') is-invalid @enderror" id="photo"
                                    placeholder="Photo">
                             @error('house_clearence')
@@ -225,7 +225,7 @@
                         <label for="photo" class="">Business Licence<span class="text-danger">*</span></label>
                         <div class="">
 
-                            <input type="file" name="nid_card"
+                            <input type="file" name="business_licence"
                                    class="form-control @error('business_licence') is-invalid @enderror" id="photo"
                                    placeholder="Photo">
                             @error('business_licence')

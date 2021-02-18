@@ -18,6 +18,7 @@
         href="https://www.bootstrapdash.com/demo/connect-plus/laravel/template/demo_1/assets/plugins/@mdi/font/css/materialdesignicons.min.css">
     --}}
     <link media="all" type="text/css" rel="stylesheet" href="{{ asset('css/materialicons.css') }}">
+    <link media="all" type="text/css" rel="stylesheet" href="https://raw.githubusercontent.com/nadchif/html-duration-picker.js/master/dist/html-duration-picker.min.js">
 
     <link media="all" type="text/css" rel="stylesheet"
           href="https://www.bootstrapdash.com/demo/connect-plus/laravel/template/demo_1/assets/plugins/perfect-scrollbar/perfect-scrollbar.css">
@@ -653,13 +654,13 @@
                     </a>
                 </li>
 
-                <li class="nav-item active">
-                    <a class="nav-link"
-                       href="{{route('department')}}">
-                        <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
-                        <span class="menu-title">Department</span>
-                    </a>
-                </li>
+{{--                <li class="nav-item active">--}}
+{{--                    <a class="nav-link"--}}
+{{--                       href="{{route('department')}}">--}}
+{{--                        <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>--}}
+{{--                        <span class="menu-title">Department</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
                 <li class="nav-item active">
                     <a class="nav-link"
                        href="{{route('general_settings')}}">
@@ -749,6 +750,7 @@
 <script src="https://www.bootstrapdash.com/demo/connect-plus/laravel/template/demo_1/assets/js/todolist.js">
 </script>
 <!-- end common js -->
+<script src="https://cdn.jsdelivr.net/npm/html-duration-picker/dist/html-duration-picker.min.js"></script>
 
 <script
     src="https://www.bootstrapdash.com/demo/connect-plus/laravel/template/demo_1/assets/js/file-upload.js">
