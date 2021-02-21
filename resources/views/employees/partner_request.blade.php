@@ -6,7 +6,7 @@
 
     <div class="card">
         <div class="card-body">
-            <table class="table table-responsive">
+            <table class="tablePartner" id="tablePartner">
                 <thead>
                 <tr class="badge-info">
                     <td>Name</td>
@@ -40,4 +40,11 @@
 
 
 
+@endsection
+@section('js')
+    <script>
+        $(document).ready(function () {
+            $('#tablePartner').DataTable();
+        });
+    </script>
 @endsection

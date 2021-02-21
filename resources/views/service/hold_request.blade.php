@@ -1,18 +1,18 @@
 @extends('layouts.admin.base')
 @section('content')
 
-    <div class=" m-5 border mt-3 p-2">
+<div class="card">
+    <div class=" card-body  mt-3 p-2">
 
 
         @if(count($all_service_request) == 0)
-            <br>
-            <br>
+
             <h4 class=" text-center btn-danger p-3" style="border-radius: 25px; color:black;">No Service Request
                 Available for Today</h4>
             <br>
         @else
-            <table class="table ">
-                <thead class="btn-warning">
+            <table class="tableHold display " id="tableHold">
+                <thead class="btn-warning" style="color:black">
                 <tr>
                     <th> Customer</th>
                     <th> Address</th>
@@ -91,4 +91,12 @@
         @endif
     </div>
 
+</div>
+@endsection
+@section('js')
+    <script>
+        $(document).ready(function () {
+            $('#tableHold').DataTable();
+        });
+    </script>
 @endsection

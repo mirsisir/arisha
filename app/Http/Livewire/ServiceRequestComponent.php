@@ -78,7 +78,8 @@ class ServiceRequestComponent extends Component
 
     public function render()
     {
-        $this->all_service_request = ServiceRequest::where('status', 'pending')->get();
+        $this->all_service_request = ServiceRequest::where('status', 'pending')->orderBy('date')->get();
+
         return view('livewire.service-request-component')->layout('layouts.admin.base');
     }
 }

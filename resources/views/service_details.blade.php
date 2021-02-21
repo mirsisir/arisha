@@ -118,7 +118,8 @@
                             </td>
                         </tr>
                     @elseif($service_request->categorie=="Transport")
-                        @if($service_request->pickoff_addresses_id)
+
+                        @if($service_request->hourly)
                             <tr class="table-info">
                                 <td>Service Duration</td>
                                 <td>
@@ -127,6 +128,28 @@
 
                                 </td>
                             </tr>
+                            @else
+                            <tr class="table-info">
+                                <td>Distance</td>
+                                <td>
+                                    <input name="distance" id="distance" value="{{$service_request->distance}}"   style="width:100px">
+                                </td>
+                            </tr>
+
+                            <tr class="table-info">
+                                <td>Stopover Charge</td>
+                                <td>
+                                    <input    name="stopover" style="width:100px">
+                                </td>
+                            </tr>
+                            <tr class="table-info">
+                                <td>Waiting Time </td>
+                                <td>
+                                    <input  class="html-duration-picker" data-hide-seconds  name="waiting" style="width:100px"> Hours
+                                </td>
+                            </tr>
+
+
                         @endif
 
                     @endif
@@ -180,19 +203,10 @@
 
 
 
-{{--    <div class="m-auto">--}}
-{{--        <button class="Button Button--outline" onclick="printDiv()">Print</button>--}}
-{{--    </div>--}}
+
     <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
     <br>
-{{--    <script>--}}
 
-{{--        function printDiv() {--}}
-{{--            window.frames["print_frame"].document.body.innerHTML = document.getElementById("printableTable").innerHTML;--}}
-{{--            window.frames["print_frame"].window.focus();--}}
-{{--            window.frames["print_frame"].window.print();--}}
-{{--        }--}}
-{{--    </script>--}}
 
 @endsection
 @section('js')

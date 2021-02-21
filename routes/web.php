@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductDestroyController;
 use App\Http\Controllers\ProductReturnController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\ServiceControlle;
+use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\UniformAllocationController;
 use App\Http\Controllers\UniformCollectionController;
 use App\Http\Controllers\UniformDestroyController;
@@ -297,7 +298,11 @@ Route::group(['prefix' => '{language}', 'middleware' => ['auth','customer']], fu
     Route::post('/customer_profile_update', [ WebsiteConroller::class,'customer_profile_update'])->name('customer_profile_update');
 
 
+
 });
+
+Route::get('stripe', [StripePaymentController::class, 'stripe']);
+Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
 
 Route::get('/calculate', function () {
     return view('calculate');
@@ -324,6 +329,7 @@ Route::group(['middleware' => ['auth', 'employee'], 'prefix' => 'employee'], fun
     Route::post('/service_details_emp/{id}', [ServiceControlle::class, 'service_details_update_emp'])->name('service_details_update_emp');
 
     Route::get('/employee_calender', [EmployeeController::class, 'employee_calender'])->name('employee_calender');
+    Route::get('/bill', [EmployeeController::class, 'employee_bill_total'])->name('employee_bill_total');
 
 
 });

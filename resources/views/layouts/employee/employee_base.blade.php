@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Dynamic</title>
+    <title>Arisha Service</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,12 +11,12 @@
     <meta name="_token" content="lnXxI8JRnpqNjT5xdukzoABWZHXw0RW6kfzCnfhl">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- plugin css -->
-    <link media="all" type="text/css" rel="stylesheet"
-          href="https://www.bootstrapdash.com/demo/connect-plus/laravel/template/demo_1/assets/plugins/flag-icon-css/css/flag-icon.css">
+
     {{--
     <link media="all" type="text/css" rel="stylesheet"
         href="https://www.bootstrapdash.com/demo/connect-plus/laravel/template/demo_1/assets/plugins/@mdi/font/css/materialdesignicons.min.css">
     --}}
+    <link media="all" type="text/css" rel="stylesheet" href="https://raw.githubusercontent.com/nadchif/html-duration-picker.js/master/dist/html-duration-picker.min.js">
 
     <link media="all" type="text/css" rel="stylesheet" href="{{ asset('css/materialicons.css') }}">
 
@@ -134,7 +134,7 @@
 
                 <li class="nav-item active">
                     <a class="nav-link"
-                       href="#">
+                       href="{{route('employee_bill_total')}}">
                         <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
                         <span class="menu-title">My Bill</span>
                     </a>
@@ -235,6 +235,8 @@
 </script>
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 </script>
+<script src="https://cdn.jsdelivr.net/npm/html-duration-picker/dist/html-duration-picker.min.js"></script>
+
 @livewireScripts
 
 @yield('js')

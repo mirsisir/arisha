@@ -31,7 +31,6 @@ class CreatePickoffAddressesTable extends Migration
 
             $table->string('stop_over')->nullable();
             $table->string('waiting')->nullable();
-            $table->string('km')->nullable();
 
             $table->timestamps();
         });

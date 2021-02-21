@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 use phpDocumentor\Reflection\Types\This;
+use Session;
+
+use Stripe\Charge;
+use Stripe\Stripe;
 use function Symfony\Component\String\s;
 
 class ServiceOrderComponent extends Component
@@ -28,12 +32,14 @@ class ServiceOrderComponent extends Component
     public $customer_name, $phone, $email, $address;
     public $record, $customer;
     public $total_start_time = [], $total_duration;
-    public $postcode, $city, $house_number, $street, $date_time;
+    public $postcode, $city=" ", $house_number, $street, $date_time;
     public $square_meter = 50;
 
-    public $receiver_name, $receiver_phone, $receiver_email, $receiver_street, $receiver_house, $receiver_postcode, $receiver_city, $receiver_notes;
+    public $receiver_name, $receiver_phone, $receiver_email, $receiver_street, $receiver_house, $receiver_postcode, $receiver_city=" ", $receiver_notes;
 
-    public $service_name, $total_charge, $net_sum, $vat, $distance_price, $base_price, $distance;
+    public $service_name, $total_charge, $net_sum, $vat, $distance_price, $base_price, $distance=0;
+
+    public $km;
 
     public $dates = [];
     public $weekly_day = [];
@@ -47,6 +53,14 @@ class ServiceOrderComponent extends Component
     public $service_id ;
 
 
+
+    protected $listeners = ['distanceCalculated' => 'onDistance'];
+
+    public function onDistance($value)
+    {
+        $this->distance = $value;
+//        dd($this->km);
+    }
 
     public function mount($id)
     {
@@ -101,7 +115,7 @@ class ServiceOrderComponent extends Component
     public function updated()
     {
 
-
+        $this->dispatchBrowserEvent('onItemChanged');
 
         if ($this->selected_employee && $this->date) {
             $record = \App\Models\ServiceRequest::where('date', $this->date)
@@ -132,16 +146,29 @@ class ServiceOrderComponent extends Component
 
     public function request()
     {
+//strip
+        Stripe::setApiKey(env('STRIPE_SECRET'));
+        $strip =Charge::create ([
+            "amount" => 100 * 100,
+            "currency" => "EUR",
+            "source" => \request('stripeToken'),
+            "description" => "Test payment from itsolutionstuff.com."
+        ]);
 
+
+        Session::flash('success', 'Payment successful!'.$strip->id);
+//strip
 
 
 
         $validatedData = $this->validate([
             'selected_category' => 'required',
             'selected_service' => 'required',
-//            'selected_employee'=>'required',
+//            sender
+            'street' => 'required',
+            'house_number' => 'required',
+            'postcode' => 'required',
 
-//            'date_time'=>'required',
             'dates.*' => 'required_if:weekly,false|min:2',
             'daily_time.*' => 'required_if:weekly,false|min:2',
 
@@ -158,9 +185,16 @@ class ServiceOrderComponent extends Component
             'phone' => 'required',
             'email' => 'required',
 
-            'square_meter' => 'required_if:selected_category,Construction|numeric|min:50'
+            'square_meter' => 'required_if:selected_category,Construction|numeric|min:50',
 
-//            'square_meter'=>'required_if:category,Construction',
+
+            'receiver_name' => 'required_if:selected_category,Transport',
+            'receiver_phone' => 'required_if:selected_category,Transport',
+            'receiver_email' => 'required_if:selected_category,Transport',
+            'receiver_street' => 'required_if:selected_category,Transport',
+            'receiver_house' => 'required_if:selected_category,Transport',
+            'receiver_postcode' => 'required_if:selected_category,Transport',
+
 
         ]);
 
@@ -210,6 +244,7 @@ class ServiceOrderComponent extends Component
             $new_request->categorie = $this->selected_category;
 
             $new_request->hourly = $this->hourly;
+            $new_request->distance = $this->distance;
 
 //            $new_request->duration = $this->duration;
             $new_request->duration = "0".$this->duration.":00";
@@ -274,9 +309,9 @@ class ServiceOrderComponent extends Component
 
     public function addDates()
     {
-
         $this->dates[] = [''];
     }
+
 
 
     public function render()
@@ -292,7 +327,7 @@ class ServiceOrderComponent extends Component
         } elseif ($this->selected_category == "Construction") {
             $this->net_sum = ($service->SPM ?? 0) * $this->square_meter;
         } elseif ($this->selected_category == "Transport") {
-            $this->distance = 10;
+
             if ($service->hourly ?? 0 == 1) {
                 $this->net_sum = ($service->charge ?? 0) * $this->distance;
             } else {

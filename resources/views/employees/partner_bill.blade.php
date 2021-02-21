@@ -26,13 +26,14 @@
                         <td>DE-{{$s->id}}</td>
                         <td>{{$s->service->name}}</td>
                         <td>{{$s->date}}</td>
+
                         @if($s->categorie=='Construction')
                             <td>{{$s->SPM}} Sq m</td>
                         @elseif($s->categorie=='Transport')
-                            @if($s->hourly=='1')
+                            @if($s->hourly =='1')
                                 <td>{{$s->duration}}-H</td>
                             @else
-                                <td>...</td>
+                                <td>{{$s->distance}}KM</td>
                             @endif
                         @else
                             <td>{{$s->duration}}-H</td>
@@ -40,16 +41,23 @@
                         <td>{{$s->employee->name?? ""}}</td>
                         <td>{{$s->net_charge}}<i class="mdi mdi-currency-eur"></i></td>
 
+                        @php
+                            $time = explode(':', $s->duration);
+                             $duration = ($time[0]*60) + ($time[1])
+                        @endphp
+
                         @if($s->categorie=='Construction')
                             <td>{{$s->service->employee_charge*$s->SPM}}<i class="mdi mdi-currency-eur"></i></td>
+
                         @elseif($s->categorie=='Transport')
+
                             @if($s->hourly=='1')
-                                <td>{{$s->service->employee_charge*$s->duration}}<i class="mdi mdi-currency-eur"></i></td>
+                                <td>{{($s->service->employee_charge/60)*$duration}}<i class="mdi mdi-currency-eur"></i></td>
                             @else
-                                <td>...</td>
+                                <td>{{round(($s->net_charge*$s->service->employee_charge)/100,2)}}<i class="mdi mdi-currency-eur"></i></td>
                             @endif
                         @else
-                            <td>{{$s->service->employee_charge*$s->duration}}<i class="mdi mdi-currency-eur"></i></td>
+                            <td>{{($s->service->employee_charge/60)*$duration}}<i class="mdi mdi-currency-eur"></i></td>
                         @endif
                         <td><a href="{{route('employee_bill',$s->id)}}" class="btn btn-info btn-sm">PAY</a></td>
                     </tr>

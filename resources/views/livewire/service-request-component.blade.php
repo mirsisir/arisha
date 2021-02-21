@@ -1,7 +1,7 @@
 <div>
     {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
 
-    <div class="  border  p-2">
+    <div class=" card  border  p-5">
 
 
         @if(count($all_service_request) == 0)
@@ -11,7 +11,7 @@
                 Available</h4>
             <br>
         @else
-            <table class="table" >
+            <table  class="display table-sm" id="table">
                 <thead class="btn-info">
                 <tr>
                     <th> Customer</th>
@@ -50,7 +50,7 @@
                                 @if($request->service->hourly)
                                     {{$request->duration}}
                                 @else
-                                    {{$request->distance}} km
+                                    {{$request->distance?? 0}} km
                                 @endif
 
                             @endif
@@ -112,3 +112,11 @@
     </div>
 
 </div>
+
+@section('js')
+    <script>
+        $(document).ready(function () {
+            $('#table').DataTable();
+        });
+    </script>
+@endsection

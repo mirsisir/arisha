@@ -1,7 +1,8 @@
 @extends('layouts.employee.employee_base')
 @section('content')
 
-    <div class=" m-5 border mt-3 p-2">
+<div class="card">
+    <div class=" card-body ">
 
 
         @if(count($all_service_request) == 0)
@@ -11,7 +12,7 @@
                 Available</h4>
             <br>
         @else
-            <table class="table">
+            <table class="serviceRequest" id="service_Request">
                 <thead class="btn-info">
                 <tr>
                     <th> Customer</th>
@@ -25,7 +26,7 @@
                 @foreach($all_service_request as $request)
                     <tr>
                         <td>{{$request->customer->name}} <br>
-{{--                            {{$request->customer->phone}}--}}
+                            {{--                            {{$request->customer->phone}}--}}
                         </td>
                         <td>{{$request->service->name}}</td>
 
@@ -38,8 +39,15 @@
                             @if($request->categorie == "Construction")
                                 {{$request->SPM}} Square meter
                             @elseif($request->categorie == "Cleaning")
-                                {{$request->duration}}
-                            @else
+                                {{$request->duration}} H
+
+                            @elseif($request->categorie == "Transport")
+                                @if($request->hourly=1)
+                                    {{$request->dsistance}} KM
+                                @else
+                                    {{$request->duration}} H
+                                @endif
+
                             @endif
 
                         </td>
@@ -63,6 +71,13 @@
         @endif
     </div>
 
+</div>
+@endsection
 
-
+@section('js')
+    <script>
+        $(document).ready(function () {
+            $('#service_Request').DataTable();
+        });
+    </script>
 @endsection

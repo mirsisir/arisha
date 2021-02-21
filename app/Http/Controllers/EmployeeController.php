@@ -75,7 +75,9 @@ class EmployeeController extends Controller
     public function today_service_list(){
 
         $all_service_request = ServiceRequest::where('status','confirm')
-                               ->where('employes_id', auth()->user()->id)->get();
+                               ->where('employes_id', auth()->user()->id)
+                                ->where('date', Carbon::today()->toDateString())
+                                ->get();
 
         return view('employee_dashboard.today_service_list',compact('all_service_request'));
     }
@@ -104,13 +106,21 @@ class EmployeeController extends Controller
         $service_request = ServiceRequest::find($id);
 
 //        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ServiceRequest($data,$this->customer));
-//        $service_request->status = "complete";
-//        $service_request->save();
+
+        $service_request->paid = 1;
+        $service_request->save();
 
         return view('employees.employee_bill',compact('service_request'));
     }
 
 
+    protected function employee_bill_total()
+    {
+        $service_request = ServiceRequest::where('employes_id',auth()->user()->id)
+                                            ->where('paid',0)->get();
+
+        return view('employees.employee_bill_total',compact('service_request'));
+    }
 
 
 

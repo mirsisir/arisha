@@ -1,7 +1,8 @@
 @extends('layouts.admin.base')
 @section('content')
 
-    <div class="border mt-3 p-2">
+<div class="card">
+    <div class="card-body mt-3 p-2">
 
 
         @if(count($all_service_request) == 0)
@@ -11,7 +12,7 @@
                 Available for Today</h4>
             <br>
         @else
-            <table class="table ">
+            <table class=" " id="tableConfirm">
                 <thead class="btn-success">
                 <tr>
                     <th> Customer</th>
@@ -46,8 +47,15 @@
                                 {{$request->SPM}} Square meter
                             @elseif($request->categorie == "Cleaning")
                                 {{$request->duration}}
-                            @else
+                            @elseif($request->categorie == "Transport")
+                                @if($request->service->hourly)
+                                    {{$request->duration}}
+                                @else
+                                    {{$request->distance?? 0}} km
+                                @endif
+
                             @endif
+
 
                         </td>
                         <td>
@@ -136,4 +144,13 @@
         @endif
     </div>
 
+</div>
+@endsection
+
+@section('js')
+    <script>
+        $(document).ready(function () {
+            $('#tableConfirm').DataTable();
+        });
+    </script>
 @endsection

@@ -1,5 +1,9 @@
 @extends('layouts.admin.base')
 @section('content')
+    @php
+        $time = explode(':', $service_request->duration);
+         $duration = ($time[0]*60) + ($time[1])
+    @endphp
 
     @php($settings = \App\Models\GeneralSettings::take(1)->first())
     <div class="card border mt-3 p-5" id="printSection">
@@ -8,12 +12,14 @@
                 src="https://arisha-service.de/wp-content/uploads/2019/01/49459787_362148794601522_3127704234166845440_n.png"
                 alt="" style="width: 150px">
             <h5>{{$settings->name}}</h5>
-            <p> <i class="mdi mdi-cellphone-iphone"> </i> {{$settings->phone}}<br>  <i class="mdi mdi-email"></i> {{$settings->email}}</p>
-            <p class="mt-0 pt-0"> <strong>UST -</strong> {{$settings->ust}}, <strong>HRB -</strong> {{$settings->hrb}}</p>
+            <p><i class="mdi mdi-cellphone-iphone"> </i> {{$settings->phone}}<br> <i
+                    class="mdi mdi-email"></i> {{$settings->email}}</p>
+            <p class="mt-0 pt-0"><strong>UST -</strong> {{$settings->ust}}, <strong>HRB -</strong> {{$settings->hrb}}
+            </p>
 
 
         </div>
-        <p class="bold">Rechnung-No : ARS{{$service_request->id}}</p> <br>
+        <p class="bold">Rechnung-No : DE{{$service_request->id}}</p> <br>
 
         <div class="row  p-3">
 
@@ -71,16 +77,22 @@
                     <td>Start time</td>
                     <td>{{$service_request->start_time}}</td>
                 </tr>
+                @if ($service_request->categorie=='Transport')
 
-                <tr>
-                    <td>Service Hours</td>
-                    <td>{{$service_request->duration}}</td>
-                </tr>
+
+                @else
+                    <tr>
+                        <td>Service Hours</td>
+                        <td>{{$service_request->duration}}</td>
+                    </tr>
+                @endif
+
                 <tr>
                     <td>Service Charge</td>
                     <td>{{$service_request->net_charge}}</td>
                 </tr>
                 <tr>
+
                     @if($service_request->categorie=='Construction')
                         <td>Duration</td>
                         <td>{{$service_request->SPM}} Sq m</td>
@@ -90,8 +102,8 @@
 
                             <td>{{$service_request->duration}}-H</td>
                         @else
-                            <td>Duration</td>
-                            <td>..............</td>
+                            <td>Distance</td>
+                            <td>{{$service_request->distance}} KM</td>
                         @endif
                     @else
                         <td>Duration</td>
@@ -100,21 +112,29 @@
                 </tr>
 
                 <tr>
+
+
                     @if($service_request->categorie=='Construction')
                         <td>Partner Charge</td>
-                        <td>{{$service_request->service->employee_charge*$service_request->SPM}}<i class="mdi mdi-currency-eur"></i></td>
+                        <td>{{$service_request->service->employee_charge*$service_request->SPM}}<i
+                                class="mdi mdi-currency-eur"></i></td>
 
                     @elseif($service_request->categorie=='Transport')
                         @if($service_request->hourly=='1')
                             <td>Partner Charge</td>
-                            <td>{{$service_request->service->employee_charge*$service_request->duration}}<i class="mdi mdi-currency-eur"></i></td>
+                            <td>{{$service_request->service->employee_charge*$duration}}<i
+                                    class="mdi mdi-currency-eur"></i></td>
                         @else
                             <td>Partner Charge</td>
-                            <td>..............</td>
+                            <td>{{round(($service_request->net_charge*$service_request->service->employee_charge)/100,2)}} <i class="mdi mdi-currency-eur"></i></td>
+
+
                         @endif
                     @else
                         <td>Partner Charge</td>
-                        <td>{{$service_request->service->employee_charge*$service_request->duration}}<i class="mdi mdi-currency-eur"></i></td>
+                        <td>{{($service_request->service->employee_charge/60)*$duration}}<i
+                                class="mdi mdi-currency-eur"></i>
+                        </td>
                     @endif
 
                 </tr>

@@ -59,7 +59,14 @@
                         title: "{{$s->service->name}} - {{$s->employee->fname?? ""}}",
                         start: "{{$s->date}}",
                         {{--start: "{{$s->date}}T{{$s->start_time}}:00:00",--}}
-                        // url: 'http://google.com/'
+                            @if ($s->status == "complete")
+                        color: 'yellow',
+                        textColor: 'black',
+                        @endif
+                            @if ($s->paid == 1)
+                        color: 'green',
+                        textColor: 'white',
+                        @endif
                         url: '/admin/service_details/{{$s->id}}',
 
 

@@ -11,10 +11,7 @@
         $tasks = \App\Models\ServiceRequest::all();
 
     @endphp
-    {{--https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.js--}}
-    {{--https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/locales-all.min.js--}}
-    {{--https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/locales-all.min.js--}}
-    {{--https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.js--}}
+
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.js">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css'/>
@@ -58,7 +55,16 @@
                         title: "{{$s->service->name}}",
                         start: "{{$s->date}}",
                         {{--start: "{{$s->date}}T{{$s->start_time}}:00:00",--}}
-                        // url: 'http://google.com/'
+                        // colour:red,
+                        @if ($s->status == "complete")
+                        color: 'yellow',
+                        textColor: 'black',
+                        @endif
+                            @if ($s->paid == 1)
+                        color: 'green',
+                        textColor: 'white',
+                        @endif
+
                         url: '/employee/service_details_emp/{{$s->id}}',
 
 

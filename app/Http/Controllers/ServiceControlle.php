@@ -33,7 +33,7 @@ class ServiceControlle extends Controller
     {
         view::share("title", "Hold Service Request");
 
-        $all_service_request = ServiceRequest::where('status', 'hold')->get();
+        $all_service_request = ServiceRequest::where('status', 'hold')->orderBy('date')->get();
 
         return view('service.hold_request', compact('all_service_request'));
     }
@@ -116,19 +116,38 @@ class ServiceControlle extends Controller
             $service_request->net_charge = ($service_request->service->SPM ?? 0) * \request('square_meter');
 
         }
-//        elseif ($service_request->categorie == "Transport") {
-//
-//            $this->distance = 10;
-//            if ($service->hourly ?? 0 == 1) {
-//                $service_request->net_charge = ($service->charge ?? 0) * $this->distance;
-//            } else {
-//                $service_request->net_charge = ($service->basic_price ?? 0) + (($service->km_price ?? 0) * $this->distance);
-//            }
-//        }
+        elseif ($service_request->categorie == "Transport") {
+
+
+            if ($service_request->hourly == 1) {
+
+                $service_request->net_charge = ($service_request->service->charge) * \request('duration');
+
+            }
+            else {
+                $service_request->net_charge = $service_request->service->basic_price  + (($service_request->service->km_price ) * \request('distance')) ;
+                $service_request->net_charge += \request('stopover');
+
+
+                $time = explode(':', \request('waiting'));
+                $time = ($time[0]*60) + ($time[1]);
+
+                $service_request->net_charge +=(($time/5)*$service_request->service->waiting_price);
+
+//                dd($service_request->net_charge);
+
+                $service_request->net_charge=(round($service_request->net_charge, 2));
+
+
+            }
+        }
 
         $this->vat = ($service_request->net_charge * 19) / 100;
 
         $service_request->total_charge = $service_request->net_charge + $this->vat;
+        $service_request->total_charge = (round($service_request->total_charge, 2));
+
+        $service_request->employes_id =\request('employee') ;
 
 
         $service_request->save();
@@ -143,28 +162,59 @@ class ServiceControlle extends Controller
 
         if ($service_request->categorie == "Cleaning") {
 
-            $service_request->net_charge = $service_request->service->charge * \request('duration');
+
+            $up_price = $service_request->service->charge * (explode(":",\request('duration'))[0])  ;
+            $up_price_min = ($service_request->service->charge/60) * (explode(":",\request('duration'))[1])  ;
+
+            $up_price_min = round($up_price_min, 1);
+
+
+            $service_request->net_charge = $up_price + $up_price_min;
             $service_request->duration = \request('duration');
+            if(!empty( \request('employee'))){
+                $service_request->employes_id = \request('employee');
+
+            }
 
         } elseif ($service_request->categorie == "Construction") {
 
             $service_request->SPM = \request('square_meter');
-            $service_request->net_charge = ($service_request->SPM ?? 0) * \request('square_meter');
+
+            $service_request->net_charge = ($service_request->service->SPM ?? 0) * \request('square_meter');
 
         }
-//        elseif ($service_request->categorie == "Transport") {
-//
-//            $this->distance = 10;
-//            if ($service->hourly ?? 0 == 1) {
-//                $service_request->net_charge = ($service->charge ?? 0) * $this->distance;
-//            } else {
-//                $service_request->net_charge = ($service->basic_price ?? 0) + (($service->km_price ?? 0) * $this->distance);
-//            }
-//        }
+        elseif ($service_request->categorie == "Transport") {
+
+
+            if ($service_request->hourly == 1) {
+
+                $service_request->net_charge = ($service_request->service->charge) * \request('duration');
+
+            }
+            else {
+                $service_request->net_charge = $service_request->service->basic_price  + (($service_request->service->km_price ) * \request('distance')) ;
+                $service_request->net_charge += \request('stopover');
+
+
+                $time = explode(':', \request('waiting'));
+                $time = ($time[0]*60) + ($time[1]);
+
+                $service_request->net_charge +=(($time/5)*$service_request->service->waiting_price);
+
+//                dd($service_request->net_charge);
+
+                $service_request->net_charge=(round($service_request->net_charge, 2));
+
+
+            }
+        }
 
         $this->vat = ($service_request->net_charge * 19) / 100;
 
         $service_request->total_charge = $service_request->net_charge + $this->vat;
+        $service_request->total_charge = (round($service_request->total_charge, 2));
+
+        $service_request->employes_id =\request('employee') ;
 
 
         $service_request->save();
