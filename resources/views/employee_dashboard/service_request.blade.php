@@ -43,7 +43,7 @@
 
                             @elseif($request->categorie == "Transport")
                                 @if($request->hourly=1)
-                                    {{$request->dsistance}} KM
+                                    {{$request->distance}} KM
                                 @else
                                     {{$request->duration}} H
                                 @endif

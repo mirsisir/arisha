@@ -61,6 +61,7 @@ class ServiceControlle extends Controller
     {
 
         $service = ServiceRequest::find($id);
+//        dd($service);
         $service->delete();
         return redirect(route('hold_request'));
     }
@@ -95,7 +96,6 @@ class ServiceControlle extends Controller
 
         if ($service_request->categorie == "Cleaning") {
 
-
             $up_price = $service_request->service->charge * (explode(":",\request('duration'))[0])  ;
             $up_price_min = ($service_request->service->charge/60) * (explode(":",\request('duration'))[1])  ;
 
@@ -104,10 +104,10 @@ class ServiceControlle extends Controller
 
             $service_request->net_charge = $up_price + $up_price_min;
             $service_request->duration = \request('duration');
-            if(!empty( \request('employee'))){
-                $service_request->employes_id = \request('employee');
-
-            }
+//            if(!empty( \request('employee'))){
+//                $service_request->employes_id = \request('employee');
+//
+//            }
 
         } elseif ($service_request->categorie == "Construction") {
 
@@ -125,16 +125,19 @@ class ServiceControlle extends Controller
 
             }
             else {
-                $service_request->net_charge = $service_request->service->basic_price  + (($service_request->service->km_price ) * \request('distance')) ;
-                $service_request->net_charge += \request('stopover');
 
+                $service_request->distance = \request('distance');
+                $service_request->waiting_charge = \request('waiting');
+                $service_request->stopover_charge = \request('stopover');
 
-                $time = explode(':', \request('waiting'));
+                $service_request->net_charge = $service_request->service->basic_price  + (($service_request->service->km_price ) * $service_request->distance );
+                $service_request->net_charge += $service_request->stopover_charge;
+
+                $time = explode(':', $service_request->waiting_charge);
                 $time = ($time[0]*60) + ($time[1]);
 
                 $service_request->net_charge +=(($time/5)*$service_request->service->waiting_price);
 
-//                dd($service_request->net_charge);
 
                 $service_request->net_charge=(round($service_request->net_charge, 2));
 
@@ -171,10 +174,11 @@ class ServiceControlle extends Controller
 
             $service_request->net_charge = $up_price + $up_price_min;
             $service_request->duration = \request('duration');
-            if(!empty( \request('employee'))){
-                $service_request->employes_id = \request('employee');
 
-            }
+//            if(!empty( \request('employee'))){
+//                $service_request->employes_id = \request('employee');
+//
+//            }
 
         } elseif ($service_request->categorie == "Construction") {
 
@@ -192,18 +196,22 @@ class ServiceControlle extends Controller
 
             }
             else {
-                $service_request->net_charge = $service_request->service->basic_price  + (($service_request->service->km_price ) * \request('distance')) ;
-                $service_request->net_charge += \request('stopover');
 
+                $service_request->distance = \request('distance');
+                $service_request->waiting_charge = \request('waiting');
+                $service_request->stopover_charge = \request('stopover');
 
-                $time = explode(':', \request('waiting'));
+                $service_request->net_charge = $service_request->service->basic_price  + (($service_request->service->km_price ) * $service_request->distance );
+                $service_request->net_charge += $service_request->stopover_charge;
+
+                $time = explode(':', $service_request->waiting_charge);
                 $time = ($time[0]*60) + ($time[1]);
 
                 $service_request->net_charge +=(($time/5)*$service_request->service->waiting_price);
 
-//                dd($service_request->net_charge);
 
                 $service_request->net_charge=(round($service_request->net_charge, 2));
+
 
 
             }
@@ -214,7 +222,7 @@ class ServiceControlle extends Controller
         $service_request->total_charge = $service_request->net_charge + $this->vat;
         $service_request->total_charge = (round($service_request->total_charge, 2));
 
-        $service_request->employes_id =\request('employee') ;
+//        $service_request->employes_id =\request('employee') ;
 
 
         $service_request->save();

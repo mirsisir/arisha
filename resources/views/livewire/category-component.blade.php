@@ -10,7 +10,7 @@
         </div>
     @endif
 
-    <div class="row m-4">
+    <div class="row">
         <div class="col-6">
             <div class="card">
                 <div class="card-body">

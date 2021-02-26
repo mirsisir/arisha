@@ -168,7 +168,7 @@
         .price-item:hover {
             background-color: #7ccb50;
             color: black;
-            margin-top: -30px;
+            margin-top: -15px;
             transition: 0.3s ease;
         }
     </style>

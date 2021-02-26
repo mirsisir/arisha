@@ -146,6 +146,7 @@ class EmployeeSettingComponent extends Component
 
     public function delete()
     {
+
         Employee::where('id',$this->selectedItem)->delete();
         $this->dispatchBrowserEvent('closeDeleteModal');
         session()->flash('message', 'Product Deleted Successfully.');
@@ -153,5 +154,5 @@ class EmployeeSettingComponent extends Component
     public function refresh(){
         $this->dispatchBrowserEvent('refresh');
     }
-    
+
 }

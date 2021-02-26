@@ -5,7 +5,9 @@
             <table class="bill" id="bill">
                 <thead>
                 <tr>
+                    <td>Voucher-NO</td>
                     <td>Service Name</td>
+                    <td>Service Date</td>
                     <td>Service Duration</td>
                     <td>Service Charge</td>
                     <td>Bill</td>
@@ -14,7 +16,9 @@
                 <tbody>
                 @foreach($service_request as $service)
                     <tr>
+                        <td>DE-{{$service->id}}</td>
                         <td>{{$service->service->name}}</td>
+                        <td>{{$service->date}}</td>
 
                         @if ($service->categorie=="Construction")
                             <td>{{$service->SPM}} Sqm</td>

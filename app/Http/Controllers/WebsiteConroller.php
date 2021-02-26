@@ -7,6 +7,7 @@ use App\Models\Employee;
 use App\Models\Service;
 use App\Models\ServiceRequest;
 use Illuminate\Http\Request;
+use Session;
 
 class WebsiteConroller extends Controller
 {
@@ -32,7 +33,7 @@ class WebsiteConroller extends Controller
             'city' => 'required',
             'post_code' => 'required',
 
-            'phone' => 'required',
+            'phone' => 'required|unique:employees',
             'email' => 'required',
 
             'service' => 'required',
@@ -46,7 +47,9 @@ class WebsiteConroller extends Controller
         $employee->gender = \request('gender');
         $employee->nation = \request('nation');
         $employee->nid = \request('nid');
-        $employee->acc_number = \request('acc_number');
+        $employee->acc_number = \request('bank_account');
+        $employee->bank = \request('bank_name');
+        $employee->acc_name = \request('acc_name');
 
 
         $employee->address = \request('address');
@@ -71,14 +74,17 @@ class WebsiteConroller extends Controller
         }
         if(!empty(\request()->nid_card)){
         $employee->id_proff = \request()->nid_card->store('images', 'public');
-
         }
 
-//
         $employee->save();
 
 
 
+
+
+
+
+        Session::flash('message', 'Partner Registration Request Confirm');
 
 //        \request()->logo->store('images', 'public');
 
@@ -102,6 +108,8 @@ class WebsiteConroller extends Controller
 
         return view('website.customer_dashboard',compact('pending_service','hold_service','confirm_service','complete_service'));
     }
+
+
 
     public function customer_profile(){
 

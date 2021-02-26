@@ -29,15 +29,17 @@
         }
 
     </style>
-    {{--    @if ($errors->any())--}}
-    {{--        <div class="alert alert-danger">--}}
-    {{--            <ul>--}}
-    {{--                @foreach ($errors->all() as $error)--}}
-    {{--                    <li>{{ $error }}</li>--}}
-    {{--                @endforeach--}}
-    {{--            </ul>--}}
-    {{--        </div>--}}
-    {{--    @endif--}}
+{{--    --}}
+{{--    @if ($errors->any())--}}
+{{--        <div class="alert alert-danger">--}}
+{{--            <ul>--}}
+{{--                @foreach ($errors->all() as $error)--}}
+{{--                    <li>{{ $error }}</li>--}}
+{{--                @endforeach--}}
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--    @endif--}}
+
     <div class="content">
         <form action="" autocomplete="off">
             <div class=" ml-5 mr-5 ">
@@ -53,6 +55,8 @@
                                         <option value="{{$ctg->name}}">{{$ctg->name}}</option>
                                     @endforeach
                                 </select>
+                                @error('selected_category') <span
+                                    class="text-danger error">{{ $message }}</span>@enderror
                             </div>
 
                             <div class="col-lg-3 col-sm-12">
@@ -64,7 +68,8 @@
                                         <option value="{{$srv->id}}">{{$srv->name}}</option>
                                     @endforeach
                                 </select>
-
+                                @error('selected_service') <span
+                                    class="text-danger error">{{ $message }}</span>@enderror
                             </div>
                             {{--                <div class="col-3">--}}
                             {{--                    <label for="">Employee</label>--}}
@@ -144,11 +149,15 @@
                                                    wire:model="daily_time.{{ $index }}" step="3600">
                                         </div>
                                     </div>
+                                    <div class="text-center ml-2" style="display:{{ $index === 0 ? 'none':'block'   }} ">
+                                        <div wire:click.prevent="removeDates({{ $index }})" class=" btn btn-danger mt-4">-</div>
+                                    </div>
                                 @endforeach
 
-                                <div class="text-center"  >
+                                <div class="text-center">
                                     <div wire:click.prevent="addDates" class=" btn btn-success mt-4">+</div>
                                 </div>
+
                             @endif
 
 
@@ -177,6 +186,20 @@
                                     @error('square_meter') <span
                                         class="text-danger error">{{ $message }}</span>@enderror
                                 </div>
+                                @elseif($selected_category == "Transport")
+
+                                @if ($service_hourly == 1)
+                                    <div class="col-lg-2 col-sm-12">
+                                        <label for="">{{__('Duration')}}</label>
+                                        <select name="" id="" wire:model="duration" value="2"
+                                                class="form-control @error('duration') is-invalid @enderror ">
+                                            <option value=""></option>
+                                            @for($i=2 ; $i<=10 ;$i++)
+                                                <option value="{{$i}}">{{$i}} Hours</option>
+                                            @endfor
+                                        </select>
+                                    </div>
+                                    @endif
                             @endif
 
 
@@ -246,7 +269,8 @@
                                         <input type="text" wire:model="customer_name"
                                                class="form-control @error('customer_name') is-invalid @enderror">
 
-                                        @error('customer_name') <span class="text-danger error">{{ $message }}</span>@enderror
+                                        @error('customer_name') <span
+                                            class="text-danger error">{{ $message }}</span>@enderror
 
                                     </div>
                                     <div class="col-lg-4 col-sm-12">
@@ -324,7 +348,8 @@
                                         <div class="col-lg-4 col-sm-12">
 
                                             <label for="">{{__('Surname *')}}</label>
-                                            <input type="text" wire:model="receiver_name" class="form-control @error('receiver_name') is-invalid @enderror">
+                                            <input type="text" wire:model="receiver_name"
+                                                   class="form-control @error('receiver_name') is-invalid @enderror">
                                             @error('receiver_name')<span
                                                 class="text-danger error">{{ $message }}</span>@enderror
 
@@ -408,14 +433,41 @@
                                     <input wire:model="payments" type="radio" id="pay2" name="pay"
                                            value="Card payments">
                                     <label for="age2">{{__('Card')}}</label><br>
+                                    <input wire:model="payments" type="radio" id="pay3" name="pay"
+                                           value="Bank payments">
+                                    <label for="age2">{{__('Bank')}}</label><br>
+
                                     @error('payments') <span class="text-danger error">{{ $message }}</span>@enderror
 
+
                                 </div>
-                                    <div class="strip">
+
+
+                                <div style="display:{{ $payments == "Card payments" ? 'block' :'none'  }}">
+
+
+                                    <div class="strip" wire:ignore>
+
                                         @include('stripe')
+
                                     </div>
-                                <input type="button" value="Request" class="btn btn-success float-right"
-                                       wire:click="request">
+                                    @if (!empty($message))
+                                        <div class="alert alert-success text-center">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                            <p>{{ $message }}</p>
+                                        </div>
+                                    @endif
+                                    <div class="float-right">
+                                        <button id="payButton" class="btn btn-primary  btn-block float-right" type="button">
+                                            Request
+                                        </button>
+                                    </div>
+                                </div>
+
+                                @if($payments !== "Card payments")
+                                    <input type="button" value="Request" class="btn btn-success float-right"
+                                           wire:click="request">
+                                @endif
 
                             </div>
                             <br>
@@ -509,77 +561,6 @@
 </div>
 
 @section('js')
-    {{--    <script>--}}
-    {{--        $(function() {--}}
-    {{--            // add input listeners--}}
-    {{--            google.maps.event.addDomListener(window, 'load', function () {--}}
-    {{--                var from_places = new google.maps.places.Autocomplete(document.getElementById('from_places'));--}}
-    {{--                var to_places = new google.maps.places.Autocomplete(document.getElementById('to_places'));--}}
-
-    {{--                google.maps.event.addListener(from_places, 'place_changed', function () {--}}
-    {{--                    var from_place = from_places.getPlace();--}}
-    {{--                    var from_address = from_place.formatted_address;--}}
-    {{--                    $('#origin').val(from_address);--}}
-    {{--                });--}}
-
-    {{--                google.maps.event.addListener(to_places, 'place_changed', function () {--}}
-    {{--                    var to_place = to_places.getPlace();--}}
-    {{--                    var to_address = to_place.formatted_address;--}}
-    {{--                    $('#destination').val(to_address);--}}
-    {{--                });--}}
-
-    {{--            });--}}
-    {{--            // calculate distance--}}
-    {{--            function calculateDistance() {--}}
-    {{--                var origin = $('#origin').val();--}}
-    {{--                var destination = $('#destination').val();--}}
-    {{--                var service = new google.maps.DistanceMatrixService();--}}
-    {{--                service.getDistanceMatrix(--}}
-    {{--                    {--}}
-    {{--                        origins: [origin],--}}
-    {{--                        destinations: [destination],--}}
-    {{--                        travelMode: google.maps.TravelMode.DRIVING,--}}
-    {{--                        // unitSystem: google.maps.UnitSystem.IMPERIAL, // miles and feet.--}}
-    {{--                        unitSystem: google.maps.UnitSystem.metric, // kilometers and meters.--}}
-    {{--                        avoidHighways: false,--}}
-    {{--                        avoidTolls: false--}}
-    {{--                    }, callback);--}}
-    {{--            }--}}
-    {{--            // get distance results--}}
-    {{--            function callback(response, status) {--}}
-    {{--                if (status != google.maps.DistanceMatrixStatus.OK) {--}}
-    {{--                    $('#result').html(err);--}}
-    {{--                } else {--}}
-    {{--                    var origin = response.originAddresses[0];--}}
-    {{--                    var destination = response.destinationAddresses[0];--}}
-    {{--                    if (response.rows[0].elements[0].status === "ZERO_RESULTS") {--}}
-    {{--                        $('#result').html("Better get on a plane. There are no roads between "  + origin + " and " + destination);--}}
-    {{--                    } else {--}}
-    {{--                        var distance = response.rows[0].elements[0].distance;--}}
-    {{--                        var duration = response.rows[0].elements[0].duration;--}}
-    {{--                        console.log(response.rows[0].elements[0].distance);--}}
-    {{--                        var distance_in_kilo = distance.value / 1000; // the kilom--}}
-    {{--                        // var distance_in_mile = distance.value / 1609.34; // the mile--}}
-    {{--                        var duration_text = duration.text;--}}
-    {{--                        var duration_value = duration.value;--}}
-    {{--                        // $('#in_mile').text(distance_in_mile.toFixed(2));--}}
-    {{--                        $('#in_kilo').text(distance_in_kilo.toFixed(2));--}}
-    {{--                        $('#duration_text').text(duration_text);--}}
-    {{--                        $('#duration_value').text(duration_value);--}}
-    {{--                        $('#from').text(origin);--}}
-    {{--                        $('#to').text(destination);--}}
-    {{--                    }--}}
-    {{--                }--}}
-    {{--            }--}}
-    {{--            // print results on submit the form--}}
-    {{--            $('#distance_form').submit(function(e){--}}
-    {{--                e.preventDefault();--}}
-    {{--                calculateDistance();--}}
-    {{--            });--}}
-
-    {{--        });--}}
-
-    {{--    </script>--}}
 
 @endsection
 

@@ -139,13 +139,13 @@
                             <tr class="table-info">
                                 <td>Stopover Charge</td>
                                 <td>
-                                    <input    name="stopover" style="width:100px">
+                                    <input    name="stopover" style="width:100px"  value="{{$service_request->stopover_charge}}">
                                 </td>
                             </tr>
                             <tr class="table-info">
                                 <td>Waiting Time </td>
                                 <td>
-                                    <input  class="html-duration-picker" data-hide-seconds  name="waiting" style="width:100px"> Hours
+                                    <input  class="html-duration-picker" data-hide-seconds  value="{{$service_request->waiting_charge}}" name="waiting" style="width:100px"> Hours
                                 </td>
                             </tr>
 

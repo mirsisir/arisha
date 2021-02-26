@@ -138,13 +138,13 @@
                                 <tr class="table-info">
                                     <td>Stopover Charge</td>
                                     <td>
-                                        <input    name="stopover" style="width:100px">
+                                        <input  name="stopover" style="width:100px" value="{{$service_request->stopover_charge}}" >
                                     </td>
                                 </tr>
                                 <tr class="table-info">
                                     <td>Waiting Time </td>
                                     <td>
-                                        <input  class="html-duration-picker" data-hide-seconds  name="waiting" style="width:100px"> Hours
+                                        <input  class="html-duration-picker" data-hide-seconds  name="waiting" style="width:100px" value="{{$service_request->waiting_charge}}" > Hours
                                     </td>
                                 </tr>
 
@@ -178,6 +178,10 @@
                             <td>Employee Phone</td>
                             <td>{{$service_request->employee->phone ?? "N/A"}} </td>
                         </tr>
+                        <tr class="table-warning">
+                            <td>Payment Status</td>
+                            <td>{{$service_request->paid == 0 ? "Due" : "Paid"}} </td>
+                        </tr>
 
 
                         </tbody>
@@ -185,6 +189,8 @@
                 </div>
 
                 @if($service_request->status=="complete")
+
+
                     @else
                     <div class="m-auto text-center">
                         <button class="btn btn-info mb-5 " type="submit">update</button>

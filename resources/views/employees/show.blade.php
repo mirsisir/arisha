@@ -44,12 +44,20 @@
 {{--                            <td>{{$employee->mobile}}</td>--}}
 {{--                        </tr>--}}
                         <tr>
+                            <th>NID</th>
+                            <td>{{$employee->nid}}</td>
+                        </tr>
+                        <tr>
                             <th>Phone</th>
                             <td>{{$employee->phone}}</td>
                         </tr>
                         <tr>
                             <th>Email</th>
                             <td>{{$employee->email}}</td>
+                        </tr>
+                        <tr>
+                            <th>Address </th>
+                            <td>{{$employee->address}}  {{$employee->street}} <br> {{$employee->city}} {{$employee->post_code}}  </td>
                         </tr>
                     </tbody>
                 </table>
@@ -66,10 +74,10 @@
                             <th>Bank Name</th>
                             <td>{{$employee->bank}}</td>
                         </tr>
-                        <tr>
-                            <th>Branch Name</th>
-                            <td>{{$employee->branch}}</td>
-                        </tr>
+{{--                        <tr>--}}
+{{--                            <th>Branch Name</th>--}}
+{{--                            <td>{{$employee->branch}}</td>--}}
+{{--                        </tr>--}}
                         <tr>
                             <th>Account Name</th>
                             <td>{{$employee->acc_name}}</td>
@@ -78,6 +86,8 @@
                             <th>Account Number</th>
                             <td>{{$employee->acc_number}}</td>
                         </tr>
+
+
                     </tbody>
                 </table>
             </div>
@@ -85,7 +95,7 @@
         </div>
         <div class="card w-100 mt-4">
             <div class="card-header">
-               Offial Document
+               Official Document
             </div>
             <table class="table">
                 <tbody>
@@ -113,14 +123,14 @@
                             @endif
                     </tr>
                     <tr>
-                        <th>Contact Paper</th>
+                        <th>Card </th>
                         <td>
-                            @if($employee->contact_paper)
-                            <iframe src="/storage/{{ $employee->contact_paper }}" frameborder="0" style="width:100%;min-height:200px;"></iframe></td>
+                            @if($employee->business_licence)
+                            <iframe src="/storage/{{ $employee->business_licence }}" frameborder="0" style="width:100%;min-height:200px;"></iframe></td>
                             @endif
                     </tr>
                     <tr>
-                        <th>ID Proff</th>
+                        <th>ID Proof</th>
                         <td>
                             @if($employee->id_proff)
                             <iframe src="/storage/{{ $employee->id_proff }}" frameborder="0" style="width:100%;min-height:200px;"></iframe></td>

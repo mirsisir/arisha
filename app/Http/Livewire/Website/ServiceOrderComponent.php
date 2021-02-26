@@ -12,6 +12,7 @@ use App\Models\ServiceRequest;
 use App\Models\User;
 use Carbon\Carbon;
 use DateTime;
+use Exception;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
@@ -40,6 +41,7 @@ class ServiceOrderComponent extends Component
     public $service_name, $total_charge, $net_sum, $vat, $distance_price, $base_price, $distance=0;
 
     public $km;
+    public $stripeToken;
 
     public $dates = [];
     public $weekly_day = [];
@@ -51,10 +53,19 @@ class ServiceOrderComponent extends Component
     public $daily_time=[];
     public $hourly;
     public $service_id ;
+    public $message ;
+    public $service_hourly ;
 
 
 
-    protected $listeners = ['distanceCalculated' => 'onDistance'];
+    protected $listeners = ['distanceCalculated' => 'onDistance','onStripToken'=>'onStripTokenHandler'];
+
+    public function onStripTokenHandler($token)
+    {
+        $this->stripeToken = $token;
+        $this->request();
+//        dd($this->stripeToken);
+    }
 
     public function onDistance($value)
     {
@@ -62,7 +73,7 @@ class ServiceOrderComponent extends Component
 //        dd($this->km);
     }
 
-    public function mount($id)
+    public function mount($id = 1)
     {
         $this->category = Category::all();
 
@@ -106,6 +117,8 @@ class ServiceOrderComponent extends Component
     public function updatedSelectedService(){
 
         $this->selected_category = Service::find($this->selected_service)->category;
+        $this->service_hourly = Service::find($this->selected_service)->hourly;
+
     }
 
 
@@ -146,21 +159,7 @@ class ServiceOrderComponent extends Component
 
     public function request()
     {
-//strip
-        Stripe::setApiKey(env('STRIPE_SECRET'));
-        $strip =Charge::create ([
-            "amount" => 100 * 100,
-            "currency" => "EUR",
-            "source" => \request('stripeToken'),
-            "description" => "Test payment from itsolutionstuff.com."
-        ]);
-
-
-        Session::flash('success', 'Payment successful!'.$strip->id);
-//strip
-
-
-
+//        dd(round(,2));
         $validatedData = $this->validate([
             'selected_category' => 'required',
             'selected_service' => 'required',
@@ -177,7 +176,6 @@ class ServiceOrderComponent extends Component
             'end_date_time' => 'required_if:weekly,true',
             'weekly_day' => 'required_if:weekly,true',
 
-
 //            'notes' => 'required',
             'payments' => 'required',
 
@@ -187,17 +185,42 @@ class ServiceOrderComponent extends Component
 
             'square_meter' => 'required_if:selected_category,Construction|numeric|min:50',
 
-
             'receiver_name' => 'required_if:selected_category,Transport',
             'receiver_phone' => 'required_if:selected_category,Transport',
-            'receiver_email' => 'required_if:selected_category,Transport',
+//            'receiver_email' => 'required_if:selected_category,Transport',
             'receiver_street' => 'required_if:selected_category,Transport',
             'receiver_house' => 'required_if:selected_category,Transport',
             'receiver_postcode' => 'required_if:selected_category,Transport',
 
-
         ]);
 
+
+        //strip
+        if($this->payments=="Card payments")
+        {
+            try {
+                Stripe::setApiKey(env('STRIPE_SECRET'));
+
+                $strip =Charge::create ([
+
+                "amount" => $this->total_charge*100,
+                "currency" => "EUR",
+                "source" => $this->stripeToken,
+                "description" => "Payment from Arisha Service For ".$this->selected_service ." Customer Name: " .$this->customer_name ,
+            ]);
+                $this->message =  'Payment successful!';
+            }
+            catch (Exception $e){
+                $this->message  = 'Error : '.$e->getMessage();
+
+
+                return;
+            }
+        }
+
+
+
+    //strip
 
 //        dd( (explode("T",$this->date_time)[1]));
 
@@ -261,7 +284,13 @@ class ServiceOrderComponent extends Component
             $new_request->date = $date;
 
             $new_request->notes = $this->notes;
-            $new_request->payments = $this->payments;
+            if ($this->payments =="Card payments" ){
+                $new_request->payments = $this->payments . " ID:" .$strip->id ;
+            }
+            else {
+                $new_request->payments = $this->payments ;
+
+            }
 
             $new_request->street = $this->street;
             $new_request->house_number = $this->house_number;
@@ -312,6 +341,11 @@ class ServiceOrderComponent extends Component
         $this->dates[] = [''];
     }
 
+    public function removeDates($index)
+    {
+        unset($this->dates[$index]);
+    }
+
 
 
     public function render()
@@ -329,7 +363,8 @@ class ServiceOrderComponent extends Component
         } elseif ($this->selected_category == "Transport") {
 
             if ($service->hourly ?? 0 == 1) {
-                $this->net_sum = ($service->charge ?? 0) * $this->distance;
+
+                $this->net_sum = ($service->charge ?? 0) * $this->duration;
             } else {
                 $this->net_sum = ($service->basic_price ?? 0) + (($service->km_price ?? 0) * $this->distance);
             }

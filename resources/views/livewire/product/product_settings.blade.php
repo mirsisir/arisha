@@ -152,6 +152,7 @@
         $('#brand_id').select2();
         var val=$("#brand_id").val();
         @this.set('brand_id', val);
+        
         $('#brand_id').on('change', function(e) {
             @this.set('brand_id', e.target.value)
         });

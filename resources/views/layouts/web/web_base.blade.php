@@ -153,7 +153,7 @@
 
                         @if (Auth::check())
                             <li>
-                                <a href="{{route('customer_dashboard',app()->getLocale())}}">Dashboard</a>
+                                <a href="{{route('customer_dashboard',app()->getLocale())}}">{{__('Dashboard')}}</a>
                             </li>
 
                         @endif
@@ -222,6 +222,16 @@
                 <!--navbar-collapse -->
             </div>
         </nav>
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong class="container" >{{$error}}</strong> You should check in on some of those fields .
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @endforeach
+        @endif
     </div>
 </header>
 
@@ -237,8 +247,8 @@
             <div class="col-md-6 col-lg-3 footer_logo">
                 <a href="index-2.html"><img src="{{asset('assets/images/footer_logo.png')}}" alt=""></a>
                 <p>
-                    Lorem ipsum dolor amet natum latine copiosa at quo, suas labore saperet has there any quote for
-                    write lorem percit latineu suas dummy.
+                    {{__('Lorem ipsum dolor amet natum latine copiosa at quo, suas labore saperet has there any quote for
+                    write lorem percit latineu suas dummy.')}}
                 </p>
                 <ul>
                     <li>
@@ -260,32 +270,32 @@
             </div>
 
             <div class="col-md-6 col-lg-3 mt-xs-30 link_footer">
-                <h4>Information</h4>
+                <h4>{{__('Information')}}</h4>
                 <ul>
                     <li>
-                        <a href="#">About us</a>
+                        <a href="#">{{__('About us')}}</a>
                     </li>
                     <li>
                         <a href="{{route('all_services',app()->getLocale())}}">Service</a>
                     </li>
                     <li>
-                        <a href="#">Project</a>
+                        <a href="#">{{__('Project')}}</a>
                     </li>
                     <li>
-                        <a href="{{route('page.terms', app()->getLocale())}}">Terms of Services</a>
+                        <a href="{{route('page.terms', app()->getLocale())}}">{{__('Terms of Services')}}</a>
                     </li>
                     <li>
-                        <a href="{{route('partner_registration',app()->getLocale())}}">Partner Registration</a>
+                        <a href="{{route('partner_registration',app()->getLocale())}}">{{__('Partner Registration')}}</a>
                     </li>
                 </ul>
             </div>
 
 
             <div class="col-md-6 col-lg-6 mt-sm-30 mt-xs-30 footer-subscribe">
-                <h4>Subscribe Us</h4>
+                <h4>{{__('Subscribe Us')}}</h4>
                 <p>
-                    If you have any special requirements for your Booking, as well as any query related to our services,
-                    then do not hesitate to give us a call on {{$settings->phone?? " "}} . We are happy to serve you.
+                    {{__('If you have any special requirements for your Booking, as well as any query related to our services,
+                    then do not hesitate to give us a call . We are happy to serve you.')}} {{$settings->phone?? " "}}
                 </p>
                 <form action="#">
                     <input type="text" placeholder="Enter your e-mail">

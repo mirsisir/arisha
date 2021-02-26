@@ -17,18 +17,13 @@
                 <div class="border-bottom text-center pb-4"><img
                         src="/storage/{{$emp->photo}}"
 
-                        alt="profile" class="img-lg rounded-circle mb-3">
+                        alt="profile" class="img-lg rounded-circle mb-3" style="width: 200px">
                     <h4>{{$emp->fname}} {{ $emp->lname}}</h4>
                     <div class="justify-content-between">
-                        <button class="btn btn-success">{{$emp->department->department}}</button>
-                        <button class="btn btn-success">{{$emp->designation->name}}</button>
+
                     </div>
                 </div>
-                <div class="border-bottom py-4">
-                    <div class="container">
-                        Join Date : {{$emp->join_date}}
-                    </div>
-                </div>
+
             </div>
 
 {{--            2ed half --}}
@@ -75,6 +70,15 @@
                             <th>Email</th>
                             <td>{{$emp->email}}</td>
                         </tr>
+                        <tr>
+                            <th>NID</th>
+                            <td>{{$emp->nid}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Address </th>
+                            <td>{{$emp->address}}  {{$emp->street}} <br> {{$emp->city}} {{$emp->post_code}}  </td>
+                        </tr>
                         </tbody>
                     </table>
 
@@ -105,17 +109,6 @@
                 </div>
                 <br>
 
-                <h5>Salary Info</h5><br>
-                <table class="table table-bordered">
-                    <tbody>
-                        <tr>
-                            <th> Basic Salary : {{$emp_sal->basic_salary}}</th>
-                            <th> Gross Salary : {{$emp_sal->gross_salary}}</th>
-                            <th> Deduction : {{$emp_sal->total_deduction}}</th>
-                            <th> Net Salary : {{$emp_sal->net_salary}}</th>
-                        </tr>
-                    </tbody>
-                </table>
 
 
             </div>

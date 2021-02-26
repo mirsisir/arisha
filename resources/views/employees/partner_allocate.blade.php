@@ -35,7 +35,7 @@
                 <br>
 
                 <label for="">Service Charge</label>
-                <input type="number" name="service_charge" id="service_charge"
+                <input type="text" name="service_charge" id="service_charge"
                        class="form-control @error('service_charge') is-invalid @enderror">
 
                 <input type="submit" value="Save" class="btn btn-primary mt-2 float-right btn-lg">

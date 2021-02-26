@@ -230,11 +230,14 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
 
     Route::view('/employees', 'employees.index')->name("employee_list");
+
     Route::view('/employees/create', 'employees.create')->name('employee_create');
 
     Route::get('/employees/{employee}/edit', Edit::class);
 
     Route::get('/employees/{employee}', [EmployeeController::class, 'show']);
+    Route::get('/employees_delete/{employee}', [EmployeeController::class, 'delete'])->name('employee.delete');
+
     Route::get('/print_user/{employee}', [EmployeeController::class, 'print_user'])->name('print_user');
 
 
@@ -323,6 +326,7 @@ Route::group(['middleware' => ['auth', 'employee'], 'prefix' => 'employee'], fun
     Route::get('/services_request_list',[EmployeeController::class,'services_request_list'])->name('services_request_list');
     Route::get('/accept_service_request/{id}',[EmployeeController::class,'accept_service_request'])->name('accept_service_request');
     Route::get('/today_service_list',[EmployeeController::class,'today_service_list'])->name('today_service_list');
+    Route::get('/complete/{id}',[EmployeeController::class,'complete'])->name('complete');
 
     Route::get('/service_details_emp/{id}', [EmployeeController::class, 'service_details'])->name('service_details_emp');
 
@@ -334,4 +338,5 @@ Route::group(['middleware' => ['auth', 'employee'], 'prefix' => 'employee'], fun
 
 });
 
+Route::get('/reject_request/{id}', [ServiceControlle::class, 'reject_request'])->name('reject_request');
 

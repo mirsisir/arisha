@@ -71,6 +71,7 @@
                     <th>Duration</th>
                     <th>Amount</th>
                     <th>Total Amount</th>
+                    <th>Cancel</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -85,6 +86,7 @@
                     <td>{{$request->duration}}</td>
                     <td>{{$request->net_charge}}</td>
                     <td>{{$request->total_charge}}</td>
+                    <td><a href="{{route('reject_request',$request->id)}}" class="btn btn-danger">Cancel</a></td>
                 </tr>
                     @endforeach
                 </tbody>
@@ -97,6 +99,7 @@
                     <th>Duration</th>
                     <th>Amount</th>
                     <th>Total Amount</th>
+                    <th>Cancel</th>
                 </tr>
                 </tfoot>
             </table>

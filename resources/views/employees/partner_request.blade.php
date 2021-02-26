@@ -27,7 +27,11 @@
                     <th>{{$employee->email}}</th>
                     <th>{{$employee->city}}</th>
                     <th>{{$employee->address}}</th>
-                    <th><a class=" btn btn-success" href="{{route('partner_request_accept',$employee->id)}}">Accept</a></th>
+                    <th><a class=" btn btn-success" href="{{route('partner_request_accept',$employee->id)}}">Accept</a>
+                        <a href="/employees/{{ $employee->id }}" class="btn btn-primary btn-sm">
+                           Details
+                        </a>
+                    </th>
                 </tr>
                     @endforeach
 

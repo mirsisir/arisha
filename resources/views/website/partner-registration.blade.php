@@ -7,7 +7,9 @@
                 color: red
             }
         </style>
-
+        @if(Session::has('message'))
+            <p class="alert alert-info">{{ Session::get('message') }}</p>
+        @endif
 
         <form action="{{route('partner_registration_save',app()->getLocale())}}" class="forms-sample mt-5" method="POST" enctype="multipart/form-data" >
             @csrf
@@ -60,27 +62,39 @@
                         </div>
 
 
+
                         <div class="form-group">
-                            <label for="nation" class="">Nationality <span class="text-danger">*</span></label>
+                            <label for="nid" class="">Bank Name <span class="text-danger">*</span></label>
                             <div class="">
-                                <input type="text" name="nation"
-                                       class="form-control @error('nation') is-invalid @enderror" id="nation"
-                                       placeholder="Nationality">
-                                @error('nation')
+                                <input type="text" name="bank_name"
+                                       class="form-control @error('bank_name') is-invalid @enderror" id="nid"
+                                       placeholder="Bank Name" >
+                                @error('bank_name')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                                 @enderror
                             </div>
                         </div>
-
-
                         <div class="form-group">
-                            <label for="nid" class="">Bank Account <span class="text-danger">*</span></label>
+                            <label for="nid" class="">Account Name<span class="text-danger">*</span></label>
+                            <div class="">
+                                <input type="text" name="acc_name"
+                                       class="form-control @error('acc_name') is-invalid @enderror" id="nid"
+                                       placeholder="Bank Account" >
+                                @error('acc_name')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nid" class="">Account  Number<span class="text-danger">*</span></label>
                             <div class="">
                                 <input type="text" name="bank_account"
                                        class="form-control @error('bank_account') is-invalid @enderror" id="nid"
-                                       placeholder="bank_account" >
+                                       placeholder="Bank Account" >
                                 @error('bank_account')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -88,6 +102,9 @@
                                 @enderror
                             </div>
                         </div>
+
+
+
                         <div class="form-group">
                             <label for="nid" class="">NID <span class="text-danger">*</span></label>
                             <div class="">
@@ -153,7 +170,7 @@
                             <div class="">
                                 <input type="text" name="post_code"
                                        class="form-control @error('post_code') is-invalid @enderror" id="post_code"
-                                       placeholder="post_code">
+                                       placeholder="Post Code">
                                 @error('post_code')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

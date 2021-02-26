@@ -86,7 +86,7 @@ class CategoryComponent extends Component
 
         };
 
-        Session::flash('message','This is a message!');
+        Session::flash('message','Service Added!');
 
         $this->reset(['category','name','charge','employees','all_employee','helper','waiting','stopover','km','basic','square_meter','details']);
 

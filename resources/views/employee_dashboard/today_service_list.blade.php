@@ -12,7 +12,7 @@
                     Available</h4>
                 <br>
             @else
-                <table class="today_service_list" id="today_service_list">
+                <table class="service_Request" id="service_Request">
                     <thead class="btn-info">
                     <tr>
                         <th> Customer</th>
@@ -46,13 +46,19 @@
                                 @if($request->categorie == "Construction")
                                     {{$request->SPM}} Square meter
                                 @elseif($request->categorie == "Cleaning")
-                                    {{$request->duration}}
-                                @else
+                                    {{$request->duration}} H
+                                @elseif($request->categorie == "Transport")
+                                    @if ($request->hourly==1)
+                                        {{$request->duration}} H
+                                        @else
+                                        {{$request->distance}} KM
+                                    @endif
                                 @endif
 
                             </td>
                             <td>
                                 <a href="{{route('service_details_emp',$request->id)}}" class="btn btn-info"> Details </a>
+                                <a href="{{route('complete',$request->id)}}" class="btn btn-success"> Complete </a>
 
                             </td>
 
@@ -71,11 +77,8 @@
 
 @section('js')
     <script>
-        $(document).ready(function(){
-           $('today_service_list').DataTable();
+        $(document).ready(function () {
+            $('#service_Request').DataTable();
         });
-
-
     </script>
-
 @endsection

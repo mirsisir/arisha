@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use App\Models\SalaryInfo;
 use App\Models\SalarySheet;
+use App\Models\Service;
 use App\Models\ServiceRequest;
 use App\Models\User;
 use Carbon\Carbon;
@@ -37,7 +38,7 @@ class EmployeeController extends Controller
 
         $password = Str::random(10);
 
-         User::create([
+         $Emp = User::create([
             'name' => $employee->fname . " ". $employee->lname,
             'phone' => $employee->mobile,
             'employee_id' => $employee->id,
@@ -47,14 +48,31 @@ class EmployeeController extends Controller
         ]);
 
 
+        if(!empty($employee->service)){
+
+            foreach ($employee->service as $servoce){
+                $service = Service::find($servoce);
+                $d = $service->employee;
+                    array_push($d,$Emp->id);
+                $service->employee = $d;
+                $service->save();
+            }
+        }
+
         return redirect('admin/partner_request');
+
     }
 
 
 
     public function services_request_list(){
         view::share('title','Service Request');
+//
+//        $all_service_request = ServiceRequest::where('status','confirm')
+//                                            ->where('employes_id',null)->get();
 
+//        $all_service_request = ServiceRequest::where('status','confirm')->whereIn('service_id',auth()->user()->employee->service)
+//                                            ->where('employes_id',null)->get();
         $all_service_request = ServiceRequest::where('status','confirm')
                                             ->where('employes_id',null)->get();
 
@@ -71,6 +89,16 @@ class EmployeeController extends Controller
         }
          return redirect( route('services_request_list'));
     }
+        public function complete($id){
+
+        $service = ServiceRequest::find($id);
+        $service->status ="complete";
+        $service->save();
+
+         return redirect( route('services_request_list'));
+    }
+
+
 
     public function today_service_list(){
 
@@ -122,6 +150,15 @@ class EmployeeController extends Controller
         return view('employees.employee_bill_total',compact('service_request'));
     }
 
+    public function delete($id)
+    {
+//        dd($id);
+        $employee =Employee::where('id',$id)->delete();
+
+//        $employee->delete();
+        return redirect(route('employee_list'));
+    }
+
 
 
 
@@ -160,12 +197,12 @@ class EmployeeController extends Controller
 //
 //    }
 //
-//    public function print_user($employee){
-//        $emp = Employee::findOrFail($employee);
-//        $emp_sal= SalaryInfo::firstWhere('employee_id',$employee);
-//
-//        return view('employees.profile',compact('emp' ,'emp_sal'));
-//    }
+    public function print_user($employee){
+        $emp = Employee::findOrFail($employee);
+
+
+        return view('employees.profile',compact('emp' ));
+    }
 
 
 

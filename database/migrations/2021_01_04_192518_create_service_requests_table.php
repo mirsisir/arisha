@@ -24,22 +24,25 @@ class CreateServiceRequestsTable extends Migration
 
             $table->string('duration');
             $table->string('date');
-            $table->string('start_time');
+            $table->string('start_time')->nullable();;
             $table->string('notes')->nullable();
             $table->string('payments');
 
             $table->string('SPM')->nullable();
 
             $table->string('distance')->nullable();
+            $table->string('waiting_charge')->nullable();
+            $table->string('stopover_charge')->nullable();
 
-
-            $table->string('street');
-            $table->string('house_number');
-            $table->string('post_code');
-            $table->string('city');
+            $table->string('street')->nullable();;
+            $table->string('house_number')->nullable();;
+            $table->string('post_code')->nullable();;
+            $table->string('city')->nullable();;
             $table->string('state')->nullable();
 
             $table->string('pickoff_addresses_id')->nullable();
+
+
 
 
             $table->string('total_charge')->nullable();

@@ -406,8 +406,7 @@
                 </li>
                 <li class="list">
                     <div class="profile">
-                        <img src="https://www.bootstrapdash.com/demo/connect-plus/laravel/template/demo_1/assets/images/faces/face6.jpg"
-                             alt="image">
+
                         <span class="online"></span>
                     </div>
                     <div class="info">
