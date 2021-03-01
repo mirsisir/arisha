@@ -276,13 +276,16 @@
                         <a href="#">{{__('About us')}}</a>
                     </li>
                     <li>
-                        <a href="{{route('all_services',app()->getLocale())}}">Service</a>
+                        <a href="{{route('all_services',app()->getLocale())}}">{{__('Service')}}</a>
                     </li>
                     <li>
-                        <a href="#">{{__('Project')}}</a>
+                        <a href="{{route('Impressum',app()->getLocale())}}">{{__('Impressum')}}</a>
                     </li>
                     <li>
                         <a href="{{route('page.terms', app()->getLocale())}}">{{__('Terms of Services')}}</a>
+                    </li>
+                    <li>
+                        <a href="{{route('privacy_policy', app()->getLocale())}}">{{__('privacy_policy')}}</a>
                     </li>
                     <li>
                         <a href="{{route('partner_registration',app()->getLocale())}}">{{__('Partner Registration')}}</a>

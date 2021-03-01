@@ -451,6 +451,7 @@
                                         @include('stripe')
 
                                     </div>
+
                                     @if (!empty($message))
                                         <div class="alert alert-success text-center">
                                             <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>

@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Exception;
 use Session;
 use Stripe;
+use Stripe\Charge;
 
 class StripePaymentController extends Controller
 {
     public function stripe()
     {
-        return view('stripe');
+        return view('service_complete_strip');
     }
 
     /**
@@ -21,18 +22,26 @@ class StripePaymentController extends Controller
      */
     public function stripePost(Request $request)
     {
-        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-        $strip =Stripe\Charge::create ([
-            "amount" => 100 * 100,
-            "currency" => "EUR",
-            "source" => $request->stripeToken,
-            "description" => "Test payment from itsolutionstuff.com."
-        ]);
+        try {
+            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+            $strip =Charge::create ([
+
+                "amount" => 100,
+                "currency" => "EUR",
+                "source" => $this->stripeToken,
+                "description" => "Payment from Arisha Service For ".$this->selected_service ." Customer Name: " .$this->customer_name ,
+            ]);
+            $this->message =  'Payment successful!';
+        }
+        catch (Exception $e){
+            $this->message  = 'Error : '.$e->getMessage();
 
 
-        Session::flash('success', 'Payment successful!'.$strip->id);
+            return;
+        }
 
-        return back();
+
     }
 
 

@@ -9,7 +9,7 @@
 
 Thank you for contacting us  for service assistance. The information you have provided has been
 forwarded to an admin. We will be in touch with you as soon as possible to begin the process.
-
+We will do our best to answer your request as soon as possible.
 
 Thank you for your business.
 

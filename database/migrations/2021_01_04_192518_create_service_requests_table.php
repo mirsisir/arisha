@@ -52,6 +52,7 @@ class CreateServiceRequestsTable extends Migration
 
             $table->string('paid')->default(0);
 
+            $table->set('payment_status', ['Paid','Unpaid'])->default('Unpaid');
             $table->set('status', ['hold','pending','confirm','complete'])->default('pending');
 
             $table->timestamps();

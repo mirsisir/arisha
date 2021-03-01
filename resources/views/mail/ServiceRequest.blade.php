@@ -1,15 +1,16 @@
 @component('mail::message')
-# New Service Request
+    # Hello.
+    # New You have a new Service Request
 
-Name = {{$customer->name ??" "}} <br>
-Phone = {{$customer->phone??" "}}<br>
-Email = {{$customer->email??" "}}<br>
-Address = {{$customer->street??" "}} {{$customer->house_number??" "}}<br>
+    Customer Name = {{$customer->name ??" "}} <br>
+    Customer Phone = {{$customer->phone??" "}}<br>
+    Customer Email = {{$customer->email??" "}}<br>
+    Customer Address = {{$customer->street??" "}} {{$customer->house_number??" "}}<br>
             {{$customer->post_code??" "}}<br>{{$customer->city??" "}}<br>
 
 <br>
-Service = {{$data->service->name??" "}}<br>
-Duration = {{$data->duration??" "}}<br>
+Requested Service Name = {{$data->service->name??" "}}<br>
+
 Date  = {{$data->date??" "}}<br>
 Start Time  = {{$data->start_time??" "}}<br>
 

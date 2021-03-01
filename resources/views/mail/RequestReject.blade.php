@@ -2,13 +2,12 @@
     # We Reject Your Request!
 
 
+    Subject: Booking cancellation
+    Hello.
+    The following booking has been cancelled.
+    Service: {{$data->name??" "}}
+    Date: {{$data->date??" "}}
+    Time: {{$data->time??" "}}
 
 
-    @component('mail::button', ['url' => ''])
-        Button Text
-    @endcomponent
-
-    Thanks,<br>
-
-    {{ config('app.name') }}
 @endcomponent

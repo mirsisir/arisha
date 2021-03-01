@@ -1,20 +1,20 @@
-    <style type="text/css">
-        .card-title {
-            display: inline;
-            font-weight: bold;
-        }
-        .display-table {
-            display: table;
-        }
-        .display-tr {
-            display: table-row;
-        }
-        .display-td {
-            display: table-cell;
-            vertical-align: middle;
+<style type="text/css">
+    .card-title {
+        display: inline;
+        font-weight: bold;
+    }
+    .display-table {
+        display: table;
+    }
+    .display-tr {
+        display: table-row;
+    }
+    .display-td {
+        display: table-cell;
+        vertical-align: middle;
 
-        }
-    </style>
+    }
+</style>
 
 
 <div class="container">
@@ -51,18 +51,18 @@
                         @csrf
 
 
-                            <div class='col-xs-12 form-group required'>
-                                <label class='control-label'>Name on Card</label>
-                                <input wire:model="card_name" class='form-control' size='4' type='text'>
-                            </div>
+                        <div class='col-xs-12 form-group required'>
+                            <label class='control-label'>Name on Card</label>
+                            <input wire:model="card_name" class='form-control' size='4' type='text'>
+                        </div>
 
 
 
-                            <div class='col-xs-12 form-group card required'>
-                                <label class='control-label'>Card Number</label>
-                                <input autocomplete='off' wire:model="card_number" class='form-control card-number' size='20'
-                                    type='text'>
-                            </div>
+                        <div class='col-xs-12 form-group card required'>
+                            <label class='control-label'>Card Number</label>
+                            <input autocomplete='off' wire:model="card_number" class='form-control card-number' size='20'
+                                   type='text'>
+                        </div>
 
 
                         <div class='row'>
@@ -73,7 +73,7 @@
                             <div class='col-xs-12 col-md-4 form-group expiration required'>
                                 <label class='control-label'>Exp.Month</label>
                                 <input wire:model="exp_month"  class='form-control card-expiry-month' placeholder='MM' size='2'
-                                    type='text'>
+                                       type='text'>
                             </div>
                             <div class='col-xs-12 col-md-4 form-group expiration required'>
                                 <label class='control-label'>Exp.Year</label> <input
@@ -89,11 +89,11 @@
                             </div>
                         </div>
 
-{{--                        <div class="row">--}}
-{{--                            <div class="col-xs-12">--}}
-{{--                                <button id="payButton" class="btn btn-primary btn-lg btn-block" type="button">Pay Now ($100)</button>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now ($100)</button>
+                            </div>
+                        </div>
 
                     </form>
                 </div>
@@ -111,9 +111,7 @@
 
             var $form         = $(".require-validation");
 
-            $('#payButton').on('click', function(e) {
-                e.preventDefault();
-               // alert("lksjdlksdj")
+            $('form.require-validation').bind('submit', function(e) {
                 var $form         = $(".require-validation"),
                     inputSelector = ['input[type=email]', 'input[type=password]',
                         'input[type=text]', 'input[type=file]',
@@ -134,12 +132,8 @@
                 });
 
                 if (!$form.data('cc-on-file')) {
-                    if ($('.card-number').val() === ''){
-                        // alert('card number could not be empty');
-                    }
                     e.preventDefault();
-                    let p_key = '{{ env('STRIPE_KEY') }}';
-                    Stripe.setPublishableKey(p_key);
+                    Stripe.setPublishableKey($form.data('stripe-publishable-key'));
                     Stripe.createToken({
                         number: $('.card-number').val(),
                         cvc: $('.card-cvc').val(),
@@ -152,25 +146,17 @@
 
             function stripeResponseHandler(status, response) {
                 if (response.error) {
-                    $('#erorrContainer').show();
-
-                    $('#error').text(response.error.message);
-
-                    console.log(response)
-                    console.log(response.error)
-                    // alert(response.error.message)
+                    $('.error')
+                        .removeClass('hide')
+                        .find('.alert')
+                        .text(response.error.message);
                 } else {
                     /* token contains id, last4, and card type */
                     var token = response['id'];
 
                     $form.find('input[type=text]').empty();
-                    $form.append("<input type='hidden'  name='stripeToken' value='" + token + "' >");
-                    // $form.get(0).submit();
-                    // @this.set('stripeToken', '1')
-
-                    $('#erorrContainer').hide();
-
-                    Livewire.emit('onStripToken',token)
+                    $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+                    $form.get(0).submit();
                 }
             }
 

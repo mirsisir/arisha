@@ -206,6 +206,7 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
 
     Route::get('/employee_bill/{id}',[EmployeeController::class,"employee_bill"])->name('employee_bill');
     Route::get('/service_done_report/{id}',[ServiceControlle::class,"service_done_report"])->name('services_request_done');
+    Route::get('/service_done/{id}',[ServiceControlle::class,"service_done_report_without_voucher"])->name('service_done_report_without_voucher');
 
 
 
@@ -268,6 +269,9 @@ Route::group([ 'prefix' => '{language}'], function () {
     Route::get('/terms_of_services', function () {
         return view('website.terms_of_services');
     })->name('page.terms');
+    Route::get('/privacy_policy', function () {
+        return view('website.privacy_policy');
+    })->name('privacy_policy');
 
     Route::get('/all_services', [ServiceControlle::class, 'all_services'])->name('all_services');
 
@@ -292,10 +296,14 @@ Route::group(['prefix' => '{language}', 'middleware' => ['auth','customer']], fu
 
     Route::get('/services_request_confirm', function () {
         return view('website.request_confirmation');
-
     })->name('services_request_confirm');
+    Route::get('/Impressum', function () {
+        return view('website.Impressum');
+    })->name('Impressum');
+
 
     Route::get('/customer_dashboard', [ WebsiteConroller::class,'customer_dashboard'])->name('customer_dashboard');
+
 
     Route::get('/customer_profile', [ WebsiteConroller::class,'customer_profile'])->name('customer_profile');
     Route::post('/customer_profile_update', [ WebsiteConroller::class,'customer_profile_update'])->name('customer_profile_update');
@@ -305,6 +313,7 @@ Route::group(['prefix' => '{language}', 'middleware' => ['auth','customer']], fu
 });
 
 Route::get('stripe', [StripePaymentController::class, 'stripe']);
+//Route::get('stripe', [StripePaymentController::class, 'stripe']);
 Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
 
 Route::get('/calculate', function () {

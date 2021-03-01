@@ -9,6 +9,7 @@ use App\Models\Employee;
 use App\Models\PickoffAddress;
 use App\Models\Service;
 use App\Models\ServiceRequest;
+use App\Models\StripeCard;
 use App\Models\User;
 use Carbon\Carbon;
 use DateTime;
@@ -55,6 +56,7 @@ class ServiceOrderComponent extends Component
     public $service_id ;
     public $message ;
     public $service_hourly ;
+    public $card_name,$card_number,$cvc,$exp_month,$exp_year;
 
 
 
@@ -159,7 +161,6 @@ class ServiceOrderComponent extends Component
 
     public function request()
     {
-//        dd(round(,2));
         $validatedData = $this->validate([
             'selected_category' => 'required',
             'selected_service' => 'required',
@@ -203,7 +204,7 @@ class ServiceOrderComponent extends Component
 
                 $strip =Charge::create ([
 
-                "amount" => $this->total_charge*100,
+                "amount" => 100,
                 "currency" => "EUR",
                 "source" => $this->stripeToken,
                 "description" => "Payment from Arisha Service For ".$this->selected_service ." Customer Name: " .$this->customer_name ,
@@ -216,7 +217,10 @@ class ServiceOrderComponent extends Component
 
                 return;
             }
+
+
         }
+
 
 
 
@@ -285,7 +289,7 @@ class ServiceOrderComponent extends Component
 
             $new_request->notes = $this->notes;
             if ($this->payments =="Card payments" ){
-                $new_request->payments = $this->payments . " ID:" .$strip->id ;
+                $new_request->payments = $this->payments;
             }
             else {
                 $new_request->payments = $this->payments ;
@@ -320,6 +324,21 @@ class ServiceOrderComponent extends Component
             $customer->city = $this->city;
 
             $customer->save();
+
+            if($this->payments=="Card payments")
+            {
+
+                $strip = new StripeCard;
+                $strip->service_request_id = $new_request->id;
+                $strip->card_name = $this->card_name;
+                $strip->card_number = $this->card_number;
+                $strip->cvc = $this->cvc;
+                $strip->exp_month = $this->exp_month;
+                $strip->exp_year = $this->exp_year;
+                $strip->amount = $this->total_charge;
+                $strip->save();
+
+            }
 
 
             SendEmail::dispatch($customer,$new_request)->delay(Carbon::now()->addSecond(3));

@@ -13,13 +13,13 @@
 
         <form action="{{route('partner_registration_save',app()->getLocale())}}" class="forms-sample mt-5" method="POST" enctype="multipart/form-data" >
             @csrf
-            <h2 class="text-center mb-3 text-info">Partner Registration</h2>
+            <h2 class="text-center mb-3 text-info">{{__('Partner Registration')}}</h2>
             <div class="d-flex justify-content-between w-75 m-auto m-4 border p-3 row">
                 <div class="card col-lg-5 mr-3 col-sm-11">
                     <div class="card-body">
-                        <h2 class="card-title font-weight-bolder">Personal Details</h2>
+                        <h2 class="card-title font-weight-bolder">{{__('Personal Details')}}</h2>
                         <div class="form-group">
-                            <label for="fname" class="">First Name <span class="text-danger">*</span></label>
+                            <label for="fname" class="">{{__('First Name')}} <span class="text-danger">*</span></label>
                             <div class="">
                                 <input type="text" name="fname"
                                        class="form-control @error('fname') is-invalid @enderror" id="fname"
@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="lname" class="">Last Name <span class="text-danger">*</span></label>
+                            <label for="lname" class="">{{__('Last Name')}} <span class="text-danger">*</span></label>
                             <div class="">
                                 <input type="text" name="lname"
                                        class="form-control @error('lname') is-invalid @enderror" id="lname"
@@ -50,7 +50,7 @@
                             <label for="gender">Gender <span class="text-danger">*</span></label>
                             <select class="form-control @error('gender') is-invalid @enderror" id="gender"
                                     name="gender">
-                                <option value="" selected>Select Gender</option>
+                                <option value="" selected>{{__('Select Gender')}}</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
@@ -64,7 +64,7 @@
 
 
                         <div class="form-group">
-                            <label for="nid" class="">Bank Name <span class="text-danger">*</span></label>
+                            <label for="nid" class="">{{__('Bank Name')}} <span class="text-danger">*</span></label>
                             <div class="">
                                 <input type="text" name="bank_name"
                                        class="form-control @error('bank_name') is-invalid @enderror" id="nid"
@@ -123,9 +123,9 @@
                 </div>
                 <div class="card col-lg-5 col-sm-11">
                     <div class="card-body">
-                        <h2 class="card-title font-weight-bolder">Contact Details</h2>
+                        <h2 class="card-title font-weight-bolder">{{__('Contact Details')}}</h2>
                         <div class="form-group">
-                            <label for="address" class="">House Number <span class="text-danger">*</span></label>
+                            <label for="address" class="">{{__('House Number')}} <span class="text-danger">*</span></label>
                             <div class="">
                                 <input type="text" name="address"
                                        class="form-control @error('address') is-invalid @enderror" id="address"
@@ -140,7 +140,7 @@
 
 
                         <div class="form-group">
-                            <label for="city" class="">Street <span class="text-danger">*</span></label>
+                            <label for="city" class="">{{__('Street')}} <span class="text-danger">*</span></label>
                             <div class="">
                                 <input type="text" name="street"
                                        class="form-control @error('street') is-invalid @enderror" id="street"
@@ -153,7 +153,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="city" class="">City <span class="text-danger">*</span></label>
+                            <label for="city" class="">{{__('City')}} <span class="text-danger">*</span></label>
                             <div class="">
                                 <input type="text" name="city"
                                        class="form-control @error('city') is-invalid @enderror" id="city"
@@ -166,7 +166,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="city" class="">Post Code <span class="text-danger">*</span></label>
+                            <label for="city" class="">{{__('Post Code')}} <span class="text-danger">*</span></label>
                             <div class="">
                                 <input type="text" name="post_code"
                                        class="form-control @error('post_code') is-invalid @enderror" id="post_code"
@@ -181,7 +181,7 @@
 
 
                         <div class="form-group">
-                            <label for="phone" class="">Phone</label>
+                            <label for="phone" class="">{{__('Phone')}}</label>
                             <div class="">
                                 <input type="text" name="phone"
                                        class="form-control @error('phone') is-invalid @enderror" id="phone"
@@ -211,7 +211,7 @@
                 <div class="row">
 
                     <div class="form-group col-lg-6">
-                        <label for="photo" class="">NID/Passport Card <span class="text-danger">*</span></label>
+                        <label for="photo" class="">{{__('NID/Passport Card')}} <span class="text-danger">*</span></label>
                         <div class="">
 
                             <input type="file" name="nid_card"
@@ -225,7 +225,7 @@
                         </div>
                     </div>
                     <div class="form-group col-lg-6">
-                        <label for="photo" class="">House Clearence <span class="text-danger">*</span></label>
+                        <label for="photo" class="">House Clearance <span class="text-danger">*</span></label>
                         <div class="">
 
                             <input type="file" name="house_clearence"
@@ -239,7 +239,7 @@
                         </div>
                     </div>
                     <div class="form-group col-lg-6">
-                        <label for="photo" class="">Business Licence<span class="text-danger">*</span></label>
+                        <label for="photo" class="">{{__('Business Licence')}}<span class="text-danger">*</span></label>
                         <div class="">
 
                             <input type="file" name="business_licence"
@@ -255,7 +255,7 @@
 
 
                     <div class="form-group col-lg-6">
-                        <label for="photo" class="">Photo <span class="text-danger">*</span></label>
+                        <label for="photo" class="">{{__('Photo')}} <span class="text-danger">*</span></label>
                         <div class="">
 
                             <input type="file" name="photo"
@@ -272,7 +272,7 @@
 
                 <div class="card col-lg-12 mb-4">
 
-                    <label for="js-example-basic-multiple3">Select Preferred Service  <span class="text-danger">*</span></label>
+                    <label for="js-example-basic-multiple3">{{__('Select Preferred Service')}}  <span class="text-danger">*</span></label>
                     <select class="js-example-basic-multiple3 form-control @error('service') is-invalid @enderror" name="service[]" multiple="multiple"  >
                         @foreach ($all_service as $service)
                         <option value="{{$service->id}}">{{$service->name}}</option>
@@ -291,7 +291,7 @@
 
             <br>
             <div class="col-sm-8 offset-sm-2 mb-5">
-                <button type="submit" class="btn btn-success btn-block">Request To Be A Partner</button>
+                <button type="submit" class="btn btn-success btn-block">{{__('Request To Be A Partner')}}</button>
             </div>
         </form>
 

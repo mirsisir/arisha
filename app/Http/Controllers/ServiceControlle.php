@@ -6,6 +6,7 @@ use App\Mail\ServiceDoneVoucherMail;
 use App\Models\Employee;
 use App\Models\Service;
 use App\Models\ServiceRequest;
+use App\Models\StripeCard;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
+use Stripe\Charge;
+use Exception;
 
 class ServiceControlle extends Controller
 {
@@ -84,14 +87,48 @@ class ServiceControlle extends Controller
         $service_request = ServiceRequest::find($id);
         $all_employee = User::all()->where('role','employee');
         $all_admin = User::all()->where('role','admin');
-
         $all_employee =$all_employee->merge($all_admin);
-        return view('service_details', compact('service_request','all_employee','all_admin'));
+        $card= [];
+            if ($service_request->payments == "Card payments") {
+                $card =  StripeCard::Firstwhere('service_request_id',$id);
+
+            }
+
+        return view('service_details', compact('service_request','all_employee','all_admin','card'));
     }
 
     public function service_details_update($id)
     {
         $service_request = ServiceRequest::find($id);
+//        dd(explode(".",$service_request->total_charge));
+
+        $message= "";
+        try {
+            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+            $strip =Charge::create ([
+
+                "amount" => $service_request->total_charge*100,
+                "currency" => "EUR",
+                "source" => \request()->stripeToken,
+                "description" => "Payment from Arisha Service For ". "DE-".$service_request->id ." Customer Name: " .$service_request->customer->name ,
+            ]);
+            $message =  'Payment successful!';
+        }
+        catch (Exception $e){
+            $message  = 'Error : '.$e->getMessage();
+
+
+
+        }
+        dd(\request()->stripeToken,$message);
+
+//        stripe
+
+
+
+//        stripe
+
 
 
         if ($service_request->categorie == "Cleaning") {
@@ -250,6 +287,17 @@ class ServiceControlle extends Controller
         $service_request->save();
 
         return view('voucher.service_done_voucher', compact('service_request'));
+
+    }
+    public function service_done_report_without_voucher($id)
+    {
+        $service_request = ServiceRequest::find($id);
+
+//        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ServiceRequest($data,$this->customer));
+        Mail::to($service_request->customer->email)->send(new ServiceDoneVoucherMail($service_request));
+        $service_request->status = "complete";
+        $service_request->save();
+
 
     }
 

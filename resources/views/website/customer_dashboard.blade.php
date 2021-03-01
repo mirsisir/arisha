@@ -46,7 +46,7 @@
 
 <div class="card ml-5 mr-5"><br>
     <div class="container">
-        <h2 class="d-inline" ><a href="{{route('customer_dashboard',app()->getLocale())}}">Dashboard</a></h2>
+        <h2 class="d-inline" ><a href="{{route('customer_dashboard',app()->getLocale())}}">{{__('Dashboard')}}</a></h2>
         <p class="float-right lead text-success btn"> <a class="btn btn-success" href="{{route('customer_profile',app()->getLocale())}}">Profile</a></p>
     </div>
     <div class="card-body ml-5 mr-5">
