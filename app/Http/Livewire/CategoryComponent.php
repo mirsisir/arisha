@@ -89,7 +89,7 @@ class CategoryComponent extends Component
         Session::flash('message','Service Added!');
 
         $this->reset(['category','name','charge','employees','all_employee','helper','waiting','stopover','km','basic','square_meter','details']);
-
+        $this->update = false;
     }
 
     public function edit($s_id){

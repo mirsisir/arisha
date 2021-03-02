@@ -252,7 +252,7 @@ class ServiceControlle extends Controller
 
         $all_service = DB::table('services')->orderBy('category')->get();
 
-        return view('website\all_service', compact('all_service'));
+        return view('website.all_service', compact('all_service'));
     }
 
     public function service_done_report($id)

@@ -6,18 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6f07d837-d124-472e-ae1d-79432793df38" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiceControlle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiceControlle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Website/ServiceOrderComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Website/ServiceOrderComponent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee_dashboard/service_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee_dashboard/service_details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee_dashboard/today_service_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee_dashboard/today_service_list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/employee/employee_base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/employee/employee_base.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/web/web_base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/web/web_base.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/website/service-order-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/website/service-order-component.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mail/ServiceDoneVoucherMail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mail/ServiceDoneVoucherMail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/service_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/service_details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/voucher/service_done_voucher.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/voucher/service_done_voucher.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/website/partner-registration.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/partner-registration.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CategoryComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CategoryComponent.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -331,7 +321,9 @@
       <workItem from="1614578881375" duration="31000" />
       <workItem from="1614614797488" duration="2577000" />
       <workItem from="1614621512518" duration="10387000" />
-      <workItem from="1614663527719" duration="17666000" />
+      <workItem from="1614663527719" duration="18359000" />
+      <workItem from="1614703109236" duration="940000" />
+      <workItem from="1614705547155" duration="253000" />
     </task>
     <servers />
   </component>
