@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6f07d837-d124-472e-ae1d-79432793df38" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiceControlle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiceControlle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CategoryComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CategoryComponent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employees/partner_request.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employees/partner_request.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/web/web_base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/web/web_base.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,11 +174,11 @@
       <recent name="F:\PHP\laravel\enam\service\public\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\PHP\laravel\work\service\resources\views\mail" />
       <recent name="F:\PHP\laravel\enam\service\resources\views\livewire" />
       <recent name="F:\PHP\laravel\enam\service\resources\views\website" />
       <recent name="F:\PHP\laravel\enam\service\resources\views" />
       <recent name="F:\PHP\laravel\enam\service\resources\views\employee_dashboard" />
-      <recent name="F:\PHP\laravel\enam\service\resources\views\livewire\website" />
     </key>
   </component>
   <component name="RunManager">
@@ -323,7 +324,8 @@
       <workItem from="1614621512518" duration="10387000" />
       <workItem from="1614663527719" duration="18359000" />
       <workItem from="1614703109236" duration="940000" />
-      <workItem from="1614705547155" duration="253000" />
+      <workItem from="1614705547155" duration="755000" />
+      <workItem from="1614706602638" duration="2804000" />
     </task>
     <servers />
   </component>

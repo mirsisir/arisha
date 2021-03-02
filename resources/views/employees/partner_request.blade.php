@@ -4,9 +4,9 @@
 
 @section('content')
 
-    <div class="card">
-        <div class="card-body">
-            <table class="tablePartner" id="tablePartner">
+    <div class=" ">
+        <div class="" >
+            <table class="tablePartner " id="tablePartner" style="width: 100%" >
                 <thead>
                 <tr class="badge-info">
                     <td>Name</td>

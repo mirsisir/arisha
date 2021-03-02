@@ -43,7 +43,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
+    <title>Arisha Service</title>
     @livewireStyles
     <script  defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyB779Mep4XZ5hC6KX-Jrl9kjAMEP8V0JEA"  type="text/javascript"></script>
 

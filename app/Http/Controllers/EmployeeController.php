@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PartnerRequestAcceptMail;
 use App\Mail\ServiceDoneVoucherMail;
 use App\Models\Employee;
 use App\Models\SalaryInfo;
@@ -51,8 +52,6 @@ class EmployeeController extends Controller
             'password' => Hash::make($password),
             'role' => "employee",
         ]);
-
-
         if(!empty($employee->service)){
 
             foreach ($employee->service as $servoce){
@@ -63,6 +62,8 @@ class EmployeeController extends Controller
                 $service->save();
             }
         }
+
+        Mail::to($Emp->email)->send(new PartnerRequestAcceptMail($Emp,$password));
 
         return redirect('admin/partner_request');
 
