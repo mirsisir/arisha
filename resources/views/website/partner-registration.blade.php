@@ -23,7 +23,7 @@
                             <div class="">
                                 <input type="text" name="fname"
                                        class="form-control @error('fname') is-invalid @enderror" id="fname"
-                                       placeholder="First Name">
+                                       placeholder="First Name" value="{{ old('fname') }}">
                                 @error('fname')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -37,7 +37,7 @@
                             <div class="">
                                 <input type="text" name="lname"
                                        class="form-control @error('lname') is-invalid @enderror" id="lname"
-                                       placeholder="Last Name">
+                                       placeholder="Last Name" value="{{ old('lname') }}">
                                 @error('lname')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -49,7 +49,7 @@
                         <div class="form-group">
                             <label for="gender">Gender <span class="text-danger">*</span></label>
                             <select class="form-control @error('gender') is-invalid @enderror" id="gender"
-                                    name="gender">
+                                    name="gender" value="{{ old('gender') }}">
                                 <option value="" selected>{{__('Select Gender')}}</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
@@ -68,7 +68,7 @@
                             <div class="">
                                 <input type="text" name="bank_name"
                                        class="form-control @error('bank_name') is-invalid @enderror" id="nid"
-                                       placeholder="Bank Name" >
+                                       placeholder="Bank Name" value="{{ old('bank_name') }}">
                                 @error('bank_name')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -81,7 +81,7 @@
                             <div class="">
                                 <input type="text" name="acc_name"
                                        class="form-control @error('acc_name') is-invalid @enderror" id="nid"
-                                       placeholder="Bank Account" >
+                                       placeholder="Bank Account" value="{{ old('acc_name') }}" >
                                 @error('acc_name')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -94,7 +94,7 @@
                             <div class="">
                                 <input type="text" name="bank_account"
                                        class="form-control @error('bank_account') is-invalid @enderror" id="nid"
-                                       placeholder="Bank Account" >
+                                       placeholder="Bank Account" value="{{ old('bank_account') }}">
                                 @error('bank_account')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -110,7 +110,7 @@
                             <div class="">
                                 <input type="text" name="nid"
                                        class="form-control @error('nid') is-invalid @enderror" id="nid"
-                                       placeholder="NID No">
+                                       placeholder="NID No" value="{{ old('nid') }}">
                                 @error('nid')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -129,7 +129,7 @@
                             <div class="">
                                 <input type="text" name="address"
                                        class="form-control @error('address') is-invalid @enderror" id="address"
-                                       placeholder="Present Address">
+                                       placeholder="Present Address" value="{{ old('address') }}">
                                 @error('address')
                                 <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -144,7 +144,7 @@
                             <div class="">
                                 <input type="text" name="street"
                                        class="form-control @error('street') is-invalid @enderror" id="street"
-                                       placeholder="Street">
+                                       placeholder="Street" value="{{ old('street') }}">
                                 @error('street')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -157,7 +157,7 @@
                             <div class="">
                                 <input type="text" name="city"
                                        class="form-control @error('city') is-invalid @enderror" id="city"
-                                       placeholder="City">
+                                       placeholder="City" value="{{ old('city') }}">
                                 @error('city')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -170,7 +170,7 @@
                             <div class="">
                                 <input type="text" name="post_code"
                                        class="form-control @error('post_code') is-invalid @enderror" id="post_code"
-                                       placeholder="Post Code">
+                                       placeholder="Post Code" value="{{ old('post_code') }}">
                                 @error('post_code')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -185,7 +185,7 @@
                             <div class="">
                                 <input type="text" name="phone"
                                        class="form-control @error('phone') is-invalid @enderror" id="phone"
-                                       placeholder="Phone">
+                                       placeholder="Phone" value="{{ old('phone') }}">
                                 @error('phone')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -198,7 +198,7 @@
                             <div class="">
                                 <input type="email" name="email"
                                        class="form-control @error('email') is-invalid @enderror" id="email"
-                                       placeholder="Email">
+                                       placeholder="Email" value="{{ old('email') }}">
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -216,7 +216,7 @@
 
                             <input type="file" name="nid_card"
                                    class="form-control @error('nid_card') is-invalid @enderror" id="photo"
-                                   placeholder="Photo">
+                                   placeholder="Photo" value="{{ old('nid_card') }}">
                             @error('nid_card')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -230,7 +230,7 @@
 
                             <input type="file" name="house_clearence"
                                    class="form-control @error('house_clearence') is-invalid @enderror" id="photo"
-                                   placeholder="Photo">
+                                   placeholder="Photo" value="{{ old('house_clearence') }}">
                             @error('house_clearence')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -240,11 +240,11 @@
                     </div>
                     <div class="form-group col-lg-6">
                         <label for="photo" class="">{{__('Business Licence')}}<span class="text-danger">*</span></label>
-                        <div class="">
+                        <div class="" >
 
                             <input type="file" name="business_licence"
                                    class="form-control @error('business_licence') is-invalid @enderror" id="photo"
-                                   placeholder="Photo">
+                                   placeholder="Photo" value="{{ old('business_licence') }}">
                             @error('business_licence')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -260,7 +260,7 @@
 
                             <input type="file" name="photo"
                                    class="form-control @error('photo') is-invalid @enderror" id="photo"
-                                   placeholder="Photo">
+                                   placeholder="Photo" value="{{ old('photo') }}">
                             @error('photo')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -273,7 +273,7 @@
                 <div class="card col-lg-12 mb-4">
 
                     <label for="js-example-basic-multiple3">{{__('Select Preferred Service')}}  <span class="text-danger">*</span></label>
-                    <select class="js-example-basic-multiple3 form-control @error('service') is-invalid @enderror" name="service[]" multiple="multiple"  >
+                    <select class="js-example-basic-multiple3 form-control @error('service') is-invalid @enderror" name="service[]" multiple="multiple"  value="{{ old('service[]') }}">
                         @foreach ($all_service as $service)
                         <option value="{{$service->id}}">{{$service->name}}</option>
                         @endforeach
@@ -285,14 +285,20 @@
                     @enderror
                 </div>
 
+                <div>
+                    <input type="checkbox" name="terms" id="terms" onchange="activateButton(this)"> <a href="{{route('page.terms',app()->getLocale())}}">{{__('I Agree Terms & Condition"s')}}</a>
+
+                </div>
 
             </div>
 
 
-            <br>
+            <br><br>
+
             <div class="col-sm-8 offset-sm-2 mb-5">
-                <button type="submit" class="btn btn-success btn-block">{{__('Request To Be A Partner')}}</button>
+                <button type="submit"  name="p" id="p" class="btn btn-success btn-block" >{{__('Request To Be A Partner')}}</button>
             </div>
+
         </form>
 
 
@@ -306,5 +312,22 @@
         $(document).ready(function () {
             $('.js-example-basic-multiple3').select2();
         });
+        $(document).ready(function () {
+            document.getElementById("p").disabled = true;
+        });
+
+
+
+
+        function activateButton(element) {
+
+            if(element.checked) {
+                document.getElementById("p").disabled = false;
+            }
+            else  {
+                document.getElementById("p").disabled = true;
+            }
+
+        }
     </script>
 @endsection

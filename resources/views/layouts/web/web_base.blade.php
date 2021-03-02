@@ -230,6 +230,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+                @break;
             @endforeach
         @endif
     </div>
@@ -285,7 +286,7 @@
                         <a href="{{route('page.terms', app()->getLocale())}}">{{__('Terms of Services')}}</a>
                     </li>
                     <li>
-                        <a href="{{route('privacy_policy', app()->getLocale())}}">{{__('privacy_policy')}}</a>
+                        <a href="{{route('privacy_policy', app()->getLocale())}}">{{__('Privacy Policy')}}</a>
                     </li>
                     <li>
                         <a href="{{route('partner_registration',app()->getLocale())}}">{{__('Partner Registration')}}</a>

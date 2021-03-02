@@ -2,18 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ServiceDoneVoucherMail;
 use App\Models\Employee;
 use App\Models\SalaryInfo;
 use App\Models\SalarySheet;
 use App\Models\Service;
 use App\Models\ServiceRequest;
+use App\Models\StripeCard;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
-
+use Stripe\Charge;
+use Session;
+use Exception;
 class EmployeeController extends Controller
 {
     public function show(Employee $employee)
@@ -89,11 +94,36 @@ class EmployeeController extends Controller
         }
          return redirect( route('services_request_list'));
     }
+
+
         public function complete($id){
 
+
         $service = ServiceRequest::find($id);
+
+            $message= "";
+            try {
+                \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+                $strip =Charge::create ([
+
+                    "amount" => $service->total_charge*100,
+                    "currency" => "EUR",
+                    "source" => \request()->stripeToken,
+                    "description" => "Payment from Arisha Service For ". "DE-".$service->id ." Customer Name: " .$service->customer->name ,
+                ]);
+                $message =  'Payment successful!';
+                $service->payment_status = "Paid";
+            }
+            catch (Exception $e){
+                $message  = 'Error : '.$e->getMessage();
+                Session::flash('message', $e->getMessage());
+                return redirect()->back();
+            }
+
         $service->status ="complete";
         $service->save();
+            Mail::to($service->customer->email)->send(new ServiceDoneVoucherMail($service));
 
          return redirect( route('services_request_list'));
     }
@@ -116,7 +146,13 @@ class EmployeeController extends Controller
 
         $service_request = ServiceRequest::find($id);
 
-        return view('employee_dashboard.service_details', compact('service_request'));
+        $card= [];
+        if ($service_request->payments == "Card payments") {
+            $card =  StripeCard::Firstwhere('service_request_id',$id);
+
+        }
+
+        return view('employee_dashboard.service_details', compact('service_request','card'));
     }
 
     public function employee_calender()

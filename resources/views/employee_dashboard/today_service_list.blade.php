@@ -58,8 +58,6 @@
                             </td>
                             <td>
                                 <a href="{{route('service_details_emp',$request->id)}}" class="btn btn-info"> Details </a>
-                                <a href="{{route('complete',$request->id)}}" class="btn btn-success"> Complete </a>
-
                             </td>
 
 

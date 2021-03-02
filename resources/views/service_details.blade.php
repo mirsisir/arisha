@@ -11,7 +11,9 @@
             }
         }
     </style>
-
+    @if(Session::has('message'))
+        <p class="alert alert-info">{{ Session::get('message') }}</p>
+    @endif
 
     <div class="card  w-75  mt-4 ml-auto mr-auto" id="printableTable">
 
@@ -198,6 +200,7 @@
                     </tbody>
                 </table>
             </div>
+            @if($service_request->status!="complete")
 
             <div class="m-auto text-center">
                 <button class="btn btn-info mb-5 " type="submit">update</button>
@@ -219,7 +222,7 @@
                 @endif
 
             </div>
-
+            @endif
 
 
 
@@ -245,7 +248,11 @@
                     </div>
                 </div>
             </div>
+
         </form>
+
+        @if($service_request->status!="complete")
+
         @if ($service_request->payments == "Card payments")
             <div class="card-body ">
 
@@ -258,13 +265,13 @@
 
                 <form
                     role="form"
-                    action="{{route('service_details_update',$service_request->id)}}"
-                    method="post"
+                    action="{{route('services_request_done',$service_request->id)}}"
+{{--                    method="post"--}}
                     class="require-validation"
                     data-cc-on-file="false"
                     data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
                     id="payment-form">
-                    @csrf
+{{--                    @csrf--}}
                     <div class="card_details" style="display:none">
                         <div class='col-xs-12 form-group required'>
                             <label class='control-label'>Name on Card</label>
@@ -317,7 +324,7 @@
             </div>
         @endif
 
-
+        @endif
 
     </div> <br><br>
 

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
+use Session;
 use Stripe\Charge;
 use Exception;
 
@@ -88,6 +89,7 @@ class ServiceControlle extends Controller
         $all_employee = User::all()->where('role','employee');
         $all_admin = User::all()->where('role','admin');
         $all_employee =$all_employee->merge($all_admin);
+
         $card= [];
             if ($service_request->payments == "Card payments") {
                 $card =  StripeCard::Firstwhere('service_request_id',$id);
@@ -102,45 +104,22 @@ class ServiceControlle extends Controller
         $service_request = ServiceRequest::find($id);
 //        dd(explode(".",$service_request->total_charge));
 
-        $message= "";
-        try {
-            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-
-            $strip =Charge::create ([
-
-                "amount" => $service_request->total_charge*100,
-                "currency" => "EUR",
-                "source" => \request()->stripeToken,
-                "description" => "Payment from Arisha Service For ". "DE-".$service_request->id ." Customer Name: " .$service_request->customer->name ,
-            ]);
-            $message =  'Payment successful!';
-        }
-        catch (Exception $e){
-            $message  = 'Error : '.$e->getMessage();
-
-
-
-        }
-        dd(\request()->stripeToken,$message);
-
-//        stripe
-
-
-
-//        stripe
 
 
 
         if ($service_request->categorie == "Cleaning") {
 
-            $up_price = $service_request->service->charge * (explode(":",\request('duration'))[0])  ;
-            $up_price_min = ($service_request->service->charge/60) * (explode(":",\request('duration'))[1])  ;
+            if (\request('duration')){
+                $up_price = $service_request->service->charge * (explode(":",\request('duration'))[0])  ;
+                $up_price_min = ($service_request->service->charge/60) * (explode(":",\request('duration'))[1])  ;
+                $up_price_min = round($up_price_min, 1);
+                $service_request->net_charge = $up_price + $up_price_min;
+                $service_request->duration = \request('duration');
+            }
 
-            $up_price_min = round($up_price_min, 1);
 
 
-            $service_request->net_charge = $up_price + $up_price_min;
-            $service_request->duration = \request('duration');
+
 //            if(!empty( \request('employee'))){
 //                $service_request->employes_id = \request('employee');
 //
@@ -281,10 +260,32 @@ class ServiceControlle extends Controller
 
         $service_request = ServiceRequest::find($id);
 
-//        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ServiceRequest($data,$this->customer));
-        Mail::to($service_request->customer->email)->send(new ServiceDoneVoucherMail($service_request));
+        $message= "";
+        try {
+            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+            $strip =Charge::create ([
+
+                "amount" => $service_request->total_charge*100,
+                "currency" => "EUR",
+                "source" => \request()->stripeToken,
+                "description" => "Payment from Arisha Service For ". "DE-".$service_request->id ." Customer Name: " .$service_request->customer->name ,
+            ]);
+            $message =  'Payment successful!';
+            $service_request->payment_status = "Paid";
+        }
+        catch (Exception $e){
+            $message  = 'Error : '.$e->getMessage();
+            Session::flash('message', $e->getMessage());
+            return redirect()->back();
+        }
+
+        if (empty($service_request->employee)) {
+            $service_request->employes_id = auth()->user()->id;
+        }
         $service_request->status = "complete";
         $service_request->save();
+        Mail::to($service_request->customer->email)->send(new ServiceDoneVoucherMail($service_request));
 
         return view('voucher.service_done_voucher', compact('service_request'));
 
@@ -293,12 +294,11 @@ class ServiceControlle extends Controller
     {
         $service_request = ServiceRequest::find($id);
 
-//        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ServiceRequest($data,$this->customer));
-        Mail::to($service_request->customer->email)->send(new ServiceDoneVoucherMail($service_request));
+
         $service_request->status = "complete";
         $service_request->save();
 
-
+        return view('voucher.service_done_voucher', compact('service_request'));
     }
 
     public function partner_allocate()

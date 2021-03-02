@@ -47,6 +47,9 @@ class ServiceOrderComponent extends Component
     public $dates = [];
     public $weekly_day = [];
     public $weekly = false;
+    public $Every15day= false;
+
+
     public $week_count;
     public $start_date_time;
     public $end_date_time;
@@ -55,6 +58,7 @@ class ServiceOrderComponent extends Component
     public $hourly;
     public $service_id ;
     public $message ;
+    public $Terms_and_Coditions;
     public $service_hourly ;
     public $card_name,$card_number,$cvc,$exp_month,$exp_year;
 
@@ -164,6 +168,7 @@ class ServiceOrderComponent extends Component
         $validatedData = $this->validate([
             'selected_category' => 'required',
             'selected_service' => 'required',
+            'Terms_and_Coditions' => 'required',
 //            sender
             'street' => 'required',
             'house_number' => 'required',
@@ -172,10 +177,21 @@ class ServiceOrderComponent extends Component
             'dates.*' => 'required_if:weekly,false|min:2',
             'daily_time.*' => 'required_if:weekly,false|min:2',
 
+            'dates.*' => 'required_if:Every15day,false|min:2',
+            'daily_time.*' => 'required_if:Every15day,false|min:2',
+
+
             'weekly_time' => 'required_if:weekly,true',
             'start_date_time' => 'required_if:weekly,true',
             'end_date_time' => 'required_if:weekly,true',
             'weekly_day' => 'required_if:weekly,true',
+
+            'weekly_time' => 'required_if:Every15day,true',
+            'start_date_time' => 'required_if:Every15day,true',
+            'end_date_time' => 'required_if:Every15day,true',
+            'weekly_day' => 'required_if:Every15day,true',
+
+
 
 //            'notes' => 'required',
             'payments' => 'required',
@@ -197,29 +213,29 @@ class ServiceOrderComponent extends Component
 
 
         //strip
-        if($this->payments=="Card payments")
-        {
-            try {
-                Stripe::setApiKey(env('STRIPE_SECRET'));
-
-                $strip =Charge::create ([
-
-                "amount" => 100,
-                "currency" => "EUR",
-                "source" => $this->stripeToken,
-                "description" => "Payment from Arisha Service For ".$this->selected_service ." Customer Name: " .$this->customer_name ,
-            ]);
-                $this->message =  'Payment successful!';
-            }
-            catch (Exception $e){
-                $this->message  = 'Error : '.$e->getMessage();
-
-
-                return;
-            }
-
-
-        }
+//        if($this->payments=="Card payments")
+//        {
+//            try {
+//                Stripe::setApiKey(env('STRIPE_SECRET'));
+//
+//                $strip =Charge::create ([
+//
+//                "amount" => 100,
+//                "currency" => "EUR",
+//                "source" => $this->stripeToken,
+//                "description" => "Payment from Arisha Service For ".$this->selected_service ." Customer Name: " .$this->customer_name ,
+//            ]);
+//                $this->message =  'Payment successful!';
+//            }
+//            catch (Exception $e){
+//                $this->message  = 'Error : '.$e->getMessage();
+//
+//
+//                return;
+//            }
+//
+//
+//        }
 
 
 
@@ -243,6 +259,22 @@ class ServiceOrderComponent extends Component
             }
         }
     }
+    if ($this->Every15day){
+        $this->dates = [];
+
+        foreach ($this->weekly_day as $day) {
+            $dateTo = Carbon::parse($this->end_date_time);
+            $day = Carbon::parse($this->start_date_time . ' next' . " " . $day);
+
+            while ($day->lt($dateTo)) {
+                $this->dates[] = $day->toDateString();
+                $day->addWeek();
+                $day->addWeek();
+            }
+        }
+    }
+
+
 
 
         foreach ($this->dates as $index=>$date) {
@@ -279,7 +311,12 @@ class ServiceOrderComponent extends Component
             if ($this->weekly){
                 $new_request->start_time = $this->weekly_time;
 
-            }else{
+            }
+            elseif ($this->Every15day){
+                $new_request->start_time = $this->weekly_time;
+
+            }
+            else{
                 $new_request->start_time = $this->daily_time[$index];
 
             }

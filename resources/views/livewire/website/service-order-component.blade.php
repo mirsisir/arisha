@@ -30,15 +30,15 @@
 
     </style>
 {{--    --}}
-{{--    @if ($errors->any())--}}
-{{--        <div class="alert alert-danger">--}}
-{{--            <ul>--}}
-{{--                @foreach ($errors->all() as $error)--}}
-{{--                    <li>{{ $error }}</li>--}}
-{{--                @endforeach--}}
-{{--            </ul>--}}
-{{--        </div>--}}
-{{--    @endif--}}
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <div class="content">
         <form action="" autocomplete="off">
@@ -82,15 +82,32 @@
 
                             {{--                </div>--}}
 
+
                             <div class="col-lg-1 col-sm-12">
                                 <label for="weekly">{{__('Weekly Service')}}</label>
                                 <input type="checkbox" class="form-control @error('weekly') is-invalid @enderror p-0"
                                        wire:model="weekly" style="zoom:1.5;">
                             </div>
-                            @if($weekly)
+                            <div class="col-lg-1 col-sm-12">
+                                <label for="weekly">{{__('Every 15 Day')}}</label>
+                                <input type="checkbox" class="form-control @error('Every15day') is-invalid @enderror p-0"
+                                       wire:model="Every15day" style="zoom:1.5;">
+                            </div>
+
+{{--                            <div class="col-lg-1 col-sm-12">--}}
+{{--                                <input type="radio" id="Every" name="service_week" value="true"  wire:model="Every15day">--}}
+{{--                                <label for="male">{{__('Every 15 Day')}}</label><br>--}}
+{{--                                <input type="radio" id="weakly" name="service_week" value="true" wire:model="weekly" >--}}
+{{--                                <label for="female">{{__('Weekly Service')}}</label><br>--}}
+{{--                            </div>--}}
+
+
+
+
+                            @if($weekly || $Every15day)
 
                                 <div class="col-lg-2 col-sm-12">
-                                    <label for="weekly">{{__('Weekly Service')}}</label>
+                                    <label for="weekly">{{__('Day Name')}}</label>
                                     <select multiple name="weekday" style="height: 60px; padding: 0;"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="right" wire:model="weekly_day"
@@ -438,10 +455,12 @@
                                     <label for="age2">{{__('Bank')}}</label><br>
 
                                     @error('payments') <span class="text-danger error">{{ $message }}</span>@enderror
-
+                                    <br>
 
                                 </div>
-
+                                    <input type="checkbox" name="terms" id="terms" wire:model="Terms_and_Coditions" onchange="activateButton(this)">
+                                    I Agree Terms &
+                                    <a href="{{route('privacy_policy',app()->getLocale())}}" class="link">Coditions</a>
 
                                 <div style="display:{{ $payments == "Card payments" ? 'block' :'none'  }}">
 
@@ -477,7 +496,7 @@
 
                             <div class="col-lg-3 col-sm-12 border ">
                                 <div class=" p-4">
-                                    <h3 class="text-center btn-info p-1 ">Your Bill</h3>
+                                    <h3 class="text-center btn-info p-1 ">Your Bill(1 day)</h3>
                                     <hr>
                                 </div>
 

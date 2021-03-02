@@ -92,7 +92,7 @@
                     <td>{{$service_request->net_charge}}</td>
                 </tr>
                 @php( $employee =\App\Models\User::find($service_request->employes_id))
-                @if($employee->role=='admin')
+                @if($employee->role=="admin" )
                 <tr>
                     <td>Service vat(19%)</td>
                     <td>{{$service_request->total_charge - $service_request->net_charge}}</td>
