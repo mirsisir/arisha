@@ -31,7 +31,7 @@ class PartnerRequestAcceptMail extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build(): PartnerRequestAcceptMail
     {
         return $this->markdown('mail.PartnerRequestAcceptMail')
             ->with([
