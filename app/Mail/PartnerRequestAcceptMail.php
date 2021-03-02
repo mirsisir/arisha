@@ -33,7 +33,8 @@ class PartnerRequestAcceptMail extends Mailable
      */
     public function build(): PartnerRequestAcceptMail
     {
-        return $this->markdown('mail.PartnerRequestAcceptMail')
+        return $this->view('mail.PartnerRequestAcceptMail')
+//        return $this->markdown('mail.')
             ->with([
                 'Emp' => $this->Emp,
                 'password' => $this->password,
