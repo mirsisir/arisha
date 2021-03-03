@@ -151,7 +151,7 @@
 
                             @else
                                 @foreach($dates as $index=> $date)
-                                    <div class="col-lg-4 row">
+                                    <div class="col-lg-4 row {{$index}}" id="{{$index}}">
                                         <div class="col-lg-6 col-sm-12">
                                             <label for="date">{{__('Date')}}</label>
                                             <input type="date"
