@@ -30,15 +30,15 @@
 
     </style>
 {{--    --}}
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+{{--    @if ($errors->any())--}}
+{{--        <div class="alert alert-danger">--}}
+{{--            <ul>--}}
+{{--                @foreach ($errors->all() as $error)--}}
+{{--                    <li>{{ $error }}</li>--}}
+{{--                @endforeach--}}
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--    @endif--}}
 
     <div class="content">
         <form action="" autocomplete="off">
@@ -459,7 +459,7 @@
 
                                 </div>
                                     <input type="checkbox" name="terms" id="terms" wire:model="Terms_and_Coditions" onchange="activateButton(this)">
-                                    I Agree Terms &
+                                    <p class="@error('Terms_and_Coditions') text-danger @enderror ">I Agree Terms &</p>
                                     <a href="{{route('privacy_policy',app()->getLocale())}}" class="link">Coditions</a>
 
                                 <div style="display:{{ $payments == "Card payments" ? 'block' :'none'  }}">
