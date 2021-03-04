@@ -102,25 +102,30 @@ class EmployeeController extends Controller
 
         $service = ServiceRequest::find($id);
 
-            $message= "";
-            try {
-                \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+             if($service->payments=="Card payments"){
+                 $message= "";
+                 try {
+                     \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
-                $strip =Charge::create ([
+                     $strip =Charge::create ([
 
-                    "amount" => $service->total_charge*100,
-                    "currency" => "EUR",
-                    "source" => \request()->stripeToken,
-                    "description" => "Payment from Arisha Service For ". "DE-".$service->id ." Customer Name: " .$service->customer->name ,
-                ]);
-                $message =  'Payment successful!';
-                $service->payment_status = "Paid";
-            }
-            catch (Exception $e){
-                $message  = 'Error : '.$e->getMessage();
-                Session::flash('message', $e->getMessage());
-                return redirect()->back();
-            }
+                         "amount" => $service->total_charge*100,
+                         "currency" => "EUR",
+                         "source" => \request()->stripeToken,
+                         "description" => "Payment from Arisha Service For ". "DE-".$service->id ." Customer Name: " .$service->customer->name ,
+                     ]);
+                     $message =  'Payment successful!';
+                     $service->payment_status = "Paid";
+                 }
+                 catch (Exception $e){
+                     $message  = 'Error : '.$e->getMessage();
+                     Session::flash('message', $e->getMessage());
+                     return redirect()->back();
+                 }
+             }
+
+
+
 
         $service->status ="complete";
         $service->save();

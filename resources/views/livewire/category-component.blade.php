@@ -39,7 +39,7 @@
                             @if ($hourly)
 
                                 <label for="charge">Service charge Per Hour</label>
-                                <input type="number" name="Service_charge" wire:model="charge" class="form-control"
+                                <input type="text" name="Service_charge" wire:model="charge" class="form-control"
                                        autocomplete="off">
                                 @error('charge') <span class="text-danger error">{{ $message }}</span>@enderror <br>
 
