@@ -34,7 +34,7 @@ class WebsiteConroller extends Controller
             'post_code' => 'required',
 
             'phone' => 'required|unique:employees',
-            'email' => 'required',
+            'email' => 'required|unique:employees',
 
             'service' => 'required',
         ]);
@@ -43,7 +43,7 @@ class WebsiteConroller extends Controller
         $employee = new Employee;
 
         $employee->fname = \request('fname');
-        $employee->lname = \request('fname');
+        $employee->lname = \request('lname');
         $employee->gender = \request('gender');
         $employee->nation = \request('nation');
         $employee->nid = \request('nid');
