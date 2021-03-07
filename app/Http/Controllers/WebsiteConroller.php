@@ -12,9 +12,9 @@ use Session;
 class WebsiteConroller extends Controller
 {
 
-    public function calculate()
+    public function calender()
     {
-        return view('calculate');
+        return view('test');
     }
 
     public function partner_registration(){

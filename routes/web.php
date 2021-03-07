@@ -217,9 +217,12 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
     Route::post('/general_settings_save',[AdminPanelController::class,"general_settings_save"])->name('general_settings_save');
 
 });
-Route::get('/calender', function () {
-    return view('test');
-});
+
+Route::get('/calender', [ WebsiteConroller::class,'calender'])->name('calender');
+
+// Route::get('/calender', function () {
+//     return view('test');
+// });
 
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
@@ -316,10 +319,10 @@ Route::get('stripe', [StripePaymentController::class, 'stripe']);
 //Route::get('stripe', [StripePaymentController::class, 'stripe']);
 Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
 
-// Route::get('/calculate', function () {
-//     return view('calculate');
-// })->name('calculate');
-Route::post('/calculate', [ WebsiteConroller::class,'calculate'])->name('calculate');
+Route::get('/calculate', function () {
+    return view('calculate');
+})->name('calculate');
+
 
 
 
