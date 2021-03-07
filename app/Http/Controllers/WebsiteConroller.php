@@ -11,12 +11,6 @@ use Session;
 
 class WebsiteConroller extends Controller
 {
-
-    public function calender()
-    {
-        return view('test');
-    }
-
     public function partner_registration(){
 
         $all_service = Service::all();

@@ -218,15 +218,15 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
 
 });
 
-Route::get('/calender', [ WebsiteConroller::class,'calender'])->name('calender');
 
-// Route::get('/calender', function () {
-//     return view('test');
-// });
 
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
 
+    Route::get('/calender', function () {
+        return view('test');
+    });
+    
     Route::get('/department', function () {
         return view('livewire.department.index');
     })->name('department');
