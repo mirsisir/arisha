@@ -11,6 +11,12 @@ use Session;
 
 class WebsiteConroller extends Controller
 {
+
+    public function calculate()
+    {
+        return view('calculate');
+    }
+
     public function partner_registration(){
 
         $all_service = Service::all();

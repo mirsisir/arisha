@@ -316,10 +316,10 @@ Route::get('stripe', [StripePaymentController::class, 'stripe']);
 //Route::get('stripe', [StripePaymentController::class, 'stripe']);
 Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
 
-Route::get('/calculate', function () {
-    return view('calculate');
-})->name('calculate');
-
+// Route::get('/calculate', function () {
+//     return view('calculate');
+// })->name('calculate');
+Route::post('/calculate', [ WebsiteConroller::class,'calculate'])->name('calculate');
 
 
 

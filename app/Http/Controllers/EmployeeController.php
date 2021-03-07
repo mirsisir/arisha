@@ -109,7 +109,7 @@ class EmployeeController extends Controller
 
                      $strip =Charge::create ([
 
-                         "amount" => $service->total_charge*100,
+                         "amount" => $service->net_charge*100,
                          "currency" => "EUR",
                          "source" => \request()->stripeToken,
                          "description" => "Payment from Arisha Service For ". "DE-".$service->id ." Customer Name: " .$service->customer->name ,
