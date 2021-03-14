@@ -18,13 +18,13 @@ class Create extends Component
     public $gender;
     public $status;
     public $father;
-    public $nation = 'Bangladeshis';
+    public $nation = 'Germani';
     public $nid;
     public $photo;
 
     public $address;
     public $city;
-    public $country = 'Bangladesh';
+    public $country = 'Germany';
     public $mobile;
     public $phone;
     public $email;
@@ -75,18 +75,22 @@ class Create extends Component
             'acc_name' => '',
             'acc_number' => '',
 
-            'emp_id' => 'required|unique:employees',
-            'department_id' => 'required',
-            'designation_id' => 'required',
-            'join_date' => 'required',
+            'emp_id' => '',
+            'department_id' => '',
+            'designation_id' => '',
+            'join_date' => '',
 
-            'resume' => '',
-            'offer_let' => '',
-            'join_let' => '',
-            'contact_paper' => '',
-            'id_proff' => '',
-            'other' => '',
+            'resume' => 'max:1024',
+            'offer_let' => 'max:1024',
+            'join_let' => 'max:1024',
+            'contact_paper' => 'max:1024',
+            'id_proff' => 'max:1024',
+            'other' => 'max:1024',
+
         ]);
+
+            $s = ["active_employee"=>1];
+
 
         if($this->photo){
             $photoPath = $this->photo->store('photos', 'public');
@@ -126,14 +130,17 @@ class Create extends Component
             $contact_paperArray ?? [],
             $id_proffArray ?? [],
             $otherArray ?? [],
+            $s ,
         ));
+
+
         session()->flash('success', 'Employee successfully Inserted.');
         return redirect('/employees');
     }
 
     public function render()
     {
-        $client_id = auth()->user()->client_id;
+        $client_id = auth()->user()->client_id ?? null;
         $departments = Department::where('client_id', $client_id)->get();
         $designations = [];
 

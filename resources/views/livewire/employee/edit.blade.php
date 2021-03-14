@@ -355,44 +355,7 @@
                 <div class="card-body">
                     <h2 class="card-title  font-weight-bolder">Employee Documents</h2>
                     <div class="">
-                        <div class="form-group">
-                            <label for="updateResume" class="">Resume</label>
-                            <div class="">
-                                <input type="file" wire:model.lazy="updateResume"
-                                    class="form-control @error('updateResume') is-invalid @enderror" id="updateResume">
-                                @error('updateResume')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="updateOffer_let" class="">Offer Letter</label>
-                            <div class="">
-                                <input type="file" wire:model.lazy="updateOffer_let"
-                                    class="form-control @error('updateOffer_let') is-invalid @enderror" id="updateOffer_let"
-                                    placeholder="">
-                                @error('updateOffer_let')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="updateJoin_let" class="">Joining Letter</label>
-                            <div class="">
-                                <input type="file" wire:model.lazy="updateJoin_let"
-                                    class="form-control @error('updateJoin_let') is-invalid @enderror" id="updateJoin_let"
-                                    placeholder="">
-                                @error('updateJoin_let')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+          
                         <div class="form-group">
                             <label for="updateContact_paper" class="">Contract Paper</label>
                             <div class="">

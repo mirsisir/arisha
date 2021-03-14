@@ -19,7 +19,7 @@
                         @enderror
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="lname" class="">Last Name <span class="text-danger">*</span></label>
                     <div class="">
@@ -46,7 +46,7 @@
                         @enderror
                     </div>
                 </div>
-                
+
                 <div class="form-group" >
                     <label for="gender">Gender <span class="text-danger">*</span></label>
                     <select class="form-control @error('gender') is-invalid @enderror" id="gender"
@@ -76,7 +76,7 @@
                         </span>
                     @enderror
                 </div>
-                
+
                 <div class="form-group">
                     <label for="father" class="">Father's Name <span class="text-danger">*</span></label>
                     <div class="">
@@ -323,7 +323,7 @@
                         </span>
                     @enderror
                 </div>
-    
+
                 <div class="form-group">
                     <label for="join_date" class="">Joining Date <span class="text-danger">*</span></label>
                     <div class="">
@@ -345,59 +345,12 @@
             <div class="card-body">
                 <h2 class="card-title  font-weight-bolder">Employee Documents</h2>
                 <div class="">
+
+
+
+
                     <div class="form-group">
-                        <label for="resume" class="">Resume</label>
-                        <div class="">
-                            <input type="file" wire:model.lazy="resume"
-                                class="form-control @error('resume') is-invalid @enderror" id="resume">
-                            @error('resume')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="offer_let" class="">Offer Letter</label>
-                        <div class="">
-                            <input type="file" wire:model.lazy="offer_let"
-                                class="form-control @error('offer_let') is-invalid @enderror" id="offer_let"
-                                placeholder="">
-                            @error('offer_let')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="join_let" class="">Joining Letter</label>
-                        <div class="">
-                            <input type="file" wire:model.lazy="join_let"
-                                class="form-control @error('join_let') is-invalid @enderror" id="join_let"
-                                placeholder="">
-                            @error('join_let')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact_paper" class="">Contract Paper</label>
-                        <div class="">
-                            <input type="file" wire:model.lazy="contact_paper"
-                                class="form-control @error('contact_paper') is-invalid @enderror"
-                                id="contact_paper" placeholder="">
-                            @error('contact_paper')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="id_proff" class="">ID Proff</label>
+                        <label for="id_proff" class="">ID Proff/Nid</label>
                         <div class="">
                             <input type="file" wire:model.lazy="id_proff"
                                 class="form-control @error('id_proff') is-invalid @enderror" id="id_proff"
@@ -410,7 +363,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="other" class="">Other Document</label>
+                        <label for="other" class="">House Clearence</label>
                         <div class="">
                             <input type="file" wire:model.lazy="other"
                                 class="form-control @error('other') is-invalid @enderror" id="other"

@@ -97,7 +97,7 @@
 
                                     <span>  {{$settings->street ?? " "}}{{$settings->house_number ?? " "}} </br
                                         {{$settings->city ?? " "}}{{$settings->post_code ?? " "}} <br>
-                                        {{$settings->hrb ?? " "}} </span>
+                                        {{$settings->post_code ?? " "}} </span>
                                 </p>
 
                             </li>

@@ -37,8 +37,14 @@ class WebsiteConroller extends Controller
             'email' => 'required|unique:employees',
 
             'service' => 'required',
+
+            'business_licence' => 'max:1024',
+            'house_clearence' => 'max:1024',
+            'nid_card' => 'max:1024',
+
         ]);
 
+        //
 
         $employee = new Employee;
 

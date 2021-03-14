@@ -100,28 +100,8 @@
             <table class="table">
                 <tbody>
                     <tr>
-                        <th>Resume</th>
-                        <td>
-                            @if($employee->resume)
-                                <iframe src="/storage/{{ $employee->resume }}" frameborder="0" style="width:100%;min-height:200px;"></iframe>
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Offer Letter</th>
-                        <td>
-                            @if($employee->offer_let)
-                            <iframe src="/storage/{{ $employee->offer_let }}" frameborder="0" style="width:100%;min-height:200px;"></iframe></td>
-                            @endif
+                
 
-                    </tr>
-                    <tr>
-                        <th>Join Letter</th>
-                        <td>
-                            @if($employee->join_let)
-                            <iframe src="/storage/{{ $employee->join_let }}" frameborder="0" style="width:100%;min-height:200px;"></iframe></td>
-                            @endif
-                    </tr>
                     <tr>
                         <th>Card </th>
                         <td>
