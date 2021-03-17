@@ -22,7 +22,7 @@
 
         .price-item .price-top {
             -webkit-box-shadow: 0 5px 30px 0 rgba(39, 39, 39, 0.15);
-            box-shadow: 0 5px 30px 0 rgba(39, 39, 39, 0.15);
+            box-shadow: 0 5px 30px 5px rgba(39, 39, 39, 0.15);
             padding: 50px 0 25px;
             background-color: #479c18;
             border-radius: 10px;
@@ -32,7 +32,9 @@
         }
 
 
-
+        .card{
+            margin-bottom: 25px;
+        }
 
         .price-item:hover {
             background-color: skyblue;
@@ -58,7 +60,7 @@
 
                     @foreach($construction as $service)
 
-                        <div class="col-md-6 col-lg-4  justify-center ">
+                        <div class="col-md-6 col-lg-4 card justify-center ">
                             <div class="btn-success text-center" style="border-radius: 20px  20px 0 0"  >
                                 <h4>{{__($service->name)}}</h4>
 
@@ -164,7 +166,7 @@
 
                     @foreach($transport as $service)
 
-                        <div class="col-md-6 col-lg-4  justify-center ">
+                        <div class="col-md-6 col-lg-4 card justify-center ">
                             <div class="btn-success text-center" style="border-radius: 20px  20px 0 0"  >
                                 <h4>{{__($service->name)}}</h4>
 
@@ -280,7 +282,7 @@
 
                     @foreach($cleaning as $service)
 
-                        <div class="col-md-6 col-lg-4  justify-center ">
+                        <div class="col-md-6 col-lg-4  card justify-center ">
                             <div class="btn-success text-center" style="border-radius: 20px  20px 0 0"  >
                                 <h4>{{__($service->name)}}</h4>
 
