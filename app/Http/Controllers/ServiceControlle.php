@@ -252,7 +252,15 @@ class ServiceControlle extends Controller
 
         $all_service = DB::table('services')->orderBy('category')->get();
 
-        return view('website.all_service', compact('all_service'));
+        $cleaning = DB::table('services')->where('category','Cleaning')->get();
+        $construction = DB::table('services')->where('category','Construction')->get();
+        $transport = DB::table('services')->where('category','Transport')->get();
+
+
+
+
+
+        return view('website.all_service', compact('all_service','cleaning','construction','transport'));
     }
 
     public function service_done_report($id)

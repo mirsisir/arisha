@@ -26,10 +26,10 @@ class CategoryComponent extends Component
         $this->all_employee = Employee::all();
     }
 
-//    public function updatedhourly(){
-//
-////        dd('called');
-//    }
+    public function delete($id){
+        $service = Service::find($id);
+        $service->delete();
+    }
 
     public function create(){
 //        dd($this->employees);

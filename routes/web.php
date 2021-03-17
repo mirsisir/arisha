@@ -226,7 +226,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/calender', function () {
         return view('test');
     });
-    
+
     Route::get('/department', function () {
         return view('livewire.department.index');
     })->name('department');
@@ -284,7 +284,8 @@ Route::group([ 'prefix' => '{language}'], function () {
     Route::post('/partner_registration_save',[WebsiteConroller::class,'partner_registration_save'] )->name('partner_registration_save');
 
 //   blog
-    Route::view('/office_cleaning','website.office_cleaning')->name('office_cleaning');
+//    Route::view('/office_cleaning','website.office_cleaning')->name('office_cleaning');
+    Route::view('/office_cleaning','website.construction')->name('office_cleaning');
     Route::view('/home_cleaning','website.home_cleaning' )->name('home_cleaning');
     Route::view('/craftsman_services','website.craftsman_services' )->name('craftsman_services');
 
@@ -351,4 +352,5 @@ Route::group(['middleware' => ['auth', 'employee'], 'prefix' => 'employee'], fun
 });
 
 Route::get('/reject_request/{id}', [ServiceControlle::class, 'reject_request'])->name('reject_request');
+
 

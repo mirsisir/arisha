@@ -5,7 +5,7 @@
 
     <div class="card w-75 m-auto">
         <div class="card-body">
-            <form action="{{route('general_settings_save')}}" method="POST">
+            <form action="{{route('general_settings_save')}}" method="POST" enctype="multipart/form-data">
                 @csrf
             <label for="">Company Name</label>
             <input type="text" value="{{$settings->name ?? " "}}" class="form-control" name="name">
@@ -30,7 +30,7 @@
             <input type="text" class="form-control" name="hrb" value="{{$settings->hrb ?? " "}}">
             <br>
             <label for="">Logo</label><br>
-            <input type="file" name="logo" id="">
+             <input type="file" name="logo" id="logo">
                 <br>
                 <br>
                 <input type="submit" value="Save" class="btn btn-success btn-lg float-right">

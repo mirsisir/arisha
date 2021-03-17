@@ -41,11 +41,13 @@
     <link href="https://cdn.datatables.net/searchpanes/1.2.1/css/searchPanes.dataTables.min.css" rel="stylesheet"/>
     <link href="    https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css" rel="stylesheet"/>
 
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <title>Arisha Service</title>
     @livewireStyles
-    <script  defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyB779Mep4XZ5hC6KX-Jrl9kjAMEP8V0JEA"  type="text/javascript"></script>
+    <script defer
+            src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyB779Mep4XZ5hC6KX-Jrl9kjAMEP8V0JEA"
+            type="text/javascript"></script>
 
 </head>
 <body>
@@ -77,7 +79,8 @@
             <div class="row">
                 <div class="col-lg-4 logo col-md-12 d-flex align-items-center">
 
-                    <a href="index-2.html"> <img src="{{asset('assets/images/logo.png')}}" alt="Logo"> </a>
+
+                    <img src="{{asset('storage/'. ($settings->logo ?? " ") )  }}" style="height: 110px" alt="">
 
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle hidden-lg-up" data-toggle="collapse"
@@ -95,9 +98,9 @@
                                 <p>
 
 
-                                    <span>  {{$settings->street ?? " "}}{{$settings->house_number ?? " "}} </br
-                                        {{$settings->city ?? " "}}{{$settings->post_code ?? " "}} <br>
-                                        {{$settings->post_code ?? " "}} </span>
+                                    <span>  {{$settings->street ?? " "}}  {{$settings->house_number ?? " "}} </br
+                                        {{$settings->city ?? " "}}  {{ $settings->post_code ?? " "}} <br>
+                                          {{$settings->post_code ?? " " }}  {{$settings->city ?? " "}} </span>
                                 </p>
 
                             </li>
@@ -143,8 +146,26 @@
 
 
                         <li>
-                            <a href="{{route('all_services',app()->getLocale())}}">{{__('Pricing')}}</a>
+                            <a href="#!">{{__('Pricing')}}</a>
+                            <span class="submenu-button"></span>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{route('all_services',app()->getLocale())}}#transport">Transport</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('all_services',app()->getLocale())}}#cleaning">Cleaning</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('all_services',app()->getLocale())}}#construction">Construction</a>
+                                </li>
+
+
+
+                            </ul>
                         </li>
+{{--                        <li>--}}
+{{--                            <a href="{{route('all_services',app()->getLocale())}}">{{__('Pricing')}}</a>--}}
+{{--                        </li>--}}
 
                         {{--                        <li>--}}
                         {{--                            <a href="{{route('services_request',['language'=>app()->getLocale(),'id'=>2])}}">{{__('Bal')}}</a>--}}
@@ -198,21 +219,21 @@
                         </div>
 
 
-                        {{--                            <li class="float-right">--}}
-                        {{--                                <a href="#!">language</a>--}}
-                        {{--                                <span class="submenu-button"></span>--}}
-                        {{--                                <ul class="dropdown-menu">--}}
-                        {{--                                    <li>--}}
-                        {{--                                        <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'en')}}">English(EN)</a>--}}
-                        {{--                                    </li>--}}
+{{--                        <li class="float-right">--}}
+{{--                            <a href="#!">language</a>--}}
+{{--                            <span class="submenu-button"></span>--}}
+{{--                            <ul class="dropdown-menu">--}}
+{{--                                <li>--}}
+{{--                                    <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'en')}}">English(EN)</a>--}}
+{{--                                </li>--}}
 
-                        {{--                                    <li>--}}
-                        {{--                                        <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'de')}}">German(de)</a>--}}
-                        {{--                                    </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'de')}}">German(de)</a>--}}
+{{--                                </li>--}}
 
-                        {{--                                </ul>--}}
-                        {{--                            </li>--}}
-                        {{--                        </ul>--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
+                    </ul>
 
 
                     </ul>
@@ -224,12 +245,12 @@
         </nav>
         @if ($errors->any())
             @foreach ($errors->all() as $error)
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong class="container" >{{$error}}</strong> You should check in on some of those fields .
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong class="container">{{$error}}</strong> You should check in on some of those fields .
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 @break;
             @endforeach
         @endif
@@ -246,7 +267,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-3 footer_logo">
-                <a href="index-2.html"><img src="{{asset('assets/images/footer_logo.png')}}" alt=""></a>
+                <img src="{{asset('storage/'. ($settings->logo ?? " ") )  }}" style="height: 110px" alt="">
                 <p>
                     {{__('Lorem ipsum dolor amet natum latine copiosa at quo, suas labore saperet has there any quote for
                     write lorem percit latineu suas dummy.')}}
@@ -343,7 +364,9 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <input id="name" type="text"
+                                           class="form-control @error('name') is-invalid @enderror" name="name"
+                                           value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -354,10 +377,13 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
+                                <label for="phone"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                                    <input id="phone" type="text"
+                                           class="form-control @error('phone') is-invalid @enderror" name="phone"
+                                           value="{{ old('phone') }}" required autocomplete="phone" autofocus>
 
                                     @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -368,10 +394,13 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                <label for="email"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                    <input id="email" type="email"
+                                           class="form-control @error('email') is-invalid @enderror" name="email"
+                                           value="{{ old('email') }}" required autocomplete="email">
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -382,10 +411,13 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                <label for="password"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                    <input id="password" type="password"
+                                           class="form-control @error('password') is-invalid @enderror" name="password"
+                                           required autocomplete="new-password">
 
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -396,16 +428,18 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                <label for="password-confirm"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                    <input id="password-confirm" type="password" class="form-control"
+                                           name="password_confirmation" required autocomplete="new-password">
                                 </div>
                             </div>
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button  class="btn btn-info"  onclick="myFunction()">
+                                    <button class="btn btn-info" onclick="myFunction()">
                                         {{ __('Login') }}
                                     </button>
                                     <button type="submit" class="btn btn-primary">
@@ -445,7 +479,8 @@
 
                                     <div class="col-md-6">
                                         <input id="password" type="password"
-                                               class="form-control @error('password') is-invalid @enderror" name="password"
+                                               class="form-control @error('password') is-invalid @enderror"
+                                               name="password"
                                                required autocomplete="current-password">
 
                                         @error('password')
@@ -469,7 +504,6 @@
                                     </div>
                                 </div>
                             </div>
-
 
 
                             <div class="form-group row mb-0">
@@ -570,7 +604,7 @@
 @livewireScripts
 
 <script>
-    $(function() {
+    $(function () {
         // add input listeners
         google.maps.event.addDomListener(window, 'load', function () {
             var from_places = new google.maps.places.Autocomplete(document.getElementById('from_places'));
@@ -591,6 +625,7 @@
             });
 
         });
+
         // calculate distance
         function calculateDistance() {
             var origin = $('#from_places').val();
@@ -607,6 +642,7 @@
                     avoidTolls: false
                 }, callback);
         }
+
         // get distance results
         function callback(response, status) {
             // alert(response)
@@ -616,11 +652,11 @@
                 var origin = response.originAddresses[0];
                 var destination = response.destinationAddresses[0];
                 if (response.rows[0].elements[0].status === "ZERO_RESULTS") {
-                    $('#result').html("Better get on a plane. There are no roads between "  + origin + " and " + destination);
+                    $('#result').html("Better get on a plane. There are no roads between " + origin + " and " + destination);
                 } else {
                     var distance = response.rows[0].elements[0].distance;
                     var duration = response.rows[0].elements[0].duration;
-                    console.log(response.rows[0].elements[0].distance,'sdlfkjsdlfk');
+                    console.log(response.rows[0].elements[0].distance, 'sdlfkjsdlfk');
                     var distance_in_kilo = distance.value / 1000; // the kilom
                     // var distance_in_mile = distance.value / 1609.34; // the mile
                     var duration_text = duration.text;
@@ -631,14 +667,15 @@
                     $('#duration_value').text(duration_value);
                     $('#from').text(origin);
                     $('#to').text(destination);
-                    Livewire.emit('distanceCalculated',distance_in_kilo.toFixed(2))
+                    Livewire.emit('distanceCalculated', distance_in_kilo.toFixed(2))
 
 
                 }
             }
         }
+
         // print results on submit the form
-        $('#distance_form').submit(function(e){
+        $('#distance_form').submit(function (e) {
             e.preventDefault();
             calculateDistance();
         });

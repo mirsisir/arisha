@@ -29,9 +29,12 @@ class CreateGeneralSettingsTable extends Migration
             $table->string('ust')->nullable();
 
             $table->string('state')->nullable();
+            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }
+
+//2021_01_28_125811_create_general_settings_table.php
 
     /**
      * Reverse the migrations.

@@ -34,7 +34,7 @@ class AdminPanelController extends Controller
         $settings->city = \request('city');
         $settings->hrb = \request('hrb');
         $settings->ust = \request('ust');
-//        $settings->logo = \request('logo');
+        $settings->logo =  \request()->logo->store('images', 'public');
         $settings->save();
 
         return Redirect::route(('general_settings'));

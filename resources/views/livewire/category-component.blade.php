@@ -113,13 +113,14 @@
 
         <div class="col-6">
             <div class="card">
-                <div class="card-body">
-                    <table class="table table-hover">
+                <div class="card-body table-responsive">
+                    <table class="table table-hover table-sm">
                         <thead style="background-color:green; color:whitesmoke">
                         <tr>
                             <th scope="col">Service Name</th>
                             <th scope="col">Service Charge</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -130,6 +131,9 @@
                                 <th>{{$service->charge}} {{$service->basic_price}}  {{$service->SPM}} </th>
                                 <th wire:click="edit({{$service->id}})">
                                     <button class="btn btn-primary btn-sm"> Edit</button>
+                                </th>
+                                <th wire:click="delete({{$service->id}})">
+                                    <button class="btn btn-danger btn-sm"> Delete</button>
                                 </th>
                             </tr>
                         @endforeach

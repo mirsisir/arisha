@@ -132,7 +132,7 @@
             <div class="col-lg-4 border p-1" style="border-color: green;">
                 <div class="img-scale">
                     <figure>
-                        <img src="{{asset('assets/images/blog/home_blog_1.jpg')}}" alt="">
+                        <img src="{{asset('assets/images/construction.jpg')}}" alt="" style=" height:250px" >
                     </figure>
                     <div class="latest__block-post gray-bg">
                         <div class="meta-post h-3">
@@ -146,16 +146,35 @@
                     </div>
                 </div>
             </div>
+{{--            <div class="col-lg-4 mt-sm-30 mt-xs-30 border p-1" style="border-color: green;">--}}
+{{--                <div class="img-scale">--}}
+{{--                    <figure>--}}
+{{--                        <img src="{{asset('assets/images/blog/home_blog_2.jpg')}}" alt="">--}}
+{{--                    </figure>--}}
+{{--                    <div class="latest__block-post gray-bg">--}}
+{{--                        <div class="meta-post">--}}
+{{--                            <h3 class="text-success">{{__('Büro Reinigung')}}</h3>--}}
+{{--                        </div>--}}
+{{--                        <p class="text-justify"><a href="{{route('office_cleaning',app()->getLocale())}}">{{__('Beginnen Sie Ihren Arbeitstag mit einem sauberen und betriebsbereiten Büroplatz. Gerne kommen wir auch außerhalb Ihrer Bürozeiten, damit Ihre Arbeitsabläufe ungestört bleiben.')}}</a></p>--}}
+
+{{--                        <div class="flat-link flat-arrow sm  ">--}}
+{{--                            <br>--}}
+{{--                            <a href="{{route('office_cleaning',app()->getLocale())}}" class="more_btn__block">More <i class="fa fa-angle-right"></i> </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
             <div class="col-lg-4 mt-sm-30 mt-xs-30 border p-1" style="border-color: green;">
                 <div class="img-scale">
                     <figure>
-                        <img src="{{asset('assets/images/blog/home_blog_2.jpg')}}" alt="">
+                        <img src="{{asset('assets/images/moving.jpg')}}" alt="" style=" height:250px">
                     </figure>
                     <div class="latest__block-post gray-bg">
                         <div class="meta-post">
-                            <h3 class="text-success">{{__('Büro Reinigung')}}</h3>
+                            <h3 class="text-success">{{__('Umzugsservice')}}</h3>
                         </div>
-                        <p class="text-justify"><a href="{{route('office_cleaning',app()->getLocale())}}">{{__('Beginnen Sie Ihren Arbeitstag mit einem sauberen und betriebsbereiten Büroplatz. Gerne kommen wir auch außerhalb Ihrer Bürozeiten, damit Ihre Arbeitsabläufe ungestört bleiben.')}}</a></p>
+                        <p class="text-justify"><a href="{{route('office_cleaning',app()->getLocale())}}">{{__('ARISHA SERVICE  ist ein umfassender und professioneller Dienstleister, der Umzugsservice, Möbeltransport  Kurierservice in Berlin anbietet.')}}</a></p>
 
                         <div class="flat-link flat-arrow sm  ">
                             <br>
@@ -167,7 +186,7 @@
             <div class="col-lg-4 mt-sm-30 mt-xs-30 border p-1" style="border-color: green;">
                 <div class="img-scale">
                     <figure>
-                        <img src="{{asset('assets/images/blog/home_blog_3.jpg')}}" alt="">
+                        <img src="{{asset('assets/images/blog/home_blog_3.jpg')}}" alt="" style=" height:250px">
                     </figure>
                     <div class="latest__block-post gray-bg">
                         <div class="meta-post">

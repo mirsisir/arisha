@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f07d837-d124-472e-ae1d-79432793df38" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" afterDir="false" />
-    </list>
+    <list default="true" id="6f07d837-d124-472e-ae1d-79432793df38" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,19 +154,19 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Payroll/HR-Payroll" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/website" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\sisir\PHP\laravel\work\service\resources\views\website" />
       <recent name="F:\PHP\laravel\work\service\resources\views\website" />
       <recent name="F:\PHP\laravel\work\service" />
       <recent name="F:\PHP\laravel\enam\service\resources\views\website" />
       <recent name="F:\PHP\laravel\enam\service\resources\views\layouts\employee" />
-      <recent name="F:\PHP\laravel\enam\service\public\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\PHP\laravel\work\service\resources\views\mail" />
@@ -328,6 +325,10 @@
       <workItem from="1614794111995" duration="1463000" />
       <workItem from="1614836076753" duration="91000" />
       <workItem from="1614868471926" duration="3457000" />
+      <workItem from="1615836980230" duration="640000" />
+      <workItem from="1615912597243" duration="3806000" />
+      <workItem from="1615917156869" duration="12511000" />
+      <workItem from="1615957390318" duration="4942000" />
     </task>
     <servers />
   </component>

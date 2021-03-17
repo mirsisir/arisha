@@ -1,6 +1,7 @@
 <!-- Service Section -->
 @extends('layouts.web.web_base')
 @section('content')
+
     <style>
 
 
@@ -52,7 +53,7 @@
             -webkit-box-shadow: 0 5px 30px 0 rgba(39, 39, 39, 0.15);
             box-shadow: 0 5px 30px 0 rgba(39, 39, 39, 0.15);
             padding: 50px 0 25px;
-            background-color: #479c18;
+            background-color: #fff9c2;
             border-radius: 10px;
             position: relative;
             z-index: 0;
@@ -70,7 +71,7 @@
             height: 50px;
             width: 100%;
             border-radius: 0 0 10px 10px;
-            background-color: #479c18;
+            background-color: #fff5eb;
             position: absolute;
             content: '';
             left: 0;
@@ -133,7 +134,7 @@
         }
 
         .price-item .price-content .zmdi-check {
-            color: #28a745;
+            color: #fff5eb;
         }
 
         .price-item .price-content .zmdi-close {
@@ -166,69 +167,107 @@
         }
 
         .price-item:hover {
-            background-color: #7ccb50;
+            background-color: skyblue;
             color: black;
             margin-top: -15px;
+            margin-bottom: +20px;
             transition: 0.3s ease;
         }
     </style>
     <br>
     <br>
+
     <div class="container">
+
+        <div id="construction"><br><br></div>
+
+        <div class=" p-1 m-1 text-center" style="background-color: green ; color: #fff5eb ; border-radius: 10px">
+            <h3>Construction</h3>
+        </div>
+        <br>
 
         <div class="tab-content wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
             <div role="tabpanel" class="tab-pane fade show active" id="yearly">
                 <div class="row justify-content-center" style="grid-auto-flow: column;">
 
-                    @foreach($all_service as $service)
+                    @foreach($construction as $service)
 
                         <div class="col-md-6 col-lg-4 mb-30">
-                            <div class="price-item text-center border p-1" style="height:100%; border:solid green">
-                                <div class="price-top">
+                            <div class="price-item text-center border p-1" style="height:100%; ">
+                                <div class="btn-success" style="border-bottom:2px solid green ; border-radius: 15px ">
                                     <h4>{{__($service->name)}}</h4>
 
                                     @if($service->category == "Cleaning")
                                         <h2 class="mb-0"><sup>€</sup>{{$service->charge}}</h2>Per Hour <br>
 
-
+                                        <hr>
                                     @elseif($service->category == "Construction")
                                         <h2 class="mb-0"><sup>€</sup>{{$service->SPM}}</h2>Square meter<br>
+                                        <hr>
 
                                     @elseif($service->category == "Transport")
                                         @if(!$service->hourly==true)
                                             <h2 class="mb-0"><sup>€</sup>{{$service->basic_price}}</h2>Basic price<br>
+                                            <hr>
 
                                         @else
                                             <h2 class="mb-0"><sup>€</sup>{{$service->charge}}</h2>Per Hour <br>
+                                            <hr>
 
                                         @endif
 
                                     @endif
                                     <span class="text-capitalize badge badge-info">{{$service->category}}</span>
+                                    <br>
+                                    <br>
+
                                 </div>
+
+
                                 <div class="price-content ">
                                     <br>
-                                    @if($service->category == "Cleaning")
-                                        <strong>{{__('Charge Per Hour')}} : </strong> <p>{{$service->charge}}</p>
+                                    <table class="table border table-danger">
+                                        @if($service->category == "Cleaning")
+                                            <tr><strong>{{__('Charge Per Hour')}} : </strong> <p>{{$service->charge}}</p></tr>
+                                            <hr>
 
-                                    @elseif($service->category == "Construction")
-                                        <strong>{{__('Charge Square meter')}} : </strong> <p>{{$service->SPM}}</p>
 
-                                    @elseif($service->category == "Transport")
-                                        @if(!$service->hourly==true)
-                                            <strong>{{__('Basic price')}} : </strong> <p>{{$service->basic_price}}</p>
-                                            <strong>{{__('Each kilometre')}} : </strong> <p>{{$service->km_price}}</p>
-                                            <strong>{{__('Stopover')}} : </strong> <p>{{$service->stop_over_price}}</p>
-                                            <strong>{{__('Waiting included every 5 min')}} : </strong>
-                                            <p>{{$service->waiting_price}}</p>
-                                            <strong>{{__('Helper')}} : </strong> <p>{{$service->helpers}}</p>
-                                        @else
-                                            <strong>{{__('Charge Per Hour')}} : </strong> <p>{{$service->charge}}</p>
+                                        @elseif($service->category == "Construction")
+                                            <tr><strong>{{__('Charge Square meter')}} : </strong> <p>{{$service->SPM}}</p></tr>
+                                            <hr>
+
+                                        @elseif($service->category == "Transport")
+                                            @if(!$service->hourly==true)
+                                                <tr><strong>{{__('Basic price')}} : </strong> <p>{{$service->basic_price}}</p></tr>
+                                            <hr>
+                                                <tr> <strong>{{__('Each kilometre')}} : </strong> <p>{{$service->km_price}}</p></tr>
+                                            <hr>
+                                                <tr><strong>{{__('Stopover')}} : </strong> <p>{{$service->stop_over_price}}</p></tr>
+                                            <hr>
+                                                <tr><strong>{{__('Waiting included every 5 min')}} : </strong></tr>
+                                            <hr>
+                                                <tr><p>{{$service->waiting_price}}</p></tr>
+                                            <hr>
+
+                                                <tr><strong>{{__('Helper')}} : </strong> <p>{{$service->helpers}}</p></tr>
+                                                <hr>
+
+
+
+                                            @else
+                                                <tr><strong>{{__('Charge Per Hour')}} : </strong> <p>{{$service->charge}}</p></tr>
+                                                <hr>
+
+                                            @endif
+
                                         @endif
+                                        <tr><p>{{$service->details}}</p></tr>
+                                        <hr>
 
-                                    @endif
-                                    <p>{{$service->details}}</p>
 
+
+
+                                    </table>
 
                                 </div>
 
@@ -258,6 +297,243 @@
                 </div>
             </div>
         </div>
+
+        <div id="transport"><br>.<br><br><br></div>
+        <div class=" p-1 m-1 text-center"  style="background-color: green ; color: #fff5eb ; border-radius: 10px">
+            <h3>Transport</h3>
+        </div>
+        <br>
+        <div class="tab-content wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+            <div role="tabpanel" class="tab-pane fade show active" id="yearly">
+                <div class="row justify-content-center" style="grid-auto-flow: column;">
+
+                    @foreach($transport as $service)
+
+                        <div class="col-md-6 col-lg-4 mb-30">
+                            <div class="price-item text-center border p-1" style="height:100%; ">
+                                <div class="btn-success" style="border-bottom:2px solid green ; border-radius: 15px ">
+                                    <h4>{{__($service->name)}}</h4>
+
+                                    @if($service->category == "Cleaning")
+                                        <h2 class="mb-0"><sup>€</sup>{{$service->charge}}</h2>Per Hour <br>
+
+                                        <hr>
+                                    @elseif($service->category == "Construction")
+                                        <h2 class="mb-0"><sup>€</sup>{{$service->SPM}}</h2>Square meter<br>
+                                        <hr>
+
+                                    @elseif($service->category == "Transport")
+                                        @if(!$service->hourly==true)
+                                            <h2 class="mb-0"><sup>€</sup>{{$service->basic_price}}</h2>Basic price<br>
+                                            <hr>
+
+                                        @else
+                                            <h2 class="mb-0"><sup>€</sup>{{$service->charge}}</h2>Per Hour <br>
+                                            <hr>
+
+                                        @endif
+
+                                    @endif
+                                    <span class="text-capitalize badge badge-info">{{$service->category}}</span>
+                                    <br>
+                                    <br>
+
+                                </div>
+
+
+                                <div class="price-content ">
+                                    <br>
+                                    <table class="table border table-danger">
+                                        @if($service->category == "Cleaning")
+                                            <tr><strong>{{__('Charge Per Hour')}} : </strong> <p>{{$service->charge}}</p></tr>
+                                            <hr>
+
+
+                                        @elseif($service->category == "Construction")
+                                            <tr><strong>{{__('Charge Square meter')}} : </strong> <p>{{$service->SPM}}</p></tr>
+                                            <hr>
+
+                                        @elseif($service->category == "Transport")
+                                            @if(!$service->hourly==true)
+                                                <tr><strong>{{__('Basic price')}} : </strong> <p>{{$service->basic_price}}</p></tr>
+                                            <hr>
+                                                <tr> <strong>{{__('Each kilometre')}} : </strong> <p>{{$service->km_price}}</p></tr>
+                                            <hr>
+                                                <tr><strong>{{__('Stopover')}} : </strong> <p>{{$service->stop_over_price}}</p></tr>
+                                            <hr>
+                                                <tr><strong>{{__('Waiting included every 5 min')}} : </strong></tr>
+                                            <hr>
+                                                <tr><p>{{$service->waiting_price}}</p></tr>
+                                            <hr>
+
+                                                <tr><strong>{{__('Helper')}} : </strong> <p>{{$service->helpers}}</p></tr>
+                                                <hr>
+
+
+
+                                            @else
+                                                <tr><strong>{{__('Charge Per Hour')}} : </strong> <p>{{$service->charge}}</p></tr>
+                                                <hr>
+
+                                            @endif
+
+                                        @endif
+                                        <tr><p>{{$service->details}}</p></tr>
+                                        <hr>
+
+
+
+
+                                    </table>
+
+                                </div>
+
+                                @if (Auth::check())
+                                    <a href="{{route('services_request',['language'=>app()->getLocale(),'id'=>$service->id])}}">
+                                        <button class="btn btn-success align-self-end ">{{__('BOOK NOW')}}</button>
+                                    </a>
+                                @else
+
+                                    <button class="btn btn-success" data-toggle="modal" data-target="#modal-success">{{__('BOOK NOW')}}</button>
+
+                                @endif
+
+
+
+
+
+
+                                <br>
+
+                                <br>
+                            </div>
+
+                        </div>
+
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
+
+        <div id="cleaning"><br>.<br><br><br></div>
+        <div class=" p-1 m-1 text-center"  style="background-color: green ; color: #fff5eb ; border-radius: 10px">
+            <h3>Cleaning</h3>
+        </div>
+        <br>
+        <div class="tab-content wow fadeIn" id="construction" style="visibility: visible; animation-name: fadeIn;">
+            <div role="tabpanel" class="tab-pane fade show active" id="yearly">
+                <div class="row justify-content-center" style="grid-auto-flow: column;">
+
+                    @foreach($cleaning as $service)
+
+                        <div class="col-md-6 col-lg-4 mb-30">
+                            <div class="price-item text-center border p-1" style="height:100%; ">
+                                <div class="btn-success" style="border-bottom:2px solid green ; border-radius: 15px ">
+                                    <h4>{{__($service->name)}}</h4>
+
+                                    @if($service->category == "Cleaning")
+                                        <h2 class="mb-0"><sup>€</sup>{{$service->charge}}</h2>Per Hour <br>
+
+                                        <hr>
+                                    @elseif($service->category == "Construction")
+                                        <h2 class="mb-0"><sup>€</sup>{{$service->SPM}}</h2>Square meter<br>
+                                        <hr>
+
+                                    @elseif($service->category == "Transport")
+                                        @if(!$service->hourly==true)
+                                            <h2 class="mb-0"><sup>€</sup>{{$service->basic_price}}</h2>Basic price<br>
+                                            <hr>
+
+                                        @else
+                                            <h2 class="mb-0"><sup>€</sup>{{$service->charge}}</h2>Per Hour <br>
+                                            <hr>
+
+                                        @endif
+
+                                    @endif
+                                    <span class="text-capitalize badge badge-info">{{$service->category}}</span>
+                                    <br>
+                                    <br>
+
+                                </div>
+
+
+                                <div class="price-content ">
+                                    <br>
+                                    <table class="table border table-danger">
+                                        @if($service->category == "Cleaning")
+                                            <tr><strong>{{__('Charge Per Hour')}} : </strong> <p>{{$service->charge}}</p></tr>
+                                            <hr>
+
+
+                                        @elseif($service->category == "Construction")
+                                            <tr><strong>{{__('Charge Square meter')}} : </strong> <p>{{$service->SPM}}</p></tr>
+                                            <hr>
+
+                                        @elseif($service->category == "Transport")
+                                            @if(!$service->hourly==true)
+                                                <tr><strong>{{__('Basic price')}} : </strong> <p>{{$service->basic_price}}</p></tr>
+                                                <hr>
+                                                <tr> <strong>{{__('Each kilometre')}} : </strong> <p>{{$service->km_price}}</p></tr>
+                                                <hr>
+                                                <tr><strong>{{__('Stopover')}} : </strong> <p>{{$service->stop_over_price}}</p></tr>
+                                                <hr>
+                                                <tr><strong>{{__('Waiting included every 5 min')}} : </strong></tr>
+                                                <hr>
+                                                <tr><p>{{$service->waiting_price}}</p></tr>
+                                                <hr>
+
+                                                <tr><strong>{{__('Helper')}} : </strong> <p>{{$service->helpers}}</p></tr>
+                                                <hr>
+
+
+
+                                            @else
+                                                <tr><strong>{{__('Charge Per Hour')}} : </strong> <p>{{$service->charge}}</p></tr>
+                                                <hr>
+
+                                            @endif
+
+                                        @endif
+                                        <tr><p>{{$service->details}}</p></tr>
+                                        <hr>
+
+
+
+
+                                    </table>
+
+                                </div>
+
+                                @if (Auth::check())
+                                    <a href="{{route('services_request',['language'=>app()->getLocale(),'id'=>$service->id])}}">
+                                        <button class="btn btn-success align-self-end ">{{__('BOOK NOW')}}</button>
+                                    </a>
+                                @else
+
+                                    <button class="btn btn-success" data-toggle="modal" data-target="#modal-success">{{__('BOOK NOW')}}</button>
+
+                                @endif
+
+
+
+
+
+
+                                <br>
+
+                                <br>
+                            </div>
+
+                        </div>
+
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <br>
+
     </div>
 
 

@@ -30,7 +30,7 @@ class CreateServicesTable extends Migration
             $table->string('waiting_price')->nullable();
             $table->string('helpers')->nullable();
 
-            $table->string('details')->nullable();
+            $table->longText('details')->nullable();
 
             $table->string('SPM')->nullable();
 

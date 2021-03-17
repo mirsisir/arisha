@@ -25,7 +25,7 @@
                                 <div class="post-header">
                                     <h2>{{__('Handwerker Services')}}</h2>
                                 </div>
-                                <div class="post-media"><img src="{{asset('assets/images/blog/img2.jpg')}}" alt="">
+                                <div class="post-media"><img src="{{asset('assets/images/construction.jpg')}}" alt="">
                                     <h4 class="mt-3 text-justify">{{__('Wir bieten Ihnen umfassende Handwerkerdienstleistungen mit höchster Qualität. Wenn Sie bequeme Hilfe bei Ihrer Renovierung benötigen, sind wir genau die Richtigen für Sie! Wir freuen uns, Sie unterstützen zu können!')}}</h4>
 
                                     <div class="post-entry">
