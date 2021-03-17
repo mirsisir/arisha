@@ -172,7 +172,7 @@
                     </figure>
                     <div class="latest__block-post gray-bg">
                         <div class="meta-post">
-                            <h3 class="text-success">{{__('Umzugsservice')}}</h3>
+                            <h3 class="text-success">{{__('Umzug & Transport')}}</h3>
                         </div>
                         <p class="text-justify"><a href="{{route('office_cleaning',app()->getLocale())}}">{{__('ARISHA SERVICE  ist ein umfassender und professioneller Dienstleister, der Umzugsservice, Möbeltransport  Kurierservice in Berlin anbietet.')}}</a></p>
 
