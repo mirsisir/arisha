@@ -49,7 +49,7 @@
 
     <link media="all" type="text/css" rel="stylesheet" href="https://www.bootstrapdash.com/demo/connect-plus/laravel/template/demo_1/assets/plugins/fullcalendar/fullcalendar.min.css">
 
-
+    <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
     @yield('css')
     @stack('css')
     @livewireStyles
@@ -552,6 +552,7 @@
 </script>
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 </script>
+<script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 @livewireScripts
 
 @yield('js')

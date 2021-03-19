@@ -294,9 +294,7 @@
             <div class="col-md-6 col-lg-3 mt-xs-30 link_footer">
                 <h4>{{__('Information')}}</h4>
                 <ul>
-                    <li>
-                        <a href="#">{{__('About us')}}</a>
-                    </li>
+
                     <li>
                         <a href="{{route('all_services',app()->getLocale())}}">{{__('Service')}}</a>
                     </li>

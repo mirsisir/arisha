@@ -92,10 +92,12 @@
                 <td>Start time</td>
                 <td>{{$service_request->start_time}}</td>
             </tr>
+            @if($service_request->categorie =="Cleaning")
             <tr>
                 <td>Service Hours</td>
                 <td>{{$service_request->duration}}</td>
             </tr>
+            @endif
             <tr>
                 <td>Service Charge</td>
                 <td>{{$service_request->net_charge}}</td>

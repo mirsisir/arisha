@@ -359,6 +359,3 @@ Route::get('/reject_request/{id}', [ServiceControlle::class, 'reject_request'])-
 
 
 Route::get('/send-email-pdf',[AdminPanelController::class,"index"])->name('index_pdf');
-Route::get('/tmail', function () {
-    return view('mail.TestMail');
-})->name('tmail');

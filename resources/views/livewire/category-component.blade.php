@@ -90,7 +90,7 @@
 
                         <label for="charge">Service Details </label>
 
-                        <textarea id="details" name="details" class="form-control" rows="4" wire:model="details" cols="50">sad
+                        <textarea id="details" name="details" class="ckeditor  form-control" rows="4" wire:model="details" cols="50">sad
                         </textarea>
                         @error('details') <span class="text-danger error">{{ $message }}</span>@enderror <br>
 
@@ -145,14 +145,13 @@
         </div>
 
     </div>
-{{--    <script>--}}
-{{--        $(document).ready(function () {--}}
-{{--            $('.js-example-basic-multiple').select2();--}}
-{{--            $('.js-example-basic-multiple').select2();--}}
-
-
-{{--        });--}}
-
-
-{{--    </script>--}}
+    @section('js')
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.ckeditor').ckeditor();
+            });
+        </script>
+    @endsection
 </div>
+
+
