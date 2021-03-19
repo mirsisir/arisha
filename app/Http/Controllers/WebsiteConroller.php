@@ -94,7 +94,7 @@ class WebsiteConroller extends Controller
 
 //        \request()->logo->store('images', 'public');
 
-        return redirect(route('partner_registration',app()->getLocale()));
+        return redirect(route('registration_confirm',app()->getLocale()));
     }
 
 

@@ -423,6 +423,9 @@
                             <li class="nav-item ">
                                 <a class="nav-link" href="{{ route('partner_bill') }}">Partner Bill</a>
                             </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{{ route('partner_bill_report') }}">Partner Bill Report</a>
+                            </li>
 
                         </ul>
                     </div>

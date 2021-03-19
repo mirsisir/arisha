@@ -194,8 +194,8 @@ class EmployeeController extends Controller
 
     public function delete($id)
     {
-//        dd($id);
-        $employee =Employee::where('id',$id)->delete();
+        $employee =Employee::firstWhere('id',$id)->delete();
+        $user =User::firstWhere('employee_id',$id)->delete();
 
 //        $employee->delete();
         return redirect(route('employee_list'));

@@ -18,6 +18,8 @@ use Session;
 use Stripe\Charge;
 use Exception;
 
+use PDF;
+
 class ServiceControlle extends Controller
 {
     public function today_request()
@@ -266,34 +268,61 @@ class ServiceControlle extends Controller
     public function service_done_report($id)
     {
 
+
         $service_request = ServiceRequest::find($id);
 
-        $message= "";
-        try {
-            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        if ($service_request->payments == "Card Payments"){
+            $message= "";
+            try {
+                \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
-            $strip =Charge::create ([
+                $strip =Charge::create ([
 
-                "amount" => $service_request->total_charge*100,
-                "currency" => "EUR",
-                "source" => \request()->stripeToken,
-                "description" => "Payment from Arisha Service For ". "DE-".$service_request->id ." Customer Name: " .$service_request->customer->name ,
-            ]);
-            $message =  'Payment successful!';
-            $service_request->payment_status = "Paid";
+                    "amount" => $service_request->total_charge*100,
+                    "currency" => "EUR",
+                    "source" => \request()->stripeToken,
+                    "description" => "Payment from Arisha Service For ". "DE-".$service_request->id ." Customer Name: " .$service_request->customer->name ,
+                ]);
+                $message =  'Payment successful!';
+                $service_request->payment_status = "Paid";
+            }
+            catch (Exception $e){
+                $message  = 'Error : '.$e->getMessage();
+                Session::flash('message', $e->getMessage());
+                return redirect()->back();
+            }
         }
-        catch (Exception $e){
-            $message  = 'Error : '.$e->getMessage();
-            Session::flash('message', $e->getMessage());
-            return redirect()->back();
-        }
+
 
         if (empty($service_request->employee)) {
             $service_request->employes_id = auth()->user()->id;
         }
         $service_request->status = "complete";
         $service_request->save();
-        Mail::to($service_request->customer->email)->send(new ServiceDoneVoucherMail($service_request));
+      $settings = \App\Models\GeneralSettings::take(-1)->first();
+         $employee =\App\Models\User::find($service_request->employes_id);
+
+
+        $pdf = PDF::loadView('mail.TestMail', $data = [
+            'service_request' => $service_request,
+            'settings' => $settings,
+            'employee' => $employee,
+        ]);
+
+
+        $data["email"] = $service_request->customer->email;
+        $data["title"] = "From arisha-service.com";
+
+        Mail::send('mail.TestMail',  $data, function($message)use($data, $pdf) {
+            $message->to($data["email"], $data["email"])
+                ->subject($data["title"])
+                ->subject("Arisha Serveice")
+
+                ->attachData($pdf->output(), "arisha.pdf");
+        });
+
+
+//        Mail::to($service_request->customer->email)->send(new ServiceDoneVoucherMail($service_request));
 
         return view('voucher.service_done_voucher', compact('service_request'));
 
@@ -375,6 +404,26 @@ class ServiceControlle extends Controller
 
         return view('employees.partner_bill', compact('service'));
     }
+    public function partner_bill_report()
+    {
+        view::share('title','Partner Bill Report');
+
+        $service = ServiceRequest::where('status', 'complete')
+                                    ->where('paid', 1)
+                                    ->get();
+
+        return view('employees.partner_bill_report', compact('service'));
+    }
+
+    public function partner_service_delete($id)
+    {
+        $service = ServiceRequest::find($id);
+        $service->delete();
+
+        return redirect( route('partner_bill_report'));
+    }
+
+
 
 
 }

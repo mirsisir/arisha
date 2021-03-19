@@ -2,11 +2,9 @@
 @section('content')
     <style>
         h3 {
-            background-color: green;
-            color: white;
-            padding: 5px;
-            padding-left: 15px;
-            border-radius: 2%;
+            color: green;
+            font-weight: bold;
+
         }
 
         .green {
@@ -94,8 +92,8 @@
 
                                 <ul class="categories">
                                     <li><a href="{{route('craftsman_services',app()->getLocale())}}">{{__('Handwerker Services')}}</a></li>
-                                    <li><a href="{{route('home_cleaning',app()->getLocale())}}">{{__('Haupt Reinigung')}}</a></li>
-                                    <li><a href="{{route('office_cleaning',app()->getLocale())}}">{{__('Büro Reinigung')}}</a></li>
+                                    <li><a href="{{route('home_cleaning',app()->getLocale())}}">{{__('Reinigung Services')}}</a></li>
+                                    <li><a href="{{route('office_cleaning',app()->getLocale())}}">{{__('Umzug & Transport')}}</a></li>
                                 </ul>
                             </div>
 

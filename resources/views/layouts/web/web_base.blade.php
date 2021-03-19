@@ -150,13 +150,13 @@
                             <span class="submenu-button"></span>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="{{route('all_services',app()->getLocale())}}#transport">Transport</a>
+                                    <a href="{{route('all_services',app()->getLocale())}}#transport">Umzug & Transport</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('all_services',app()->getLocale())}}#cleaning">Cleaning</a>
+                                    <a href="{{route('all_services',app()->getLocale())}}#cleaning">Reinigung Services</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('all_services',app()->getLocale())}}#construction">Construction</a>
+                                    <a href="{{route('all_services',app()->getLocale())}}#construction">Handwerker</a>
                                 </li>
 
 
@@ -188,7 +188,7 @@
 
                             </div>
                             <div class=" m-1 btn btn-info   mr-2">
-                                <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'de')}}">De</a>
+                                <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'de')}}">DE</a>
                             </div>
 
 

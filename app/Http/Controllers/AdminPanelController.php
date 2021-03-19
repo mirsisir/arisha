@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\GeneralSettings;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
+use Mail;
+
 
 class AdminPanelController extends Controller
 {
@@ -39,5 +42,23 @@ class AdminPanelController extends Controller
 
         return Redirect::route(('general_settings'));
 
+    }
+
+
+    public function index()
+    {
+        $data["email"] = "aatmaninfotech@gmail.com";
+        $data["title"] = "From ItSolutionStuff.com";
+        $data["body"] = "This is Demo";
+
+        $pdf = PDF::loadView('mail.TestMail', $data);
+
+        Mail::send('mail.TestMail', $data, function($message)use($data, $pdf) {
+            $message->to($data["email"], $data["email"])
+                ->subject($data["title"])
+                ->attachData($pdf->output(), "text.pdf");
+        });
+
+        dd('Mail sent successfully');
     }
 }

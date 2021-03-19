@@ -69,7 +69,7 @@
                          data-responsive_offset="on">
                         <div class="banner-text">
                             <span class="sub-text">we are here to help you</span>
-                            <h2>Professional Cleaning Services Provider</h2>
+                            <h2>Versichert Auftrag , Online Booking , Any time</h2>
 
                         </div>
                     </div>
@@ -99,8 +99,8 @@
                          data-splitout="none"
                          data-responsive_offset="on">
                         <div class="banner-text">
-                            <span class="sub-text">we are here to help you</span>
-                            <h2>We Are Cleaning Manager Always at Your Service.</h2>
+                            <span class="sub-text">Jetzt Buchen Einfach und Schnell</span>
+                            <h2>Move on Time , Online Booking</h2>
 
                         </div>
                     </div>
@@ -132,7 +132,7 @@
             <div class="col-lg-4 border p-1" style="border-color: green;">
                 <div class="img-scale">
                     <figure>
-                        <img src="{{asset('assets/images/construction.jpg')}}" alt="" style=" height:250px" >
+                        <img src="{{asset('assets/images/painting.jpg')}}" alt="" style=" height:250px" >
                     </figure>
                     <div class="latest__block-post gray-bg">
                         <div class="meta-post h-3">

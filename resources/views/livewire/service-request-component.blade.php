@@ -28,7 +28,7 @@
                         <td>{{$request->customer->name}} <br>
                             {{$request->customer->phone}}
                         </td>
-                        <td>{{$request->service->name}}</td>
+                        <td>{{$request->service->name ?? ""}}</td>
                         <td>
                             {{$request->house_number}} <br>
                             {{$request->street}}<br>

@@ -199,6 +199,8 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
 
 //    partner_bill
     Route::get('/partner_bill', [ServiceControlle::class, 'partner_bill'])->name('partner_bill');
+    Route::get('/partner_bill_report', [ServiceControlle::class, 'partner_bill_report'])->name('partner_bill_report');
+    Route::get('/partner_service_delete{id}', [ServiceControlle::class, 'partner_service_delete'])->name('partner_service_delete');
 
 
 
@@ -283,6 +285,7 @@ Route::group([ 'prefix' => '{language}'], function () {
     Route::get('/partner_registration',[WebsiteConroller::class,'partner_registration'] )->name('partner_registration');
     Route::post('/partner_registration_save',[WebsiteConroller::class,'partner_registration_save'] )->name('partner_registration_save');
 
+    Route::view('/registration_confirm','website.registration_confirmation')->name('registration_confirm');
 //   blog
 //    Route::view('/office_cleaning','website.office_cleaning')->name('office_cleaning');
     Route::view('/office_cleaning','website.construction')->name('office_cleaning');
@@ -290,6 +293,10 @@ Route::group([ 'prefix' => '{language}'], function () {
     Route::view('/craftsman_services','website.craftsman_services' )->name('craftsman_services');
 
 //    Route::view('/office_cleaning', 'dir.page');
+    Route::get('/Impressum', function () {
+        return view('website.Impressum');
+    })->name('Impressum');
+
 });
 
 
@@ -301,9 +308,6 @@ Route::group(['prefix' => '{language}', 'middleware' => ['auth','customer']], fu
     Route::get('/services_request_confirm', function () {
         return view('website.request_confirmation');
     })->name('services_request_confirm');
-    Route::get('/Impressum', function () {
-        return view('website.Impressum');
-    })->name('Impressum');
 
 
     Route::get('/customer_dashboard', [ WebsiteConroller::class,'customer_dashboard'])->name('customer_dashboard');
@@ -312,9 +316,8 @@ Route::group(['prefix' => '{language}', 'middleware' => ['auth','customer']], fu
     Route::get('/customer_profile', [ WebsiteConroller::class,'customer_profile'])->name('customer_profile');
     Route::post('/customer_profile_update', [ WebsiteConroller::class,'customer_profile_update'])->name('customer_profile_update');
 
-
-
 });
+
 
 Route::get('stripe', [StripePaymentController::class, 'stripe']);
 //Route::get('stripe', [StripePaymentController::class, 'stripe']);
@@ -354,3 +357,8 @@ Route::group(['middleware' => ['auth', 'employee'], 'prefix' => 'employee'], fun
 Route::get('/reject_request/{id}', [ServiceControlle::class, 'reject_request'])->name('reject_request');
 
 
+
+Route::get('/send-email-pdf',[AdminPanelController::class,"index"])->name('index_pdf');
+Route::get('/tmail', function () {
+    return view('mail.TestMail');
+})->name('tmail');

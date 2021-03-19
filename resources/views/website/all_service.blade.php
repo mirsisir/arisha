@@ -40,7 +40,7 @@
             background-color: skyblue;
             color: black;
             margin-top: -3px;
-            margin-bottom:20px;
+            margin-bottom:3px;
             transition: 0.3s ease;
         }
     </style>
@@ -197,47 +197,42 @@
 
 
                                 <div class="price-content ">
-                                    <br>
+
                                     <table class="table border table-danger">
                                         @if($service->category == "Cleaning")
                                             <tr><strong>{{__('Charge Per Hour')}} : </strong> <p>{{$service->charge}}</p></tr>
-                                            <hr>
 
 
                                         @elseif($service->category == "Construction")
                                             <tr><strong>{{__('Charge Square meter')}} : </strong> <p>{{$service->SPM}}</p></tr>
-                                            <hr>
+
 
                                         @elseif($service->category == "Transport")
                                             @if(!$service->hourly==true)
                                                 <tr><strong>{{__('Basic price')}} : </strong> <p>{{$service->basic_price}}</p></tr>
-                                            <hr>
+
                                                 <tr> <strong>{{__('Each kilometre')}} : </strong> <p>{{$service->km_price}}</p></tr>
-                                            <hr>
+
                                                 <tr><strong>{{__('Stopover')}} : </strong> <p>{{$service->stop_over_price}}</p></tr>
-                                            <hr>
+
                                                 <tr><strong>{{__('Waiting included every 5 min')}} : </strong></tr>
 
                                                 <tr><p>{{$service->waiting_price}}</p></tr>
-                                            <hr>
+
 
                                                 <tr><strong>{{__('Helper')}} : </strong> <p>{{$service->helpers}}</p></tr>
-                                                <hr>
+
 
 
 
                                             @else
                                                 <tr><strong>{{__('Charge Per Hour')}} : </strong> <p>{{$service->charge}}</p></tr>
-                                                <hr>
+
 
                                             @endif
 
                                         @endif
                                             <tr class="justify-center"><p>{{$service->details}}</p></tr>
-                                        <hr>
-
-
-
 
                                     </table>
 
