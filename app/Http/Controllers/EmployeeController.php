@@ -20,6 +20,9 @@ use Illuminate\Support\Str;
 use Stripe\Charge;
 use Session;
 use Exception;
+
+use PDF;
+
 class EmployeeController extends Controller
 {
     public function show(Employee $employee)
@@ -127,9 +130,31 @@ class EmployeeController extends Controller
 
 
 
+
         $service->status ="complete";
         $service->save();
-            Mail::to($service->customer->email)->send(new ServiceDoneVoucherMail($service));
+            $service_request = $service;
+            $settings = \App\Models\GeneralSettings::take(-1)->first();
+            $employee =\App\Models\User::find($service_request->employes_id);
+
+
+            $pdf = PDF::loadView('mail.TestMail', $data = [
+                'service_request' => $service_request,
+                'settings' => $settings,
+                'employee' => $employee,
+            ]);
+
+
+            $data["email"] = $service_request->customer->email;
+            $data["title"] = "From arisha-service.com";
+
+            Mail::send('mail.TestMail',  $data, function($message)use($data, $pdf) {
+                $message->to($data["email"], $data["email"])
+                    ->subject($data["title"])
+                    ->subject("Arisha Serveice")
+
+                    ->attachData($pdf->output(), "arisha.pdf");
+            });
 
          return redirect( route('services_request_list'));
     }

@@ -299,6 +299,8 @@ class ServiceControlle extends Controller
         }
         $service_request->status = "complete";
         $service_request->save();
+
+
       $settings = \App\Models\GeneralSettings::take(-1)->first();
          $employee =\App\Models\User::find($service_request->employes_id);
 

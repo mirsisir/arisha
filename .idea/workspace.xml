@@ -5,29 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f07d837-d124-472e-ae1d-79432793df38" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/employees/partner_bill_report.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/mail/TestMail.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/website/registration_confirmation.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/service.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiceControlle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiceControlle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WebsiteConroller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WebsiteConroller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/ServiceDoneVoucherMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/ServiceDoneVoucherMail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin/base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin/base.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/web/web_base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/web/web_base.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/service-request-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/service-request-component.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/website/all_service.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/all_service.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/website/construction.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/construction.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/website/craftsman_services.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/craftsman_services.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/website/home_cleaning.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/home_cleaning.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/website/homepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/homepage.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,12 +190,15 @@
     <option name="sortByName" value="true" />
   </component>
   <component name="ProjectId" id="1kbbCPbsEV8zHf7onjnRN12nO0X" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -401,7 +384,7 @@
       <workItem from="1616097708117" duration="3542000" />
       <workItem from="1616115704002" duration="920000" />
       <workItem from="1616117885490" duration="2600000" />
-      <workItem from="1616132464009" duration="6477000" />
+      <workItem from="1616132464009" duration="7104000" />
     </task>
     <servers />
   </component>
@@ -419,5 +402,8 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
