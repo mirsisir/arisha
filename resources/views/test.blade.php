@@ -56,7 +56,7 @@
 
                         @foreach($servic as $s)
                     {
-                        title: "{{$s->service->name}} - {{$s->employee->fname?? ""}}",
+                        title: "{{$s->service->name ?? " "}} - {{$s->employee->fname?? ""}}",
                         start: "{{$s->date}}",
                         {{--start: "{{$s->date}}T{{$s->start_time}}:00:00",--}}
                             @if ($s->status == "complete")

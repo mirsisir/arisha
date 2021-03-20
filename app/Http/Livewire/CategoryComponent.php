@@ -31,6 +31,13 @@ class CategoryComponent extends Component
         $service->delete();
     }
 
+
+
+    public function updated()
+    {
+        $this->dispatchBrowserEvent('onItemChanged');
+    }
+
     public function create(){
 //        dd($this->employees);
 
@@ -93,6 +100,7 @@ class CategoryComponent extends Component
     }
 
     public function edit($s_id){
+        $this->dispatchBrowserEvent('onItemChanged');
         $this->reset(['category','name','charge','employees','all_employee']);
 
 

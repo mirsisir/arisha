@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductDestroyController;
 use App\Http\Controllers\ProductReturnController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\ServiceControlle;
+use App\Http\Controllers\SisirsController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\UniformAllocationController;
 use App\Http\Controllers\UniformCollectionController;
@@ -359,3 +360,23 @@ Route::get('/reject_request/{id}', [ServiceControlle::class, 'reject_request'])-
 
 
 Route::get('/send-email-pdf',[AdminPanelController::class,"index"])->name('index_pdf');
+
+Route::group([
+    'prefix' => 'sisirs',
+], function () {
+    Route::get('/', [SisirsController::class ,'index'])
+         ->name('sisirs.sisir.index');
+
+    Route::get('/create',[SisirsController::class,'create'])
+         ->name('sisirs.sisir.create');
+    Route::get('/show/{sisir}',[SisirsController::class,'show'])
+         ->name('sisirs.sisir.show')->where('id', '[0-9]+');
+    Route::get('/{sisir}/edit',[SisirsController::class,'edit'])
+         ->name('sisirs.sisir.edit')->where('id', '[0-9]+');
+    Route::post('/', [SisirsController::class,'store'])
+         ->name('sisirs.sisir.store');
+    Route::put('sisir/{sisir}', [SisirsController::class,'update'])
+         ->name('sisirs.sisir.update')->where('id', '[0-9]+');
+    Route::delete('/sisir/{sisir}',[SisirsController::class,'destroy'])
+         ->name('sisirs.sisir.destroy')->where('id', '[0-9]+');
+});

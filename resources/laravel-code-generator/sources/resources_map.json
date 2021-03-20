@@ -1,0 +1,26 @@
+[
+    {
+        "model-name": "Catagory",
+        "resource-file": "catagories.json"
+    },
+    {
+        "model-name": "Product",
+        "resource-file": "products.json"
+    },
+    {
+        "model-name": "Category",
+        "resource-file": "categories.json"
+    },
+    {
+        "model-name": "Servicees",
+        "resource-file": "servicees.json"
+    },
+    {
+        "model-name": "Service",
+        "resource-file": "services.json"
+    },
+    {
+        "model-name": "Sisir",
+        "resource-file": "sisirs.json"
+    }
+]

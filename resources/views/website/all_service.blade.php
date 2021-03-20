@@ -118,7 +118,15 @@
                                             @endif
 
                                         @endif
-                                        <tr class="justify-center"><p>{{$service->details}}</p></tr>
+
+
+                                        <tr class="justify-center">
+                                            @php
+                                                $details = str_replace("\n",",<br>",$service->details);
+                                                 echo str_replace("\n",",<br>",$service->details)
+                                            @endphp
+
+                                        </tr>
                                         <hr>
 
 
@@ -146,6 +154,8 @@
                                 <br>
 
                                 <br>
+                                <p>{{__('Alle Preise sind ohne Mehrwertsteuer')}}</p>
+
                             </div>
 
                         </div>
@@ -232,7 +242,13 @@
                                             @endif
 
                                         @endif
-                                            <tr class="justify-center"><p>{{$service->details}}</p></tr>
+                                            <tr class="justify-center">
+                                                @php
+                                                    $details = str_replace("\n",",<br>",$service->details);
+                                                     echo str_replace("\n",",<br>",$service->details)
+                                                @endphp
+
+                                            </tr>
 
                                     </table>
 
@@ -256,8 +272,9 @@
                                 <br>
 
                                 <br>
-                            </div>
+                                <p>{{__('Alle Preise sind ohne Mehrwertsteuer')}}</p>
 
+                            </div>
                         </div>
 
                     @endforeach
@@ -344,7 +361,12 @@
                                             @endif
 
                                         @endif
-                                            <tr class="justify-center"><p>{{$service->details}}</p></tr>
+                                            <tr class="justify-center">
+                                                @php
+                                                    $details = str_replace("\n",",<br>",$service->details);
+                                                     echo str_replace("\n",",<br>",$service->details)
+                                                @endphp
+                                            </tr>
                                         <hr>
 
 

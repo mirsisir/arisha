@@ -77,19 +77,23 @@
     <div class="middel-part__block">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 logo col-md-12 d-flex align-items-center">
+                <div class="col-lg-4 logo col-md-12 col-sm-9 d-flex align-items-center">
 
 
-                    <img src="{{asset('storage/'. ($settings->logo ?? " ") )  }}" style="height: 110px" alt="">
+                   <div class="col-sm-9">
+                       <img src="{{asset('storage/'. ($settings->logo ?? " ") )  }}" style="height: 110px" alt="" class="float-left">
 
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle hidden-lg-up" data-toggle="collapse"
+                   </div>
+                    <div class="navbar-header float-right">
+                        <button type="button" class="navbar-toggle hidden-lg-up " data-toggle="collapse"
                                 data-target="#navbar-menu">
                             <i class="fa fa-bars"></i>
                         </button>
 
                     </div>
+
                 </div>
+
                 <div class="col-lg-8 col-md-12">
                     <div class="top-info__block text-right">
                         <ul>

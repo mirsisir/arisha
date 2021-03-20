@@ -558,18 +558,16 @@
 @yield('js')
 @stack('js')
 
+<script src="https://cdn.tiny.cloud/1/qkhtfh4yk919d0izztlh4thbhzskuiki14o2ymef1kwqauug/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
 <script>
-    // Livewire.hook('message.received', component => {
-    //     console.log('intialized success')
-    //     $('#employeeSelect').select2()
-    //     // alert('bal')
-    // })
-    // Livewire.hook('component.initialized', component => {
-    //     console.log('intialized success')
-    //     // $('#employeeSelect').select2()
-    //     // alert('bal')
-    // })
+    window.addEventListener('onItemChanged', message => {
+
+        // $(document).ready(function () {
+        //     // $('.ckeditor').ckeditor();
+        //     CKEDITOR.replace( 'details' );
+        // });
+    });
 </script>
 </body>
 
