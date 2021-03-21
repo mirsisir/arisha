@@ -32,7 +32,7 @@
         }
 
 
-        .card{
+        .card {
             margin-bottom: 25px;
         }
 
@@ -40,7 +40,7 @@
             background-color: skyblue;
             color: black;
             margin-top: -3px;
-            margin-bottom:3px;
+            margin-bottom: 3px;
             transition: 0.3s ease;
         }
     </style>
@@ -61,7 +61,7 @@
                     @foreach($construction as $service)
 
                         <div class="col-md-6 col-lg-4 card justify-center ">
-                            <div class="btn-success text-center" style="border-radius: 20px  20px 0 0"  >
+                            <div class="btn-success text-center" style="border-radius: 20px  20px 0 0">
                                 <h4>{{__($service->name)}}</h4>
 
                                 @if($service->category == "Cleaning")
@@ -78,41 +78,49 @@
                                 @endif
                             </div>
 
-                            <div class="price-item text-center border p-3" style="height:100%; border-radius: 0 0 20px 20px">
+                            <div class="price-item text-center border p-3"
+                                 style="height:100%; border-radius: 0 0 20px 20px">
 
 
                                 <div class="price-content ">
                                     <br>
                                     <table class="table border table-danger">
                                         @if($service->category == "Cleaning")
-                                            <tr><strong>{{__('Charge Per Hour')}} : </strong> <p>{{$service->charge}}</p></tr>
+                                            <tr><strong>{{__('Charge Per Hour')}} : </strong>
+                                                <p>{{$service->charge}}</p></tr>
                                             <hr>
 
 
                                         @elseif($service->category == "Construction")
-                                            <tr><strong>{{__('Charge Square meter')}} : </strong> <p>{{$service->SPM}}</p></tr>
+                                            <tr><strong>{{__('Charge Square meter')}} : </strong>
+                                                <p>{{$service->SPM}}</p></tr>
                                             <hr>
 
                                         @elseif($service->category == "Transport")
                                             @if(!$service->hourly==true)
-                                                <tr><strong>{{__('Basic price')}} : </strong> <p>{{$service->basic_price}}</p></tr>
+                                                <tr><strong>{{__('Basic price')}} : </strong>
+                                                    <p>{{$service->basic_price}}</p></tr>
                                                 <hr>
-                                                <tr> <strong>{{__('Each kilometre')}} : </strong> <p>{{$service->km_price}}</p></tr>
+                                                <tr><strong>{{__('Each kilometre')}} : </strong>
+                                                    <p>{{$service->km_price}}</p></tr>
                                                 <hr>
-                                                <tr><strong>{{__('Stopover')}} : </strong> <p>{{$service->stop_over_price}}</p></tr>
+                                                <tr><strong>{{__('Stopover')}} : </strong>
+                                                    <p>{{$service->stop_over_price}}</p></tr>
                                                 <hr>
                                                 <tr><strong>{{__('Waiting included every 5 min')}} : </strong></tr>
 
                                                 <tr><p>{{$service->waiting_price}}</p></tr>
                                                 <hr>
 
-                                                <tr><strong>{{__('Helper')}} : </strong> <p>{{$service->helpers}}</p></tr>
+                                                <tr><strong>{{__('Helper')}} : </strong>
+                                                    <p>{{$service->helpers}}</p></tr>
                                                 <hr>
 
 
 
                                             @else
-                                                <tr><strong>{{__('Charge Per Hour')}} : </strong> <p>{{$service->charge}}</p></tr>
+                                                <tr><strong>{{__('Charge Per Hour')}} : </strong>
+                                                    <p>{{$service->charge}}</p></tr>
                                                 <hr>
 
                                             @endif
@@ -123,38 +131,31 @@
                                         <tr class="justify-center">
                                             @php
                                                 $details = str_replace("\n",",<br>",$service->details);
-                                                 echo str_replace("\n",",<br>",$service->details)
+                                                 echo str_replace("\n","<br>",$service->details)
                                             @endphp
 
                                         </tr>
                                         <hr>
-
-
-
-
                                     </table>
 
                                 </div>
 
-                                @if (Auth::check())
-                                    <a href="{{route('services_request',['language'=>app()->getLocale(),'id'=>$service->id])}}">
-                                        <button class="btn btn-success align-self-end ">{{__('BOOK NOW')}}</button>
-                                    </a>
-                                @else
-
-                                    <button class="btn btn-success" data-toggle="modal" data-target="#modal-success">{{__('BOOK NOW')}}</button>
-
-                                @endif
-
-
-
-
-
-
                                 <br>
-
                                 <br>
-                                <p>{{__('Alle Preise sind ohne Mehrwertsteuer')}}</p>
+                                <div class=" " style=" position: absolute;   bottom: 5px;  right: 85px;">
+                                    @if (Auth::check())
+                                        <a href="{{route('services_request',['language'=>app()->getLocale(),'id'=>$service->id])}}">
+                                            <button class="btn btn-success align-self-end ">{{__('BOOK NOW')}}</button>
+                                        </a>
+                                    @else
+
+                                        <button class="btn btn-success" data-toggle="modal" data-target="#modal-success">{{__('BOOK NOW')}}</button>
+
+                                    @endif
+                                        <p style="font-size:80%;">{{__('Alle Preise sind ohne Mehrwer tsteuer')}}</p>
+
+                                </div>
+
 
                             </div>
 
@@ -166,7 +167,7 @@
         </div>
 
         <div id="transport"><br>.<br><br><br></div>
-        <div class=" p-1 m-1 text-center"  style="background-color: green ; color: #fff5eb ; border-radius: 10px">
+        <div class=" p-1 m-1 text-center" style="background-color: green ; color: #fff5eb ; border-radius: 10px">
             <h3>Umzug & Transport</h3>
         </div>
         <br>
@@ -177,7 +178,7 @@
                     @foreach($transport as $service)
 
                         <div class="col-md-6 col-lg-4 card justify-center ">
-                            <div class="btn-success text-center" style="border-radius: 20px  20px 0 0"  >
+                            <div class="btn-success text-center" style="border-radius: 20px  20px 0 0">
                                 <h4>{{__($service->name)}}</h4>
 
                                 @if($service->category == "Cleaning")
@@ -203,76 +204,80 @@
 
                             </div>
 
-                            <div class="price-item text-center border p-3" style="height:100%; border-radius: 0 0 20px 20px">
+                            <div class="price-item text-center border p-3"
+                                 style="height:100%; border-radius: 0 0 20px 20px">
 
 
                                 <div class="price-content ">
 
                                     <table class="table border table-danger">
                                         @if($service->category == "Cleaning")
-                                            <tr><strong>{{__('Charge Per Hour')}} : </strong> <p>{{$service->charge}}</p></tr>
+                                            <tr><strong>{{__('Charge Per Hour')}} : </strong>
+                                                <p>{{$service->charge}}</p></tr>
 
 
                                         @elseif($service->category == "Construction")
-                                            <tr><strong>{{__('Charge Square meter')}} : </strong> <p>{{$service->SPM}}</p></tr>
+                                            <tr><strong>{{__('Charge Square meter')}} : </strong>
+                                                <p>{{$service->SPM}}</p></tr>
 
 
                                         @elseif($service->category == "Transport")
                                             @if(!$service->hourly==true)
-                                                <tr><strong>{{__('Basic price')}} : </strong> <p>{{$service->basic_price}}</p></tr>
+                                                <tr><strong>{{__('Basic price')}} : </strong>
+                                                    <p>{{$service->basic_price}}</p></tr>
 
-                                                <tr> <strong>{{__('Each kilometre')}} : </strong> <p>{{$service->km_price}}</p></tr>
+                                                <tr><strong>{{__('Each kilometre')}} : </strong>
+                                                    <p>{{$service->km_price}}</p></tr>
 
-                                                <tr><strong>{{__('Stopover')}} : </strong> <p>{{$service->stop_over_price}}</p></tr>
+                                                <tr><strong>{{__('Stopover')}} : </strong>
+                                                    <p>{{$service->stop_over_price}}</p></tr>
 
                                                 <tr><strong>{{__('Waiting included every 5 min')}} : </strong></tr>
 
                                                 <tr><p>{{$service->waiting_price}}</p></tr>
 
 
-                                                <tr><strong>{{__('Helper')}} : </strong> <p>{{$service->helpers}}</p></tr>
+                                                <tr><strong>{{__('Helper')}} : </strong>
+                                                    <p>{{$service->helpers}}</p></tr>
 
 
 
 
                                             @else
-                                                <tr><strong>{{__('Charge Per Hour')}} : </strong> <p>{{$service->charge}}</p></tr>
+                                                <tr><strong>{{__('Charge Per Hour')}} : </strong>
+                                                    <p>{{$service->charge}}</p></tr>
 
 
                                             @endif
 
                                         @endif
-                                            <tr class="justify-center">
-                                                @php
-                                                    $details = str_replace("\n",",<br>",$service->details);
-                                                     echo str_replace("\n",",<br>",$service->details)
-                                                @endphp
+                                        <tr class="justify-center">
+                                            @php
+                                                $details = str_replace("\n",",<br>",$service->details);
+                                                 echo str_replace("\n","<br>",$service->details)
+                                            @endphp
 
-                                            </tr>
+                                        </tr>
 
                                     </table>
 
                                 </div>
 
-                                @if (Auth::check())
-                                    <a href="{{route('services_request',['language'=>app()->getLocale(),'id'=>$service->id])}}">
-                                        <button class="btn btn-success align-self-end ">{{__('BOOK NOW')}}</button>
-                                    </a>
-                                @else
-
-                                    <button class="btn btn-success" data-toggle="modal" data-target="#modal-success">{{__('BOOK NOW')}}</button>
-
-                                @endif
-
-
-
-
-
-
                                 <br>
-
                                 <br>
-                                <p>{{__('Alle Preise sind ohne Mehrwertsteuer')}}</p>
+                                <div class=" " style=" position: absolute;   bottom: 5px;  right: 85px;">
+                                    @if (Auth::check())
+                                        <a href="{{route('services_request',['language'=>app()->getLocale(),'id'=>$service->id])}}">
+                                            <button class="btn btn-success align-self-end ">{{__('BOOK NOW')}}</button>
+                                        </a>
+                                    @else
+
+                                        <button class="btn btn-success" data-toggle="modal" data-target="#modal-success">{{__('BOOK NOW')}}</button>
+
+                                    @endif
+                                    <p style="font-size:80%;">{{__('Alle Preise sind ohne Mehrwer tsteuer')}}</p>
+
+                                </div>
 
                             </div>
                         </div>
@@ -284,7 +289,7 @@
 
 
         <div id="cleaning"><br>.<br><br><br></div>
-        <div class=" p-1 m-1 text-center"  style="background-color: green ; color: #fff5eb ; border-radius: 10px">
+        <div class=" p-1 m-1 text-center" style="background-color: green ; color: #fff5eb ; border-radius: 10px">
             <h3>Reinigung Services</h3>
         </div>
         <br>
@@ -294,8 +299,8 @@
 
                     @foreach($cleaning as $service)
 
-                        <div class="col-md-6 col-lg-4  card justify-center ">
-                            <div class="btn-success text-center" style="border-radius: 20px  20px 0 0"  >
+                        <div class="col-md-6 col-lg-4  card justify-center " style="">
+                            <div class="btn-success text-center" style="border-radius: 20px  20px 0 0">
                                 <h4>{{__($service->name)}}</h4>
 
                                 @if($service->category == "Cleaning")
@@ -321,79 +326,72 @@
 
                             </div>
 
-                            <div class="price-item text-center border p-3" style="height:100%; border-radius: 0 0 20px 20px">
-
+                            <div class="price-item text-center border p-3"
+                                 style="height:100%; border-radius: 0 0 20px 20px">
 
                                 <div class="price-content ">
                                     <br>
                                     <table class="table border table-danger">
                                         @if($service->category == "Cleaning")
-                                            <tr><strong>{{__('Charge Per Hour')}} : </strong> <p>{{$service->charge}}</p></tr>
+                                            <tr><strong>{{__('Charge Per Hour')}} : </strong>
+                                                <p>{{$service->charge}}</p></tr>
                                             <hr>
 
 
                                         @elseif($service->category == "Construction")
-                                            <tr><strong>{{__('Charge Square meter')}} : </strong> <p>{{$service->SPM}}</p></tr>
+                                            <tr><strong>{{__('Charge Square meter')}} : </strong>
+                                                <p>{{$service->SPM}}</p></tr>
                                             <hr>
 
                                         @elseif($service->category == "Transport")
                                             @if(!$service->hourly==true)
-                                                <tr><strong>{{__('Basic price')}} : </strong> <p>{{$service->basic_price}}</p></tr>
+                                                <tr><strong>{{__('Basic price')}} : </strong>
+                                                    <p>{{$service->basic_price}}</p></tr>
                                                 <hr>
-                                                <tr> <strong>{{__('Each kilometre')}} : </strong> <p>{{$service->km_price}}</p></tr>
+                                                <tr><strong>{{__('Each kilometre')}} : </strong>
+                                                    <p>{{$service->km_price}}</p></tr>
                                                 <hr>
-                                                <tr><strong>{{__('Stopover')}} : </strong> <p>{{$service->stop_over_price}}</p></tr>
+                                                <tr><strong>{{__('Stopover')}} : </strong>
+                                                    <p>{{$service->stop_over_price}}</p></tr>
                                                 <hr>
                                                 <tr><strong>{{__('Waiting included every 5 min')}} : </strong></tr>
                                                 <hr>
                                                 <tr><p>{{$service->waiting_price}}</p></tr>
 
 
-                                                <tr><strong>{{__('Helper')}} : </strong> <p>{{$service->helpers}}</p></tr>
+                                                <tr><strong>{{__('Helper')}} : </strong>
+                                                    <p>{{$service->helpers}}</p></tr>
                                                 <hr>
-
-
-
                                             @else
-                                                <tr><strong>{{__('Charge Per Hour')}} : </strong> <p>{{$service->charge}}</p></tr>
+                                                <tr><strong>{{__('Charge Per Hour')}} : </strong>
+                                                    <p>{{$service->charge}}</p></tr>
                                                 <hr>
 
                                             @endif
-
                                         @endif
-                                            <tr class="justify-center">
-                                                @php
-                                                    $details = str_replace("\n",",<br>",$service->details);
-                                                     echo str_replace("\n",",<br>",$service->details)
-                                                @endphp
-                                            </tr>
+                                        <tr class="justify-center">
+                                            @php
+                                                $details = str_replace("\n",",<br>",$service->details);
+                                                 echo str_replace("\n","<br>",$service->details)
+                                            @endphp
+                                        </tr>
                                         <hr>
-
-
-
-
                                     </table>
+                                </div>
+                                <br>
+                                <br>
+                                <div class=" m-4" style=" position: absolute;   bottom: 5px;  right: 85px;">
+                                    @if (Auth::check())
+                                        <a href="{{route('services_request',['language'=>app()->getLocale(),'id'=>$service->id])}}">
+                                            <button class="btn btn-success align-self-end ">{{__('BOOK NOW')}}</button>
+                                        </a>
+                                    @else
 
+                                        <button class="btn btn-success" data-toggle="modal" data-target="#modal-success">{{__('BOOK NOW')}}</button>
+
+                                    @endif
                                 </div>
 
-                                @if (Auth::check())
-                                    <a href="{{route('services_request',['language'=>app()->getLocale(),'id'=>$service->id])}}">
-                                        <button class="btn btn-success align-self-end ">{{__('BOOK NOW')}}</button>
-                                    </a>
-                                @else
-
-                                    <button class="btn btn-success" data-toggle="modal" data-target="#modal-success">{{__('BOOK NOW')}}</button>
-
-                                @endif
-
-
-
-
-
-
-                                <br>
-
-                                <br>
                             </div>
 
                         </div>
@@ -403,6 +401,8 @@
             </div>
         </div>
         <br>
+
+
 
     </div>
 

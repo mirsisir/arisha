@@ -5,35 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f07d837-d124-472e-ae1d-79432793df38" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SisirsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Sisir.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_20_143027_create_sisirs_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/laravel-code-generator/sources/catagories.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/laravel-code-generator/sources/categories.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/laravel-code-generator/sources/customers.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/laravel-code-generator/sources/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/laravel-code-generator/sources/resources_map.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/laravel-code-generator/sources/servicees.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/laravel-code-generator/sources/services.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/laravel-code-generator/sources/sisirs.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/laravel-code-generator/system/migration_tracker.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/sisirs/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/sisirs/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/sisirs/form.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/sisirs/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/sisirs/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/service.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CategoryComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CategoryComponent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin/base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin/base.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/web/web_base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/web/web_base.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/category-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/category-component.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/test.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/test.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/website/all_service.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/all_service.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +202,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Payroll/HR-payroll_new_attendance" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
@@ -416,7 +389,9 @@
       <workItem from="1616221870494" duration="4511000" />
       <workItem from="1616191248628" duration="1332000" />
       <workItem from="1616218735150" duration="15647000" />
-      <workItem from="1616253869810" duration="2196000" />
+      <workItem from="1616253869810" duration="2508000" />
+      <workItem from="1616312247864" duration="50000" />
+      <workItem from="1616321025678" duration="3733000" />
     </task>
     <servers />
   </component>
