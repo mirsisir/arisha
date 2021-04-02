@@ -511,7 +511,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <button>
-                                        <a class="btn btn-info" onclick="myFunction()">{{ __('Register') }}</a>
+                                        <a class="btn btn-success" href="{{route('register')}}">{{ __('Register') }}</a>
                                     </button>
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Login') }}
@@ -633,6 +633,9 @@
             var origin = $('#from_places').val();
             var destination = $('#to_places').val();
             var service = new google.maps.DistanceMatrixService();
+
+            Livewire.emit('from', origin );
+            Livewire.emit('to', destination );
             service.getDistanceMatrix(
                 {
                     origins: [origin],
@@ -669,7 +672,8 @@
                     $('#duration_value').text(duration_value);
                     $('#from').text(origin);
                     $('#to').text(destination);
-                    Livewire.emit('distanceCalculated', distance_in_kilo.toFixed(2))
+                    Livewire.emit('distanceCalculated', distance_in_kilo.toFixed(2));
+                    Livewire.emit('from', 22 );
 
 
                 }

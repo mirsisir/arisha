@@ -134,19 +134,19 @@
                                     <label for="date">{{__('Start Date')}}</label>
                                     <input type="date"
                                            class="form-control @error('start_date_time') is-invalid @enderror"
-                                           wire:model="start_date_time">
+                                           wire:model.defer="start_date_time">
                                 </div>
                                 <div class="col-lg-2 col-sm-12">
                                     <label for="date">{{__('End Date')}}</label>
                                     <input type="date"
                                            class="form-control @error('end_date_time') is-invalid @enderror"
-                                           wire:model="end_date_time">
+                                           wire:model.defer="end_date_time">
                                 </div>
                                 <div class="col-lg-2 col-sm-12">
                                     <label for="date">{{__('Time')}}</label>
                                     <input type="time"
                                            class="form-control @error('weekly_time') is-invalid @enderror"
-                                           wire:model="weekly_time" step="3600">
+                                           wire:model.defer="weekly_time" step="3600">
                                 </div>
 
                             @else
@@ -157,13 +157,13 @@
                                             <input type="date"
                                                    class="form-control @error('dates.'.$index) is-invalid @enderror"
 
-                                                   wire:model="dates.{{ $index }}">
+                                                   wire:model.defer="dates.{{ $index }}">
                                         </div>
                                         <div class="col-lg-6 col-sm-12">
                                             <label for="time">{{__('Time')}}</label>
                                             <input type="time"
                                                    class="form-control @error('daily_time.'.$index) is-invalid @enderror"
-                                                   wire:model="daily_time.{{ $index }}" step="3600">
+                                                   wire:model.defer="daily_time.{{ $index }}" step="3600">
                                         </div>
                                     </div>
                                     <div class="text-center ml-2" style="display:{{ $index === 0 ? 'none':'block'   }} ">
@@ -185,7 +185,7 @@
                             @if($selected_category == "Cleaning")
                                 <div class="col-lg-2 col-sm-12">
                                     <label for="">{{__('Duration')}}</label>
-                                    <select name="" id="" wire:model="duration"
+                                    <select name="" id="" wire:model.defer="duration"
                                             class="form-control @error('duration') is-invalid @enderror ">
                                         <option value=""></option>
                                         @for($i=1 ; $i<=10 ;$i++)
@@ -199,7 +199,7 @@
                                 <div class="col-lg-3 col-sm-12">
                                     <label for="">{{__('Square meter')}}</label>
                                     <input class="form-control" type="number" min="50" max="999"
-                                           wire:model="square_meter"/>
+                                           wire:model.defer="square_meter"/>
                                     @error('square_meter') <span
                                         class="text-danger error">{{ $message }}</span>@enderror
                                 </div>
@@ -208,7 +208,7 @@
                                 @if ($service_hourly == 1)
                                     <div class="col-lg-2 col-sm-12">
                                         <label for="">{{__('Duration')}}</label>
-                                        <select name="" id="" wire:model="duration" value="2"
+                                        <select name="" id="" wire:model.defer="duration" value="2"
                                                 class="form-control @error('duration') is-invalid @enderror ">
                                             <option value=""></option>
                                             @for($i=2 ; $i<=10 ;$i++)
@@ -283,8 +283,8 @@
                                     <div class="col-lg-4 col-sm-12">
 
                                         <label for="">{{__('Surname *')}}</label>
-                                        <input type="text" wire:model="customer_name"
-                                               class="form-control @error('customer_name') is-invalid @enderror">
+                                        <input type="text" wire:model.defer="customer_name"
+                                               class="form-control @error('customer_name') is-invalid @enderror" id="customer_name">
 
                                         @error('customer_name') <span
                                             class="text-danger error">{{ $message }}</span>@enderror
@@ -292,7 +292,7 @@
                                     </div>
                                     <div class="col-lg-4 col-sm-12">
                                         <label for="">{{__('Telefon *')}}</label>
-                                        <input type="tel" wire:model="phone" id="customer"
+                                        <input type="tel" wire:model.defer="phone" id="customer_phonw"
                                                class="form-control @error('phone') is-invalid @enderror">
                                         @error('phone') <span class="text-danger error">{{ $message }}</span>@enderror
 
@@ -300,8 +300,8 @@
                                     </div>
                                     <div class="col-lg-4 col-sm-12">
                                         <label for="">{{__('Email')}}</label>
-                                        <input type="email" wire:model="email"
-                                               class="form-control @error('Email') is-invalid @enderror">
+                                        <input type="email" wire:model.defer="email"
+                                               class="form-control @error('Email') is-invalid @enderror" id="sender_email">
                                         @error('email') <span class="text-danger error">{{ $message }}</span>@enderror
 
                                     </div>
@@ -316,18 +316,18 @@
                                     {{--                    Click on a time slot to proceed with booking.</p>--}}
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-4 col-sm-12">
+                                    <div class="col-lg-4 col-sm-12" >
                                         <label for="">{{__('Straße *')}}</label>
                                         <input type="text" class="form-control @error('street') is-invalid @enderror"
                                                id="from_places"
-                                               wire:model.lazy="street" autocomplete="off">
+                                               wire:model.defer="street" autocomplete="off">
                                         @error('street') <span class="text-danger error">{{ $message }}</span>@enderror
                                     </div>
                                     <div class="col-lg-4 col-sm-12">
                                         <label for="">{{__('Hausnummer *')}}</label>
                                         <input type="text"
                                                class="form-control  @error('house_number') is-invalid @enderror"
-                                               wire:model.lazy="house_number" autocomplete="on">
+                                               wire:model.defer="house_number" autocomplete="on">
                                         @error('house_number') <span
                                             class="text-danger error">{{ $message }}</span>@enderror
                                     </div>
@@ -335,7 +335,7 @@
                                         <label for="">{{__('PLZ *')}} </label>
                                         <input type="text" class="form-control  @error('postcode') is-invalid @enderror"
                                                name="postcode "
-                                               wire:model="postcode">
+                                               wire:model.defer="postcode">
                                         @error('postcode') <span
                                             class="text-danger error">{{ $message }}</span>@enderror
                                     </div>
@@ -349,7 +349,7 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">{{__('Kommentar *')}}</label>
                                     <textarea class="form-control h-50 @error('notes') is-invalid @enderror"
-                                              wire:model="notes"></textarea>
+                                              wire:model.defer="notes"></textarea>
 
                                 </div>
                                 <br>
@@ -365,15 +365,15 @@
                                         <div class="col-lg-4 col-sm-12">
 
                                             <label for="">{{__('Surname *')}}</label>
-                                            <input type="text" wire:model="receiver_name"
-                                                   class="form-control @error('receiver_name') is-invalid @enderror">
+                                            <input type="text" wire:model.defer="receiver_name"
+                                                   class="form-control @error('receiver_name') is-invalid @enderror" id="receiver_name">
                                             @error('receiver_name')<span
                                                 class="text-danger error">{{ $message }}</span>@enderror
 
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label for="">{{__('Telefon *')}}</label>
-                                            <input type="tel" wire:model="receiver_phone" class="form-control">
+                                            <input type="tel" wire:model.defer="receiver_phone" class="form-control" id="receiver_p">
                                             @error('receiver_phone') <span
                                                 class="text-danger error">{{ $message }}</span>@enderror
 
@@ -381,7 +381,7 @@
                                         </div>
                                         <div class="col-lg-4 col-sm-12">
                                             <label for="">{{__('Email')}}</label>
-                                            <input type="email" wire:model="receiver_email" class="form-control">
+                                            <input type="email" wire:model.defer="receiver_email" id="receiver_e" class="form-control">
                                             @error('receiver_email') <span
                                                 class="text-danger error">{{ $message }}</span>@enderror
                                         </div>
@@ -401,7 +401,7 @@
                                             <input type="text" autocomplete="off"
                                                    class="form-control  @error('receiver_street') is-invalid @enderror "
                                                    id="to_places"
-                                                   wire:model.lazy="receiver_street">
+                                                   wire:model.defer="receiver_street">
                                             @error('receiver_street') <span
                                                 class="text-danger error">{{ $message }}</span>@enderror
                                         </div>
@@ -410,7 +410,7 @@
                                             <input type="text"
                                                    class="form-control  @error('receiver_house') is-invalid @enderror"
                                                    name="receiver_house"
-                                                   wire:model="receiver_house">
+                                                   wire:model.defer="receiver_house" id="receiver_h">
                                             @error('receiver_house') <span
                                                 class="text-danger error">{{ $message }}</span>@enderror
                                         </div>
@@ -419,7 +419,7 @@
                                             <input type="text"
                                                    class="form-control  @error('receiver_postcode') is-invalid @enderror"
                                                    name="receiver_postcode"
-                                                   wire:model="receiver_postcode">
+                                                   wire:model.defer="receiver_postcode">
                                             @error('receiver_postcode') <span
                                                 class="text-danger error">{{ $message }}</span>@enderror
                                         </div>
@@ -443,14 +443,14 @@
                                 <div>
                                     <p>{{(__('Please tell us how you would like to pay:'))}}</p>
 
-                                    <input wire:model="payments" type="radio" id="pay1" name="pay"
+                                    <input wire:model.defer="payments" type="radio" id="pay1" name="pay"
                                            value="Cash payments">
                                     <label for="age1">{{__('I will pay locally')}}</label><br>
 
-                                    <input wire:model="payments" type="radio" id="pay2" name="pay"
+                                    <input wire:model.defer="payments" type="radio" id="pay2" name="pay"
                                            value="Card payments">
                                     <label for="age2">{{__('Card')}}</label><br>
-                                    <input wire:model="payments" type="radio" id="pay3" name="pay"
+                                    <input wire:model.defer="payments" type="radio" id="pay3" name="pay"
                                            value="Bank payments">
                                     <label for="age2">{{__('Bank')}}</label><br>
 
@@ -458,7 +458,7 @@
                                     <br>
 
                                 </div>
-                                    <input type="checkbox" name="terms" id="terms" wire:model="Terms_and_Coditions" onchange="activateButton(this)">
+                                    <input type="checkbox" name="terms" id="terms" wire:model.defer="Terms_and_Coditions" onchange="activateButton(this)">
                                     <p class="@error('Terms_and_Coditions') text-danger @enderror ">I Agree Terms &</p>
                                     <a href="{{route('privacy_policy',app()->getLocale())}}" class="link">Coditions</a>
 
@@ -496,7 +496,7 @@
 
                             <div class="col-lg-3 col-sm-12 border ">
                                 <div class=" p-4">
-                                    <h3 class="text-center btn-info p-1 ">Your Bill(1 day)</h3>
+                                    <h3 class="text-center btn-info p-1 ">Your Bill(1 day) </h3>
                                     <hr>
                                 </div>
 

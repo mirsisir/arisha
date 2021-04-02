@@ -25,7 +25,7 @@
                     <tr>
                         <td>DE-{{$s->id}}</td>
                         <td>{{$s->service->name}}</td>
-                        <td>{{$s->date}}</td>
+                        <td>{{ date("d-m-Y", strtotime($s->date))}}</td>
 
                         @if($s->categorie=='Construction')
                             <td>{{$s->SPM}} Sq m</td>

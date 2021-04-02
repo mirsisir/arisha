@@ -5,14 +5,14 @@
     <div class="card border mt-3 p-5" id="printSection">
         <div class="text-center">
             <img
-                src="https://arisha-service.de/wp-content/uploads/2019/01/49459787_362148794601522_3127704234166845440_n.png"
+                src="{{asset('storage/'. ($settings->logo ?? " ") )  }}"
                 alt="" style="width: 150px">
             <h5>{{$settings->name ?? "N/A"}}</h5>
             <p> <i class="mdi mdi-cellphone-iphone"> </i> {{$settings->phone ?? "N/A"}}<br>  <i class="mdi mdi-email"></i> {{$settings->email ?? "N/A"}}</p>
 
 
         </div>
-        <p class="bold">Rechnung-No : ARS{{$service_request->id}}</p> <br>
+        <p class="bold">Rechnung-No : DE{{$service_request->id}}</p> <br>
 
         <div class="row  p-3">
 
@@ -23,20 +23,20 @@
                         <td class="bold">From :</td>
                         <td>{{auth()->user()->name}}</td>
                     </tr>
-                    <tr>
-                        <td class="bold">Phone :</td>
-                        <td>{{auth()->user()->phone}}</td>
-                    </tr>
 {{--                    <tr>--}}
-{{--                        <td class="bold">Address :</td>--}}
-{{--                        <td>{{auth()->user()->street}} {{auth()->user()->house_number}}<br>--}}
-{{--                            {{auth()->user()->post_code}} {{auth()->user()->city}}--}}
-{{--                        </td>--}}
+{{--                        <td class="bold">Phone :</td>--}}
+{{--                        <td>{{auth()->user()->phone}}</td>--}}
 {{--                    </tr>--}}
                     <tr>
-                        <td class="bold">Email :</td>
-                        <td>{{auth()->user()->email}}</td>
+                        <td class="bold">Address :</td>
+                        <td>{{auth()->user()->street}} {{auth()->user()->house_number}}<br>
+                            {{auth()->user()->post_code}} {{auth()->user()->city}}
+                        </td>
                     </tr>
+{{--                    <tr>--}}
+{{--                        <td class="bold">Email :</td>--}}
+{{--                        <td>{{auth()->user()->email}}</td>--}}
+{{--                    </tr>--}}
 
 
                 </table>
@@ -48,20 +48,20 @@
                         <td class="bold">TO</td>
                         <td>{{$service_request->customer->name}}</td>
                     </tr>
-                    <tr>
-                        <td class="bold">Phone</td>
-                        <td>{{$service_request->customer->phone}}</td>
-                    </tr>
 {{--                    <tr>--}}
-{{--                        <td class="bold">Address</td>--}}
-{{--                        <td>{{$service_request->customer->street}} {{$service_request->customer->house_number}}<br>--}}
-{{--                            {{$service_request->customer->post_code}} {{$service_request->customer->city}}--}}
-{{--                        </td>--}}
+{{--                        <td class="bold">Phone</td>--}}
+{{--                        <td>{{$service_request->customer->phone}}</td>--}}
 {{--                    </tr>--}}
                     <tr>
-                        <td class="bold">Email</td>
-                        <td>{{$service_request->customer->email}}</td>
+                        <td class="bold">Address</td>
+                        <td>{{$service_request->customer->street}} {{$service_request->customer->house_number}}<br>
+                            {{$service_request->customer->post_code}} {{$service_request->customer->city}}
+                        </td>
                     </tr>
+{{--                    <tr>--}}
+{{--                        <td class="bold">Email</td>--}}
+{{--                        <td>{{$service_request->customer->email}}</td>--}}
+{{--                    </tr>--}}
 
                 </table>
 
@@ -104,7 +104,35 @@
                 @endif
 
             </table>
+            <br>
+            <table class="m-3">
+                <tr>
+                    <td>Arisha Service</td>
+                </tr>
+                <tr>
+                    <td>Pastor-Niemöller-Platz 2, 13156 Berlin.</td>
+                </tr>
 
+                <tr>
+                    <td>Please Make Payments To</td>
+                </tr>
+                <tr>
+                    <td>Post Bank : Mohammad Islam</td>
+                </tr>
+                <tr>
+                    <td>IBAN : DE26 100 100 100 820 9131 21</td>
+                </tr>
+
+            </table>
+            <br>
+            <br>
+            <br>
+            <br>
+
+ <div class="m-3">
+     <small class=" text-justify">Der Rechnungssteller ist Kleinunternehmer im Sinne des §19 UStG und weist daher keine Umsatzsteuer aus. Vielen Dank für Ihr Vertrauen! Hiermit berechnen wir Ihnen im Namen und für Rechnung des Reinigungsunternehmers folgende Leistungen:</small>
+
+ </div>
 
         </div>
 

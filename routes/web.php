@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminPanelController;
+use App\Http\Controllers\ArishaInfosController;
 use App\Http\Controllers\AssignProductController;
 use App\Http\Controllers\EmployeeAllocationController;
 use App\Http\Controllers\EmployeeController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\ServiceControlle;
 use App\Http\Controllers\SisirsController;
 use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\TranslateController;
 use App\Http\Controllers\UniformAllocationController;
 use App\Http\Controllers\UniformCollectionController;
 use App\Http\Controllers\UniformDestroyController;
@@ -37,6 +39,7 @@ use App\Http\Livewire\UniformAllotmentComponent;
 use App\Http\Livewire\UniformSettingComponent;
 use App\Http\Livewire\Website\ServiceOrderComponent;
 use App\Mail\RequestConfirmation;
+use App\Models\ArishaInfo;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -51,7 +54,7 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::redirect('/', '/de/homepage');
+Route::redirect('/', '/de/home');
 
 
 Route::get('/mail', function () {
@@ -253,7 +256,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
 });
 
-Route::redirect('/', '/de/homepage');
+Route::redirect('/', '/de/home');
 Route::redirect('/home', '/de/all_services');
 
 
@@ -262,9 +265,14 @@ Route::redirect('/home', '/de/all_services');
 Route::group([ 'prefix' => '{language}'], function () {
 
 
-    Route::get('/homepage', function () {
+    Route::get('/home', function () {
         $all_service = \App\Models\Service::all();
-        return view('website.homepage',compact('all_service'));
+        $cleaning = ArishaInfo::firstWhere('name' ,'Cleaning');
+        $construction = ArishaInfo::firstWhere('name' ,'Construction');
+        $transport = ArishaInfo::firstWhere('name' ,'Transport');
+
+
+        return view('website.homepage',compact('all_service','cleaning','construction' ,'transport'));
     })->name('page.homepage');
 
     Route::get('/contact_us', function () {
@@ -273,10 +281,20 @@ Route::group([ 'prefix' => '{language}'], function () {
 
 
     Route::get('/terms_of_services', function () {
-        return view('website.terms_of_services');
+        $terms = ArishaInfo::firstWhere('name' ,'Terms Of Services');
+        return view('website.terms_of_services',compact('terms'));
     })->name('page.terms');
+
+    Route::get('/Insurance', function () {
+        $terms = ArishaInfo::firstWhere('name' ,'Insurance');
+        return view('website.Impressum',compact('terms'));
+    })->name('Impressum');
+
+
+
     Route::get('/privacy_policy', function () {
-        return view('website.privacy_policy');
+        $policy = ArishaInfo::firstWhere('name' ,'Privacy Policy');
+        return view('website.privacy_policy',compact('policy'));
     })->name('privacy_policy');
 
     Route::get('/all_services', [ServiceControlle::class, 'all_services'])->name('all_services');
@@ -288,15 +306,28 @@ Route::group([ 'prefix' => '{language}'], function () {
 
     Route::view('/registration_confirm','website.registration_confirmation')->name('registration_confirm');
 //   blog
-//    Route::view('/office_cleaning','website.office_cleaning')->name('office_cleaning');
-    Route::view('/office_cleaning','website.construction')->name('office_cleaning');
-    Route::view('/home_cleaning','website.home_cleaning' )->name('home_cleaning');
-    Route::view('/craftsman_services','website.craftsman_services' )->name('craftsman_services');
+
+    Route::get('/construction', function () {
+        $construction = ArishaInfo::firstWhere('name' ,'Construction');
+        return view('website.construction',compact('construction'));
+    })->name('office_cleaning');
+
+    Route::get('/cleaning', function () {
+        $cleaning = ArishaInfo::firstWhere('name' ,'Cleaning');
+
+        return view('website.home_cleaning',compact('cleaning'));
+    })->name('home_cleaning');
+
+    Route::get('/craftsman_services', function () {
+        $transport = ArishaInfo::firstWhere('name' ,'Transport');
+        return view('website.craftsman_services',compact('transport'));
+    })->name('craftsman_services');
+
+
+//    Route::view('/home_cleaning','website.home_cleaning' )->name('home_cleaning');
+//    Route::view('/craftsman_services','website.craftsman_services' )->name('craftsman_services');
 
 //    Route::view('/office_cleaning', 'dir.page');
-    Route::get('/Impressum', function () {
-        return view('website.Impressum');
-    })->name('Impressum');
 
 });
 
@@ -380,3 +411,29 @@ Route::group([
     Route::delete('/sisir/{sisir}',[SisirsController::class,'destroy'])
          ->name('sisirs.sisir.destroy')->where('id', '[0-9]+');
 });
+
+//Route::group([
+//    'prefix' => 'arisha_infos',
+//], function () {
+//    Route::get('/', [ArishaInfosController::class,'index'])
+//         ->name('arisha_infos.arisha_info.index');
+//    Route::get('/create',[ArishaInfosController::class,'create'])
+//         ->name('arisha_infos.arisha_info.create');
+//    Route::get('/show/{arishaInfo}',[ArishaInfosController::class,'show'])
+//         ->name('arisha_infos.arisha_info.show')->where('id', '[0-9]+');
+//    Route::get('/{arishaInfo}/edit',[ArishaInfosController::class,'edit'])
+//         ->name('arisha_infos.arisha_info.edit')->where('id', '[0-9]+');
+//    Route::post('/', [ArishaInfosController::class,'store'])
+//         ->name('arisha_infos.arisha_info.store');
+//    Route::put('arisha_info/{arishaInfo}', [ArishaInfosController::class,'update'])
+//         ->name('arisha_infos.arisha_info.update')->where('id', '[0-9]+');
+//    Route::delete('/arisha_info/{arishaInfo}',[ArishaInfosController::class,'destroy'])
+//         ->name('arisha_infos.arisha_info.destroy')->where('id', '[0-9]+');
+//});
+
+Route::get('/create/info', [TranslateController::class, 'create'])->name('create.translate');
+Route::post('edit/info/save', [TranslateController::class, 'update'])->name('edit.info.save');
+Route::get('/edit/info/{id}', [TranslateController::class, 'edit'])->name('edit.info');
+
+Route::post('/store/info', [TranslateController::class, 'store'])->name('store.translate');
+Route::get('/index/info', [TranslateController::class, 'index'])->name('index.translate');

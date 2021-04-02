@@ -124,6 +124,21 @@
                 <div class="card col-lg-5 col-sm-11">
                     <div class="card-body">
                         <h2 class="card-title font-weight-bolder">{{__('Contact Details')}}</h2>
+
+                        <div class="form-group">
+                            <label for="city" class="">{{__('Street')}} <span class="text-danger">*</span></label>
+                            <div class="">
+                                <input type="text" name="street"
+                                       class="form-control @error('street') is-invalid @enderror" id="street"
+                                       placeholder="Street" value="{{ old('street') }}">
+                                @error('street')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label for="address" class="">{{__('House Number')}} <span class="text-danger">*</span></label>
                             <div class="">
@@ -139,32 +154,8 @@
                         </div>
 
 
-                        <div class="form-group">
-                            <label for="city" class="">{{__('Street')}} <span class="text-danger">*</span></label>
-                            <div class="">
-                                <input type="text" name="street"
-                                       class="form-control @error('street') is-invalid @enderror" id="street"
-                                       placeholder="Street" value="{{ old('street') }}">
-                                @error('street')
-                                <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="city" class="">{{__('City')}} <span class="text-danger">*</span></label>
-                            <div class="">
-                                <input type="text" name="city"
-                                       class="form-control @error('city') is-invalid @enderror" id="city"
-                                       placeholder="City" value="{{ old('city') }}">
-                                @error('city')
-                                <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                                @enderror
-                            </div>
-                        </div>
+
+
                         <div class="form-group">
                             <label for="city" class="">{{__('Post Code')}} <span class="text-danger">*</span></label>
                             <div class="">
@@ -179,7 +170,19 @@
                             </div>
                         </div>
 
-
+                        <div class="form-group">
+                            <label for="city" class="">{{__('City')}} <span class="text-danger">*</span></label>
+                            <div class="">
+                                <input type="text" name="city"
+                                       class="form-control @error('city') is-invalid @enderror" id="city"
+                                       placeholder="City" value="{{ old('city') }}">
+                                @error('city')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="phone" class="">{{__('Phone')}}</label>
                             <div class="">
@@ -271,9 +274,9 @@
                 </div>
 
                 <div class="card col-lg-12 mb-4">
-
+{{--                    <input type="checkbox" id="checkbox" >Select All--}}
                     <label for="js-example-basic-multiple3">{{__('Select Preferred Service')}}  <span class="text-danger">*</span></label>
-                    <select class="js-example-basic-multiple3 form-control @error('service') is-invalid @enderror" name="service[]" multiple="multiple"  value="{{ old('service[]') }}">
+                    <select id="checkbox" class="js-example-basic-multiple3 form-control @error('service') is-invalid @enderror" name="service[]" multiple="multiple"  value="{{ old('service[]') }}">
                         @foreach ($all_service as $service)
                         <option value="{{$service->id}}">{{$service->name}}</option>
                         @endforeach
@@ -309,6 +312,16 @@
 
 @section('js')
     <script>
+
+        $("#checkbox").click(function(){
+            if($("#checkbox").is(':checked') ){
+                $("select > option").prop("selected","selected");
+            }else{
+                $("select > option").removeAttr("selected");
+            }
+        });
+
+
         $(document).ready(function () {
             $('.js-example-basic-multiple3').select2();
         });

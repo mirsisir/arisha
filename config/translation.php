@@ -74,4 +74,9 @@ return [
 
         'translations_table' => 'translations',
     ],
+
+    'supported' => [
+        'en',
+        'de',
+    ]
 ];

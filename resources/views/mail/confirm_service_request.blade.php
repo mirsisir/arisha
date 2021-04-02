@@ -12,10 +12,7 @@
     {{$servie_request->employee->name ?? " "}} {{$servie_request->employee->fname?? " "}}  phone = {{$servie_request->employee->phone ?? " "}}be in touch with you as soon as possible to begin
     the process.
 
-
     Thank you for your business.
-
-
 
     Thanks,
 

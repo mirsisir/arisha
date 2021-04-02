@@ -38,7 +38,7 @@
                         </td>
                         <td>{{$request->employee->fname ?? "N/A"}}</td>
                         <td>
-                            {{$request->date}} <br>
+                            {{ date("d-m-Y", strtotime($request->date))}} <br>
                             Time : : {{$request->start_time}}
                         </td>
                         <td>

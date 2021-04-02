@@ -13,7 +13,6 @@ We will do our best to answer your request as soon as possible.
 
 Thank you for your business.
 
-
 @component('mail::button', ['url' => ''])
 Button Text
 @endcomponent

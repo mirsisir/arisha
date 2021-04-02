@@ -1,375 +1,380 @@
 @extends('layouts.web.web_base')
 @section('content')
-<!-- END HEADER -->
+    <!-- END HEADER -->
 
-<!--  Main Banner Start Here-->
-<div class="main-banner banner_up">
+    <!--  Main Banner Start Here-->
+    <div class="main-banner banner_up">
 
-    <div id="rev_slider_34_1_wrapper" class="rev_slider_wrapper" data-alias="news-gallery34">
-        <!-- START REVOLUTION SLIDER 5.0.7 fullwidth mode -->
-        <div id="rev_slider_34_1" class="rev_slider" data-version="5.0.7">
-            <ul>
-                <!-- SLIDE  -->
-                <li data-index="rs-129"  >
-                    <!-- MAIN IMAGE -->
-                    <img src="{{asset('assets/images/banner/slider1.jpg')}}"  alt=""  class="rev-slidebg" >
-                    <!-- LAYERS -->
-                    <!-- LAYER NR. 2 -->
-                    <div class="tp-caption Newspaper-Title tp-resizeme "
-                         id="slide-129-layer-1"
-                         data-x="['left','left','left','left']" data-hoffset="['100','50','50','30']"
-                         data-y="['top','top','top','center']" data-voffset="['230','135','50','0']"
-                         data-fontsize="['50','50','50','30']"
-                         data-lineheight="['55','55','55','35']"
-                         data-width="['700','700','700','420']"
-                         data-height="none"
-                         data-whitespace="normal"
-                         data-transform_idle="o:1;"
-                         data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
-                         data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
-                         data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                         data-mask_out="x:0;y:0;s:inherit;e:inherit;"
-                         data-start="1000"
-                         data-splitin="none"
-                         data-splitout="none"
-                         data-responsive_offset="on" >
-                        <div class="banner-text">
-                            <span class="sub-text">we are here to help you</span>
-                            <h2>The best cleaning company in Berlin</h2>
-                            <p>
-                                Professionel Reinigung & Handwerker Services in Berlin
+        <div id="rev_slider_34_1_wrapper" class="rev_slider_wrapper" data-alias="news-gallery34">
+            <!-- START REVOLUTION SLIDER 5.0.7 fullwidth mode -->
+            <div id="rev_slider_34_1" class="rev_slider" data-version="5.0.7">
+                <ul>
+                    <!-- SLIDE  -->
+                    <li data-index="rs-129">
+                        <!-- MAIN IMAGE -->
+                        <img src="{{asset('assets/images/banner/slider1.jpg')}}" alt="" class="rev-slidebg">
+                        <!-- LAYERS -->
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption Newspaper-Title tp-resizeme "
+                             id="slide-129-layer-1"
+                             data-x="['left','left','left','left']" data-hoffset="['100','50','50','30']"
+                             data-y="['top','top','top','center']" data-voffset="['230','135','50','0']"
+                             data-fontsize="['50','50','50','30']"
+                             data-lineheight="['55','55','55','35']"
+                             data-width="['700','700','700','420']"
+                             data-height="none"
+                             data-whitespace="normal"
+                             data-transform_idle="o:1;"
+                             data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
+                             data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
+                             data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+                             data-mask_out="x:0;y:0;s:inherit;e:inherit;"
+                             data-start="1000"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on">
+                            <div class="banner-text">
+                                <span class="sub-text">we are here to help you</span>
+                                <h2>The best cleaning company in Berlin</h2>
+                                <p>
+                                    Professionel Reinigung & Handwerker Services in Berlin
 
-                            </p>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <!-- SLIDE  -->
-                <li data-index="rs-130" data-title="" data-description="">
-                    <!-- MAIN IMAGE -->
-                    <img src="{{asset('assets/images/banner/slider2.jpg')}}"  alt=""   class="rev-slidebg">
-                    <!-- LAYERS -->
-                    <!-- LAYER NR. 2 -->
-                    <div class="tp-caption Newspaper-Title   tp-resizeme "
-                         id="slide-130-layer-1"
-                         data-x="['left','left','left','left']" data-hoffset="['100','50','50','30']"
-                         data-y="['top','top','top','center']" data-voffset="['230','135','50','0']"
-                         data-fontsize="['50','50','50','30']"
-                         data-lineheight="['55','55','55','35']"
-                         data-width="['700','700','700','420']"
-                         data-height="none"
-                         data-whitespace="normal"
-                         data-transform_idle="o:1;"
-                         data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
-                         data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
-                         data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                         data-mask_out="x:0;y:0;s:inherit;e:inherit;"
-                         data-start="1000"
-                         data-splitin="none"
-                         data-splitout="none"
-                         data-responsive_offset="on">
-                        <div class="banner-text">
-                            <span class="sub-text">we are here to help you</span>
-                            <h2>Versichert Auftrag , Online Booking , Any time</h2>
+                    </li>
+                    <!-- SLIDE  -->
+                    <li data-index="rs-130" data-title="" data-description="">
+                        <!-- MAIN IMAGE -->
+                        <img src="{{asset('assets/images/banner/slider2.jpg')}}" alt="" class="rev-slidebg">
+                        <!-- LAYERS -->
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption Newspaper-Title   tp-resizeme "
+                             id="slide-130-layer-1"
+                             data-x="['left','left','left','left']" data-hoffset="['100','50','50','30']"
+                             data-y="['top','top','top','center']" data-voffset="['230','135','50','0']"
+                             data-fontsize="['50','50','50','30']"
+                             data-lineheight="['55','55','55','35']"
+                             data-width="['700','700','700','420']"
+                             data-height="none"
+                             data-whitespace="normal"
+                             data-transform_idle="o:1;"
+                             data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
+                             data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
+                             data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+                             data-mask_out="x:0;y:0;s:inherit;e:inherit;"
+                             data-start="1000"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on">
+                            <div class="banner-text">
+                                <span class="sub-text">we are here to help you</span>
+                                <h2>Versichert Auftrag , Online Booking , Any time</h2>
 
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <!-- SLIDE  -->
-                <li data-index="rs-131">
-                    <!-- MAIN IMAGE -->
-                    <img src="{{asset('assets/images/banner/slider3.jpg')}}"  alt=""   class="rev-slidebg " >
-                    <!-- LAYERS -->
-                    <!-- LAYER NR. 2 -->
-                    <div class="tp-caption Newspaper-Title   tp-resizeme "
-                         id="slide-131-layer-1"
-                         data-x="['left','left','left','left']" data-hoffset="['100','50','50','30']"
-                         data-y="['top','top','top','center']" data-voffset="['230','135','50','0']"
-                         data-fontsize="['50','50','50','30']"
-                         data-lineheight="['55','55','55','35']"
-                         data-width="['700','700','700','420']"
-                         data-height="none"
-                         data-whitespace="normal"
-                         data-transform_idle="o:1;"
-                         data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
-                         data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
-                         data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                         data-mask_out="x:0;y:0;s:inherit;e:inherit;"
-                         data-start="1000"
-                         data-splitin="none"
-                         data-splitout="none"
-                         data-responsive_offset="on">
-                        <div class="banner-text">
-                            <span class="sub-text">Jetzt Buchen Einfach und Schnell</span>
-                            <h2>Move on Time , Online Booking</h2>
+                    </li>
+                    <!-- SLIDE  -->
+                    <li data-index="rs-131">
+                        <!-- MAIN IMAGE -->
+                        <img src="{{asset('assets/images/banner/slider3.jpg')}}" alt="" class="rev-slidebg ">
+                        <!-- LAYERS -->
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption Newspaper-Title   tp-resizeme "
+                             id="slide-131-layer-1"
+                             data-x="['left','left','left','left']" data-hoffset="['100','50','50','30']"
+                             data-y="['top','top','top','center']" data-voffset="['230','135','50','0']"
+                             data-fontsize="['50','50','50','30']"
+                             data-lineheight="['55','55','55','35']"
+                             data-width="['700','700','700','420']"
+                             data-height="none"
+                             data-whitespace="normal"
+                             data-transform_idle="o:1;"
+                             data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
+                             data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
+                             data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+                             data-mask_out="x:0;y:0;s:inherit;e:inherit;"
+                             data-start="1000"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on">
+                            <div class="banner-text">
+                                <span class="sub-text">Jetzt Buchen Einfach und Schnell</span>
+                                <h2>Move on Time , Online Booking</h2>
 
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <!-- SLIDE  -->
-            </ul>
-            <div class="tp-bannertimer tp-bottom"></div>
-        </div>
-    </div>
-</div>
-<!--  Main Banner End Here-->
-
-<!-- About -->
-<!-- About -->
-
-<section class="latest__block padding ptb-xs-40">
-
-    <div class="container">    <hr>
-
-        <div class="row text-center mb-40 mb-xs-30">
-            <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-                <div class="section-title_home">
-{{--                    <h2>Our Blog</h2>--}}
-                    <span class="b-line"></span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 border p-1" style="border-color: green;">
-                <div class="img-scale">
-                    <figure>
-                        <img src="{{asset('assets/images/painting.jpg')}}" alt="" style=" height:250px" >
-                    </figure>
-                    <div class="latest__block-post gray-bg">
-                        <div class="meta-post h-3">
-                             <h3 class="text-success">{{__('Handwerker Services')}}</h3>
-                        </div>
-                        <p class="text-justify"><a href="{{route('craftsman_services',app()->getLocale())}}">{{__('Bitte wenden Sie sich an uns, um weitere Informationen zu erhalten. Unsere professionellen ARISHA SERVICE-Partner können Ihnen dabei helfen, ein konkurrenzfähiges Angebot für Ihre privaten und gewerblichen Hand Arbite  zu erhalten.')}}</a></p>
-
-                        <div class="flat-link flat-arrow sm  ">
-                            <a href="{{route('craftsman_services',app()->getLocale())}}" class="more_btn__block">More <i class="fa fa-angle-right"></i> </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-{{--            <div class="col-lg-4 mt-sm-30 mt-xs-30 border p-1" style="border-color: green;">--}}
-{{--                <div class="img-scale">--}}
-{{--                    <figure>--}}
-{{--                        <img src="{{asset('assets/images/blog/home_blog_2.jpg')}}" alt="">--}}
-{{--                    </figure>--}}
-{{--                    <div class="latest__block-post gray-bg">--}}
-{{--                        <div class="meta-post">--}}
-{{--                            <h3 class="text-success">{{__('Büro Reinigung')}}</h3>--}}
-{{--                        </div>--}}
-{{--                        <p class="text-justify"><a href="{{route('office_cleaning',app()->getLocale())}}">{{__('Beginnen Sie Ihren Arbeitstag mit einem sauberen und betriebsbereiten Büroplatz. Gerne kommen wir auch außerhalb Ihrer Bürozeiten, damit Ihre Arbeitsabläufe ungestört bleiben.')}}</a></p>--}}
-
-{{--                        <div class="flat-link flat-arrow sm  ">--}}
-{{--                            <br>--}}
-{{--                            <a href="{{route('office_cleaning',app()->getLocale())}}" class="more_btn__block">More <i class="fa fa-angle-right"></i> </a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-            <div class="col-lg-4 mt-sm-30 mt-xs-30 border p-1" style="border-color: green;">
-                <div class="img-scale">
-                    <figure>
-                        <img src="{{asset('assets/images/moving.jpg')}}" alt="" style=" height:250px">
-                    </figure>
-                    <div class="latest__block-post gray-bg">
-                        <div class="meta-post">
-                            <h3 class="text-success">{{__('Umzug & Transport')}}</h3>
-                        </div>
-                        <p class="text-justify"><a href="{{route('office_cleaning',app()->getLocale())}}">{{__('ARISHA SERVICE  ist ein umfassender und professioneller Dienstleister, der Umzugsservice, Möbeltransport  Kurierservice in Berlin anbietet.')}}</a></p>
-
-                        <div class="flat-link flat-arrow sm  ">
-                            <br>
-                            <a href="{{route('office_cleaning',app()->getLocale())}}" class="more_btn__block">More <i class="fa fa-angle-right"></i> </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-sm-30 mt-xs-30 border p-1" style="border-color: green;">
-                <div class="img-scale">
-                    <figure>
-                        <img src="{{asset('assets/images/blog/home_blog_3.jpg')}}" alt="" style=" height:250px">
-                    </figure>
-                    <div class="latest__block-post gray-bg">
-                        <div class="meta-post">
-                            <h3 class="text-success">{{__('Haupt Reinigung')}}</h3>
-
-                        </div>
-                        <p class="text-justify"><a href="{{route('home_cleaning',app()->getLocale())}}">{{__('wir bieten Ihnen vielfältige Reinigungsdienstleistungen und gehen gerne auf Ihre individuellen Erwartungen ein. Bei einem ersten Treffen können wir gemeinsam besprechen was Ihnen bei der Reinigung besonders wichtig ist.')}}</a></p>
-
-                        <div class="flat-link flat-arrow sm  ">
-                            <a href="{{route('home_cleaning',app()->getLocale())}}" class="more_btn__block">More <i class="fa fa-angle-right"></i> </a>
-                        </div>
-                    </div>
-                </div>
+                    </li>
+                    <!-- SLIDE  -->
+                </ul>
+                <div class="tp-bannertimer tp-bottom"></div>
             </div>
         </div>
     </div>
-</section>
-<section class="padding ptb-xs-40">
-    <div class="container">
-        <div class="row pb-30">
-            <div class="col-md-4 d-flex align-items-center">
-                <div class="section_tit">
-                    <h2>{{__('About Us')}}</h2>
-                    <span class="b-line l-left sm-l-center"></span>
+    <!--  Main Banner End Here-->
+
+    <!-- About -->
+    <!-- About -->
+
+    <section class="latest__block padding ptb-xs-40">
+
+        <div class="container">
+            <hr>
+
+            <div class="row text-center mb-40 mb-xs-30">
+                <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+                    <div class="section-title_home">
+                        {{--                    <h2>Our Blog</h2>--}}
+                        <span class="b-line"></span>
+                    </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-4 border p-1" style="border-color: green;">
+                    <div class="img-scale">
+                        <figure>
+                            <img src="{{asset('assets/images/painting.jpg')}}" alt="" style=" height:250px">
+                        </figure>
+                        <div class="latest__block-post gray-bg">
+                            @if(!empty($construction))
+                                <div class="meta-post h-3">
+                                    <h3 class="text-success">{{$construction->translation()->title ?? "Arisha Service"}}</h3>
+                                </div>
+                                <p class="text-justify"><a
+                                        href="{{route('craftsman_services',app()->getLocale())}}">{{__('Bitte wenden Sie sich an uns, um weitere Informationen zu erhalten. Unsere professionellen ARISHA SERVICE-Partner können Ihnen dabei helfen, ein konkurrenzfähiges Angebot für Ihre privaten und gewerblichen Hand Arbite  zu erhalten.')}}</a>
+                                </p>
 
-            <div class="col-md-8 mt-xs-30 text-center text-md-left">
-                <p>
-                    {{__('We are happy to relieve you of the work around the house and apartment so that you have time for the important things. We are happy to hear from them!')}}
-                </p>
-                <p>
-                    {{__('Arisha Services has been offering you versatile cleaning and craftsman services of the highest quality since 2017. We always follow your individual expectations and look after you personally, comfortably and inexpensively.')}}
-                </p>
+                                <div class="flat-link flat-arrow sm  ">
+                                    <a href="{{route('home_cleaning',app()->getLocale())}}">
+                                        {!!  Illuminate\Support\Str::limit(($construction->translation()->details ?? " Arisha Service") ,200 )  !!}
+                                    </a></p>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 mt-sm-30 mt-xs-30 border p-1" style="border-color: green;">
+                    <div class="img-scale">
+                        <figure>
+                            <img src="{{asset('assets/images/moving.jpg')}}" alt="" style=" height:250px">
+                        </figure>
+                        <div class="latest__block-post gray-bg">
+                            @if(!empty($transport))
+                                <div class="meta-post">
+                                    <h3 class="text-success">{{$transport->translation()->title ?? "Arisha Service"}}</h3>
+                                </div>
+                                <p class="text-justify"><a
+                                        href="{{route('office_cleaning',app()->getLocale())}}">{{__('ARISHA SERVICE  ist ein umfassender und professioneller Dienstleister, der Umzugsservice, Möbeltransport  Kurierservice in Berlin anbietet.')}}</a>
+                                </p>
+
+                                <div class="flat-link flat-arrow sm  ">
+                                    <br>
+                                    <a href="{{route('home_cleaning',app()->getLocale())}}">
+                                        {!!  Illuminate\Support\Str::limit($transport->translation()->details,200 ) ?? " Arisha Service" !!}
+                                    </a></p>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-sm-30 mt-xs-30 border p-1" style="border-color: green;">
+                    <div class="img-scale">
+                        <figure>
+                            <img src="{{asset('assets/images/blog/home_blog_3.jpg')}}" alt="" style=" height:250px">
+                        </figure>
+                        <div class="latest__block-post gray-bg">
+                            @if(!empty($cleaning))
+                                <div class="meta-post">
+                                    <h3 class="text-success">{{$cleaning->translation()->title ?? "Arisha Service"}}</h3>
+
+                                </div>
+                                <p class="text-justify">
+                                    <a href="{{route('home_cleaning',app()->getLocale())}}">
+                                        {!!  Illuminate\Support\Str::limit($cleaning->translation()->details,200 ) ?? " Arisha Service" !!}
+                                    </a></p>
+                                <div class="flat-link flat-arrow sm  ">
+                                    <a href="{{route('home_cleaning',app()->getLocale())}}" class="more_btn__block">More
+                                        <i class="fa fa-angle-right"></i> </a>
+                                </div>
+                            @endif
+
+
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="row mt-30 mt-xs-0">
-            <div class="col-lg-3 col-md-6">
-                <div class="clean_top mb-xs-30 feature-box">
-                    <div class="content">
-                        <img src="{{asset('assets/images/cleaning-lady.svg')}}" alt="" height="50" width="50" />
-                        <h3>Expert</h3>
-
+    </section>
+    <section class="padding ptb-xs-40">
+        <div class="container">
+            <div class="row pb-30">
+                <div class="col-md-4 d-flex align-items-center">
+                    <div class="section_tit">
+                        <h2>{{__('About Us')}}</h2>
+                        <span class="b-line l-left sm-l-center"></span>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="clean_top mb-xs-30 feature-box">
-                    <div class="content">
-                        <img src="{{asset('assets/images/cleaner.svg')}}" alt="" height="50" width="50" />
-                        <h3>Secure Services</h3>
-                        {{--                        <p>--}}
-                        {{--                            Lorem Ipsum is simply text the printing and typesetting standard industry.--}}
-                        {{--                        </p>--}}
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mt-sm-30">
-                <div class="clean_top mb-xs-30 feature-box">
-                    <div class="content">
-                        <img src="{{asset('assets/images/clean.svg')}}" alt="" height="50" width="50" />
-                        <h3>Low Costing</h3>
-                        {{--                        <p>--}}
-                        {{--                            Lorem Ipsum is simply text the printing and typesetting standard industry.--}}
-                        {{--                        </p>--}}
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mt-sm-30">
-                <div class="clean_top mb-xs-30 feature-box">
-                    <div class="content">
-                        <img src="{{asset('assets/images/clean-1.svg')}}" alt="" height="50" width="50" />
-                        <h3>On Time</h3>
-                        {{--                        <p>--}}
-                        {{--                            Lorem Ipsum is simply text the printing and typesetting standard industry.--}}
-                        {{--                        </p>--}}
-                    </div>
-                </div>
-            </div>
-        </div>
 
-    </div>
-</section>
-
-<!-- Service_Section -->
-<section class="padding ptb-xs-40 gray-bg service_sec">
-    <div class="container">
-        <div class="row text-center mb-xs-30">
-            <div class="col-md-12  col-lg-12 ">
-                <div class="section-title_home">
-                    <h2>Quality Services</h2>
-                    <span class="b-line"></span>
+                <div class="col-md-8 mt-xs-30 text-center text-md-left">
                     <p>
-                        <strong class="text-success">Arisha Service</strong> {{__('is a growing start-up company offering professional services in Berlin, Germany. We offer a wide range of services in courier and transportation to help make your life easier. Whether it’s Sending a letter urgently in an hour, transporting goods from your warehouse to the store, sending goods to your clients, transport your furniture from store to home or move to the new home we have experienced people waiting to discuss your requirements.')}}
+                        {{__('We are happy to relieve you of the work around the house and apartment so that you have time for the important things. We are happy to hear from them!')}}
+                    </p>
+                    <p>
+                        {{__('Arisha Services has been offering you versatile cleaning and craftsman services of the highest quality since 2017. We always follow your individual expectations and look after you personally, comfortably and inexpensively.')}}
                     </p>
                 </div>
             </div>
+
+            <div class="row mt-30 mt-xs-0">
+                <div class="col-lg-3 col-md-6">
+                    <div class="clean_top mb-xs-30 feature-box">
+                        <div class="content">
+                            <img src="{{asset('assets/images/cleaning-lady.svg')}}" alt="" height="50" width="50"/>
+                            <h3>Expert</h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="clean_top mb-xs-30 feature-box">
+                        <div class="content">
+                            <img src="{{asset('assets/images/cleaner.svg')}}" alt="" height="50" width="50"/>
+                            <h3>Secure Services</h3>
+                            {{--                        <p>--}}
+                            {{--                            Lorem Ipsum is simply text the printing and typesetting standard industry.--}}
+                            {{--                        </p>--}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-sm-30">
+                    <div class="clean_top mb-xs-30 feature-box">
+                        <div class="content">
+                            <img src="{{asset('assets/images/clean.svg')}}" alt="" height="50" width="50"/>
+                            <h3>Low Costing</h3>
+                            {{--                        <p>--}}
+                            {{--                            Lorem Ipsum is simply text the printing and typesetting standard industry.--}}
+                            {{--                        </p>--}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-sm-30">
+                    <div class="clean_top mb-xs-30 feature-box">
+                        <div class="content">
+                            <img src="{{asset('assets/images/clean-1.svg')}}" alt="" height="50" width="50"/>
+                            <h3>On Time</h3>
+                            {{--                        <p>--}}
+                            {{--                            Lorem Ipsum is simply text the printing and typesetting standard industry.--}}
+                            {{--                        </p>--}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
+    </section>
 
-{{--        <div class="row">--}}
+    <!-- Service_Section -->
+    <section class="padding ptb-xs-40 gray-bg service_sec">
+        <div class="container">
+            <div class="row text-center mb-xs-30">
+                <div class="col-md-12  col-lg-12 ">
+                    <div class="section-title_home">
+                        <h2>Quality Services</h2>
+                        <span class="b-line"></span>
+                        <p>
+                            <strong class="text-success">Arisha
+                                Service</strong> {{__('is a growing start-up company offering professional services in Berlin, Germany. We offer a wide range of services in courier and transportation to help make your life easier. Whether it’s Sending a letter urgently in an hour, transporting goods from your warehouse to the store, sending goods to your clients, transport your furniture from store to home or move to the new home we have experienced people waiting to discuss your requirements.')}}
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-{{--            <div class="col-md-12">--}}
-{{--                <div class="service_slider_home next_btn_style">--}}
+            {{--        <div class="row">--}}
 
-{{--                    @foreach($all_service as $service)--}}
-{{--                    <div class="service_box">--}}
-{{--                --}}
-{{--                        <h3><a href="#">{{$service->name}}</a></h3>--}}
-{{--                        <h5><a class="text-danger" href="#">Service Charge: {{$service->charge}} &euro;</a></h5>--}}
-{{--                        <p>--}}
-{{--                            {{$service->details}}--}}
-{{--                        </p>--}}
-{{--                    </div>--}}
-{{--                    @endforeach--}}
+            {{--            <div class="col-md-12">--}}
+            {{--                <div class="service_slider_home next_btn_style">--}}
 
-{{--                </div>--}}
-{{--            </div>--}}
+            {{--                    @foreach($all_service as $service)--}}
+            {{--                    <div class="service_box">--}}
+            {{--                --}}
+            {{--                        <h3><a href="#">{{$service->name}}</a></h3>--}}
+            {{--                        <h5><a class="text-danger" href="#">Service Charge: {{$service->charge}} &euro;</a></h5>--}}
+            {{--                        <p>--}}
+            {{--                            {{$service->details}}--}}
+            {{--                        </p>--}}
+            {{--                    </div>--}}
+            {{--                    @endforeach--}}
 
-{{--        </div>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
 
-    </div>
-</section>
+            {{--        </div>--}}
+
+        </div>
+    </section>
 
 
 
-{{--<section class="padding ptb-xs-40 ">--}}
-{{--    <div class="container">--}}
-{{--        <div class="row text-center light-color mb-40 mb-xs-30">--}}
-{{--            <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">--}}
-{{--                <div class="section-title_home" >--}}
-{{--                    <h2 style="color:black" >Our Testimonial</h2>--}}
-{{--                    <span class="b-line"></span>--}}
-{{--                    <p  style="color:black">--}}
-{{--                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 's standard dummy text.--}}
-{{--                    </p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="home_testimonial p-5">--}}
+    {{--<section class="padding ptb-xs-40 ">--}}
+    {{--    <div class="container">--}}
+    {{--        <div class="row text-center light-color mb-40 mb-xs-30">--}}
+    {{--            <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">--}}
+    {{--                <div class="section-title_home" >--}}
+    {{--                    <h2 style="color:black" >Our Testimonial</h2>--}}
+    {{--                    <span class="b-line"></span>--}}
+    {{--                    <p  style="color:black">--}}
+    {{--                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 's standard dummy text.--}}
+    {{--                    </p>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--        <div class="home_testimonial p-5">--}}
 
-{{--            <div class="testimonial_blog">--}}
+    {{--            <div class="testimonial_blog">--}}
 
-{{--                <div class="author_detail">--}}
-{{--                    <div class="author_pic">--}}
-{{--                        <img src="https://www.clipartmax.com/png/full/255-2556971_computer-icons-user-management-clip-art-default-profile-picture-green.png" alt="" />--}}
-{{--                    </div>--}}
-{{--                    <h3>Andrew Flintoff</h3>--}}
-{{--                    <p>--}}
-{{--                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type.--}}
-{{--                    </p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+    {{--                <div class="author_detail">--}}
+    {{--                    <div class="author_pic">--}}
+    {{--                        <img src="https://www.clipartmax.com/png/full/255-2556971_computer-icons-user-management-clip-art-default-profile-picture-green.png" alt="" />--}}
+    {{--                    </div>--}}
+    {{--                    <h3>Andrew Flintoff</h3>--}}
+    {{--                    <p>--}}
+    {{--                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type.--}}
+    {{--                    </p>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
 
-{{--            <div class="testimonial_blog">--}}
+    {{--            <div class="testimonial_blog">--}}
 
-{{--                <div class="author_detail">--}}
-{{--                    <div class="author_pic">--}}
-{{--                        <img src="https://www.clipartmax.com/png/full/255-2556971_computer-icons-user-management-clip-art-default-profile-picture-green.png" alt="" />--}}
-{{--                    </div>--}}
-{{--                    <h3>Andrew Flintoff</h3>--}}
-{{--                    <p>--}}
-{{--                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type.--}}
-{{--                    </p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+    {{--                <div class="author_detail">--}}
+    {{--                    <div class="author_pic">--}}
+    {{--                        <img src="https://www.clipartmax.com/png/full/255-2556971_computer-icons-user-management-clip-art-default-profile-picture-green.png" alt="" />--}}
+    {{--                    </div>--}}
+    {{--                    <h3>Andrew Flintoff</h3>--}}
+    {{--                    <p>--}}
+    {{--                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type.--}}
+    {{--                    </p>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
 
-{{--            <div class="testimonial_blog">--}}
+    {{--            <div class="testimonial_blog">--}}
 
-{{--                <div class="author_detail">--}}
-{{--                    <div class="author_pic">--}}
-{{--                        <img src="https://www.clipartmax.com/png/full/255-2556971_computer-icons-user-management-clip-art-default-profile-picture-green.png" alt="" />--}}
-{{--                    </div>--}}
-{{--                    <h3>Andrew Flintoff</h3>--}}
-{{--                    <p>--}}
-{{--                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type.--}}
-{{--                    </p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+    {{--                <div class="author_detail">--}}
+    {{--                    <div class="author_pic">--}}
+    {{--                        <img src="https://www.clipartmax.com/png/full/255-2556971_computer-icons-user-management-clip-art-default-profile-picture-green.png" alt="" />--}}
+    {{--                    </div>--}}
+    {{--                    <h3>Andrew Flintoff</h3>--}}
+    {{--                    <p>--}}
+    {{--                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type.--}}
+    {{--                    </p>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
 
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</section>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
+    {{--</section>--}}
 
 
 

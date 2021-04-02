@@ -64,10 +64,21 @@ class ServiceOrderComponent extends Component
     public $card_name, $card_number, $cvc, $exp_month, $exp_year;
 
 
-    protected $listeners = ['distanceCalculated' => 'onDistance', 'onStripToken' => 'onStripTokenHandler'];
+    protected $listeners = ['distanceCalculated' => 'onDistance', 'onStripToken' => 'onStripTokenHandler','from'=>'from','to'=>'to'];
+
+
+    public function from($token)
+    {
+        $this->street = $token;
+    }
+  public function to($token)
+    {
+        $this->receiver_street = $token;
+    }
 
     public function onStripTokenHandler($token)
     {
+
         $this->stripeToken = $token;
         $this->request();
 //        dd($this->stripeToken);
@@ -76,7 +87,7 @@ class ServiceOrderComponent extends Component
     public function onDistance($value)
     {
         $this->distance = $value;
-//        dd($this->km);
+
     }
 
     public function mount($id = 1)

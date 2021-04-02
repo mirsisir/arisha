@@ -12,19 +12,19 @@
 <h3># Arisha Service Confirm Your Partner Request.</h3>
 
 <h4>Dear {{$Emp->name?? " "}}
-</h4><br>
+</h4>
 <p>Congrats, now you are a partner of Arisha Service .
-</p><br>
-<p>Your Login credentials</p> <br>
-<p>Phone : {{$Emp->phone}}</p><br>
-<p>Password : {{$password}}</p><br>
+</p>
+<p>Your Login credentials</p>
+<p>Phone : {{$Emp->phone}}</p>
+<p>Password : {{$password}}</p>
 <a href="http://arisha-service.de/">LOGIN Arisha Service</a>
 
 
 
 
 
-Thanks,<br>
+Thanks,
 Arisha Service
 
 

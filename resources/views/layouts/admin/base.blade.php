@@ -48,7 +48,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <link media="all" type="text/css" rel="stylesheet" href="https://www.bootstrapdash.com/demo/connect-plus/laravel/template/demo_1/assets/plugins/fullcalendar/fullcalendar.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
     @yield('css')
     @stack('css')
@@ -449,12 +449,33 @@
 {{--                        <span class="menu-title">Department</span>--}}
 {{--                    </a>--}}
 {{--                </li>--}}
-                <li class="nav-item active">
-                    <a class="nav-link"
-                       href="{{route('general_settings')}}">
+{{--                <li class="nav-item active">--}}
+{{--                    <a class="nav-link"--}}
+{{--                       href="{{route('general_settings')}}">--}}
+{{--                        <span class="icon-bg"><i class="mdi mdi mdi-settings menu-icon"></i></span>--}}
+{{--                        <span class="menu-title">General Settings</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+
+                <li class="nav-item ">
+                    <a class="nav-link" data-toggle="collapse" href="#Settings" aria-expanded="false"
+                       aria-controls="employee1">
                         <span class="icon-bg"><i class="mdi mdi mdi-settings menu-icon"></i></span>
-                        <span class="menu-title">General Settings</span>
+                        <span class="menu-title">Settings</span>
+                        <i class="menu-arrow"></i>
                     </a>
+                    <div class="collapse " id="Settings">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item ">
+
+                                <a class="nav-link" href="{{route('general_settings')}}">General Settings</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{{ route('index.translate') }}">Arisha Info</a>
+                            </li>
+
+                        </ul>
+                    </div>
                 </li>
 
                 <li class="nav-item sidebar-user-actions">
@@ -467,7 +488,7 @@
                                              alt="image" >
                                     </div>
                                     <div class="sidebar-profile-text">
-                                        <p class="mb-1">{{ auth()->user()->name }}</p>
+                                        <p class="mb-1">{{ auth()->user()->name  ?? " "}}</p>
                                     </div>
                                 </div>
                             </div>
