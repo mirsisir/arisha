@@ -1,7 +1,7 @@
 @extends('layouts.web.web_base')
 @section('content')
 
-    @if(!empty($arisah))
+    @if(!empty($policy))
     <div class="content"><h2 class="">{{$policy->translation()->title}}</h2></div>
     <hr>
 
