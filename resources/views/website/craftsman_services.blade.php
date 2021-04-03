@@ -16,9 +16,7 @@
         <div class="card-body">
             <section class="padding ptb-xs-40 pt-0">
                 <div class="container ">
-                    <div class="row">
-                        <!-- Post Bar -->
-                        <div class="col-lg-9 blog-post-hr post-section mt-0">
+
                             <div class="blog-post mb-30 ">
                                 <div class="post-header">
                                     <h2>{{$transport->translation()->title ?? "Arisha Service"}}</h2>
@@ -29,8 +27,6 @@
 
                             </div>
 
-                        </div>
-                    </div>
                 </div>
 
             </section>
