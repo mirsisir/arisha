@@ -140,12 +140,10 @@
                                 <div class="meta-post h-3">
                                     <h3 class="text-success">{{$construction->translation()->title ?? "Arisha Service"}}</h3>
                                 </div>
-                                <p class="text-justify"><a
-                                        href="{{route('craftsman_services',app()->getLocale())}}">{{__('Bitte wenden Sie sich an uns, um weitere Informationen zu erhalten. Unsere professionellen ARISHA SERVICE-Partner können Ihnen dabei helfen, ein konkurrenzfähiges Angebot für Ihre privaten und gewerblichen Hand Arbite  zu erhalten.')}}</a>
-                                </p>
+
 
                                 <div class="flat-link flat-arrow sm  ">
-                                    <a href="{{route('home_cleaning',app()->getLocale())}}">
+                                    <a href="{{route('office_cleaning',app()->getLocale())}}">
                                         {!!  Illuminate\Support\Str::limit(($construction->translation()->details ?? " Arisha Service") ,200 )  !!}
                                     </a></p>
                                 </div>
@@ -165,13 +163,11 @@
                                 <div class="meta-post">
                                     <h3 class="text-success">{{$transport->translation()->title ?? "Arisha Service"}}</h3>
                                 </div>
-                                <p class="text-justify"><a
-                                        href="{{route('office_cleaning',app()->getLocale())}}">{{__('ARISHA SERVICE  ist ein umfassender und professioneller Dienstleister, der Umzugsservice, Möbeltransport  Kurierservice in Berlin anbietet.')}}</a>
-                                </p>
+
 
                                 <div class="flat-link flat-arrow sm  ">
                                     <br>
-                                    <a href="{{route('home_cleaning',app()->getLocale())}}">
+                                    <a href="{{route('craftsman_services',app()->getLocale())}}">
                                         {!!  Illuminate\Support\Str::limit($transport->translation()->details,200 ) ?? " Arisha Service" !!}
                                     </a></p>
                                 </div>
