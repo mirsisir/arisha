@@ -21,7 +21,8 @@
                                     <h2>{{$construction->translation()->title ?? "Arisha Service"}}</h2>
                                 </div>
                                 <div class="post-media">
-                                    <img src="{{asset('assets/images/moving.jpg')}}" alt="">
+                                    <img src="{{asset('assets/images/painting.jpg')}}" alt="">
+
                                     {!! $construction->translation()->details  ?? "Arisha Service" !!}
                                 </div>
                             </div>

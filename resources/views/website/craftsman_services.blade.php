@@ -21,7 +21,8 @@
                                 <div class="post-header">
                                     <h2>{{$transport->translation()->title ?? "Arisha Service"}}</h2>
                                 </div>
-                                <div class="post-media"><img src="{{asset('assets/images/painting.jpg')}}" alt="">
+                                <div class="post-media">
+                                    <img src="{{asset('assets/images/moving.jpg')}}" alt="">
                                     {!! $transport->translation()->details  ?? "Arisha Service" !!}
                                 </div>
 
