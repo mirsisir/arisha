@@ -62,10 +62,6 @@
                             <a href="{{route('service_details',$request->id)}}" class="btn btn-info"> Details </a>
 
 
-{{--                            <button type="button" class="btn btn-success" data-toggle="modal"--}}
-{{--                                    data-target="#ModalComplete{{$request->id}}">Complete--}}
-{{--                            </button>--}}
-
                             <div class="modal fade" id="ModalComplete{{$request->id}}" tabindex="-1" role="dialog"
                                  aria-labelledby="ModalComplete" aria-hidden="true">
 

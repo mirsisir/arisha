@@ -25,8 +25,6 @@
     <link href="{{asset('assets/css/index.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('assets/css/theme-color/default.css')}}" rel="stylesheet" type="text/css" id="theme-color"/>
 
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
-    <link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet"/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -44,6 +42,7 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <title>Arisha Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     @livewireStyles
     <script defer
             src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyB779Mep4XZ5hC6KX-Jrl9kjAMEP8V0JEA"
@@ -70,9 +69,6 @@
     </div>
 </div>
 
-<!--loader-->
-
-<!-- HEADER -->
 <header>
     <div class="middel-part__block">
         <div class="container">
@@ -80,10 +76,11 @@
                 <div class="col-lg-4 logo col-md-12 col-sm-9 d-flex align-items-center">
 
 
-                   <div class="col-sm-9">
-                       <img src="{{asset('storage/'. ($settings->logo ?? " ") )  }}" style="height: 110px" alt="" class="float-left">
+                    <div class="col-sm-9 p-2">
+                        <img src="{{asset('storage/'. ($settings->logo ?? " ") )  }}"
+                             style="height: 50px;border-radius: 110px " alt="" class="float-left ">
 
-                   </div>
+                    </div>
                     <div class="navbar-header float-right">
                         <button type="button" class="navbar-toggle hidden-lg-up " data-toggle="collapse"
                                 data-target="#navbar-menu">
@@ -111,14 +108,14 @@
                             <li>
                                 <i class="fa fa-phone"></i>
                                 <p>
-                                    {{__('Call Us')}}
+
                                     <span> {{$settings->phone?? " "}}</span>
                                 </p>
                             </li>
                             <li>
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                 <p>
-                                    Mail Us
+
                                     <span> <a href="mailto:info@gmail.com">{{$settings->email ?? " "}}</a> </span>
                                 </p>
                             </li>
@@ -154,47 +151,44 @@
                             <span class="submenu-button"></span>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="{{route('all_services',app()->getLocale())}}#transport">Umzug & Transport</a>
+                                    <a href="{{route('all_services',app()->getLocale())}}#transport">Umzug &
+                                        Transport</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('all_services',app()->getLocale())}}#cleaning">Reinigung Services</a>
+                                    <a href="{{route('all_services',app()->getLocale())}}#cleaning">Reinigung
+                                        Services</a>
                                 </li>
                                 <li>
                                     <a href="{{route('all_services',app()->getLocale())}}#construction">Handwerker</a>
                                 </li>
 
 
-
                             </ul>
                         </li>
-{{--                        <li>--}}
-{{--                            <a href="{{route('all_services',app()->getLocale())}}">{{__('Pricing')}}</a>--}}
-{{--                        </li>--}}
-
-                        {{--                        <li>--}}
-                        {{--                            <a href="{{route('services_request',['language'=>app()->getLocale(),'id'=>2])}}">{{__('Bal')}}</a>--}}
-                        {{--                        </li>--}}
 
 
                         @if (Auth::check())
                             <li>
                                 <a href="{{route('customer_dashboard',app()->getLocale())}}">{{__('Dashboard')}}</a>
                             </li>
+                        @else
+                            <li>
+                                <a href="{{route('register',app()->getLocale())}}">{{__('Kunden Registrierung')}}</a>
+                            </li>
 
                         @endif
 
 
-                        {{--                        <ul class="nav navbar-nav mobile-menu  float-right">--}}
                         <div class="float-right mt-2">
+                            @if(Route::currentRouteName() != "services_request")
+                                <div class="m-1 btn btn-info">
+                                    <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'en')}}">EN</a>
 
-                            <div class="m-1 btn btn-info">
-                                <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'en')}}">EN</a>
-
-                            </div>
-                            <div class=" m-1 btn btn-info   mr-2">
-                                <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'de')}}">DE</a>
-                            </div>
-
+                                </div>
+                                <div class=" m-1 btn btn-info   mr-2">
+                                    <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'de')}}">DE</a>
+                                </div>
+                            @endif
 
                             <div class=" ml-4 m-1 btn btn-info float-right  ">
 
@@ -212,8 +206,9 @@
                                     </form>
                                 @else
 
-                                    {{--                                    <a href="{{route('login',app()->getLocale())}}">login</a>--}}
-                                    <a class="" data-toggle="modal" data-target="#modal-success">{{__('Login')}}</a>
+
+                                    <a class="" data-toggle="modal" onclick="myFunction()"
+                                       data-target="#modal-success">{{__('Login')}}</a>
 
 
                                 @endif
@@ -223,28 +218,11 @@
                         </div>
 
 
-{{--                        <li class="float-right">--}}
-{{--                            <a href="#!">language</a>--}}
-{{--                            <span class="submenu-button"></span>--}}
-{{--                            <ul class="dropdown-menu">--}}
-{{--                                <li>--}}
-{{--                                    <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'en')}}">English(EN)</a>--}}
-{{--                                </li>--}}
-
-{{--                                <li>--}}
-{{--                                    <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(),'de')}}">German(de)</a>--}}
-{{--                                </li>--}}
-
-{{--                            </ul>--}}
-{{--                        </li>--}}
                     </ul>
 
-
-                    </ul>
 
                 </div>
 
-                <!--navbar-collapse -->
             </div>
         </nav>
         @if ($errors->any())
@@ -266,34 +244,15 @@
 
 {{ $slot ?? '' }}
 
+@php( $transport = \App\Models\ArishaInfo::firstWhere('name' ,'Transport'));
+@php( $cleaning = \App\Models\ArishaInfo::firstWhere('name' ,'Cleaning'));
+@php( $construction = \App\Models\ArishaInfo::firstWhere('name' ,'Construction'));
+
+
 <!-- Blog_End -->
 <footer class="footer pt-50">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-lg-3 footer_logo">
-                <img src="{{asset('storage/'. ($settings->logo ?? " ") )  }}" style="height: 110px" alt="">
-                <p>
-                    {{__('Lorem ipsum dolor amet natum latine copiosa at quo, suas labore saperet has there any quote for
-                    write lorem percit latineu suas dummy.')}}
-                </p>
-                <ul>
-                    <li>
-                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a>
-                    </li>
-                </ul>
-            </div>
 
             <div class="col-md-6 col-lg-3 mt-xs-30 link_footer">
                 <h4>{{__('Information')}}</h4>
@@ -306,10 +265,10 @@
                         <a href="{{route('Impressum',app()->getLocale())}}">{{__('Impressum')}}</a>
                     </li>
                     <li>
-                        <a href="{{route('page.terms', app()->getLocale())}}">{{__('Terms of Services')}}</a>
+                        <a href="{{route('page.terms', app()->getLocale())}}">{{__('Terms of Condition')}}</a>
                     </li>
                     <li>
-                        <a href="{{route('privacy_policy', app()->getLocale())}}">{{__('Privacy Policy')}}</a>
+                        <a href="{{route('privacy_policy', app()->getLocale())}}">{{__('Data protection')}}</a>
                     </li>
                     <li>
                         <a href="{{route('partner_registration',app()->getLocale())}}">{{__('Partner Registration')}}</a>
@@ -317,20 +276,64 @@
                 </ul>
             </div>
 
+            <div class="col-md-6 col-lg-3 mt-xs-30 link_footer">
+                <h4>{{__('Unsere Leistungen')}}</h4>
+                <ul>
 
-            <div class="col-md-6 col-lg-6 mt-sm-30 mt-xs-30 footer-subscribe">
+                    <li>
+                        <a href="{{route('office_cleaning',app()->getLocale())}}">{{$construction->translation()->title ?? "Arisha Service"}}</a>
+                    </li>
+
+                    <li>
+                        <a href="{{route('craftsman_services',app()->getLocale())}}">{{$transport->translation()->title ?? "Arisha Service"}}</a>
+                    </li>
+                    <li>
+                        <a href="{{route('craftsman_services',app()->getLocale())}}">{{__('Sperrmüll Recycling')}}</a>
+                    </li>
+                    <li>
+                        <a href="{{route('home_cleaning',app()->getLocale())}}">{{$cleaning->translation()->title ?? "Arisha Service"}}</a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+            <div class="col-md-3 col-lg-3 mt-sm-30 mt-xs-30 footer-subscribe">
                 <h4>{{__('Subscribe Us')}}</h4>
                 <p>
-                    {{__('If you have any special requirements for your Booking, as well as any query related to our services,
-                    then do not hesitate to give us a call . We are happy to serve you.')}} {{$settings->phone?? " "}}
+                    {{__('If you have any special requirements for your Booking, as well as any query related to our services,then do not hesitate to give us a call . We are happy to serve you.')}} {{$settings->phone?? " "}}
                 </p>
                 <form action="#">
                     <input type="text" placeholder="Enter your e-mail">
-                    <button class="btn-text">
+                    <button style="background-color: green">
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </button>
                 </form>
 
+            </div>
+
+            <div class="col-md-6 col-lg-3 mt-xs-30 link_footer">
+                <h4>{{__('Contact us')}}</h4>
+                <ul style="color: white">
+
+                    <li>
+                        <p>Arisha Service</p>
+                    </li>
+                    <li>
+                        <p>Email : arishaservice@gmail.com</p>
+                    </li>
+                    <li>
+                        <p>Phone : {{$settings->phone?? " "}}</p>
+                    </li>
+                    <li>
+                        <p>Phone : +493092153947</p>
+                    </li>
+                    <li>
+                        <p>Address :{{$settings->house_number?? " "}}  {{$settings->street?? " "}} <br>
+                            {{$settings->post_code?? " "}}  {{$settings->city?? " "}}</p>
+                    </li>
+
+                </ul>
             </div>
 
         </div>
@@ -349,125 +352,24 @@
 
 <div class="login ">
     <!--Success Modal Templates-->
-    <div id="modal-success" class="modal modal-message modal-success fade" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog " style=" margin-top:15%">
+    <div id="modal-success" class="modal modal-message modal-success fade row" style="display: none;"
+         aria-hidden="true">
+        <div class="modal-dialog col-sm-9 " style=" margin-top:20%">
             <div class="modal-content ">
-                <div class="modal-header">
-                    <i class="glyphicon glyphicon-check"></i>
-                </div>
+
                 <div class="modal-title p-2">
-
-
-                    <div id="register" style="display: none">
-                        <form method="POST" action="{{ route('register') }}">
-                            @csrf
-
-                            <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="name" type="text"
-                                           class="form-control @error('name') is-invalid @enderror" name="name"
-                                           value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                    @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="phone"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="phone" type="text"
-                                           class="form-control @error('phone') is-invalid @enderror" name="phone"
-                                           value="{{ old('phone') }}" required autocomplete="phone" autofocus>
-
-                                    @error('phone')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="email"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="email" type="email"
-                                           class="form-control @error('email') is-invalid @enderror" name="email"
-                                           value="{{ old('email') }}" required autocomplete="email">
-
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="password"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password"
-                                           class="form-control @error('password') is-invalid @enderror" name="password"
-                                           required autocomplete="new-password">
-
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="password-confirm"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control"
-                                           name="password_confirmation" required autocomplete="new-password">
-                                </div>
-                            </div>
-
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button class="btn btn-info" onclick="myFunction()">
-                                        {{ __('Login') }}
-                                    </button>
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
-                                    </button>
-
-                                </div>
-                            </div>
-                        </form>
-
-                    </div>
 
                     <div class="login" id="login">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="login">
                                 <div class="form-group row">
-                                    <label for="phone"
-                                           class="col-md-4 col-form-label text-md-right ">{{ __('Phone No') }}</label>
+                                    <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="phone" type="phone"
-                                               class="form-control @error('phone') is-invalid @enderror" name="phone"
-                                               value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                                        @error('phone')
+                                        @error('email')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -493,18 +395,6 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
-                                    <div class="col-md-6 offset-md-4">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="remember"
-                                                   id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                            <label class="form-check-label" for="remember">
-                                                {{ __('Remember Me') }}
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
 
 
@@ -537,21 +427,21 @@
 
 </div>
 
+
+<div class=" " style="float:right; display: block">
+
+    <div class="">
+        <a class="p-3 rounded" href="{{route('services_request',app()->getLocale())}}"
+           style="position: fixed; background-color: Green; color: white;  right: 30px; bottom: 80px;"> {{__('ORDER NOW')}}</a>
+
+    </div>
+</div>
+
 <script>
     function myFunction() {
-        var x = document.getElementById("register");
-        var y = document.getElementById("login");
+        document.getElementById("navbar-menu").classList.remove('show');
 
-        if (y.style.display === "none") {
-            y.style.display = "block";
-        } else {
-            y.style.display = "none";
-        }
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
+
     }
 </script>
 <!-- Site Wraper End -->
@@ -587,12 +477,6 @@
 <!-- custom Js -->
 <script src="{{asset('assets/js/custom.js')}}" type="text/javascript"></script>
 
-{{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--}}
-
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
@@ -607,7 +491,7 @@
 
 <script>
     $(function () {
-        // add input listeners
+
         google.maps.event.addDomListener(window, 'load', function () {
             var from_places = new google.maps.places.Autocomplete(document.getElementById('from_places'));
             var to_places = new google.maps.places.Autocomplete(document.getElementById('to_places'));
@@ -628,14 +512,14 @@
 
         });
 
-        // calculate distance
+
         function calculateDistance() {
             var origin = $('#from_places').val();
             var destination = $('#to_places').val();
             var service = new google.maps.DistanceMatrixService();
 
-            Livewire.emit('from', origin );
-            Livewire.emit('to', destination );
+            Livewire.emit('from', origin);
+            Livewire.emit('to', destination);
             service.getDistanceMatrix(
                 {
                     origins: [origin],
@@ -673,14 +557,14 @@
                     $('#from').text(origin);
                     $('#to').text(destination);
                     Livewire.emit('distanceCalculated', distance_in_kilo.toFixed(2));
-                    Livewire.emit('from', 22 );
+                    Livewire.emit('from', 22);
 
 
                 }
             }
         }
 
-        // print results on submit the form
+
         $('#distance_form').submit(function (e) {
             e.preventDefault();
             calculateDistance();
@@ -692,6 +576,5 @@
 
 </body>
 
-<!-- index06:36-->
 </html>
 

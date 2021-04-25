@@ -111,10 +111,7 @@
             </div>
         </div>
     </div>
-    <!--  Main Banner End Here-->
 
-    <!-- About -->
-    <!-- About -->
 
     <section class="latest__block padding ptb-xs-40">
 
@@ -124,7 +121,7 @@
             <div class="row text-center mb-40 mb-xs-30">
                 <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
                     <div class="section-title_home">
-                        {{--                    <h2>Our Blog</h2>--}}
+                                            <h2>{{__('Unsere Leistungen')}}</h2>
                         <span class="b-line"></span>
                     </div>
                 </div>
@@ -145,7 +142,11 @@
                                 <div class="flat-link flat-arrow sm  ">
                                     <a href="{{route('office_cleaning',app()->getLocale())}}">
                                         {!!  Illuminate\Support\Str::limit(($construction->translation()->details ?? " Arisha Service") ,200 )  !!}
-                                    </a></p>
+                                    </a>
+                                    <div class="flat-link flat-arrow sm  ">
+                                        <a href="{{route('office_cleaning',app()->getLocale())}}" class="more_btn__block">More
+                                            <i class="fa fa-angle-right"></i> </a>
+                                    </div>
                                 </div>
                             @endif
                         </div>
@@ -169,7 +170,11 @@
                                     <br>
                                     <a href="{{route('craftsman_services',app()->getLocale())}}">
                                         {!!  Illuminate\Support\Str::limit($transport->translation()->details,200 ) ?? " Arisha Service" !!}
-                                    </a></p>
+                                    </a>
+                                    <div class="flat-link flat-arrow sm  ">
+                                        <a href="{{route('craftsman_services',app()->getLocale())}}" class="more_btn__block">More
+                                            <i class="fa fa-angle-right"></i> </a>
+                                    </div>
                                 </div>
                             @endif
                         </div>
@@ -206,29 +211,30 @@
     </section>
     <section class="padding ptb-xs-40">
         <div class="container">
+            @if(!empty($quality_services))
             <div class="row pb-30">
                 <div class="col-md-4 d-flex align-items-center">
                     <div class="section_tit">
-                        <h2>{{__('About Us')}}</h2>
+                        <h2>{{$quality_services->translation()->title ?? "Arisha Service"}}</h2>
                         <span class="b-line l-left sm-l-center"></span>
                     </div>
                 </div>
 
                 <div class="col-md-8 mt-xs-30 text-center text-md-left">
-                    <p>
-                        {{__('We are happy to relieve you of the work around the house and apartment so that you have time for the important things. We are happy to hear from them!')}}
-                    </p>
-                    <p>
-                        {{__('Arisha Services has been offering you versatile cleaning and craftsman services of the highest quality since 2017. We always follow your individual expectations and look after you personally, comfortably and inexpensively.')}}
-                    </p>
+                <div class="text-justify">
+                    {!! $quality_services->translation()->details  ?? "Arisha Service" !!}
+
+                </div>
                 </div>
             </div>
+            @endif
 
             <div class="row mt-30 mt-xs-0">
                 <div class="col-lg-3 col-md-6">
                     <div class="clean_top mb-xs-30 feature-box">
                         <div class="content">
-                            <img src="{{asset('assets/images/cleaning-lady.svg')}}" alt="" height="50" width="50"/>
+                            <i class="fas fa-truck-moving fa-2x " style="color: green; height: 50px; width: 150px;"></i>
+
                             <h3>Expert</h3>
 
                         </div>
@@ -239,9 +245,6 @@
                         <div class="content">
                             <img src="{{asset('assets/images/cleaner.svg')}}" alt="" height="50" width="50"/>
                             <h3>Secure Services</h3>
-                            {{--                        <p>--}}
-                            {{--                            Lorem Ipsum is simply text the printing and typesetting standard industry.--}}
-                            {{--                        </p>--}}
                         </div>
                     </div>
                 </div>
@@ -250,20 +253,15 @@
                         <div class="content">
                             <img src="{{asset('assets/images/clean.svg')}}" alt="" height="50" width="50"/>
                             <h3>Low Costing</h3>
-                            {{--                        <p>--}}
-                            {{--                            Lorem Ipsum is simply text the printing and typesetting standard industry.--}}
-                            {{--                        </p>--}}
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-sm-30">
                     <div class="clean_top mb-xs-30 feature-box">
                         <div class="content">
-                            <img src="{{asset('assets/images/clean-1.svg')}}" alt="" height="50" width="50"/>
+                            <i class="fas fa-paint-roller fa-2x " style="color: green; height: 50px; width: 150px;"></i>
                             <h3>On Time</h3>
-                            {{--                        <p>--}}
-                            {{--                            Lorem Ipsum is simply text the printing and typesetting standard industry.--}}
-                            {{--                        </p>--}}
+
                         </div>
                     </div>
                 </div>
@@ -273,104 +271,28 @@
     </section>
 
     <!-- Service_Section -->
+    @if(!empty($about_us))
     <section class="padding ptb-xs-40 gray-bg service_sec">
         <div class="container">
             <div class="row text-center mb-xs-30">
                 <div class="col-md-12  col-lg-12 ">
                     <div class="section-title_home">
-                        <h2>Quality Services</h2>
+                        <h2>{{$about_us->translation()->title ?? "Arisha Service"}}</h2>
                         <span class="b-line"></span>
-                        <p>
-                            <strong class="text-success">Arisha
-                                Service</strong> {{__('is a growing start-up company offering professional services in Berlin, Germany. We offer a wide range of services in courier and transportation to help make your life easier. Whether it’s Sending a letter urgently in an hour, transporting goods from your warehouse to the store, sending goods to your clients, transport your furniture from store to home or move to the new home we have experienced people waiting to discuss your requirements.')}}
+                        <p class="text-justify">
+                            {!! $about_us->translation()->details  ?? "Arisha Service" !!}
                         </p>
                     </div>
                 </div>
             </div>
 
-            {{--        <div class="row">--}}
-
-            {{--            <div class="col-md-12">--}}
-            {{--                <div class="service_slider_home next_btn_style">--}}
-
-            {{--                    @foreach($all_service as $service)--}}
-            {{--                    <div class="service_box">--}}
-            {{--                --}}
-            {{--                        <h3><a href="#">{{$service->name}}</a></h3>--}}
-            {{--                        <h5><a class="text-danger" href="#">Service Charge: {{$service->charge}} &euro;</a></h5>--}}
-            {{--                        <p>--}}
-            {{--                            {{$service->details}}--}}
-            {{--                        </p>--}}
-            {{--                    </div>--}}
-            {{--                    @endforeach--}}
-
-            {{--                </div>--}}
-            {{--            </div>--}}
-
-            {{--        </div>--}}
 
         </div>
     </section>
+    @endif
 
 
 
-    {{--<section class="padding ptb-xs-40 ">--}}
-    {{--    <div class="container">--}}
-    {{--        <div class="row text-center light-color mb-40 mb-xs-30">--}}
-    {{--            <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">--}}
-    {{--                <div class="section-title_home" >--}}
-    {{--                    <h2 style="color:black" >Our Testimonial</h2>--}}
-    {{--                    <span class="b-line"></span>--}}
-    {{--                    <p  style="color:black">--}}
-    {{--                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 's standard dummy text.--}}
-    {{--                    </p>--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
-    {{--        </div>--}}
-    {{--        <div class="home_testimonial p-5">--}}
-
-    {{--            <div class="testimonial_blog">--}}
-
-    {{--                <div class="author_detail">--}}
-    {{--                    <div class="author_pic">--}}
-    {{--                        <img src="https://www.clipartmax.com/png/full/255-2556971_computer-icons-user-management-clip-art-default-profile-picture-green.png" alt="" />--}}
-    {{--                    </div>--}}
-    {{--                    <h3>Andrew Flintoff</h3>--}}
-    {{--                    <p>--}}
-    {{--                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type.--}}
-    {{--                    </p>--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
-
-    {{--            <div class="testimonial_blog">--}}
-
-    {{--                <div class="author_detail">--}}
-    {{--                    <div class="author_pic">--}}
-    {{--                        <img src="https://www.clipartmax.com/png/full/255-2556971_computer-icons-user-management-clip-art-default-profile-picture-green.png" alt="" />--}}
-    {{--                    </div>--}}
-    {{--                    <h3>Andrew Flintoff</h3>--}}
-    {{--                    <p>--}}
-    {{--                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type.--}}
-    {{--                    </p>--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
-
-    {{--            <div class="testimonial_blog">--}}
-
-    {{--                <div class="author_detail">--}}
-    {{--                    <div class="author_pic">--}}
-    {{--                        <img src="https://www.clipartmax.com/png/full/255-2556971_computer-icons-user-management-clip-art-default-profile-picture-green.png" alt="" />--}}
-    {{--                    </div>--}}
-    {{--                    <h3>Andrew Flintoff</h3>--}}
-    {{--                    <p>--}}
-    {{--                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type.--}}
-    {{--                    </p>--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
-
-    {{--        </div>--}}
-    {{--    </div>--}}
-    {{--</section>--}}
 
 
 

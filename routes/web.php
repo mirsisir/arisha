@@ -270,9 +270,11 @@ Route::group([ 'prefix' => '{language}'], function () {
         $cleaning = ArishaInfo::firstWhere('name' ,'Cleaning');
         $construction = ArishaInfo::firstWhere('name' ,'Construction');
         $transport = ArishaInfo::firstWhere('name' ,'Transport');
+        $quality_services = ArishaInfo::firstWhere('name' ,'Quality Services');
+        $about_us = ArishaInfo::firstWhere('name' ,'About Us');
 
 
-        return view('website.homepage',compact('all_service','cleaning','construction' ,'transport'));
+        return view('website.homepage',compact('all_service','cleaning','construction' ,'transport','about_us','quality_services'));
     })->name('page.homepage');
 
     Route::get('/contact_us', function () {
@@ -412,24 +414,7 @@ Route::group([
          ->name('sisirs.sisir.destroy')->where('id', '[0-9]+');
 });
 
-//Route::group([
-//    'prefix' => 'arisha_infos',
-//], function () {
-//    Route::get('/', [ArishaInfosController::class,'index'])
-//         ->name('arisha_infos.arisha_info.index');
-//    Route::get('/create',[ArishaInfosController::class,'create'])
-//         ->name('arisha_infos.arisha_info.create');
-//    Route::get('/show/{arishaInfo}',[ArishaInfosController::class,'show'])
-//         ->name('arisha_infos.arisha_info.show')->where('id', '[0-9]+');
-//    Route::get('/{arishaInfo}/edit',[ArishaInfosController::class,'edit'])
-//         ->name('arisha_infos.arisha_info.edit')->where('id', '[0-9]+');
-//    Route::post('/', [ArishaInfosController::class,'store'])
-//         ->name('arisha_infos.arisha_info.store');
-//    Route::put('arisha_info/{arishaInfo}', [ArishaInfosController::class,'update'])
-//         ->name('arisha_infos.arisha_info.update')->where('id', '[0-9]+');
-//    Route::delete('/arisha_info/{arishaInfo}',[ArishaInfosController::class,'destroy'])
-//         ->name('arisha_infos.arisha_info.destroy')->where('id', '[0-9]+');
-//});
+
 
 Route::get('/create/info', [TranslateController::class, 'create'])->name('create.translate');
 Route::post('edit/info/save', [TranslateController::class, 'update'])->name('edit.info.save');

@@ -9,16 +9,6 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
 
     use AuthenticatesUsers;
 
@@ -27,8 +17,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-
-    protected $redirectTo ='/de/customer_dashboard';
+    protected $redirectTo = 'New_Order';
 
     /**
      * Create a new controller instance.
@@ -39,14 +28,11 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    public function username(){
-        return 'phone';
-    }
 
     protected function authenticated(Request $request, $user)
     {
 
-//        dd('bal');
+
         // to admin dashboard
         if($user->isAdmin()) {
             return redirect(route('dashboard'));

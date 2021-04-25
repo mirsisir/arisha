@@ -243,37 +243,6 @@ class ServiceOrderComponent extends Component
             ]);
 
 
-            //strip
-//        if($this->payments=="Card payments")
-//        {
-//            try {
-//                Stripe::setApiKey(env('STRIPE_SECRET'));
-//
-//                $strip =Charge::create ([
-//
-//                "amount" => 100,
-//                "currency" => "EUR",
-//                "source" => $this->stripeToken,
-//                "description" => "Payment from Arisha Service For ".$this->selected_service ." Customer Name: " .$this->customer_name ,
-//            ]);
-//                $this->message =  'Payment successful!';
-//            }
-//            catch (Exception $e){
-//                $this->message  = 'Error : '.$e->getMessage();
-//
-//
-//                return;
-//            }
-//
-//
-//        }
-
-
-            //strip
-
-//        dd( (explode("T",$this->date_time)[1]));
-
-            //        public $receiver_name,$receiver_phone,$receiver_email,$receiver_street,$receiver_house,$receiver_postcode,$receiver_city,$receiver_notes;
 
             if ($this->weekly) {
                 $this->dates = [];

@@ -80,7 +80,7 @@
 
 
                     <div class="form-group">
-                        <label for="nid" class="">Bank Account <span class="text-danger">*</span></label>
+                        <label for="nid" class=""> Bank Account <span class="text-danger">*</span></label>
                         <div class="">
                             <input type="text" wire:model.lazy="nid"
                                    class="form-control @error('bank_account') is-invalid @enderror" id="nid"

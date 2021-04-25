@@ -1,10 +1,5 @@
 <div>
-    {{--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"--}}
-    {{--          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">--}}
-    {{--    <div class="container">--}}
-    {{--        <p>Below you can find a list of available time slots for Einmalige Reinigung by Md Razumul Haque. <br>--}}
-    {{--            Click on a time slot to proceed with booking.</p>--}}
-    {{--    </div>--}}
+
     <style>
         .border {
             border: 5px solid #dee2e6 !important;
@@ -29,20 +24,11 @@
         }
 
     </style>
-{{--    --}}
-{{--    @if ($errors->any())--}}
-{{--        <div class="alert alert-danger">--}}
-{{--            <ul>--}}
-{{--                @foreach ($errors->all() as $error)--}}
-{{--                    <li>{{ $error }}</li>--}}
-{{--                @endforeach--}}
-{{--            </ul>--}}
-{{--        </div>--}}
-{{--    @endif--}}
+
 
     <div class="content">
         <form action="" autocomplete="off">
-            <div class=" ml-5 mr-5 ">
+            <div class=" ml-5 mr-5 mt-5 ">
                 <div class="">
                     <div class=" ">
                         <div class="row">
@@ -52,7 +38,7 @@
                                         class="form-control @error('selected_category') is-invalid @enderror ">
                                     <option value=""></option>
                                     @foreach($category as $ctg)
-                                        <option value="{{$ctg->name}}">{{$ctg->name}}</option>
+                                        <option value="{{$ctg->name}}">{{__($ctg->name)}}</option>
                                     @endforeach
                                 </select>
                                 @error('selected_category') <span
@@ -71,35 +57,21 @@
                                 @error('selected_service') <span
                                     class="text-danger error">{{ $message }}</span>@enderror
                             </div>
-                            {{--                <div class="col-3">--}}
-                            {{--                    <label for="">Employee</label>--}}
-                            {{--                    <select name="" id="" wire:model="selected_employee" class="form-control @error('selected_employee') is-invalid @enderror">--}}
-                            {{--                        <option value=""></option>--}}
-                            {{--                        @foreach($employee as $emp)--}}
-                            {{--                            <option value="{{$emp->id}}">{{$emp->fname}} {{$emp->lname}}</option>--}}
-                            {{--                        @endforeach--}}
-                            {{--                    </select>--}}
-
-                            {{--                </div>--}}
 
 
-                            <div class="col-lg-1 col-sm-12">
-                                <label for="weekly">{{__('Weekly Service')}}</label>
+
+                            <div class="col-lg-1 col-sm-12 mr-2">
+                                <label for="weekly">{{__('Weekly Service')}} </label>
                                 <input type="checkbox" class="form-control @error('weekly') is-invalid @enderror p-0"
                                        wire:model="weekly" style="zoom:1.5;">
                             </div>
                             <div class="col-lg-1 col-sm-12">
-                                <label for="weekly">{{__('Every 15 Day')}}</label>
+                                <label for="weekly"> {{__('Every 15 Day')}}</label>
                                 <input type="checkbox" class="form-control @error('Every15day') is-invalid @enderror p-0"
                                        wire:model="Every15day" style="zoom:1.5;">
                             </div>
 
-{{--                            <div class="col-lg-1 col-sm-12">--}}
-{{--                                <input type="radio" id="Every" name="service_week" value="true"  wire:model="Every15day">--}}
-{{--                                <label for="male">{{__('Every 15 Day')}}</label><br>--}}
-{{--                                <input type="radio" id="weakly" name="service_week" value="true" wire:model="weekly" >--}}
-{{--                                <label for="female">{{__('Weekly Service')}}</label><br>--}}
-{{--                            </div>--}}
+
 
 
 
@@ -123,12 +95,6 @@
                                     </select>
                                 </div>
 
-                                {{--                            <div class="col-lg-2 col-sm-12">--}}
-                                {{--                                <label for="weekly">{{__('Week Count')}}</label>--}}
-                                {{--                                <input type="number" min="1" max="10"--}}
-                                {{--                                       class="form-control @error('weekly') is-invalid @enderror"--}}
-                                {{--                                       wire:model="week_count">--}}
-                                {{--                            </div>--}}
 
                                 <div class="col-lg-2 col-sm-12">
                                     <label for="date">{{__('Start Date')}}</label>
@@ -222,49 +188,6 @@
 
                         </div>
 
-                        {{--            <div class="row mt-2">--}}
-
-                        {{--                <div class="col-6">--}}
-                        {{--                    <label for="">Date</label>--}}
-
-                        {{--                    <input type="date" name="date" wire:model="date" id="" class="form-control @error('date') is-invalid @enderror">--}}
-
-
-                        {{--                </div>--}}
-
-
-
-                        {{--                <div class="col-6">--}}
-                        {{--                    <label for="">Start Time</label>--}}
-                        {{--                    <select name="" id="" class="form-control" wire:model="start_time">--}}
-                        {{--                        @for ($i=9; $i<=18 ;$i++)--}}
-                        {{--                            <option--}}
-                        {{--                                @foreach($total_start_time as $t)--}}
-                        {{--                                @if($t==$i) disabled  style="background: #818181; color: whitesmoke" @endif--}}
-                        {{--                                 @endforeach--}}
-                        {{--                            value="{{$i}}">{{$i}}:00</option>--}}
-                        {{--                        @endfor--}}
-
-                        {{--                                <option value="9">9:00 AM</option>--}}
-                        {{--                                <option value="10">10:00 AM</option>--}}
-                        {{--                                <option value="11">11:00 AM</option>--}}
-                        {{--                                <option value="12">12:00 PM</option>--}}
-                        {{--                                <option value="13">1:00 PM</option>--}}
-                        {{--                                <option value="13">2:00 PM</option>--}}
-                        {{--                                <option value="14">3:00 PM</option>--}}
-                        {{--                                <option value="15">4:00 PM</option>--}}
-                        {{--                                <option value="16">5:00 PM</option>--}}
-                        {{--                                <option value="17">6:00 PM</option>--}}
-                        {{--                                <option value="18">7:00 PM</option>--}}
-                        {{--                                <option value="19">8:00 PM</option>--}}
-                        {{--                                <option value="20">9:00 PM</option>--}}
-                        {{--                                <option value="21">10:00 PM</option>--}}
-                        {{--                    </select>--}}
-                        {{--                    @error('start_time') <span class="text-danger error">{{ $message }}</span>@enderror--}}
-
-                        {{--                </div>--}}
-                        {{--            </div>--}}
-
 
                         <br><br>
                         <div class="row">
@@ -272,11 +195,11 @@
 
                                 @if($selected_category == "Transport")
 
-                                    <h2 class="text-center btn-info p-1"> Pickup Address </h2>
+                                    <h2 class="text-center btn-info p-1"> {{__('Pickup Address')}} </h2>
                                     <hr>
 
                                 @else
-                                    <h2 class="text-center btn-info p-1"> Customer Info </h2>
+                                    <h2 class="text-center btn-info p-1"> {{__('Customer Info')}} </h2>
                                     <hr>
                                 @endif
                                 <div class="row">
@@ -305,15 +228,7 @@
                                         @error('email') <span class="text-danger error">{{ $message }}</span>@enderror
 
                                     </div>
-                                    {{--                <div class="col-3">--}}
-                                    {{--                    <label for="">Address</label>--}}
-                                    {{--                    <input type="text" wire:model="address" class="form-control ">--}}
-                                    {{--                    @error('address') <span class="text-danger error">{{ $message }}</span>@enderror--}}
 
-                                    {{--                </div>--}}
-
-                                    {{--                <p>Below you can find a list of available time slots for Einmalige Reinigung by Md Razumul Haque. <br>--}}
-                                    {{--                    Click on a time slot to proceed with booking.</p>--}}
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-4 col-sm-12" >
@@ -339,11 +254,7 @@
                                         @error('postcode') <span
                                             class="text-danger error">{{ $message }}</span>@enderror
                                     </div>
-                                    {{--                                    <div class="col-lg-3 col-sm-12">--}}
-                                    {{--                                        <label for="">{{__('Stadt *')}}</label>--}}
-                                    {{--                                        <input type="text" class="form-control" name="city" wire:model="city">--}}
 
-                                    {{--                                    </div>--}}
                                 </div>
 
                                 <div class="form-group">
@@ -359,7 +270,7 @@
 
                                 <div class="{{ $selected_category == "Transport"?'d-block':'d-none' }}">
 
-                                    <h2 class="text-center btn-info p-1"> Pickoff Address </h2>
+                                    <h2 class="text-center btn-info p-1"> {{__('Pick off Address')}} </h2>
                                     <hr>
                                     <div class="row">
                                         <div class="col-lg-4 col-sm-12">
@@ -385,15 +296,7 @@
                                             @error('receiver_email') <span
                                                 class="text-danger error">{{ $message }}</span>@enderror
                                         </div>
-                                        {{--                <div class="col-3">--}}
-                                        {{--                    <label for="">Address</label>--}}
-                                        {{--                    <input type="text" wire:model="address" class="form-control ">--}}
-                                        {{--                    @error('address') <span class="text-danger error">{{ $message }}</span>@enderror--}}
 
-                                        {{--                </div>--}}
-
-                                        {{--                <p>Below you can find a list of available time slots for Einmalige Reinigung by Md Razumul Haque. <br>--}}
-                                        {{--                    Click on a time slot to proceed with booking.</p>--}}
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-4 col-sm-12">
@@ -423,11 +326,7 @@
                                             @error('receiver_postcode') <span
                                                 class="text-danger error">{{ $message }}</span>@enderror
                                         </div>
-                                        {{--                                        <div class="col-lg-3 col-sm-12">--}}
-                                        {{--                                            <label for="">{{__('Stadt *')}}</label>--}}
-                                        {{--                                            <input type="text" class="form-control" name="city" wire:model="receiver_city">--}}
 
-                                        {{--                                        </div>--}}
                                     </div>
 
                                     <div class="form-group">
@@ -445,14 +344,14 @@
 
                                     <input wire:model.defer="payments" type="radio" id="pay1" name="pay"
                                            value="Cash payments">
-                                    <label for="age1">{{__('I will pay locally')}}</label><br>
+                                    <label for="age1">{{__('Cash On Day')}}</label><br>
 
                                     <input wire:model.defer="payments" type="radio" id="pay2" name="pay"
                                            value="Card payments">
-                                    <label for="age2">{{__('Card')}}</label><br>
+                                    <label for="age2">{{__('Credit Cards')}}</label><br>
                                     <input wire:model.defer="payments" type="radio" id="pay3" name="pay"
                                            value="Bank payments">
-                                    <label for="age2">{{__('Bank')}}</label><br>
+                                    <label for="age2">{{__('Bank Transfer')}}</label><br>
 
                                     @error('payments') <span class="text-danger error">{{ $message }}</span>@enderror
                                     <br>
@@ -479,7 +378,7 @@
                                     @endif
                                     <div class="float-right">
                                         <button id="payButton" class="btn btn-primary  btn-block float-right" type="button">
-                                            Request
+                                            {{__('Request')}}
                                         </button>
                                     </div>
                                 </div>
@@ -496,7 +395,7 @@
 
                             <div class="col-lg-3 col-sm-12 border ">
                                 <div class=" p-4">
-                                    <h3 class="text-center btn-info p-1 ">Your Bill(1 day) </h3>
+                                    <h3 class="text-center btn-info p-1 ">{{__('Your Bill(1 day)')}} </h3>
                                     <hr>
                                 </div>
 
@@ -504,34 +403,34 @@
                                 <div style="overflow-x:auto;" class="p-0">
                                     <table>
                                         <tr>
-                                            <td><strong>Service Name</strong></td>
+                                            <td><strong>{{__('Service Name')}}</strong></td>
                                             <td> {{$service_name->name?? "N/A"}}</td>
                                         </tr>
 
                                         @if($selected_category == "Construction")
 
                                             <tr>
-                                                <td><strong>Square metre</strong></td>
+                                                <td><strong>{{__('Square metre')}}</strong></td>
                                                 <td class="float-right"> {{$service_name->SPM ?? "0"}}</td>
                                             </tr>
                                         @elseif($selected_category == "Transport")
 
                                             @if($service_name->hourly??0)
                                                 <tr>
-                                                    <td><strong>Per Hour</strong></td>
+                                                    <td><strong>{{__('Per Hour')}}</strong></td>
                                                     <td class="float-right"> {{$service_name->charge ?? "0"}}</td>
                                                 </tr>
                                             @else
                                                 <tr>
-                                                    <td><strong>Base Price</strong></td>
+                                                    <td><strong>{{__('Base Price')}}</strong></td>
                                                     <td class="float-right"> {{$service_name->basic_price ?? "0"}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Each KM Charge</strong></td>
+                                                    <td><strong>{{__('Each KM Charge')}}</strong></td>
                                                     <td class="float-right"> {{$service_name->km_price ?? "0"}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Distance</strong></td>
+                                                    <td><strong>{{__('Distance')}}</strong></td>
                                                     <td class="float-right"> {{$distance ?? "0"}}
                                                         <input type="text" wire:model="distance" id="distance" hidden>
                                                     </td>
@@ -541,12 +440,12 @@
                                         @endif
 
                                         <tr>
-                                            <td><strong>Service Charge</strong></td>
+                                            <td><strong>{{__('Service Charge')}}</strong></td>
                                             <td class="float-right"> {{$net_sum ?? "0"}}</td>
                                         </tr>
 
                                         <tr>
-                                            <td><strong>Service vat (19%)</strong></td>
+                                            <td><strong>{{__('Service vat')}} (19%)</strong></td>
                                             <td class="float-right">{{$vat ?? "0"}}</td>
                                         </tr>
 
@@ -557,7 +456,7 @@
 
                                         <tfoot>
                                         <tr class="border-top p-4">
-                                            <td><strong>Total</strong></td>
+                                            <td><strong>{{__('Total')}}</strong></td>
                                             <td class="float-right">{{$total_charge ?? "0"}}</td>
                                         </tr>
                                         </tfoot>

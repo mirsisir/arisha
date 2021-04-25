@@ -15,18 +15,18 @@
     <div class="card ">
         <div class="card-body">
 
-                <div class="container ">
-                            <div class="blog-post mb-30 ">
-                                <div class="post-header">
-                                    <h2>{{$construction->translation()->title ?? "Arisha Service"}}</h2>
-                                </div>
-                                <div class="post-media">
-                                    <img src="{{asset('assets/images/painting.jpg')}}" alt="">
+            <div class="container ">
+                <div class="blog-post mb-30 ">
+                    <div class="post-header">
+                        <h2>{{$construction->translation()->title ?? "Arisha Service"}}</h2>
+                    </div>
+                    <div class="post-media">
+                        <img src="{{asset('assets/images/painting.jpg')}}" alt="">
 
-                                    {!! $construction->translation()->details  ?? "Arisha Service" !!}
-                                </div>
-                            </div>
+                        {!! $construction->translation()->details  ?? "Arisha Service" !!}
+                    </div>
                 </div>
+            </div>
         </div>
     </div>
 

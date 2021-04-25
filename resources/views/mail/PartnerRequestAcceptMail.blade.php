@@ -16,15 +16,14 @@
 <p>Congrats, now you are a partner of Arisha Service .
 </p>
 <p>Your Login credentials</p>
-<p>Phone : {{$Emp->phone}}</p>
+<p>Email : {{$Emp->email}}</p>
 <p>Password : {{$password}}</p>
 <a href="http://arisha-service.de/">LOGIN Arisha Service</a>
 
 
+<br>
 
-
-
-Thanks,
+Thanks, <br>
 Arisha Service
 
 

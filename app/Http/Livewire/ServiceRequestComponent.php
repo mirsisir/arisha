@@ -22,6 +22,8 @@ class ServiceRequestComponent extends Component
 
     public function mount()
     {
+//        \Artisan::call('queue:work');
+
         view::share("title", "New Service Request");
 
     }
@@ -33,13 +35,10 @@ class ServiceRequestComponent extends Component
         $servie_request->save();
         $customer =$servie_request->customer;
 
-//        foreach($servie_request->service->employee as $id){
-//            $emp = User::find($id);
-//            Mail::to($emp->email)->send( new ServiceRequestMailEmp($servie_request));
-//
-//        }
+
 
        RequestConfirmJob::dispatch($servie_request)->delay(Carbon::now()->addSecond(2));
+
 
 
         $this->redirect('ServiceRequest');

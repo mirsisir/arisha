@@ -316,6 +316,7 @@ class ServiceControlle extends Controller
         $data["title"] = "From arisha-service.com";
 
         Mail::send('mail.TestMail',  $data, function($message)use($data, $pdf) {
+
             $message->to($data["email"], $data["email"])
                 ->subject($data["title"])
                 ->subject("Arisha Serveice")
@@ -324,7 +325,7 @@ class ServiceControlle extends Controller
         });
 
 
-//        Mail::to($service_request->customer->email)->send(new ServiceDoneVoucherMail($service_request));
+
 
         return view('voucher.service_done_voucher', compact('service_request'));
 

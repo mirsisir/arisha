@@ -41,8 +41,7 @@
 
 <div class="card border mt-3 p-5" id="printSection" style="text-align: center;">
     <div class="text-center">
-{{--        <img src="{{asset('storage/'. ($settings->logo ?? " ") )  }}" style="height: 110px" alt="">--}}
-        <img src="http://arisha-service.de/storage/images/Dq5tzGXlg6eT5WRRKR3S1Ckg8LpknFanmwcKHxZ6.jpeg" style="height: 110px" alt="">
+            <img src="http://arisha-service.de/storage/images/Dq5tzGXlg6eT5WRRKR3S1Ckg8LpknFanmwcKHxZ6.jpeg" style="height: 110px" alt="">
 
                           <h1>{{$settings->name ?? "N/A"}}</h1>
         <p> <i class="mdi mdi-cellphone-iphone"> </i> {{$settings->phone ?? "N/A"}}<br>
@@ -115,6 +114,38 @@
 
         </table>
 
+        <table class="m-3">
+            <tr>
+                <td>Arisha Service</td>
+            </tr>
+            <tr>
+                <td>Pastor-Niemöller-Platz 2, 13156 Berlin.</td>
+            </tr>
+
+            <tr>
+                <td>Please Make Payments To</td>
+            </tr>
+            <tr>
+                <td>Post Bank : Mohammad Islam</td>
+            </tr>
+            <tr>
+                <td>IBAN : DE26 100 100 100 820 9131 21</td>
+            </tr>
+
+        </table>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        @if($employee->role!=="admin" )
+            <div class="m-3">
+                <small class=" text-justify">Der Rechnungssteller ist Kleinunternehmer im Sinne des §19 UStG und
+                    weist daher keine Umsatzsteuer aus. Vielen Dank für Ihr Vertrauen! Hiermit berechnen wir Ihnen
+                    im Namen und für Rechnung des Reinigungsunternehmers folgende Leistungen:</small>
+
+            </div>
+        @endif
 
     </div>
 

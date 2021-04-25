@@ -8,7 +8,8 @@
                 src="{{asset('storage/'. ($settings->logo ?? " ") )  }}"
                 alt="" style="width: 150px">
             <h5>{{$settings->name ?? "N/A"}}</h5>
-            <p> <i class="mdi mdi-cellphone-iphone"> </i> {{$settings->phone ?? "N/A"}}<br>  <i class="mdi mdi-email"></i> {{$settings->email ?? "N/A"}}</p>
+            <p><i class="mdi mdi-cellphone-iphone"> </i> {{$settings->phone ?? "N/A"}}<br> <i
+                    class="mdi mdi-email"></i> {{$settings->email ?? "N/A"}}</p>
 
 
         </div>
@@ -23,20 +24,13 @@
                         <td class="bold">From :</td>
                         <td>{{auth()->user()->name}}</td>
                     </tr>
-{{--                    <tr>--}}
-{{--                        <td class="bold">Phone :</td>--}}
-{{--                        <td>{{auth()->user()->phone}}</td>--}}
-{{--                    </tr>--}}
+
                     <tr>
                         <td class="bold">Address :</td>
                         <td>{{auth()->user()->street}} {{auth()->user()->house_number}}<br>
                             {{auth()->user()->post_code}} {{auth()->user()->city}}
                         </td>
                     </tr>
-{{--                    <tr>--}}
-{{--                        <td class="bold">Email :</td>--}}
-{{--                        <td>{{auth()->user()->email}}</td>--}}
-{{--                    </tr>--}}
 
 
                 </table>
@@ -48,20 +42,14 @@
                         <td class="bold">TO</td>
                         <td>{{$service_request->customer->name}}</td>
                     </tr>
-{{--                    <tr>--}}
-{{--                        <td class="bold">Phone</td>--}}
-{{--                        <td>{{$service_request->customer->phone}}</td>--}}
-{{--                    </tr>--}}
+
                     <tr>
                         <td class="bold">Address</td>
                         <td>{{$service_request->customer->street}} {{$service_request->customer->house_number}}<br>
                             {{$service_request->customer->post_code}} {{$service_request->customer->city}}
                         </td>
                     </tr>
-{{--                    <tr>--}}
-{{--                        <td class="bold">Email</td>--}}
-{{--                        <td>{{$service_request->customer->email}}</td>--}}
-{{--                    </tr>--}}
+
 
                 </table>
 
@@ -93,14 +81,14 @@
                 </tr>
                 @php( $employee =\App\Models\User::find($service_request->employes_id))
                 @if($employee->role=="admin" )
-                <tr>
-                    <td>Service vat(19%)</td>
-                    <td>{{$service_request->total_charge - $service_request->net_charge}}</td>
-                </tr>
-                <tr>
-                    <td>Total Charge</td>
-                    <td>{{$service_request->total_charge}}</td>
-                </tr>
+                    <tr>
+                        <td>Service vat(19%)</td>
+                        <td>{{$service_request->total_charge - $service_request->net_charge}}</td>
+                    </tr>
+                    <tr>
+                        <td>Total Charge</td>
+                        <td>{{$service_request->total_charge}}</td>
+                    </tr>
                 @endif
 
             </table>
@@ -129,10 +117,14 @@
             <br>
             <br>
 
- <div class="m-3">
-     <small class=" text-justify">Der Rechnungssteller ist Kleinunternehmer im Sinne des §19 UStG und weist daher keine Umsatzsteuer aus. Vielen Dank für Ihr Vertrauen! Hiermit berechnen wir Ihnen im Namen und für Rechnung des Reinigungsunternehmers folgende Leistungen:</small>
+            @if($employee->role!=="admin" )
+                <div class="m-3">
+                    <small class=" text-justify">Der Rechnungssteller ist Kleinunternehmer im Sinne des §19 UStG und
+                        weist daher keine Umsatzsteuer aus. Vielen Dank für Ihr Vertrauen! Hiermit berechnen wir Ihnen
+                        im Namen und für Rechnung des Reinigungsunternehmers folgende Leistungen:</small>
 
- </div>
+                </div>
+            @endif
 
         </div>
 

@@ -5,8 +5,105 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f07d837-d124-472e-ae1d-79432793df38" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/assets/images/banner/img_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/banner/img_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/banner/img_5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/banner/img_6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/banner/slide6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/banner/slider4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/banner/slider5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/blog/ddd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/blog/ddd (2)" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiceControlle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiceControlle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ServiceRequestComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ServiceRequestComponent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Website/ServiceOrderComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Website/ServiceOrderComponent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/about-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/about-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/blog/home_blog_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/blog/home_blog_3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/blog/home_blog_3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/blog/img3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/client-logo/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/client-logo/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/client-logo/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/client-logo/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/client-logo/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/client-logo/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/parallax2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/parcel.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/people.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/people1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/people2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/popup/small-1-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/popup/small-2-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/popup/small-3-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/popup/small-4-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/17.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/21.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/22.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/23.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/24.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/25.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/29.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/32.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/34.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/portfolio/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/quote-author.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/shop/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/shop/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/shop/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/shop/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/shop/13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/shop/14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/shop/15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/shop/16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/shop/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/shop/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/shop/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/shop/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/shop/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/shop/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/shop/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/shop/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/team/team1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/team/team2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/team/team3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/team/team4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/testimonial/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/testimonial/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/testimonial/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/user2-160x160.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/de.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/vendor/Nav item 1/en/Nav item.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vendor/Nav item 1/en/Nav item.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/web/web_base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/web/web_base.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partner-registration.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partner-registration.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/website/service-order-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/website/service-order-component.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mail/PartnerRequestAcceptMail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mail/PartnerRequestAcceptMail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mail/TestMail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mail/TestMail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/service/confirm_request.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/service/confirm_request.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/service_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/service_details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/voucher/service_done_voucher.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/voucher/service_done_voucher.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/website/construction.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/construction.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/website/craftsman_services.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/craftsman_services.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/website/homepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/homepage.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/website/privacy_policy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/privacy_policy.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/website/terms_of_services.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/terms_of_services.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +301,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/translate" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -407,7 +504,13 @@
       <workItem from="1617345305391" duration="6550000" />
       <workItem from="1617366864138" duration="3105000" />
       <workItem from="1617380098908" duration="13350000" />
-      <workItem from="1617432775092" duration="5533000" />
+      <workItem from="1617432775092" duration="8857000" />
+      <workItem from="1617518505956" duration="218000" />
+      <workItem from="1619243951314" duration="4747000" />
+      <workItem from="1619262953159" duration="3377000" />
+      <workItem from="1619278719997" duration="1541000" />
+      <workItem from="1619287330291" duration="10393000" />
+      <workItem from="1619327874848" duration="9933000" />
     </task>
     <servers />
   </component>
