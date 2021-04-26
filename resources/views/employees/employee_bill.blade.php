@@ -19,7 +19,7 @@
 
 
         </div>
-        <p class="bold">Rechnung-No : DE{{$service_request->id}}</p> <br>
+        <p class="bold">Rechnung-No : AS{{$service_request->id}}</p> <br>
 
         <div class="row  p-3">
 

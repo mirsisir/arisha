@@ -301,7 +301,6 @@ Route::group([ 'prefix' => '{language}'], function () {
 
     Route::get('/all_services', [ServiceControlle::class, 'all_services'])->name('all_services');
 
-//    Route::get('/partner_registration',PartnerRegistration::class )->name('partner_registration');
 
     Route::get('/partner_registration',[WebsiteConroller::class,'partner_registration'] )->name('partner_registration');
     Route::post('/partner_registration_save',[WebsiteConroller::class,'partner_registration_save'] )->name('partner_registration_save');
@@ -326,10 +325,6 @@ Route::group([ 'prefix' => '{language}'], function () {
     })->name('craftsman_services');
 
 
-//    Route::view('/home_cleaning','website.home_cleaning' )->name('home_cleaning');
-//    Route::view('/craftsman_services','website.craftsman_services' )->name('craftsman_services');
-
-//    Route::view('/office_cleaning', 'dir.page');
 
 });
 

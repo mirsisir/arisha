@@ -20,6 +20,7 @@ class RequestConfirmJob implements ShouldQueue
      *
      * @param $servie_request
      */
+
     protected $servie_request;
 
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;

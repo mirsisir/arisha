@@ -22,7 +22,6 @@ class ServiceRequestComponent extends Component
 
     public function mount()
     {
-//        \Artisan::call('queue:work');
 
         view::share("title", "New Service Request");
 
@@ -42,6 +41,8 @@ class ServiceRequestComponent extends Component
 
 
         $this->redirect('ServiceRequest');
+
+//        \Artisan::call('queue:work --stop-when-empty');
 
     }
 

@@ -60,16 +60,20 @@
                     <th>To</th>
                 </tr>
                 <tr>
-                    <td>{{auth()->user()->name}}</td>
-                    <td>{{$service_request->customer->name}}</td>
+                    <td>{{auth()->user()->name ?? ""}}</td>
+                    <td>{{$service_request->customer->name ?? ""}}</td>
                 </tr>
                 <tr>
-                    <td>{{auth()->user()->Phone}}</td>
-                    <td>{{$service_request->customer->phone}}</td>
+                    <td>{{auth()->user()->phone}}</td>
+                    <td>{{$service_request->customer->phone ?? ""}}</td>
                 </tr>
                 <tr>
                     <td>{{auth()->user()->email}}</td>
-                    <td>{{$service_request->customer->email}}</td>
+                    <td>{{$service_request->customer->email ?? ""}}</td>
+                </tr>
+                <tr>
+                    <td>{{$employee_info->nid ?? ""}}</td>
+
                 </tr>
             </table>
         </div>
@@ -81,39 +85,41 @@
         <table id="customers">
             <tr>
                 <td>Service Name</td>
-                <td>{{$service_request->service->name}}</td>
+                <td>{{$service_request->service->name ?? ""}}</td>
             </tr>
             <tr>
                 <td>Date</td>
-                <td>{{$service_request->date}}</td>
+                <td>{{$service_request->date ?? ""}}</td>
             </tr>
             <tr>
                 <td>Start time</td>
-                <td>{{$service_request->start_time}}</td>
+                <td>{{$service_request->start_time ?? ""}}</td>
             </tr>
             @if($service_request->categorie =="Cleaning")
             <tr>
                 <td>Service Hours</td>
-                <td>{{$service_request->duration}}</td>
+                <td>{{$service_request->duration ?? ""}}</td>
             </tr>
             @endif
             <tr>
                 <td>Service Charge</td>
-                <td>{{$service_request->net_charge}}</td>
+                <td>{{$service_request->net_charge ?? ""}}</td>
             </tr>
             @if($employee->role=="admin" )
                 <tr>
                     <td>Service vat(19%)</td>
-                    <td>{{$service_request->total_charge - $service_request->net_charge}}</td>
+                    <td>{{$service_request->total_charge - $service_request->net_charge ?? ""}}</td>
                 </tr>
                 <tr>
                     <td>Total Charge</td>
-                    <td>{{$service_request->total_charge}}</td>
+                    <td>{{$service_request->total_charge ?? ""}}</td>
                 </tr>
             @endif
 
         </table>
-
+        <br>
+        <br>
+        <br>
         <table class="m-3">
             <tr>
                 <td>Arisha Service</td>

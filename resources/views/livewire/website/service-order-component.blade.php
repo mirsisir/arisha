@@ -342,14 +342,14 @@
                                 <div>
                                     <p>{{(__('Please tell us how you would like to pay:'))}}</p>
 
-                                    <input wire:model.defer="payments" type="radio" id="pay1" name="pay"
+                                    <input wire:model="payments" type="radio" id="pay1" name="pay"
                                            value="Cash payments">
                                     <label for="age1">{{__('Cash On Day')}}</label><br>
 
-                                    <input wire:model.defer="payments" type="radio" id="pay2" name="pay"
+                                    <input wire:model="payments" type="radio" id="pay2" name="pay"
                                            value="Card payments">
                                     <label for="age2">{{__('Credit Cards')}}</label><br>
-                                    <input wire:model.defer="payments" type="radio" id="pay3" name="pay"
+                                    <input wire:model="payments" type="radio" id="pay3" name="pay"
                                            value="Bank payments">
                                     <label for="age2">{{__('Bank Transfer')}}</label><br>
 
@@ -357,6 +357,7 @@
                                     <br>
 
                                 </div>
+
                                     <input type="checkbox" name="terms" id="terms" wire:model.defer="Terms_and_Coditions" onchange="activateButton(this)">
                                     <p class="@error('Terms_and_Coditions') text-danger @enderror ">I Agree Terms &</p>
                                     <a href="{{route('privacy_policy',app()->getLocale())}}" class="link">Coditions</a>

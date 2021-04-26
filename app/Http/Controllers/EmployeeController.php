@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\PayslipJob;
 use App\Mail\PartnerRequestAcceptMail;
 use App\Mail\ServiceDoneVoucherMail;
 use App\Models\Employee;
@@ -130,18 +131,18 @@ class EmployeeController extends Controller
 
 
 
-
         $service->status ="complete";
         $service->save();
             $service_request = $service;
             $settings = \App\Models\GeneralSettings::take(-1)->first();
             $employee =\App\Models\User::find($service_request->employes_id);
-
+            $employee_info = Employee::find($employee->employee_id);
 
             $pdf = PDF::loadView('mail.TestMail', $data = [
                 'service_request' => $service_request,
                 'settings' => $settings,
                 'employee' => $employee,
+                'employee_info' => $employee_info,
             ]);
 
 
@@ -199,11 +200,31 @@ class EmployeeController extends Controller
     public function employee_bill($id){
 
         $service_request = ServiceRequest::find($id);
-
 //        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ServiceRequest($data,$this->customer));
 
         $service_request->paid = 1;
         $service_request->save();
+//        PayslipJob::dispatch($service_request)
+//            ->delay(now()->addSecond(2));
+
+
+        $pdf = PDF::loadView('mail.payslip', $data = [
+            'service_request' => $service_request,
+
+        ]);
+
+        $data["email"] = $service_request->employee->email;
+        $data["title"] = "From arisha-service.com Payslip";
+
+        Mail::send('mail.payslip',  $data, function($message)use($data, $pdf) {
+
+            $message->to($data["email"], $data["email"])
+                ->subject($data["title"])
+                ->subject("Arisha Serveice")
+
+                ->attachData($pdf->output(), "arisha.pdf");
+        });
+
 
         return view('employees.employee_bill',compact('service_request'));
     }
@@ -229,41 +250,6 @@ class EmployeeController extends Controller
 
 
 
-//    public function make_payments($id){
-//
-//        $employee = Employee::find($id);
-//        View::share('title','Make Payments ');
-//
-//        return view('livewire.salary.make_payments',compact('employee'));
-//    }
-
-//    public function pay( $e_id , $month){
-//         $payslip= SalarySheet::where('employee_id',$e_id)
-//                                ->where('date' ,$month )
-//                                        ->first();
-//
-//
-//        return view('payslip', compact('payslip'));
-//
-//    }
-//
-//    public function payslip(){
-//
-//        $employee = SalarySheet::all();
-//
-//        return view('payslip_generate', compact('employee'));
-//    }
-//    public function payslip_redirect(Request $request){
-//        $validated = $request->validate([
-//            'employee' => 'required',
-//            'month' => 'required',
-//        ]);
-//
-//
-//        return redirect('payslip/'.(\request('employee')).('/').(\request('month')));
-//
-//    }
-//
     public function print_user($employee){
         $emp = Employee::findOrFail($employee);
 

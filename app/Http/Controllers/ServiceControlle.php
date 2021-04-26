@@ -338,6 +338,8 @@ class ServiceControlle extends Controller
         $service_request->status = "complete";
         $service_request->save();
 
+
+
         return view('voucher.service_done_voucher', compact('service_request'));
     }
 

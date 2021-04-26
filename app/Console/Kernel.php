@@ -24,9 +24,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
-  
-     $schedule->command('queue:work')->everyMinute();
+        $schedule->command(\Artisan::call('queue:work --stop-when-empty'))->everyMinute();
+
+//        $schedule->call(function ($schedule) {
+//        })->daily();
+
     }
 
     /**
@@ -40,9 +42,10 @@ class Kernel extends ConsoleKernel
 
         require base_path('routes/console.php');
     }
-    
+
     protected function osProcessIsRunning($needle)
     {
+
         // get process status. the "-ww"-option is important to get the full output!
         exec('ps aux -ww', $process_status);
 

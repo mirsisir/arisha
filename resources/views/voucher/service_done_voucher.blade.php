@@ -2,6 +2,8 @@
 @section('content')
 
     @php($settings = \App\Models\GeneralSettings::take(1)->first())
+
+    @php($role = $employee->role ?? 'admin')
     <div class="card border mt-3 p-5" id="printSection">
         <div class="text-center">
             <img
@@ -80,7 +82,7 @@
                     <td>{{$service_request->net_charge}}</td>
                 </tr>
                 @php( $employee =\App\Models\User::find($service_request->employes_id))
-                @if($employee->role=="admin" )
+                @if($role =="admin" )
                     <tr>
                         <td>Service vat(19%)</td>
                         <td>{{$service_request->total_charge - $service_request->net_charge}}</td>
@@ -117,7 +119,7 @@
             <br>
             <br>
 
-            @if($employee->role!=="admin" )
+            @if($role !=="admin" )
                 <div class="m-3">
                     <small class=" text-justify">Der Rechnungssteller ist Kleinunternehmer im Sinne des §19 UStG und
                         weist daher keine Umsatzsteuer aus. Vielen Dank für Ihr Vertrauen! Hiermit berechnen wir Ihnen

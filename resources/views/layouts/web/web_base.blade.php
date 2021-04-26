@@ -78,7 +78,7 @@
 
                     <div class="col-sm-9 p-2">
                         <img src="{{asset('storage/'. ($settings->logo ?? " ") )  }}"
-                             style="height: 50px;border-radius: 110px " alt="" class="float-left ">
+                             style="height: 70px;border-radius: 10px " alt="" class="float-left ">
 
                     </div>
                     <div class="navbar-header float-right">
@@ -317,19 +317,19 @@
                 <ul style="color: white">
 
                     <li>
-                        <p>Arisha Service</p>
+                        <p>Arisha Service UG</p>
                     </li>
                     <li>
-                        <p>Email : arishaservice@gmail.com</p>
+                        <p>Email : {{$settings->email ?? " "}}</p>
                     </li>
                     <li>
-                        <p>Phone : {{$settings->phone?? " "}}</p>
+                        <p>Phone : {{$settings->phone ?? " "}}</p>
                     </li>
                     <li>
                         <p>Phone : +493092153947</p>
                     </li>
                     <li>
-                        <p>Address :{{$settings->house_number?? " "}}  {{$settings->street?? " "}} <br>
+                        <p>Address :  {{$settings->street?? " "}}  -{{$settings->house_number?? " "}}<br>
                             {{$settings->post_code?? " "}}  {{$settings->city?? " "}}</p>
                     </li>
 
@@ -431,7 +431,7 @@
 <div class=" " style="float:right; display: block">
 
     <div class="">
-        <a class="p-3 rounded" href="{{route('services_request',app()->getLocale())}}"
+        <a class="p-3 rounded btn btn-lg" href="{{route('services_request',app()->getLocale())}}"
            style="position: fixed; background-color: Green; color: white;  right: 30px; bottom: 80px;"> {{__('ORDER NOW')}}</a>
 
     </div>

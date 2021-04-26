@@ -106,7 +106,7 @@
 
 
                         <div class="form-group">
-                            <label for="nid" class="">NID <span class="text-danger">*</span></label>
+                            <label for="nid" class="">ID -NO : <span class="text-danger">*</span></label>
                             <div class="">
                                 <input type="text" name="nid"
                                        class="form-control @error('nid') is-invalid @enderror" id="nid"

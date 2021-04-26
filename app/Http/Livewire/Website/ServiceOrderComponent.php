@@ -147,7 +147,9 @@ class ServiceOrderComponent extends Component
         } else {
             $this->custom = true;
         }
-    }    public function updatedEvery15day()
+    }
+
+    public function updatedEvery15day()
     {
         if ($this->Every15day) {
             $this->custom = false;
@@ -190,9 +192,9 @@ class ServiceOrderComponent extends Component
 
         }
 
-        public
-        function request()
+        public function request()
         {
+
 
             $validatedData = $this->validate([
                 'selected_category' => 'required',
@@ -374,8 +376,7 @@ class ServiceOrderComponent extends Component
 
             }
 
-//        Mail::to($this->email)->send( new RequestConfirmation());
-//
+
 //        Mail::to($this->email)->send(new \App\Mail\ServiceRequest($new_request ,$customer));
 
 
