@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f07d837-d124-472e-ae1d-79432793df38" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Jobs/PayslipJob.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Mail/PayslipMail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/mail/payslip.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiceControlle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiceControlle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ServiceRequestComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ServiceRequestComponent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Website/ServiceOrderComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Website/ServiceOrderComponent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Jobs/RequestConfirmJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/RequestConfirmJob.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employees/employee_bill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employees/employee_bill.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/web/web_base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/web/web_base.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/website/service-order-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/website/service-order-component.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mail/TestMail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mail/TestMail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/voucher/service_done_voucher.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/voucher/service_done_voucher.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/website/partner-registration.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/partner-registration.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +203,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/mail" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../other/Laravel-Support-Ticketing" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -430,7 +413,8 @@
       <workItem from="1619278719997" duration="1541000" />
       <workItem from="1619287330291" duration="10393000" />
       <workItem from="1619327874848" duration="14936000" />
-      <workItem from="1619412256668" duration="19012000" />
+      <workItem from="1619412256668" duration="19705000" />
+      <workItem from="1619443531597" duration="260000" />
     </task>
     <servers />
   </component>
