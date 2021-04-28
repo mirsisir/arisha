@@ -151,7 +151,7 @@
                             @if($selected_category == "Cleaning")
                                 <div class="col-lg-2 col-sm-12">
                                     <label for="">{{__('Duration')}}</label>
-                                    <select name="" id="" wire:model.defer="duration"
+                                    <select name="" id="" wire:model="duration"
                                             class="form-control @error('duration') is-invalid @enderror ">
                                         <option value=""></option>
                                         @for($i=1 ; $i<=10 ;$i++)

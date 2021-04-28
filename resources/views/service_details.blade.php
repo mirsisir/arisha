@@ -99,7 +99,7 @@
                     </tr>
                     <tr class="table-info">
                         <td>Service date</td>
-                        <td>{{$service_request->date}}</td>
+                        <td>{{ date('d-m-Y', strtotime($service_request->date)) }}</td>
                     </tr>
 
 

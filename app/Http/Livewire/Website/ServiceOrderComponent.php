@@ -385,21 +385,18 @@ class ServiceOrderComponent extends Component
 
         }
 
-        public
-        function addDates()
+        public function addDates()
         {
             $this->dates[] = [''];
         }
 
-        public
-        function removeDates($index)
+        public function removeDates($index)
         {
             unset($this->dates[$index]);
         }
 
 
-        public
-        function render()
+        public function render()
         {
 
 
@@ -409,8 +406,10 @@ class ServiceOrderComponent extends Component
 
             if ($this->selected_category == "Cleaning") {
                 $this->net_sum = $service_charge * $this->duration;
+
             } elseif ($this->selected_category == "Construction") {
                 $this->net_sum = ($service->SPM ?? 0) * $this->square_meter;
+
             } elseif ($this->selected_category == "Transport") {
 
                 if ($service->hourly ?? 0 == 1) {
@@ -418,12 +417,13 @@ class ServiceOrderComponent extends Component
                     $this->net_sum = ($service->charge ?? 0) * $this->duration;
                 } else {
                     $this->net_sum = ($service->basic_price ?? 0) + (($service->km_price ?? 0) * $this->distance);
+
                 }
             }
 
-            $this->vat = ($this->net_sum * 19) / 100;
+            $this->vat = round((($this->net_sum * 19) / 100),2);
 
-            $this->total_charge = $this->net_sum + $this->vat;
+            $this->total_charge = round(($this->net_sum + $this->vat),2 );
 
 
             return view('livewire.website.service-order-component')->layout('layouts.web.web_base');
