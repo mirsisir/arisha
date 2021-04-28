@@ -25,8 +25,8 @@
                 <tbody>
                 @foreach($all_service_request as $request)
                     <tr>
-                        <td>{{$request->customer->name}} <br>
-                            {{$request->customer->phone}}
+                        <td>{{$request->customer->name ?? ""}} <br>
+                            {{$request->customer->phone ?? " "}}
                         </td>
                         <td>{{$request->service->name ?? ""}}</td>
                         <td>
