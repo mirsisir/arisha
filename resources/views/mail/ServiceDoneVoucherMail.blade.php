@@ -92,10 +92,15 @@
                 <td>{{$service_request->start_time}}</td>
             </tr>
 
-            <tr>
-                <td>Service Hours</td>
-                <td>{{$service_request->duration}}</td>
-            </tr>
+            @if($service_request->hourly ==1)
+            @else
+                <tr>
+                    <td>Service Hours</td>
+                    <td>{{$service_request->duration}}</td>
+                </tr>
+            @endif
+
+
             <tr>
                 <td>Service Charge</td>
                 <td>{{$service_request->net_charge}}</td>
@@ -144,7 +149,9 @@
         <br>
 
         <div class="m-3">
-            <small class=" text-justify">Der Rechnungssteller ist Kleinunternehmer im Sinne des §19 UStG und weist daher keine Umsatzsteuer aus. Vielen Dank für Ihr Vertrauen! Hiermit berechnen wir Ihnen im Namen und für Rechnung des Reinigungsunternehmers folgende Leistungen:</small>
+            <small class=" text-justify">Der Rechnungssteller ist Kleinunternehmer im Sinne des §19 UStG und weist daher
+                keine Umsatzsteuer aus. Vielen Dank für Ihr Vertrauen! Hiermit berechnen wir Ihnen im Namen und für
+                Rechnung des Reinigungsunternehmers folgende Leistungen:</small>
 
         </div>
 

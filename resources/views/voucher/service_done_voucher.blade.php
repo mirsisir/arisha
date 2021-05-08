@@ -73,10 +73,15 @@
                     <td>{{$service_request->start_time}}</td>
                 </tr>
 
-                <tr>
-                    <td>Service Hours</td>
-                    <td>{{$service_request->duration}}</td>
-                </tr>
+                @if($service_request->hourly==null)
+
+                @else
+                    <tr>
+                        <td>Service Hours</td>
+                        <td>{{$service_request->duration}}</td>
+                    </tr>
+                @endif
+
                 <tr>
                     <td>Service Charge</td>
                     <td>{{$service_request->net_charge}}</td>
@@ -97,7 +102,7 @@
             <br>
             <table class="m-3">
                 <tr>
-                    <td>Arisha Service</td>
+                    <td>Arisha Service DE</td>
                 </tr>
                 <tr>
                     <td>Pastor-Niemöller-Platz 2, 13156 Berlin.</td>

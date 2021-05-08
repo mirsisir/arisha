@@ -95,6 +95,7 @@ class EmployeeController extends Controller
         $service = ServiceRequest::find($id);
         if($service->employes_id ==null){
         $service->employes_id = auth()->user()->id;
+
         $service->save();
         }
          return redirect( route('services_request_list'));
