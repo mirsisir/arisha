@@ -74,12 +74,12 @@
                 </tr>
 
                 @if($service_request->hourly==null)
+
+                @else
                     <tr>
                         <td>Service Hours</td>
                         <td>{{$service_request->duration}}</td>
                     </tr>
-                @else
-
                 @endif
 
                 <tr>
