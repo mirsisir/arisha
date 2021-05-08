@@ -12,7 +12,7 @@
                     Available</h4>
                 <br>
             @else
-                <table class="service_Request" id="service_Request">
+                <table class="service_Request table" id="service_Request">
                     <thead class="btn-info">
                     <tr>
                         <th> Customer</th>
@@ -75,8 +75,16 @@
 
 @section('js')
     <script>
+        // $(document).ready(function () {
+        //     $('#service_Request').DataTable();
+        // });
+
         $(document).ready(function () {
-            $('#service_Request').DataTable();
+            $('#service_Request').DataTable({
+                responsive: true,
+
+            });
         });
+
     </script>
 @endsection

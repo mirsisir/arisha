@@ -6,8 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="6f07d837-d124-472e-ae1d-79432793df38" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Website/ServiceOrderComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Website/ServiceOrderComponent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/website/service-order-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/website/service-order-component.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/AdminAuthenticated​.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/AdminAuthenticated​.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CustomerAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CustomerAuthenticated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee_dashboard/employee_calender.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee_dashboard/employee_calender.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee_dashboard/service_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee_dashboard/service_details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee_dashboard/service_request.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee_dashboard/service_request.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee_dashboard/today_service_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee_dashboard/today_service_list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employees/employee_bill_total.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employees/employee_bill_total.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin/base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin/base.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/employee/employee_base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/employee/employee_base.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/web/web_base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/web/web_base.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mail/ServiceDoneVoucherMail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mail/ServiceDoneVoucherMail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mail/payslip.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mail/payslip.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +216,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="H:/laravel_stater_kit/stater_kit" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -417,7 +428,11 @@
       <workItem from="1619327874848" duration="14936000" />
       <workItem from="1619412256668" duration="19705000" />
       <workItem from="1619443531597" duration="260000" />
-      <workItem from="1619631136278" duration="3488000" />
+      <workItem from="1619631136278" duration="3786000" />
+      <workItem from="1620023489456" duration="4960000" />
+      <workItem from="1620283899272" duration="10906000" />
+      <workItem from="1620320758075" duration="5102000" />
+      <workItem from="1620333842877" duration="138000" />
     </task>
     <servers />
   </component>

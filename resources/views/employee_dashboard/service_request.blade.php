@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="card">
-    <div class=" card-body ">
+    <div class=" card-body col-lg-12 col-sm-9">
 
 
         @if(count($all_service_request) == 0)
@@ -12,7 +12,7 @@
                 Available</h4>
             <br>
         @else
-            <table class="serviceRequest" id="service_Request">
+            <table class="" id="service_Request">
                 <thead class="btn-info">
                 <tr>
                     <th> Customer</th>
@@ -77,7 +77,19 @@
 @section('js')
     <script>
         $(document).ready(function () {
-            $('#service_Request').DataTable();
+            $('#service_Request').DataTable({
+                responsive: true,
+
+            });
         });
+
+        // $(document).ready(function() {
+        //     var table = $('#service_Request').DataTable( {
+        //         rowReorder: {
+        //             selector: 'td:nth-child(2)'
+        //         },
+        //         responsive: true
+        //     } );
+        // } );
     </script>
 @endsection

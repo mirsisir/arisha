@@ -10,17 +10,23 @@
                 display: block;
             }
         }
+
+        .center {
+            position: fixed;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     </style>
     @if(Session::has('message'))
         <p class="alert alert-info">{{ Session::get('message') }}</p>
     @endif
     <form action="{{route('service_details_emp',$service_request->id)}}" method="POST">
-        <div class="card  w-75  mt-4 ml-auto mr-auto" id="printableTable">
+        <div class="  mt-4 ml-auto mr-auto" id="printableTable">
 
             <h3 class="text-center mt-2">Service Request Info </h3>
             <form action="{{route('service_details_update',$service_request->id)}}" method="POST">
                 @csrf
-                <div class="card-body">
+                <div class="table table-responsive-sm">
                     <table class="table border p-2" id="service_request">
                         <tbody>
                         <tr class="table-primary">
@@ -203,7 +209,7 @@
             </form>
 
             @if ($service_request->payments != "Card payments")
-                <div class="m-auto">
+                <div class="center">
                     <a href="{{route('complete',$service_request->id)}}" class="btn btn-success"> Complete </a>
 
                 </div>
@@ -270,7 +276,7 @@
 
 
                         <div class="row">
-                            <div class="m-auto">
+                            <div class="center">
                                 <button class="btn btn-primary" type="submit">Complete</button>
                             </div>
                         </div>

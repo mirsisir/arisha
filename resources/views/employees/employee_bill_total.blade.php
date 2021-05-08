@@ -1,16 +1,16 @@
 @extends('layouts.employee.employee_base')
 @section('content')
     <div class="card">
-        <div class="card-body">
-            <table class="bill" id="bill">
+        <div class="card-body table">
+            <table class="bill table" id="bill">
                 <thead>
                 <tr>
-                    <td>Voucher-NO</td>
-                    <td>Service Name</td>
-                    <td>Service Date</td>
-                    <td>Service Duration</td>
-                    <td>Service Charge</td>
-                    <td>Bill</td>
+                    <th>Voucher-NO</th>
+                    <th>Service Name</th>
+                    <th>Service Date</th>
+                    <th>Service Duration</th>
+                    <th>Service Charge</th>
+                    <th>Bill</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -62,9 +62,25 @@
 @endsection
 @section('js')
     <script>
+        // $(document).ready(function () {
+        //     $(bill).DataTable();
+        // });
+
         $(document).ready(function () {
-            $(bill).DataTable();
+            $('#bill').DataTable({
+                responsive: true,
+
+            });
         });
+
+        // $(document).ready(function() {
+        //     var table = $('#bill').DataTable( {
+        //         rowReorder: {
+        //             selector: 'td:nth-child(2)'
+        //         },
+        //         responsive: true
+        //     } );
+        // } );
     </script>
 @endsection
 

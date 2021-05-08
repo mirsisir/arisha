@@ -357,9 +357,8 @@
         <div class="modal-dialog col-sm-9 " style=" margin-top:20%">
             <div class="modal-content ">
 
-                <div class="modal-title p-2">
-
-                    <div class="login" id="login">
+                <div class="modal-title p-2 ">
+                    <div class="login mt-4" id="login">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="login">

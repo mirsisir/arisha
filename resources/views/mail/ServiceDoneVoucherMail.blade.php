@@ -43,6 +43,10 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td>{{auth()->user()->employees->nid ?? " "}}</td>
+                </tr>
+
 
             </table>
         </div>

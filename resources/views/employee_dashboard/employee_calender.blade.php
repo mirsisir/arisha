@@ -114,7 +114,7 @@
 
 
 
-    <div id='calendar' class="ml-5 mr-5"></div>
+    <div id='calendar' class=""></div>
 
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/locales-all.min.js"></script>

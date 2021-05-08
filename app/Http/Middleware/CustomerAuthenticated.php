@@ -33,7 +33,7 @@ class CustomerAuthenticated
 
             }
             else if ( Auth::user()->isEmployee() ) {
-                return redirect(route('employee_dashboard'));
+                return redirect(route('services_request_list'));
             }
 
 

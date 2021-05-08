@@ -43,6 +43,7 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />
 
+
     <link media="all" type="text/css" rel="stylesheet" href="https://www.bootstrapdash.com/demo/connect-plus/laravel/template/demo_1/assets/plugins/fullcalendar/fullcalendar.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
@@ -55,58 +56,104 @@
             background-color: white ;
             color:black;
         }
+
+        .mobile {
+            display: none;
+        }
+
+        .nav_icon {
+            display: none;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .nav_icon {
+                display: block;
+            }
+        }
     </style>
 
 </head>
 
 <body data-base-url="https://www.bootstrapdash.com/demo/connect-plus/laravel/template/demo_1">
+@php($settings = \App\Models\GeneralSettings::take(-1)->first())
 
 <div class="container-scroller" id="app">
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
             <a class="navbar-brand brand-logo"
-               href="https://www.bootstrapdash.com/demo/connect-plus/laravel/template/demo_1"><img
-                    src="https://www.bootstrapdash.com/demo/connect-plus/laravel/template/demo_1/assets/images/logo.svg"
-                    alt="logo" /></a>
+               href="{{route('dashboard')}}">
+                <img src="{{asset('storage/'. ($settings->logo ?? " ") )  }}"  style="height: 80px" alt="">
+            </a>
             <a class="navbar-brand brand-logo-mini"
-               href="https://www.bootstrapdash.com/demo/connect-plus/laravel/template/demo_1"><img
-                    src="https://www.bootstrapdash.com/demo/connect-plus/laravel/template/demo_1/assets/images/logo-mini.svg"
-                    alt="logo" /></a>
+               href="{{route('dashboard')}}">
+                <img src="{{asset('storage/'. ($settings->logo ?? " ") )  }}"  style="width: 50px" alt="">
+            </a>
         </div>
+        <button   class=" nav_icon navbar-toggler navbar-toggler float-right" onclick="mobile()" type="button" data-toggle="minimize">
+            <span class="mdi mdi-menu"></span>
+        </button>
         <div class="navbar-menu-wrapper d-flex align-items-stretch">
-            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <button class="navbar-toggler navbar-toggler align-self-center"  type="button" data-toggle="minimize">
                 <span class="mdi mdi-menu"></span>
             </button>
+
             <div class="search-field d-none d-xl-block">
                 <form class="d-flex align-items-center h-100" action="#">
                     <b><h3 class="text-light font-weight-bold mb-2 mt-2"> {{ $title?? '' }} </h3></b>
                 </form>
             </div>
-            <ul class="navbar-nav navbar-nav-right">
-
-
-                <li class="nav-item nav-profile dropdown">
-                    <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown"
-                       aria-expanded="false">
-                        <div class="nav-profile-img">
-                            <img src="{{ asset('Profile_gray.png') }}" class="img-fluid"
-                                 alt="image" >
-                        </div>
-                        <div class="nav-profile-text">
-                            <p class="mb-1 text-black">{{ auth()->user()->name }}</p>
-                        </div>
-                    </a>
-                </li>
-
-            </ul>
 
         </div>
     </nav>
-    <div class="container-fluid page-body-wrapper">
 
+
+    <div id="navbar_mobile" class=" mobile mt-4 pt-3" style="margin-right: 10px; display: none; ">
+        <div class="pt-4 text-center ">
+            <div class="" style="color: green">
+                <ul class="dropdown">
+                    <li class="btn-success p-1 border" >
+                        <a class="  "
+                           href="{{route('services_request_list')}}">
+                            <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                            <span style="color: white">Service Request</span>
+                        </a>
+                    </li>
+                    <li class="btn-success p-1 border" >
+                        <a class="  "
+                           href="{{route('today_service_list')}}">
+                            <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                            <span class=" " style="color: white">Today"s Service</span>
+                        </a>
+                    </li>
+                    <li class="btn-success p-1 border" >
+                        <a class="  "
+                           href="{{route('employee_calender')}}">
+                            <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                            <span style="color: white">Calender</span>
+                        </a>
+                    </li>
+                    <li class="btn-success p-1 border" >
+                        <a class=" "
+                           href="{{route('employee_bill_total')}}">
+                            <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                            <span style="color: white">My Bill</span>
+                        </a>
+                    </li>
+                </ul>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid page-body-wrapper">
+        <br>
+        <br>
         <nav class="sidebar sidebar-offcanvas dynamic-active-class-disabled" id="sidebar">
             <ul class="nav">
-                <li class="nav-item nav-category">Main Features</li>
+                <li class="nav-item nav-category mt-4 pt-4">Main Features</li>
 
 
                 <li class="nav-item active">
@@ -176,14 +223,25 @@
                 </li>
             </ul>
         </nav>
-        <div class="main-panel p-4">
+        <div class="main-panel p-4 mt-4">
             @yield('content')
             {{ $slot ?? '' }}
         </div>
     </div>
 
 </div>
+<script>
+    function mobile() {
+        var x = document.getElementById('navbar_mobile');
+        if (x.style.display === 'none') {
+            x.style.display = 'block';
+        } else {
+            x.style.display = 'none';
+        }
 
+        jQuery('html,body').animate({scrollTop:0},2000);
+    }
+</script>
 
 
 
@@ -236,6 +294,10 @@
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 </script>
 <script src="https://cdn.jsdelivr.net/npm/html-duration-picker/dist/html-duration-picker.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/rowreorder/1.2.7/js/dataTables.rowReorder.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+
 
 @livewireScripts
 
