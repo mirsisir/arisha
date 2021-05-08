@@ -122,7 +122,7 @@
         <br>
         <table class="m-3">
             <tr>
-                <td>Arisha Service</td>
+                <td>Arisha Service DE</td>
             </tr>
             <tr>
                 <td>Pastor-Niemöller-Platz 2, 13156 Berlin.</td>
@@ -148,12 +148,14 @@
         <br>
         <br>
 
-        <div class="m-3">
-            <small class=" text-justify">Der Rechnungssteller ist Kleinunternehmer im Sinne des §19 UStG und weist daher
-                keine Umsatzsteuer aus. Vielen Dank für Ihr Vertrauen! Hiermit berechnen wir Ihnen im Namen und für
-                Rechnung des Reinigungsunternehmers folgende Leistungen:</small>
+        @if($role !=="admin" )
+            <div class="m-3">
+                <small class=" text-justify">Der Rechnungssteller ist Kleinunternehmer im Sinne des §19 UStG und
+                    weist daher keine Umsatzsteuer aus. Vielen Dank für Ihr Vertrauen! Hiermit berechnen wir Ihnen
+                    im Namen und für Rechnung des Reinigungsunternehmers folgende Leistungen:</small>
 
-        </div>
+            </div>
+        @endif
 
     </div>
 </div>

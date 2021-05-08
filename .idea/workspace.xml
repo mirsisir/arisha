@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f07d837-d124-472e-ae1d-79432793df38" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/voucher/service_done_voucher.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/voucher/service_done_voucher.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="6f07d837-d124-472e-ae1d-79432793df38" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -420,7 +418,7 @@
       <workItem from="1620283899272" duration="10906000" />
       <workItem from="1620320758075" duration="5102000" />
       <workItem from="1620333842877" duration="138000" />
-      <workItem from="1620493793022" duration="5096000" />
+      <workItem from="1620493793022" duration="5392000" />
     </task>
     <servers />
   </component>
