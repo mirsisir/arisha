@@ -201,7 +201,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Kinetix/Italy_inventory" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -418,7 +418,7 @@
       <workItem from="1620283899272" duration="10906000" />
       <workItem from="1620320758075" duration="5102000" />
       <workItem from="1620333842877" duration="138000" />
-      <workItem from="1620493793022" duration="5392000" />
+      <workItem from="1620493793022" duration="5661000" />
     </task>
     <servers />
   </component>
