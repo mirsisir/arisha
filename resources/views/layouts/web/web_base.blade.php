@@ -556,7 +556,7 @@
                     $('#from').text(origin);
                     $('#to').text(destination);
                     Livewire.emit('distanceCalculated', distance_in_kilo.toFixed(2));
-                    Livewire.emit('from', 22);
+                    // Livewire.emit('from', 22);
 
 
                 }

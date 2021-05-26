@@ -38,25 +38,7 @@
                             <td>{{$service_request->customer->phone}}</td>
                         </tr>
 
-                        @if($service_request->categorie=="Transport")
-                            <tr>
-                                <td>PickOff Address</td>
-                            </tr>
 
-                            <tr class="table-warning">
-                                <td>Customer Address</td>
-                                <td>
-                                    {{$service_request->pickoff->house_number}}
-                                    {{$service_request->pickoff->street}}<br>
-                                    {{$service_request->pickoff->city}}
-                                    {{$service_request->pickoff->post_code}}
-                                </td>
-                            </tr>
-                            <tr class="table-warning">
-                                <td>Notes</td>
-                                <td>{{$service_request->pickoff->notes}}</td>
-                            </tr>
-                        @endif
                         @if($service_request->categorie=="Transport")
                             <tr>
                                 <td>PickUp Address</td>
@@ -75,6 +57,26 @@
                                 <td>{{$service_request->notes}}</td>
                             </tr>
                         @else
+
+                            @if($service_request->categorie=="Transport")
+                                <tr>
+                                    <td>PickOff Address</td>
+                                </tr>
+
+                                <tr class="table-warning">
+                                    <td>Customer Address</td>
+                                    <td>
+                                        {{$service_request->pickoff->house_number}}
+                                        {{$service_request->pickoff->street}}<br>
+                                        {{$service_request->pickoff->city}}
+                                        {{$service_request->pickoff->post_code}}
+                                    </td>
+                                </tr>
+                                <tr class="table-warning">
+                                    <td>Notes</td>
+                                    <td>{{$service_request->pickoff->notes}}</td>
+                                </tr>
+                            @endif
                             <tr class="table-warning">
                                 <td>Customer Address</td>
                                 <td>

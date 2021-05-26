@@ -101,7 +101,7 @@
                 </tr>
                 <tr>
                     <td class="bold">ID : </td>
-                    <td>{{$service_request->employee->nid}}</td>
+                    <td>{{$emp->nid ?? " "}}</td>
                 </tr>
 
             </table>

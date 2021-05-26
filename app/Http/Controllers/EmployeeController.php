@@ -215,15 +215,16 @@ class EmployeeController extends Controller
         $service_request = ServiceRequest::find($id);
 //        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ServiceRequest($data,$this->customer));
 
-//        $service_request->paid = 1;
+        $service_request->paid = 1;
         $service_request->save();
-//        PayslipJob::dispatch($service_request)
-//            ->delay(now()->addSecond(2));
+
+        $user = User::find(4);
+        $emp = Employee::find($user->employee_id);
 
 
         $pdf = PDF::loadView('mail.payslip', $data = [
             'service_request' => $service_request,
-
+            'emp' => $emp,
         ]);
 
         $data["email"] = $service_request->employee->email;

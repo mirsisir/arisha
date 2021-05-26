@@ -23,6 +23,11 @@ class ServiceRequest extends Model
         return $this->belongsTo(user::class,'employes_id','id' );
     }
 
+    public function emp()
+    {
+        return $this->belongsTo(Employee::class,'id','employes_id' );
+    }
+
     public function pickoff()
     {
         return $this->belongsTo( PickoffAddress::class,'pickoff_addresses_id','id');

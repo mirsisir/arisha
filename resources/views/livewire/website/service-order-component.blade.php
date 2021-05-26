@@ -301,8 +301,8 @@
                                     <div class="row">
                                         <div class="col-lg-4 col-sm-12">
                                             <label for="">{{__('Straße *')}} to</label>
-                                            <input type="text" autocomplete="off"
-                                                   class="form-control  @error('receiver_street') is-invalid @enderror "
+                                            <input type="text" autocomplete="off" name="to_places"
+                                                   class="form-control @error('receiver_street') is-invalid @enderror "
                                                    id="to_places"
                                                    wire:model.defer="receiver_street">
                                             @error('receiver_street') <span
