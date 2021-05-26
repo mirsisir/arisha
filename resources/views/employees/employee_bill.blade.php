@@ -5,7 +5,9 @@
          $duration = ($time[0]*60) + ($time[1])
     @endphp
 
-    @php($settings = \App\Models\GeneralSettings::take(1)->first())
+ @php
+     $settings = \App\Models\GeneralSettings::take(-1)->first()
+ @endphp
     <div class="card border mt-3 p-5" id="printSection">
         <div class="text-center">
             <img

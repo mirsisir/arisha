@@ -44,7 +44,7 @@
                 </tr>
 
                 <tr>
-                    <td>{{auth()->user()->employees->nid ?? " "}}</td>
+                    <td>Ust.ID: {{auth()->user()->employees->nid ?? " DE322171732"}}</td>
                 </tr>
 
 

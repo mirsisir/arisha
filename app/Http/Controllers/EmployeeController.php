@@ -53,9 +53,18 @@ class EmployeeController extends Controller
             'phone' => $employee->mobile,
             'employee_id' => $employee->id,
             'email' => $employee->email,
+
+            'house_number' => $employee->address,
+            'street' => $employee->street,
+            'city' => $employee->city,
+            'post_code' => $employee->post_code,
+
+
             'password' => Hash::make($password),
             'role' => "employee",
         ]);
+
+
         if(!empty($employee->service)){
 
             foreach ($employee->service as $servoce){
