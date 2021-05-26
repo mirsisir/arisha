@@ -209,6 +209,8 @@ class EmployeeController extends Controller
 
     public function employee_bill($id){
 
+        $settings = \App\Models\GeneralSettings::take(-1)->first();
+
         $service_request = ServiceRequest::find($id);
 //        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ServiceRequest($data,$this->customer));
 
@@ -236,7 +238,7 @@ class EmployeeController extends Controller
         });
 
 
-        return view('employees.employee_bill',compact('service_request'));
+        return view('employees.employee_bill',compact('service_request','settings'));
     }
 
 
