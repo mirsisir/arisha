@@ -41,7 +41,7 @@
 
 <div class="card border mt-3 p-5" id="printSection" style="text-align: center;">
     <div class="text-center">
-            <img src="http://arisha-service.de/storage/images/Dq5tzGXlg6eT5WRRKR3S1Ckg8LpknFanmwcKHxZ6.jpeg" style="height: 110px" alt="">
+            <img src="http://arisha-service.de/storage/images/9I83VI8nm6Szs3ZR7PIaZhdfLt4gRyppEDURviHU.png" style="height: 110px" alt="">
 
                           <h1>{{$settings->name ?? "N/A"}}</h1>
         <p> <i class="mdi mdi-cellphone-iphone"> </i> {{$settings->phone ?? "N/A"}}<br>
@@ -72,8 +72,14 @@
                     <td>{{$service_request->customer->email ?? ""}}</td>
                 </tr>
                 <tr>
-                    <td>{{$employee_info->nid ?? ""}}</td>
-
+                    <td class="">
+                        {{auth()->user()->street}} {{auth()->user()->house_number}}<br>
+                        {{auth()->user()->post_code}} {{auth()->user()->city}}</td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{$employee_info->nid ?? "DE322171732"}}</td>
                 </tr>
             </table>
         </div>

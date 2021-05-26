@@ -5,7 +5,7 @@
          $duration = ($time[0]*60) + ($time[1])
     @endphp
 
-
+    @php($settings = \App\Models\GeneralSettings::take(1)->first())
     <div class="card border mt-3 p-5" id="printSection">
         <div class="text-center">
             <img
@@ -19,7 +19,7 @@
 
 
         </div>
-        <p class="bold">Rechnung-No : AS{{$service_request->id}}</p> <br>
+        <p class="bold">Rechnung-No :DE-AS{{$service_request->id}}</p> <br>
 
         <div class="row  p-3">
 

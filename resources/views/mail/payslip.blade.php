@@ -48,7 +48,7 @@
 <div class="card border mt-3 p-5" >
     <div class="text-center" style="text-align: center;">
         <img
-            src="https://arisha-service.de/storage/images/lAhoSAyQSmIf1oR9YBLPFT3omvbQtSNjA5ZC9yIC.png"
+            src="http://arisha-service.de/storage/images/9I83VI8nm6Szs3ZR7PIaZhdfLt4gRyppEDURviHU.png"
             alt="" style="width: 150px">
         <h3>{{$settings->name}}</h3>
         <p><i class="mdi mdi-cellphone-iphone"> </i> {{$settings->phone}}<br> <i
@@ -58,7 +58,7 @@
 
 
     </div>
-    <p class="bold">Rechnung-No : AS-DE{{$service_request->id}}</p> <br>
+    <p class="bold">Rechnung-No : AS{{$service_request->id}}</p> <br>
 
     <div class="row  p-3">
 
@@ -78,6 +78,7 @@
                     <td class="bold">Email :</td>
                     <td>{{auth()->user()->email}}</td>
                 </tr>
+                <tr><td>Ust.ID: DE322171732</td></tr>
 
 
             </table>
@@ -96,7 +97,11 @@
                 </tr>
                 <tr>
                     <td class="bold">Email</td>
-                    <td>{{$service_request->customer->email}}</td>
+                    <td>{{$service_request->employee->email}}</td>
+                </tr>
+                <tr>
+                    <td class="bold">ID : </td>
+                    <td>{{$service_request->employee->nid}}</td>
                 </tr>
 
             </table>
@@ -107,15 +112,15 @@
     <div class="border mt-3">
         <table class="table">
             <tr>
-                <td>Beschreibung</td>
+                <td>Service Name</td>
                 <td>{{$service_request->service->name}}</td>
             </tr>
             <tr>
-                <td>Datum</td>
+                <td>Date</td>
                 <td>{{$service_request->date}}</td>
             </tr>
             <tr>
-                <td>Startzeit</td>
+                <td>Start time</td>
                 <td>{{$service_request->start_time}}</td>
             </tr>
             @if ($service_request->categorie=='Transport')
@@ -123,13 +128,13 @@
 
             @else
                 <tr>
-                    <td>Öffnungszeiten</td>
+                    <td>Service Hours</td>
                     <td>{{$service_request->duration}}</td>
                 </tr>
             @endif
 
             <tr>
-                <td>Servicegebühr</td>
+                <td>Service Charge</td>
                 <td>{{$service_request->net_charge}}</td>
             </tr>
             <tr>
@@ -139,15 +144,15 @@
                     <td>{{$service_request->SPM}} Sq m</td>
                 @elseif($service_request->categorie=='Transport')
                     @if($service_request->hourly=='1')
-                        <td>Stunden</td>
+                        <td>Duration</td>
 
                         <td>{{$service_request->duration}}-H</td>
                     @else
-                        <td>Entfernung</td>
+                        <td>Distance</td>
                         <td>{{$service_request->distance}} KM</td>
                     @endif
                 @else
-                    <td>Stunden</td>
+                    <td>Duration</td>
                     <td>{{$service_request->duration}}-H</td>
                 @endif
             </tr>
@@ -156,64 +161,28 @@
 
 
                 @if($service_request->categorie=='Construction')
-
-                    <td>Gesamt</td>
-                    @php
-                        $partner_charge = $service_request->service->employee_charge*$service_request->SPM;
-                    @endphp
-                    <td>{{$partner_charge}}<i class="mdi mdi-currency-eur"></i></td>
-
+                    <td>Partner Charge</td>
+                    <td>{{$service_request->service->employee_charge*$service_request->SPM}}<i
+                            class="mdi mdi-currency-eur"></i></td>
 
                 @elseif($service_request->categorie=='Transport')
                     @if($service_request->hourly=='1')
-                        <td>Gesamt</td>
-                        @php
-                        $partner_charge = $service_request->service->employee_charge*$duration;
-                        @endphp
-                        <td>{{$partner_charge}}<i class="mdi mdi-currency-eur"></i></td>
+                        <td>Partner Charge</td>
+                        <td>{{$service_request->service->employee_charge*$duration}}<i
+                                class="mdi mdi-currency-eur"></i></td>
                     @else
-                        @php
-                            $partner_charge = round(($service_request->net_charge*$service_request->service->employee_charge)/100,2);
-                        @endphp
-                        <td>Gesamt</td>
-                        <td>{{$partner_charge}} <i class="mdi mdi-currency-eur"></i></td>
+                        <td>Partner Charge</td>
+                        <td>{{round(($service_request->net_charge*$service_request->service->employee_charge)/100,2)}} <i class="mdi mdi-currency-eur"></i></td>
 
 
                     @endif
                 @else
-                    @php
-                        $partner_charge = ($service_request->service->employee_charge/60)*$duration;
-                    @endphp
-                    <td>Gesamt</td>
-                    <td>{{$partner_charge}}<i
+                    <td>Partner Charge</td>
+                    <td>{{($service_request->service->employee_charge/60)*$duration}}<i
                             class="mdi mdi-currency-eur"></i>
                     </td>
-
                 @endif
 
-            </tr>
-            <tr>
-                <td>MwSt 19%</td>
-                @php
-                    $vat =get_percentage($partner_charge,19);
-                @endphp
-                <td>{{$vat}}<i
-                        class="mdi mdi-currency-eur"></i>
-                </td>
-            </tr>
-            <tr>
-                <td>Netto</td>
-                @php
-                    $Netto = $partner_charge -$vat;
-                @endphp
-                <td>{{$Netto}}<i
-                        class="mdi mdi-currency-eur"></i>
-                </td>
-            </tr>
-
-            <tr>
-                <td>Rechnungsbetrag</td>
-                <td>{{$partner_charge}}</td>
             </tr>
 
 

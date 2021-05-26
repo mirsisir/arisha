@@ -43,7 +43,8 @@ class EmployeeController extends Controller
 
     public function partner_request_accept($id){
             $employee = Employee::find($id);
-            $employee->active_employee = 1;
+
+//        $employee->active_employee = 1;
             $employee->save();
 
         $password = Str::random(10);
@@ -214,7 +215,7 @@ class EmployeeController extends Controller
         $service_request = ServiceRequest::find($id);
 //        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ServiceRequest($data,$this->customer));
 
-        $service_request->paid = 1;
+//        $service_request->paid = 1;
         $service_request->save();
 //        PayslipJob::dispatch($service_request)
 //            ->delay(now()->addSecond(2));
